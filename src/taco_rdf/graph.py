@@ -30,6 +30,8 @@ from .namespaces import (
     QUDT,
     RDF,
     RDFS,
+    REVIEW_DIR,
+    ROOT,
     SKOS,
     TACO,
     UNIT,
@@ -76,6 +78,77 @@ class Alignment:
 def load_alignments(path: Path = ALIGNMENTS_CSV) -> list[Alignment]:
     with open(path, newline="", encoding="utf-8") as fh:
         return [Alignment(**row) for row in csv.DictReader(fh)]
+
+
+@dataclass(frozen=True)
+class ReviewRound:
+    """A scored round of alignment review: its SSSOM export and the manifest it was prepared under."""
+
+    name: str
+    sssom: Path
+    protocol_sha256: str
+    foodon_release: str
+
+
+@dataclass(frozen=True)
+class ReviewedMapping:
+    """A food's mapping as a review round left it; an empty target means no FoodOn class fits."""
+
+    food: int
+    predicate: str
+    target_iri: str
+    reviewers: tuple[str, ...]
+    reviewed_on: str
+    round: ReviewRound
+
+
+_SSSOM_PREDICATE = {"rdf:type": "type", "skos:closeMatch": "closeMatch", "skos:exactMatch": "exactMatch",
+                    "skos:narrowMatch": "narrowMatch", "skos:broadMatch": "broadMatch",
+                    "skos:relatedMatch": "relatedMatch"}
+
+
+def read_review_round(folder: Path) -> list[ReviewedMapping]:
+    """The mappings of one scored round, from its reviewed.sssom.tsv."""
+    folder = Path(folder)
+    manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
+    review = ReviewRound(folder.name, folder / "reviewed.sssom.tsv", manifest["protocol_sha256"],
+                         manifest["foodon_release"])
+    with open(review.sssom, newline="", encoding="utf-8") as fh:
+        rows = list(csv.DictReader((line for line in fh if not line.startswith("#")), delimiter="\t"))
+    mappings = []
+    for row in rows:
+        subject, target = row["subject_id"], row["object_id"]
+        if not subject.startswith("tacoid:food/"):
+            raise ValueError(f"{review.sssom}: not a TACO food: {subject}")
+        if target != "sssom:NoTermFound" and not target.startswith("FOODON:"):
+            raise ValueError(f"{review.sssom}: {subject} is mapped outside FoodOn: {target}")
+        if row["object_source_version"] != review.foodon_release:
+            raise ValueError(f"{review.sssom}: {subject} was reviewed against another FoodOn release")
+        unmapped = target == "sssom:NoTermFound"
+        mappings.append(ReviewedMapping(
+            food=int(subject.removeprefix("tacoid:food/")),
+            predicate="" if unmapped else _SSSOM_PREDICATE[row["predicate_id"]],
+            target_iri="" if unmapped else _FOODON + target.removeprefix("FOODON:"),
+            reviewers=tuple(r.strip() for r in row["author_label"].split(";") if r.strip()),
+            reviewed_on=row["mapping_date"], round=review))
+    return mappings
+
+
+def _round_number(folder: Path) -> int:
+    number = folder.name.removeprefix("round-")
+    if not number.isdigit():
+        raise ValueError(f"a scored review round must be named round-<number>: {folder}")
+    return int(number)
+
+
+def load_reviewed_mappings(review_dir: Path = REVIEW_DIR) -> dict[int, ReviewedMapping]:
+    """The latest reviewed mapping of each food, over every scored round; later rounds supersede earlier ones."""
+    reviewed: dict[int, ReviewedMapping] = {}
+    folders = [f for f in Path(review_dir).glob("round-*") if (f / "reviewed.sssom.tsv").is_file()]
+    for folder in sorted(folders, key=_round_number):
+        for mapping in read_review_round(folder):
+            reviewed[mapping.food] = mapping
+    return reviewed
 
 
 @dataclass(frozen=True)
@@ -131,6 +204,7 @@ def build_graph(
     *,
     source_file: Path,
     food_names_en: dict[int, FoodName] | None = None,
+    reviewed: dict[int, ReviewedMapping] | None = None,
     include_ontology: bool = True,
     include_policy: bool = True,
 ) -> Graph:
@@ -154,7 +228,7 @@ def build_graph(
     _add_groups(g, table)
     _add_foods(g, table, food_names_en or {})
     _add_measurements(g, table)
-    _add_alignments(g, alignments, table)
+    _add_alignments(g, alignments, table, reviewed or {})
     return g
 
 
@@ -321,8 +395,46 @@ def _add_measurements(g: Graph, table: Table) -> None:
             g.add((m, SKOS.editorialNote, Literal(obs.note, lang="en")))
 
 
-def _add_alignments(g: Graph, alignments: list[Alignment], table: Table) -> None:
+def _check_reviews(alignments: list[Alignment], reviewed: dict[int, ReviewedMapping], table: Table) -> None:
+    """Refuse to build while a food's mapping differs from the one its latest review arrived at."""
+    current = {int(a.source_key): (a.predicate, a.target_iri) for a in alignments if a.source_type == "food"}
+    stale = []
+    for food, review in sorted(reviewed.items()):
+        if food not in table.foods:
+            raise ValueError(f"{review.round.name} reviewed unknown food {food}")
+        expected = (review.predicate, review.target_iri) if review.target_iri else None
+        if current.get(food) != expected:
+            stale.append(f"{food} ({review.round.name})")
+    if stale:
+        raise ValueError("alignments.csv differs from the reviewed mapping of foods " + ", ".join(stale)
+                         + "; apply the round with scripts/apply_alignment_review.py")
+
+
+def _add_review_rounds(g: Graph, reviewed: dict[int, ReviewedMapping]) -> dict[str, URIRef]:
+    rounds = {}
+    for review in sorted({r.round for r in reviewed.values()}, key=lambda r: r.name):
+        node = ID["review/" + review.name]
+        g.add((node, RDF.type, TACO.ReviewRound))
+        g.add((node, RDF.type, PROV.Entity))
+        g.add((node, DCTERMS.title, Literal(f"TACO alignment review, {review.name}", lang="en")))
+        path = review.sssom.resolve()
+        g.add((node, TACO.sourceFile, Literal(
+            path.relative_to(ROOT).as_posix() if path.is_relative_to(ROOT) else path.name)))
+        g.add((node, TACO.sha256, Literal(sha256_of(review.sssom))))
+        g.add((node, TACO.ontologyVersion, URIRef(review.foodon_release)))
+        g.add((node, SKOS.editorialNote, Literal(
+            "Dual independent review with adjudication of disagreements, under docs/alignment-review.md "
+            f"(SHA-256 {review.protocol_sha256} of the protocol as the round was prepared).", lang="en")))
+        rounds[review.name] = node
+    return rounds
+
+
+def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
+                    reviewed: dict[int, ReviewedMapping]) -> None:
+    _check_reviews(alignments, reviewed, table)
+    rounds = _add_review_rounds(g, reviewed)
     rows = sorted(json.dumps(asdict(a), sort_keys=True, ensure_ascii=False) for a in alignments)
+    confirmed = sum(1 for a in alignments if a.source_type == "food" and int(a.source_key) in reviewed)
     source = ID["alignment-set"]
     g.add((source, RDF.type, PROV.Entity))
     g.add((source, DCTERMS.title, Literal("TACO alignment assertions supplied to this build", lang="en")))
@@ -330,7 +442,8 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table) -> None
     g.add((source, SKOS.editorialNote, Literal(
         "Checksum of sorted, newline-joined JSON rows (UTF-8, sorted keys, ensure_ascii=False). "
         "Original annotation dates, individual annotator identities and target ontology releases "
-        "were not recorded. Independent semantic review is pending.", lang="en")))
+        f"were not recorded. {confirmed} of the {len(alignments)} assertions have since been independently "
+        "reviewed (taco:Reviewed); independent semantic review of the others is pending.", lang="en")))
     g.add((source, DCTERMS.publisher, ID["agent/vitoria-maia"]))
     g.add((ID["conversion"], PROV.used, source))
     foodon = None
@@ -365,9 +478,19 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table) -> None
         g.add((record, RDF.predicate, _MATCH[a.predicate]))
         g.add((record, RDF.object, target))
         g.add((record, PROV.wasDerivedFrom, source))
-        g.add((record, TACO.reviewStatus, TACO.Unreviewed))
         g.add((record, TACO.targetOntology, Literal(a.target_ontology)))
-        g.add((record, TACO.ontologyVersionStatus, TACO.NotRecorded))
+        review = reviewed.get(int(a.source_key)) if a.source_type == "food" else None
+        if review is None:
+            g.add((record, TACO.reviewStatus, TACO.Unreviewed))
+            g.add((record, TACO.ontologyVersionStatus, TACO.NotRecorded))
+        else:
+            g.add((record, TACO.reviewStatus, TACO.Reviewed))
+            g.add((record, TACO.ontologyVersionStatus, TACO.Recorded))
+            g.add((record, TACO.ontologyVersion, URIRef(review.round.foodon_release)))
+            g.add((record, PROV.wasDerivedFrom, rounds[review.round.name]))
+            g.add((record, DCTERMS.date, Literal(review.reviewed_on, datatype=XSD.date)))
+            for name in review.reviewers:
+                g.add((record, TACO.reviewer, Literal(name)))
         if a.note:
             g.add((record, SKOS.editorialNote, Literal(a.note, lang="en")))
 

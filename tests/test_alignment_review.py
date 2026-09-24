@@ -34,7 +34,7 @@ def test_the_round_has_the_sample_the_problem_cases_and_every_prepared_dish(tabl
     numbers = [i.food_number for i in items]
     assert len(numbers) == len(set(numbers))
     assert set(ev.load_problem_cases(PROBLEM_CASES)) <= set(numbers)
-    prepared = table.groups.index("ready foods") + 1
+    prepared = table.groups.index("Alimentos preparados") + 1
     assert {f.id for f in table.foods.values() if f.group_id == prepared} <= set(numbers)
     for item in items:
         if item.part == "sample":
@@ -173,10 +173,53 @@ def test_the_scripts_prepare_a_round_and_report_it(tmp_path):
     report = (folder / "results.md").read_text(encoding="utf-8")
     assert "kappa on the decision is not estimable" in report
     assert "100%" in report
-    assert "not an estimate of the precision" in report
+    assert "## Estimated precision" in report
+    assert "| all links |" in report
     assert "It says nothing about whether the links are right" in report
     assert (folder / "reviewed.sssom.tsv").read_text(encoding="utf-8").startswith("# curie_map:")
     assert "#   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#" in (
         folder / "reviewed.sssom.tsv").read_text(encoding="utf-8")
     with pytest.raises(subprocess.CalledProcessError):
         subprocess.run(run, check=True, capture_output=True, text=True)
+
+
+def judged(food, decision, mapped=True):
+    return ev.Answer(food, "FOODON_00004678" if mapped else "", "type" if mapped else "none", decision, "", "",
+                     "certain", "checked", "", "reviewer", DAY, "release", ())
+
+
+def test_precision_is_estimated_by_weighting_each_stratum_by_its_size():
+    items = [ev.Item(1, "sample", "1/type", 10, 2), ev.Item(2, "sample", "1/type", 10, 2),
+             ev.Item(3, "sample", "2/type", 30, 2), ev.Item(4, "sample", "2/type", 30, 2),
+             ev.Item(5, "sample", "3/none", 50, 1), ev.Item(6, "problem case")]
+    final = {1: judged(1, "accept"), 2: judged(2, "accept"), 3: judged(3, "accept"), 4: judged(4, "class"),
+             5: judged(5, "class", mapped=False), 6: judged(6, "none")}
+    estimate = ev.precision_estimate(items, final)
+    assert estimate.share == pytest.approx((10 * 1 + 30 * 0.5) / 40)
+    assert (estimate.links, estimate.covered, estimate.judged) == (40, 40, 4)
+    assert 0 < estimate.low < estimate.share < estimate.high < 1
+    assert ev.precision_estimate(items, final, relation="relatedMatch").text() == "not estimable"
+
+
+def test_right_class_counts_a_link_whose_relation_alone_was_wrong():
+    items = [ev.Item(1, "sample", "1/relatedMatch", 4, 2), ev.Item(2, "sample", "1/relatedMatch", 4, 2)]
+    final = {1: judged(1, "accept"), 2: judged(2, "relation")}
+    assert ev.precision_estimate(items, final).share == 0.5
+    assert ev.precision_estimate(items, final, right=("correct", "wrong relation")).share == 1.0
+
+
+def test_unsure_answers_leave_the_estimate_and_can_leave_a_stratum_uncovered():
+    items = [ev.Item(1, "sample", "1/type", 10, 2), ev.Item(2, "sample", "1/type", 10, 2),
+             ev.Item(3, "sample", "2/type", 30, 1)]
+    final = {1: judged(1, "accept"), 2: judged(2, "unsure"), 3: judged(3, "unsure")}
+    estimate = ev.precision_estimate(items, final)
+    assert (estimate.share, estimate.links, estimate.covered, estimate.judged) == (1.0, 40, 10, 1)
+    assert estimate.low < 1.0
+
+
+def test_a_fully_reviewed_stratum_adds_no_sampling_variance():
+    items = [ev.Item(1, "sample", "1/type", 2, 2), ev.Item(2, "sample", "1/type", 2, 2)]
+    final = {1: judged(1, "accept"), 2: judged(2, "class")}
+    estimate = ev.precision_estimate(items, final)
+    assert estimate.share == 0.5
+    assert estimate.low == pytest.approx(ev.wilson(0.5, 2)[0])

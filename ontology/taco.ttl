@@ -181,12 +181,34 @@ taco:targetOntology a owl:DatatypeProperty ;
 taco:ontologyVersionStatus a owl:ObjectProperty ;
     rdfs:domain taco:AlignmentAssertion ; rdfs:label "ontology version recording status"@en .
 
+taco:ontologyVersion a owl:ObjectProperty ;
+    rdfs:label "target ontology version"@en ;
+    rdfs:comment "The versionIRI of the target ontology release against which a mapping was reviewed."@en .
+
+taco:reviewer a owl:DatatypeProperty ;
+    rdfs:domain taco:AlignmentAssertion ; rdfs:range xsd:string ; rdfs:label "reviewer"@en ;
+    rdfs:comment "A person who reviewed the mapping, or who adjudicated a disagreement about it."@en .
+
+taco:ReviewRound a owl:Class ;
+    rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ; rdfs:label "Alignment review round"@en ;
+    rdfs:comment "The mappings one round of dual, independent review arrived at, as exported to SSSOM."@en .
+
 taco:Unreviewed a skos:Concept ;
     skos:prefLabel "Independent review pending"@en ;
     skos:definition "No independent semantic review is recorded; existence checks do not change this status."@en .
 
+taco:Reviewed a skos:Concept ;
+    skos:prefLabel "Independently reviewed"@en ;
+    skos:definition """Two reviewers judged the mapping independently, under the protocol of the review round the
+assertion derives from, and any disagreement between them was adjudicated. The mapping stated is the one the
+review arrived at. Review makes a mapping accountable, not infallible."""@en .
+
 taco:NotRecorded a skos:Concept ;
     skos:prefLabel "Not recorded"@en .
+
+taco:Recorded a skos:Concept ;
+    skos:prefLabel "Recorded"@en ;
+    skos:definition "The target ontology release against which the mapping was judged is given by taco:ontologyVersion."@en .
 
 fio:FoodItem a owl:Class ;
     rdfs:label "Food item"@en ;

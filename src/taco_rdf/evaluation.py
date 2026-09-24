@@ -11,10 +11,18 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 
 from rdflib import Graph, URIRef
-from rdflib.namespace import OWL, PROV, RDF, RDFS
+from rdflib.namespace import OWL, PROV, RDF
 
 from .graph import Alignment, FoodName
-from .namespaces import ALIGNMENTS_CSV, CORRECTIONS_DIR, FOOD_NAMES_EN, FOODON_MODULE_TTL, RAW_XLS, ROOT
+from .namespaces import (
+    ALIGNMENTS_CSV,
+    CORRECTIONS_DIR,
+    FOOD_NAMES_EN,
+    FOODON_CLASSES,
+    FOODON_MODULE_TTL,
+    RAW_XLS,
+    ROOT,
+)
 from .parse import Table
 
 DECISIONS = ("accept", "relation", "class", "none", "unsure")
@@ -36,6 +44,8 @@ MODULE_IRI = URIRef("https://w3id.org/taco-rdf/imports/foodon-module")
 
 @dataclass(frozen=True)
 class FoodOnIndex:
+    """Every class of the pinned FoodOn release that is not deprecated, by identifier."""
+
     release: str
     labels: dict[str, str]
 
@@ -43,8 +53,22 @@ class FoodOnIndex:
         if release != self.release:
             raise ValueError(f"foodon_release differs from the pinned module: {release}")
         if target and target not in self.labels:
-            raise ValueError(f"class {target} is absent from the pinned FoodOn module; "
-                             "extend the module from the same release and prepare a new round")
+            raise ValueError(f"class {target} is absent from the pinned FoodOn release, or deprecated in it; "
+                             f"see {FOODON_CLASSES.name}")
+
+
+def read_class_index(path: Path = FOODON_CLASSES) -> tuple[dict[str, str], dict[str, str]]:
+    """The header (release, source, sha256) and the labels of the class index written with the module."""
+    header, lines = {}, []
+    with open(path, newline="", encoding="utf-8") as fh:
+        for line in fh:
+            if line.startswith("# "):
+                key, _, value = line[2:].partition(":")
+                header[key.strip()] = value.strip()
+            else:
+                lines.append(line)
+    labels = {r["class"]: r["label"] for r in csv.DictReader(lines, delimiter="\t")}
+    return header, labels
 
 
 def foodon_index() -> FoodOnIndex:
@@ -52,13 +76,13 @@ def foodon_index() -> FoodOnIndex:
     releases = list(graph.objects(MODULE_IRI, PROV.wasDerivedFrom))
     if len(releases) != 1 or not isinstance(releases[0], URIRef):
         raise ValueError("the FoodOn module must identify exactly one source release")
-    labels = {}
-    for cls in graph.subjects(RDF.type, OWL.Class):
-        target = str(cls).removeprefix("http://purl.obolibrary.org/obo/")
-        if FOODON_CURIE.fullmatch(target):
-            values = list(graph.objects(cls, RDFS.label))
-            english = [str(v) for v in values if getattr(v, "language", None) == "en"]
-            labels[target] = min(english or [str(v) for v in values], default="")
+    header, labels = read_class_index()
+    if header.get("release") != str(releases[0]):
+        raise ValueError(f"{FOODON_CLASSES.name} and {FOODON_MODULE_TTL.name} name different FoodOn releases")
+    module = {str(c).removeprefix("http://purl.obolibrary.org/obo/") for c in graph.subjects(RDF.type, OWL.Class)}
+    missing = sorted(c for c in module if FOODON_CURIE.fullmatch(c) and c not in labels)
+    if missing:
+        raise ValueError(f"module classes absent from {FOODON_CLASSES.name}: {missing[:10]}")
     return FoodOnIndex(str(releases[0]), labels)
 
 
@@ -216,7 +240,7 @@ def input_hashes() -> dict[str, str]:
     paths = {
         "alignments": ALIGNMENTS_CSV, "workbook": RAW_XLS, "names": FOOD_NAMES_EN,
         "problem_cases": ROOT / "data/alignment/review/problem_cases.csv",
-        "foodon_module": FOODON_MODULE_TTL,
+        "foodon_module": FOODON_MODULE_TTL, "foodon_classes": FOODON_CLASSES,
         "correction_cells": CORRECTIONS_DIR / "cells.csv", "correction_ids": CORRECTIONS_DIR / "ids.csv",
         "protocol": ROOT / "docs/alignment-review.md",
     }
@@ -450,6 +474,64 @@ def summarise(items: list[Item], final: dict[int, Answer]) -> dict:
               if outcome(final[i.food_number]) in ("wrong relation", "wrong class", "should not be mapped",
                                                    "class missed")]
     return {"parts": dict(parts), "strata": dict(strata), "errors": errors}
+
+
+@dataclass(frozen=True)
+class Estimate:
+    """The share of links judged correct, estimated for all the links of the strata it covers."""
+
+    share: float | None
+    low: float | None
+    high: float | None
+    links: int
+    covered: int
+    judged: int
+
+    def text(self) -> str:
+        if self.share is None:
+            return "not estimable"
+        return f"{self.share:.0%} ({self.low:.0%} to {self.high:.0%})"
+
+
+def wilson(share: float, n: float, z: float = 1.96) -> tuple[float, float]:
+    centre = (share + z * z / (2 * n)) / (1 + z * z / n)
+    half = z * (share * (1 - share) / n + z * z / (4 * n * n)) ** 0.5 / (1 + z * z / n)
+    return max(0.0, centre - half), min(1.0, centre + half)
+
+
+def precision_estimate(items: list[Item], final: dict[int, Answer], *, right: tuple[str, ...] = ("correct",),
+                       relation: str = "") -> Estimate:
+    """Stratified estimate over the linked strata of the random sample, each weighted by its size.
+
+    Unsure answers are left out of their stratum; a stratum with no other answer is left out of the
+    estimate, which then covers fewer links than exist. The interval is Wilson's, on the effective sample
+    size of the stratified design (Korn and Graubard); a stratum judged on one food only is given the
+    largest variance a proportion can have.
+    """
+    size: dict[str, int] = {}
+    judged: dict[str, list[bool]] = defaultdict(list)
+    for item in items:
+        link = item.stratum.split("/")[-1]
+        if item.part != "sample" or link == "none" or (relation and link != relation):
+            continue
+        size[item.stratum] = item.stratum_size
+        result = outcome(final[item.food_number])
+        if result != "unsure":
+            judged[item.stratum].append(result in right)
+    links = sum(size.values())
+    covered = sum(size[s] for s in judged)
+    n = sum(len(v) for v in judged.values())
+    if not n:
+        return Estimate(None, None, None, links, 0, 0)
+    share = variance = 0.0
+    for stratum, answers in judged.items():
+        weight, k = size[stratum] / covered, len(answers)
+        p = sum(answers) / k
+        spread = p * (1 - p) * k / (k - 1) if k > 1 else 0.25
+        share += weight * p
+        variance += weight ** 2 * (1 - k / size[stratum]) * spread / k
+    effective = min(n, share * (1 - share) / variance) if variance and 0 < share < 1 else n
+    return Estimate(share, *wilson(share, effective), links, covered, n)
 
 
 SSSOM_FIELDS = ["subject_id", "subject_label", "predicate_id", "object_id", "object_label",

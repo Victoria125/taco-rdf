@@ -4,7 +4,14 @@ import pytest
 from rdflib import Graph
 
 from taco_rdf import graph as graphmod
-from taco_rdf.namespaces import ALIGNMENTS_CSV, CORRECTIONS_DIR, FOOD_NAMES_EN, RAW_XLS, SHAPES_DIR
+from taco_rdf.namespaces import (
+    ALIGNMENTS_CSV,
+    CORRECTIONS_DIR,
+    FOOD_NAMES_EN,
+    RAW_XLS,
+    REVIEW_DIR,
+    SHAPES_DIR,
+)
 from taco_rdf.parse import load_corrections, parse_workbook
 from taco_rdf.validate import validate
 
@@ -25,8 +32,14 @@ def food_names_en():
 
 
 @pytest.fixture(scope="session")
-def graph(table, alignments, food_names_en) -> Graph:
-    return graphmod.build_graph(table, alignments, source_file=RAW_XLS, food_names_en=food_names_en)
+def reviewed():
+    return graphmod.load_reviewed_mappings(REVIEW_DIR)
+
+
+@pytest.fixture(scope="session")
+def graph(table, alignments, food_names_en, reviewed) -> Graph:
+    return graphmod.build_graph(table, alignments, source_file=RAW_XLS, food_names_en=food_names_en,
+                                reviewed=reviewed)
 
 
 @pytest.fixture(scope="session")

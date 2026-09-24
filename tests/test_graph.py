@@ -169,15 +169,20 @@ def test_all_measurements_have_an_explicit_edible_portion_basis(graph):
         assert graph.value(basis, TACO.foodPortion) == TACO.EdiblePortion
 
 
-def test_alignment_rationales_are_exported_without_claiming_review(graph, alignments):
+def test_alignment_rationales_are_exported_without_claiming_review(graph, alignments, reviewed):
     records = list(graph.subjects(RDF.type, TACO.AlignmentAssertion))
-    assert len(records) == len(alignments) == 581
+    assert len(records) == len(alignments)
+    reviewed_foods = {ID[f"food/{food}"] for food in reviewed}
     for record in records:
         subject = graph.value(record, RDF.subject)
         predicate = graph.value(record, RDF.predicate)
         target = graph.value(record, RDF.object)
         assert (subject, predicate, target) in graph
         assert (subject, TACO.alignment, record) in graph
+        assert (record, PROV.wasDerivedFrom, ID["alignment-set"]) in graph
+        if subject in reviewed_foods:
+            assert graph.value(record, TACO.reviewStatus) == TACO.Reviewed
+            continue
         assert graph.value(record, TACO.reviewStatus) == TACO.Unreviewed
         assert graph.value(record, TACO.ontologyVersionStatus) == TACO.NotRecorded
         assert graph.value(record, PROV.wasDerivedFrom) == ID["alignment-set"]

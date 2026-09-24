@@ -14,23 +14,13 @@
   "workbook_sha256": "2a30f4dcada572ababbc1bbf024f47e6fd5207f0ff71f8351dbd0584116b681d",
   "names_sha256": "da4517e8d9be92a6ade4204e0f39689422b3dc55692f317b1a73f62c2fbe8df4",
   "problem_cases_sha256": "4afbf9ca32567a4c3efb54ef33643b3b25228f1c456418421d950dbf35a82317",
-  "protocol": "docs/alignment-review.md",
-  "foodon_module_sha256": "e920abd1a37fa64be602de6248ff3d5b02769c9850776a38de07d0107efb1af3",
+  "foodon_module_sha256": "6a828d13e32ed68c88a87fff71519bd5e7dff9798c68b6d0e26fac9d8f1e87ad",
+  "foodon_classes_sha256": "053907adb1af5b73497df9f3d5cd08a831dd32a1fa3e231e968943f954d4e64a",
   "correction_cells_sha256": "09a93409d62def827f1e29585821e9f22788b6baf4c36efd555d8ee961396bd9",
   "correction_ids_sha256": "3367c29908a5a319fd8887825fcdcf4ced2fd39ea76696fd2d3180b75733a80b",
-  "protocol_sha256": "0122a720545721810e04fa9c3a671f4c9da59772935322cde3e5ab63d8dba923",
-  "context_sha256": "98af85f40ffc21c70475ed12989e44983b0f9eb7692dd7ea25eebcc4f6f1bae9",
+  "protocol_sha256": "636e757bc82ed4128074505c399a970cb47eee2ab47769519fb8fe52b6bb06b5",
+  "hash_format": "sha256-lf-v1",
+  "context_sha256": "6e0dba4bf5fe1859c342fcdc13ab01b708f7f9c2794e87b8c287caaaa12aba10",
   "items_sha256": "a48d1090b3a5b73caf8d3483385b505842eae01d8836901079d682901386f132",
-  "context_updated": "2026-09-24",
-  "candidate_search_not_rerun": [
-    527,
-    533,
-    536,
-    539,
-    544,
-    554,
-    555
-  ],
-  "lookup_note": "Existing definitions and candidates were retained; candidate searches were not rerun for the updated English names listed in candidate_search_not_rerun.",
-  "hash_format": "sha256-lf-v1"
+  "protocol": "docs/alignment-review.md"
 }

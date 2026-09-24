@@ -15,9 +15,35 @@ shp:AlignmentAssertionShape a sh:NodeShape ;
     sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class prov:Entity ] ;
     sh:property [ sh:path taco:targetOntology ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
     sh:property [ sh:path taco:ontologyVersionStatus ; sh:minCount 1 ; sh:maxCount 1 ;
-        sh:hasValue taco:NotRecorded ] ;
+        sh:in ( taco:NotRecorded taco:Recorded ) ] ;
     sh:property [ sh:path taco:reviewStatus ; sh:minCount 1 ; sh:maxCount 1 ;
-        sh:hasValue taco:Unreviewed ] ;
+        sh:in ( taco:Unreviewed taco:Reviewed ) ] ;
+    sh:property [ sh:path taco:ontologyVersion ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:sparql [
+        sh:message "The ontology version is given exactly when its status says it is recorded." ;
+        sh:select """
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            SELECT $this WHERE {
+                { $this taco:ontologyVersionStatus taco:Recorded .
+                  FILTER NOT EXISTS { $this taco:ontologyVersion ?version } }
+                UNION
+                { $this taco:ontologyVersionStatus taco:NotRecorded ; taco:ontologyVersion ?version }
+            }"""
+    ] ;
+    sh:sparql [
+        sh:message "A reviewed assertion must name its reviewers, review date, review round and ontology release." ;
+        sh:select """
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            PREFIX prov: <http://www.w3.org/ns/prov#>
+            PREFIX dcterms: <http://purl.org/dc/terms/>
+            SELECT $this WHERE {
+                $this taco:reviewStatus taco:Reviewed .
+                FILTER (NOT EXISTS { $this taco:reviewer ?reviewer }
+                        || NOT EXISTS { $this dcterms:date ?date }
+                        || NOT EXISTS { $this prov:wasDerivedFrom ?round . ?round a taco:ReviewRound }
+                        || NOT EXISTS { $this taco:ontologyVersionStatus taco:Recorded })
+            }"""
+    ] ;
     sh:sparql [
         sh:message "Alignment assertion does not match an asserted mapping and its source backlink." ;
         sh:select """
@@ -42,3 +68,9 @@ shp:TypeAssertionShape a sh:NodeShape ;
                         || !STRSTARTS(STR(?o), "http://purl.obolibrary.org/obo/FOODON_"))
             }"""
     ] .
+
+shp:ReviewRoundShape a sh:NodeShape ;
+    sh:targetClass taco:ReviewRound ;
+    sh:property [ sh:path taco:sourceFile ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path taco:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[0-9a-f]{64}$" ] ;
+    sh:property [ sh:path taco:ontologyVersion ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .

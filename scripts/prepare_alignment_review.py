@@ -18,6 +18,8 @@ from rdflib.namespace import PROV
 from taco_rdf.evaluation import (
     ANSWER,
     CONTEXT,
+    FoodOnIndex,
+    foodon_index,
     form_rows,
     input_hashes,
     item_rows,
@@ -66,15 +68,16 @@ def search(query: str) -> list[tuple[str, str]]:
     return [(d.get("obo_id", "").replace(":", "_"), d.get("label", "")) for d in docs]
 
 
-def candidates(name_en: str, current: str, wanted: int = 5) -> str:
+def candidates(name_en: str, current: str, pinned: FoodOnIndex, wanted: int = 5) -> str:
+    """Classes OLS finds for the English name, kept only if the pinned release has them, with its labels."""
     glosses = re.findall(r"\(([^)]*)\)", name_en)
     parts = [p.strip() for p in re.sub(r"\([^)]*\)", "", name_en).split(",") if p.strip()]
     queries = [" ".join(parts), *[f"{parts[0]} {g}" for g in glosses], " ".join(parts[:2]), parts[0]]
     found: dict[str, str] = {}
     for query in dict.fromkeys(queries):
-        for curie, label in search(query):
-            if curie and curie != current:
-                found.setdefault(curie, label)
+        for curie, _ in search(query):
+            if curie and curie != current and curie in pinned.labels:
+                found.setdefault(curie, pinned.labels[curie])
         if len(found) >= wanted:
             break
     return "; ".join(f"{label} ({curie})" for curie, label in list(found.items())[:wanted])
@@ -99,11 +102,12 @@ def main() -> int:
     release = str(Graph().parse(FOODON_MODULE_TTL).value(MODULE_IRI, PROV.wasDerivedFrom))
     rows = form_rows(items, table, alignments, names_en, release)
     if not args.offline:
+        pinned = foodon_index()
         lookup = {}
         for row in rows:
             current = row["current_class"]
             lookup[row["food_number"]] = (definition(current) if current else "",
-                                          candidates(row["name_en"], current))
+                                          candidates(row["name_en"], current, pinned))
             print(f"{row['food_number']}: looked up", file=sys.stderr)
         rows = form_rows(items, table, alignments, names_en, release, lookup)
 

@@ -20,6 +20,7 @@ from .namespaces import (
     QUERIES_DIR,
     RAW_XLS,
     RDF,
+    REVIEW_DIR,
     ROOT,
     SHAPES_DIR,
     TACO,
@@ -31,10 +32,12 @@ _FORMATS = {"turtle": ".ttl", "nt": ".nt", "xml": ".rdf", "json-ld": ".jsonld"}
 
 def build_graph(xls: Path = RAW_XLS) -> Graph:
     table = parse_workbook(xls, load_corrections(CORRECTIONS_DIR))
+    reviewed = graphmod.load_reviewed_mappings(REVIEW_DIR)
     g = graphmod.build_graph(table, graphmod.load_alignments(ALIGNMENTS_CSV), source_file=xls,
-                             food_names_en=graphmod.load_food_names_en(FOOD_NAMES_EN))
+                             food_names_en=graphmod.load_food_names_en(FOOD_NAMES_EN), reviewed=reviewed)
     from rdflib import Literal
     paths = [ALIGNMENTS_CSV, FOOD_NAMES_EN, ONTOLOGY_TTL, POLICY_TTL,
+             *sorted({r.round.sssom for r in reviewed.values()}),
              *sorted(CORRECTIONS_DIR.glob("*.csv")), *sorted((ROOT / "src" / "taco_rdf").glob("*.py"))]
     for path in paths:
         relative = path.relative_to(ROOT).as_posix()

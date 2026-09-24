@@ -6,10 +6,10 @@ import sys
 from dataclasses import replace
 
 import pytest
-from rdflib import OWL, RDF, Graph
+from rdflib import OWL, RDF, RDFS, Graph
 
 from taco_rdf import evaluation as ev
-from taco_rdf.namespaces import FOODON_MODULE_TTL, ROOT
+from taco_rdf.namespaces import FOODON_MODULE_TTL, OBO, ROOT
 
 
 def completed(rows, reviewer):
@@ -37,14 +37,30 @@ def prepared_round(tmp_path):
     return folder
 
 
-def test_review_index_uses_class_declarations_from_the_pinned_module():
+def test_review_index_covers_the_whole_pinned_release_and_agrees_with_the_module():
     graph = Graph().parse(FOODON_MODULE_TTL, format="turtle")
-    declared = {str(term).rsplit("/", 1)[-1] for term in graph.subjects(RDF.type, OWL.Class)
+    declared = {str(term).rsplit("/", 1)[-1]: str(graph.value(term, RDFS.label))
+                for term in graph.subjects(RDF.type, OWL.Class)
                 if str(term).startswith("http://purl.obolibrary.org/obo/FOODON_")}
     index = ev.foodon_index()
-    assert set(index.labels) == declared
+    assert {c: index.labels[c] for c in declared} == declared
+    assert len(index.labels) > 10 * len(declared)
     assert index.release in {str(version) for version in graph.objects(None, OWL.versionIRI)}
+    header, _ = ev.read_class_index()
+    assert header["release"] == index.release
+    assert header["source"].endswith("/foodon.owl") and len(header["sha256"]) == 64
     assert "FOODON_99999999" not in index.labels
+
+
+def test_a_candidate_outside_the_module_can_be_proposed(tmp_path, context):
+    module = Graph().parse(FOODON_MODULE_TTL, format="turtle")
+    outside = next(c for c in sorted(ev.foodon_index().labels)
+                   if (OBO[c], RDF.type, OWL.Class) not in module)
+    path = tmp_path / "answers.csv"
+    rows = completed(context, "Reviewer")
+    rows[0].update({"decision": "class", "relation": "related", "class": outside})
+    ev.write_rows(path, rows, ev.CONTEXT + ev.ANSWER)
+    assert ev.read_answers(path)[1].target == outside
 
 
 @pytest.mark.parametrize("changes", [

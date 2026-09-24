@@ -71,7 +71,8 @@ def test_export_refuses_an_alignment_changed_after_review(tmp_path, context, tab
 
 @pytest.mark.parametrize("key", [
     "alignments_sha256", "workbook_sha256", "names_sha256", "problem_cases_sha256",
-    "foodon_module_sha256", "correction_cells_sha256", "correction_ids_sha256", "protocol_sha256",
+    "foodon_module_sha256", "foodon_classes_sha256", "correction_cells_sha256", "correction_ids_sha256",
+    "protocol_sha256",
     "context_sha256", "items_sha256",
 ])
 def test_manifest_rejects_changed_or_unrecorded_inputs(prepared_round, key):
@@ -153,8 +154,13 @@ def test_text_hashes_and_context_survive_checkout_line_endings(prepared_round):
     ev.check_context(ev.read_rows(prepared_round / "reviewer-a.csv"), baseline, "reviewer-a")
 
 
-def test_the_checked_in_round_uses_current_english_names():
-    folder = ROOT / "data/alignment/review/round-1"
+OPEN_ROUNDS = [f for f in sorted((ROOT / "data/alignment/review").glob("round-*"))
+               if not (f / "reviewed.sssom.tsv").exists()]
+
+
+@pytest.mark.parametrize("folder", OPEN_ROUNDS, ids=[f.name for f in OPEN_ROUNDS])
+def test_an_open_checked_in_round_matches_the_current_inputs(folder):
+    """A round still under review must validate; a scored round is closed, and applying it changes its inputs."""
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
     context = ev.validate_round(folder, manifest)
     names = ev.indexed_rows(ev.read_rows(FOOD_NAMES_EN), "English names")

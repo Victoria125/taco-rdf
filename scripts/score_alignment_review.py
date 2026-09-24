@@ -16,6 +16,7 @@ from taco_rdf.evaluation import (
     coverage,
     final_answers,
     outcome,
+    precision_estimate,
     read_answers,
     read_rows,
     sssom_rows,
@@ -87,9 +88,25 @@ def report(name: str, manifest: dict, table, alignments, items: list[Item], a: d
         "## The random sample", "",
         f"{sample.get('correct', 0)} of the {judged} linked foods in the sample were judged correct "
         f"({sample.get('unsure', 0)} unsure). The sample has {sum(sample.values())} foods, "
-        f"{manifest['per_stratum']} per group and link; it is a diagnostic sample, not an estimate of the "
-        f"precision of the {linked} links.", "",
+        f"{manifest['per_stratum']} per group and link, drawn at random within each stratum.", "",
+        "## Estimated precision", "",
+        f"Each sampled food is weighted by the size of its stratum, so the estimates are for all {linked} links, "
+        "not for the sample. *Strict* counts a link as right only when both the class and the relation "
+        "were accepted; *right class* also counts a link whose class was kept with another relation. "
+        "The 95% intervals are Wilson intervals on the effective sample size of the stratified design; "
+        f"with {manifest['per_stratum']} foods per stratum they are wide, and they are approximate.", "",
     ]
+    estimate_rows = []
+    for relation in ["", *sorted({i.stratum.split("/")[-1] for i in items if i.part == "sample"} - {"none"})]:
+        strict = precision_estimate(items, final, relation=relation)
+        loose = precision_estimate(items, final, relation=relation, right=("correct", "wrong relation"))
+        estimate_rows.append([relation or "all links", strict.links, strict.judged,
+                              strict.text(), loose.text(),
+                              "all" if strict.covered == strict.links else f"{strict.covered} links"])
+    lines += table_md(["link", "links", "judged in sample", "strict", "right class", "estimate covers"],
+                      estimate_rows)
+    lines += ["", "A stratum whose sampled foods were all judged unsure is left out; the last column "
+              "says how many links the estimate then covers.", ""]
     groups = dict(enumerate(table.groups, 1))
     stratum_rows = []
     for stratum, counts in sorted(summary["strata"].items(), key=lambda kv: int(kv[0].split("/")[0])):

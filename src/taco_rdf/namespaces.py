@@ -42,6 +42,8 @@ ALIGNMENTS_CSV = ROOT / "data" / "alignment" / "alignments.csv"
 FOOD_NAMES_EN = ROOT / "data" / "labels" / "food_names_en.csv"
 ONTOLOGY_TTL = ROOT / "ontology" / "taco.ttl"
 FOODON_MODULE_TTL = ROOT / "ontology" / "imports" / "foodon-module.ttl"
+FOODON_CLASSES = ROOT / "ontology" / "imports" / "foodon-classes.tsv"
+REVIEW_DIR = ROOT / "data" / "alignment" / "review"
 SHAPES_DIR = ROOT / "shapes"
 POLICY_TTL = ROOT / "policies" / "taco-attribution-policy.ttl"
 QUERIES_DIR = ROOT / "queries"
@@ -57,6 +59,7 @@ __all__ = [
     "DCTERMS",
     "FIO",
     "FOAF",
+    "FOODON_CLASSES",
     "FOODON_MODULE_TTL",
     "FOOD_NAMES_EN",
     "GRAPH_TTL",
@@ -71,6 +74,7 @@ __all__ = [
     "QUDT",
     "QUERIES_DIR",
     "RAW_XLS",
+    "REVIEW_DIR",
     "RDF",
     "RDFS",
     "ROOT",

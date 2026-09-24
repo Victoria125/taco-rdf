@@ -25,6 +25,8 @@ The project combines:
 > **Research status**
 >
 > TACO-RDF is an active research project. The transformation and structural validation of the original TACO data are extensively tested. External ontology mappings are being progressively evaluated and should not be interpreted as a manually validated gold standard unless explicitly marked as reviewed.
+>
+> Mapping review status: the first review round (`data/alignment/review/round-1`) is prepared and awaiting its two reviewers. Until it is scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
 
 ---
 
@@ -909,6 +911,28 @@ ontology version
 
 Two reviewers can evaluate the same sample independently, followed by adjudication of disagreements.
 
+A round goes from preparation to the published graph in five steps:
+
+```bash
+python scripts/prepare_alignment_review.py                        # items, context and two blank forms
+# two reviewers fill in reviewer-a.csv and reviewer-b.csv independently
+python scripts/score_alignment_review.py data/alignment/review/round-1   # writes adjudication.csv
+# the disagreements are decided in adjudication.csv
+python scripts/score_alignment_review.py data/alignment/review/round-1   # results.md, results.csv, reviewed.sssom.tsv
+python scripts/apply_alignment_review.py data/alignment/review/round-1   # alignments.csv takes the reviewed mappings
+python -m taco_rdf build && python -m taco_rdf validate
+```
+
+`results.md` reports agreement before adjudication (Cohen's kappa), outcomes by part and by stratum, every
+error found, and the precision of all links estimated from the random sample: each sampled food is weighted
+by the size of its stratum, with 95% intervals.
+
+In the graph, an assertion whose food has been reviewed is `taco:Reviewed`, with `taco:reviewer`,
+`dcterms:date`, `taco:ontologyVersion` and a `prov:wasDerivedFrom` link to its `taco:ReviewRound`. SHACL
+requires all four. Every other assertion stays `taco:Unreviewed` with `taco:NotRecorded`. The build refuses
+a mapping in `alignments.csv` that differs from its latest review, so a scored round must be applied before
+the graph can be built again.
+
 ---
 
 # Reproducible review rounds
@@ -971,6 +995,17 @@ is therefore incomplete unless the target ontology version is known.
 The project maintains a local FoodOn module containing the classes relevant to the current mapping set.
 
 This allows important semantic checks to be reproduced without relying entirely on a remote API whose underlying ontology may change.
+
+The pinned release is FoodOn `2026-09-20`. Its versioned PURL,
+`http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl`, does not resolve, because FoodOn
+created no `v2026-09-20` tag. `scripts/extract_foodon_module.py` therefore downloads the file that declares
+that versionIRI from FoodOn commit `cd73540243a84bcd511a500d9a497d12d7dc02f6` and refuses it unless its
+SHA-256 is `b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf`. The module records the
+commit, and the checked-in module is reproduced exactly from it.
+
+The same script writes `ontology/imports/foodon-classes.tsv`, every class of the release that is not
+deprecated, with its label. Reviewers may propose any of these classes, not only those already in the
+module.
 
 ---
 

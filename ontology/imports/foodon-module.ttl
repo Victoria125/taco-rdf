@@ -4975,6 +4975,9 @@ obo:PO_0030115 a owl:Class ;
     rdfs:label "raceme inflorescence"@en ;
     rdfs:subClassOf obo:PO_0009049 .
 
+<http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl> dcterms:description "This versioned PURL does not resolve: FoodOn created no v2026-09-20 tag. The file declaring this versionIRI is FoodOn commit cd73540243a84bcd511a500d9a497d12d7dc02f6, SHA-256 b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf."@en ;
+    dcterms:source <https://raw.githubusercontent.com/FoodOntology/foodon/cd73540243a84bcd511a500d9a497d12d7dc02f6/foodon.owl> .
+
 obo:FOODON_00001014 a owl:Class ;
     rdfs:label "yogurt food product"@en ;
     rdfs:subClassOf obo:FOODON_00001053 .
