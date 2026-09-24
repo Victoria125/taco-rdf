@@ -1,0 +1,2 @@
+food_id,nutrient,raw_cell,corrected_value,reason,evidence
+373,pyridoxine,",0,02",0.02,"Stray leading comma in the original workbook (sheet CMVCol taco3, row 424); the cell is not a valid number.","data/raw/nutrients.csv (taco-api transcription) gives 0.02 for food 373 pyridoxine"

@@ -1,0 +1,38 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+
+SELECT ?food_number ?food ?group ?protein ?relation ?foodon_class ?foodon_label ?food_en
+WHERE {
+  {
+    SELECT ?f ?food_number ?food ?group ?protein
+    WHERE {
+      ?f a taco:Food ;
+         taco:foodNumber ?food_number ;
+         rdfs:label ?food ;
+         taco:inGroup/skos:prefLabel ?group .
+      FILTER (LANG(?group) = "pt")
+      OPTIONAL {
+        ?m taco:ofFood ?f ;
+           taco:ofNutrient <https://w3id.org/taco-rdf/id/nutrient/protein> ;
+           qudt:numericValue ?protein .
+      }
+      FILTER (STR(?group) IN ("Carnes e derivados", "Pescados e frutos do mar", "Leguminosas e derivados",
+                              "Leite e derivados", "Ovos e derivados", "Nozes e sementes")
+              || (BOUND(?protein) && ?protein >= 10))
+    }
+  }
+  OPTIONAL {
+    ?f ?rel ?target .
+    FILTER (?rel IN (rdf:type, skos:closeMatch, skos:relatedMatch, skos:narrowMatch, skos:broadMatch,
+                     skos:exactMatch))
+    FILTER (STRSTARTS(STR(?target), "http://purl.obolibrary.org/obo/FOODON_"))
+    ?target rdfs:label ?foodon_label .
+  }
+  BIND (IF(BOUND(?rel), IF(?rel = rdf:type, "type", STRAFTER(STR(?rel), "core#")), "none") AS ?relation)
+  BIND (STRAFTER(STR(?target), "obo/") AS ?foodon_class)
+  OPTIONAL { ?f skos:prefLabel ?food_en . FILTER (LANG(?food_en) = "en") }
+}
+ORDER BY ?food_number

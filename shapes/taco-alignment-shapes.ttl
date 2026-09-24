@@ -1,0 +1,44 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix taco: <https://w3id.org/taco-rdf/vocab#> .
+@prefix shp: <https://w3id.org/taco-rdf/shapes#> .
+
+shp:AlignmentAssertionShape a sh:NodeShape ;
+    sh:targetClass taco:AlignmentAssertion ;
+    sh:property [ sh:path rdf:subject ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path rdf:predicate ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( rdf:type skos:closeMatch skos:relatedMatch skos:exactMatch skos:broadMatch skos:narrowMatch ) ] ;
+    sh:property [ sh:path rdf:object ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:class prov:Entity ] ;
+    sh:property [ sh:path taco:targetOntology ; sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path taco:ontologyVersionStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:hasValue taco:NotRecorded ] ;
+    sh:property [ sh:path taco:reviewStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:hasValue taco:Unreviewed ] ;
+    sh:sparql [
+        sh:message "Alignment assertion does not match an asserted mapping and its source backlink." ;
+        sh:select """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            SELECT $this WHERE {
+                $this rdf:subject ?s ; rdf:predicate ?p ; rdf:object ?o .
+                FILTER NOT EXISTS { ?s ?p ?o ; taco:alignment $this }
+            }"""
+    ] .
+
+shp:TypeAssertionShape a sh:NodeShape ;
+    sh:targetSubjectsOf rdf:predicate ;
+    sh:sparql [
+        sh:message "An rdf:type alignment must type a taco:Food with a FoodOn class." ;
+        sh:select """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            SELECT $this WHERE {
+                $this rdf:predicate rdf:type ; rdf:subject ?s ; rdf:object ?o .
+                FILTER (NOT EXISTS { ?s a taco:Food }
+                        || !STRSTARTS(STR(?o), "http://purl.obolibrary.org/obo/FOODON_"))
+            }"""
+    ] .

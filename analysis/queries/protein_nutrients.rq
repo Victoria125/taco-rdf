@@ -1,0 +1,21 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?key ?nutrient ?ontology ?relation ?target ?target_label
+WHERE {
+  ?n a taco:Nutrient ;
+     skos:notation ?key ;
+     skos:prefLabel ?nutrient .
+  FILTER (LANG(?nutrient) = "en")
+  FILTER (?key = "protein" || EXISTS { ?n skos:broader <https://w3id.org/taco-rdf/id/category/amino_acid> })
+  OPTIONAL {
+    ?n ?rel ?t .
+    FILTER (?rel IN (skos:closeMatch, skos:relatedMatch, skos:broadMatch, skos:narrowMatch, skos:exactMatch))
+    ?t rdfs:label ?target_label .
+  }
+  BIND (STRAFTER(STR(?t), "obo/") AS ?target)
+  BIND (STRBEFORE(?target, "_") AS ?ontology)
+  BIND (IF(BOUND(?rel), STRAFTER(STR(?rel), "core#"), "none") AS ?relation)
+}
+ORDER BY ?key ?ontology

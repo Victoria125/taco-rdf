@@ -1,0 +1,196 @@
+table,name_pt,query_en,source,rank,curie,label,retrieved,foodon_release,status,search_limit,returned_count
+regional,Picanha,top sirloin cap,search,1,FOODON_02000159,beef culotte roast,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Picanha,top sirloin cap,search,2,FOODON_02000149,beef top sirloin steak,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Picanha,top sirloin cap,search,3,FOODON_02000157,beef culotte steak,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Picanha,top sirloin cap,recorded,,FOODON_02000157,beef culotte steak,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Fraldinha,beef flap,search,1,FOODON_02000116,beef chuck flap/edge roast (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Fraldinha,beef flap,search,2,FOODON_02000115,beef chuck flap/edge roast,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Fraldinha,beef flap,search,3,FOODON_02000172,beef sirloin bavette flap (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Fraldinha,beef flap,search,4,FOODON_02000171,beef sirloin bavette flap,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Fraldinha,beef flap,search,5,FOODON_02000173,beef sirloin bavette steak,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Fraldinha,beef flap,recorded,,FOODON_02000171,beef sirloin bavette flap,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Patinho,beef knuckle,search,1,FOODON_02000025,beef sirloin tip,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+regional,Patinho,beef knuckle,recorded,,FOODON_02000025,beef sirloin tip,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Capa de contra-filé,beef ribeye cap steak (raw),search,1,FOODON_02000218,beef ribeye cap steak (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+regional,Capa de contra-filé,beef ribeye cap steak (raw),recorded,,FOODON_02000218,beef ribeye cap steak (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Charque,jerked beef,search,1,FOODON_03302103,beef jerky,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Charque,jerked beef,search,2,FOODON_03311357,imitation beef jerky,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Charque,jerked beef,search,3,FOODON_00002832,Biltong,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Carne seca (jabá),dried salted beef,search,1,FOODON_00001310,mum,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+regional,Bacalhau salgado,salted cod,search,1,FOODON_03542618,26180 - salted cod (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Bacalhau salgado,salted cod,search,2,FOODON_03307021,codfish (salted),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Bacalhau salgado,salted cod,search,3,FOODON_03400439,salt substitute (codex),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Bacalhau salgado,salted cod,search,4,FOODON_03400379,"brown salt: nutrient, dietary supplement (codex)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Bacalhau salgado,salted cod,search,5,FOODON_03540169,01690 - pretzels (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Bacalhau salgado,salted cod,recorded,,FOODON_03307021,codfish (salted),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Orelha e rabo de porco salgados,salt pork,search,1,FOODON_00001077,salt pork meat food product,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Orelha e rabo de porco salgados,salt pork,search,2,FOODON_03542148,21480 - breakfast-type sausage (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Orelha e rabo de porco salgados,salt pork,search,3,FOODON_03542172,21720 - polish-type cooked sausage (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Orelha e rabo de porco salgados,salt pork,search,4,FOODON_03304776,stew peas (dish),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Orelha e rabo de porco salgados,salt pork,search,5,FOODON_00003249,pancetta,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Orelha e rabo de porco salgados,salt pork,recorded,,FOODON_00001077,salt pork meat food product,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Tucunaré,peacock bass,search,1,NCBITaxon_50735,Cichla ocellaris,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+regional,Tucunaré,peacock bass,recorded,,NCBITaxon_50735,Cichla ocellaris,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Pintado,Pseudoplatystoma,search,1,NCBITaxon_309910,Pseudoplatystoma,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pintado,Pseudoplatystoma,search,2,FOODON_03414867,sorubim catfish,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pintado,Pseudoplatystoma,search,3,FOODON_03542251,22510 - sorubim catfish (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pintado,Pseudoplatystoma,search,4,NCBITaxon_309911,Pseudoplatystoma corruscans,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pintado,Pseudoplatystoma,search,5,NCBITaxon_456366,Pseudoplatystoma fasciatum,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pintado,Pseudoplatystoma,recorded,,FOODON_03414867,sorubim catfish,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,"Curimbatá, corimba",Prochilodus,search,1,NCBITaxon_27694,Prochilodus,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,"Curimbatá, corimba",Prochilodus,search,2,NCBITaxon_27695,Prochilodus lineatus,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,"Curimbatá, corimba",Prochilodus,search,3,NCBITaxon_930263,Prochilodus reticulatus,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,"Curimbatá, corimba",Prochilodus,recorded,,NCBITaxon_27695,Prochilodus lineatus,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Corvina de água doce,Plagioscion,search,1,NCBITaxon_254543,Plagioscion,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,2
+regional,Corvina de água doce,Plagioscion,search,2,NCBITaxon_254544,Plagioscion squamosissimus,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,2
+regional,Corvina de água doce,Plagioscion,recorded,,NCBITaxon_254544,Plagioscion squamosissimus,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Dourada de água doce,Brachyplatystoma,search,1,NCBITaxon_337631,Brachyplatystoma,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Dourada de água doce,Brachyplatystoma,search,2,FOODON_03412154,south american catfish,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Dourada de água doce,Brachyplatystoma,search,3,FOODON_03412155,brazilian catfish,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Dourada de água doce,Brachyplatystoma,search,4,NCBITaxon_396893,Brachyplatystoma vaillantii,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Dourada de água doce,Brachyplatystoma,search,5,NCBITaxon_642922,Brachyplatystoma filamentosum,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Dourada de água doce,Brachyplatystoma,recorded,,NCBITaxon_337631,Brachyplatystoma,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Manjuba,anchovy,search,1,FOODON_03316282,anchovy,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Manjuba,anchovy,search,2,FOODON_03413834,rat-tail anchovy,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Manjuba,anchovy,search,3,FOODON_00003964,Anchoviella perfasciata,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Manjuba,anchovy,search,4,FOODON_02021881,european anchovy,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Manjuba,anchovy,search,5,FOODON_03411855,northern anchovy,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Manjuba,anchovy,recorded,,FOODON_03316282,anchovy,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Camarão Rio Grande,shrimp (raw),search,1,FOODON_03301837,shrimp (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Camarão Rio Grande,shrimp (raw),search,2,FOODON_02021464,shrimp carcass (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Camarão Rio Grande,shrimp (raw),search,3,FOODON_02021467,piece of shrimp meat (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Camarão Rio Grande,shrimp (raw),search,4,FOODON_00004419,pink shrimp (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Camarão Rio Grande,shrimp (raw),search,5,FOODON_03301089,"shrimp (raw, breaded)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Camarão Rio Grande,shrimp (raw),recorded,,FOODON_03301837,shrimp (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Pirarucu,Arapaima,search,1,FOODON_03414870,arapaima,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Pirarucu,Arapaima,search,2,FOODON_03542257,22570 - arapaima (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Pirarucu,Arapaima,search,3,NCBITaxon_113544,Arapaima gigas,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Pirarucu,Arapaima,recorded,,FOODON_03414870,arapaima,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Tambaqui,Colossoma,search,1,FOODON_03414876,cachama,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Tambaqui,Colossoma,search,2,FOODON_03542260,22600 - cachama (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Tambaqui,Colossoma,search,3,NCBITaxon_42526,Colossoma macropomum,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+regional,Tambaqui,Colossoma,recorded,,FOODON_03414876,cachama,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Sururu,sururu,recorded,,FOODON_03411223,mussel,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Carne de bode e de carneiro,goat meat (raw),search,1,FOODON_00004422,piece of goat meat (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Carne de bode e de carneiro,goat meat (raw),search,2,FOODON_02021089,piece(s) of goat meat (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Carne de bode e de carneiro,goat meat (raw),search,3,FOODON_02021096,"goat meat (ground, raw)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Carne de bode e de carneiro,goat meat (raw),search,4,FOODON_02021104,"goat meat (minced, raw)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Carne de bode e de carneiro,goat meat (raw),search,5,FOODON_02021082,"piece of goat meat (cubed, raw)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Carne de bode e de carneiro,goat meat (raw),recorded,,FOODON_00004422,piece of goat meat (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Castanha-do-Brasil,brazilnut,search,1,FOODON_03301645,brazilnut (shell on),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Castanha-do-Brasil,brazilnut,search,2,FOODON_03301821,brazilnut (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Castanha-do-Brasil,brazilnut,search,3,FOODON_00005217,"brazilnut (shell off, dried)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Castanha-do-Brasil,brazilnut,search,4,FOODON_03311211,brazilnut oil (roasted),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Castanha-do-Brasil,brazilnut,search,5,FOODON_03311352,brazilnut (shell off),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Castanha-do-Brasil,brazilnut,recorded,,FOODON_03301821,brazilnut (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Pupunha,peach palm,search,1,FOODON_00005165,peach palm peel (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pupunha,peach palm,search,2,FOODON_00005166,peach palm pulp (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pupunha,peach palm,search,3,FOODON_00005167,peach palm seed (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pupunha,peach palm,search,4,FOODON_03414923,peach palm plant,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pupunha,peach palm,search,5,FOODON_00004791,peach palm peel (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+regional,Pupunha,peach palm,recorded,,FOODON_00005166,peach palm pulp (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Pinhão,Araucaria angustifolia seed,search,1,FOODON_03414684,araucaria tree,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+regional,Pinhão,Araucaria angustifolia seed,recorded,,FOODON_03414684,araucaria tree,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Feijão fradinho (feijão-de-corda),cowpea (raw),search,1,FOODON_03309834,cowpea (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,4
+regional,Feijão fradinho (feijão-de-corda),cowpea (raw),search,2,FOODON_00005008,Early Scarlet cowpea (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,4
+regional,Feijão fradinho (feijão-de-corda),cowpea (raw),search,3,FOODON_03000100,cowpea leaf (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,4
+regional,Feijão fradinho (feijão-de-corda),cowpea (raw),search,4,FOODON_03000102,cowpea pod (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,4
+regional,Feijão fradinho (feijão-de-corda),cowpea (raw),recorded,,FOODON_03309834,cowpea (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,"Queijo minas (frescal, meia cura)",minas cheese,search,1,FOODON_03601036,minas cheese,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+regional,"Queijo minas (frescal, meia cura)",minas cheese,recorded,,FOODON_03601036,minas cheese,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Barreado,barreado,recorded,,FOODON_03304779,beef stew,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Arroz carreteiro,carreteiro,recorded,,FOODON_03307154,rice (flavored with beef extract),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Vaca atolada,vaca atolada,recorded,,FOODON_03304779,beef stew,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Dobradinha,tripe stew,recorded,,FOODON_03420192,tripe,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Contra-filé, grelhado",beef strip loin (broiled),search,1,FOODON_00003301,beef loin,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Filé mignon, grelhado",beef tenderloin (broiled),search,1,FOODON_00003301,beef loin,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Língua, cozida",beef tongue (cooked),search,1,FOODON_03542178,21780 - blood and tongue sausage (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Fígado, grelhado",beef liver (cooked),search,1,FOODON_03542169,21690 - liver-type sausage (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Frango, peito, com pele, assado",chicken breast (roasted),search,1,FOODON_03411712,stag chicken,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+preparation,"Frango, peito, com pele, assado",chicken breast (roasted),search,2,FOODON_03411710,roaster chicken,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+preparation,"Frango, peito, com pele, assado",chicken breast (roasted),search,3,FOODON_03411713,chicken hen,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,3
+preparation,"Lingüiça, porco, frita",pork sausage (fried),search,1,FOODON_03542150,21500 - fresh bratwurst (efsa foodex2),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Sardinha, frita",sardine (fried),search,1,FOODON_03412648,fringescale sardinella,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,2
+preparation,"Sardinha, frita",sardine (fried),search,2,NCBITaxon_96887,Sardinella fimbriata,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,2
+preparation,"Frango, peito, sem pele, cozido",chicken breast (cooked),search,1,FOODON_03311140,chicken breast (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,2
+preparation,"Frango, peito, sem pele, cozido",chicken breast (cooked),search,2,FOODON_03411710,roaster chicken,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,2
+preparation,"Frango, peito, sem pele, cozido",chicken breast (cooked),recorded,,FOODON_03311140,chicken breast (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Ovo, de galinha, inteiro, cozido/10minutos",chicken egg (boiled),search,1,FOODON_00002800,chicken egg (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ovo, de galinha, inteiro, cozido/10minutos",chicken egg (boiled),search,2,FOODON_03310951,"chicken egg (boiled, shell off, salted)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ovo, de galinha, inteiro, cozido/10minutos",chicken egg (boiled),search,3,FOODON_03310224,chicken egg white (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ovo, de galinha, inteiro, cozido/10minutos",chicken egg (boiled),search,4,FOODON_03302720,"chicken egg (shell on, hard boiled, colored)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ovo, de galinha, inteiro, cozido/10minutos",chicken egg (boiled),search,5,FOODON_03304615,"chicken egg (shell on, hard boiled)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ovo, de galinha, inteiro, cozido/10minutos",chicken egg (boiled),recorded,,FOODON_00002800,chicken egg (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Ovo, de galinha, clara, cozida/10minutos",chicken egg white (boiled),search,1,FOODON_03310224,chicken egg white (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Ovo, de galinha, clara, cozida/10minutos",chicken egg white (boiled),recorded,,FOODON_03310224,chicken egg white (boiled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Camarão, Rio Grande, grande, cozido",shrimp (cooked),search,1,FOODON_03301481,shrimp (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Camarão, Rio Grande, grande, cozido",shrimp (cooked),search,2,FOODON_00004418,pink shrimp (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Camarão, Rio Grande, grande, cozido",shrimp (cooked),search,3,FOODON_03308827,"shrimp (cooked, frozen)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Camarão, Rio Grande, grande, cozido",shrimp (cooked),search,4,FOODON_03315128,"shrimp (cooked, canned)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Camarão, Rio Grande, grande, cozido",shrimp (cooked),search,5,FOODON_03308568,"shrimp (peeled, cooked, frozen)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Camarão, Rio Grande, grande, cozido",shrimp (cooked),recorded,,FOODON_03301481,shrimp (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Ervilha, enlatada, drenada",pea (canned),search,1,FOODON_03306809,pea (canned),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ervilha, enlatada, drenada",pea (canned),search,2,FOODON_00002097,peanut candy food product,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ervilha, enlatada, drenada",pea (canned),search,3,FOODON_03301271,peach (canned),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ervilha, enlatada, drenada",pea (canned),search,4,FOODON_03301273,clingstone peach (canned),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ervilha, enlatada, drenada",pea (canned),search,5,FOODON_03301274,freestone peach (canned),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Ervilha, enlatada, drenada",pea (canned),recorded,,FOODON_03306809,pea (canned),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Queijo, petit suisse, morango",petite suisse cheese,search,1,FOODON_03303550,petite suisse cheese,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Queijo, petit suisse, morango",petite suisse cheese,recorded,,FOODON_03303550,petite suisse cheese,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Bacalhau, salgado, cru",codfish (salted),search,1,FOODON_03307021,codfish (salted),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,1
+preparation,"Bacalhau, salgado, cru",codfish (salted),recorded,,FOODON_03307021,codfish (salted),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Carne bovina grelhada, qualquer corte",beef (grilled),search,1,FOODON_03310244,beef (grilled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina grelhada, qualquer corte",beef (grilled),search,2,FOODON_03311663,beef steak (raw),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina grelhada, qualquer corte",beef (grilled),search,3,FOODON_00002737,beef hamburger (dish),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina grelhada, qualquer corte",beef (grilled),search,4,FOODON_03317338,beef steak (fabricated),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina grelhada, qualquer corte",beef (grilled),search,5,FOODON_03317280,ground beef patty (pregrilled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina grelhada, qualquer corte",beef (grilled),recorded,,FOODON_03310244,beef (grilled),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Carne bovina cozida, qualquer corte",beef (cooked),search,1,FOODON_03309738,beef (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina cozida, qualquer corte",beef (cooked),search,2,FOODON_03542132,"21320 - corned beef, cooked (efsa foodex2)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina cozida, qualquer corte",beef (cooked),search,3,FOODON_03310753,ground beef (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina cozida, qualquer corte",beef (cooked),search,4,FOODON_03311377,"ground beef (cooked, freeze-dried)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina cozida, qualquer corte",beef (cooked),search,5,FOODON_03311827,"roast beef (cooked, chilled)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Carne bovina cozida, qualquer corte",beef (cooked),recorded,,FOODON_03309738,beef (cooked),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+preparation,"Peixe frito, qualquer peixe",fish (fried),search,1,FOODON_03310717,fish (fried),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Peixe frito, qualquer peixe",fish (fried),search,2,FOODON_00004318,fry (fish),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Peixe frito, qualquer peixe",fish (fried),search,3,FOODON_03308685,"spotted fish (fried, canned)",2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Peixe frito, qualquer peixe",fish (fried),search,4,FOODON_03310716,fish paste (fried),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Peixe frito, qualquer peixe",fish (fried),search,5,FOODON_03316280,fish product (fried),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,5,5
+preparation,"Peixe frito, qualquer peixe",fish (fried),recorded,,FOODON_03310717,fish (fried),2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,found,,
+regional,Cupim,beef hump,search,,,,,,not_recorded,,
+regional,Dobradinha,tripe stew,search,,,,,,not_recorded,,
+regional,Carne de sol,carne de sol,search,,,,,,not_recorded,,
+regional,Lambari,Astyanax,search,,,,,,not_recorded,,
+regional,Sururu,sururu,search,,,,,,not_recorded,,
+regional,Feijão carioca,carioca bean,search,,,,,,not_recorded,,
+regional,Feijão rajado,rajado bean,search,,,,,,not_recorded,,
+regional,Queijo prato,prato cheese,search,,,,,,not_recorded,,
+regional,Requeijão cremoso,requeijao,search,,,,,,not_recorded,,
+regional,Queijo coalho,coalho cheese,search,,,,,,not_recorded,,
+regional,Frango caipira,free range chicken,search,,,,,,not_recorded,,
+regional,Feijoada,feijoada,search,,,,,,not_recorded,,
+regional,Feijão tropeiro,tropeiro,search,,,,,,not_recorded,,
+regional,Acarajé,acaraje,search,,,,,,not_recorded,,
+regional,Vatapá,vatapa,search,,,,,,not_recorded,,
+regional,Camarão à baiana,shrimp stew,search,,,,,,not_recorded,,
+regional,Baião de dois,baiao de dois,search,,,,,,not_recorded,,
+regional,Sarapatel,sarapatel,search,,,,,,not_recorded,,
+regional,Quibebe,quibebe,search,,,,,,not_recorded,,
+regional,Cuxá,cuxa,search,,,,,,not_recorded,,
+regional,Maniçoba,manicoba,search,,,,,,not_recorded,,
+regional,Tacacá,tacaca,search,,,,,,not_recorded,,
+regional,Barreado,barreado,search,,,,,,not_recorded,,
+regional,Arroz carreteiro,carreteiro,search,,,,,,not_recorded,,
+regional,Vaca atolada,vaca atolada,search,,,,,,not_recorded,,
+regional,Virado à paulista,virado,search,,,,,,not_recorded,,
+regional,Buchada,buchada,search,,,,,,not_recorded,,
+regional,Panelada,panelada,search,,,,,,not_recorded,,
+regional,Moqueca,moqueca,search,,,,,,not_recorded,,
+preparation,"Miolo de alcatra, grelhado",beef top sirloin (broiled),search,,,,,,not_recorded,,
+preparation,"Bucho, cozido",beef tripe (cooked),search,,,,,,not_recorded,,
+preparation,"Frango, peito, sem pele, grelhado",chicken breast (grilled),search,,,,,,not_recorded,,
+preparation,"Frango, sobrecoxa, assada",chicken thigh (roasted),search,,,,,,not_recorded,,
+preparation,"Frango, coxa, com pele, assada",chicken drumstick (roasted),search,,,,,,not_recorded,,
+preparation,"Porco, bisteca, frita",pork chop (fried),search,,,,,,not_recorded,,
+preparation,"Salmão, grelhado",salmon (grilled),search,,,,,,not_recorded,,
+preparation,"Feijão, fradinho, cozido",cowpea (cooked),search,,,,,,not_recorded,,

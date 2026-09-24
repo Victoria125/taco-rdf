@@ -1,0 +1,15 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?group (COUNT(DISTINCT ?f) AS ?typed_foods) (COUNT(DISTINCT ?inside) AS ?under_group_class)
+WHERE {
+  ?g a taco:FoodGroup ; skos:prefLabel ?group .
+  FILTER (LANG(?group) = "en")
+  ?f taco:inGroup ?g ; a ?type .
+  FILTER (STRSTARTS(STR(?type), "http://purl.obolibrary.org/obo/FOODON_"))
+  BIND (IF(EXISTS { ?g skos:closeMatch|skos:narrowMatch ?group_class .
+                    ?type rdfs:subClassOf* ?group_class }, ?f, ?none) AS ?inside)
+}
+GROUP BY ?group
+ORDER BY ?group

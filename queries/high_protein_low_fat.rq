@@ -1,0 +1,19 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tacoid:  <https://w3id.org/taco-rdf/id/>
+PREFIX nutrient: <https://w3id.org/taco-rdf/id/nutrient/>
+PREFIX category: <https://w3id.org/taco-rdf/id/category/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+SELECT ?food_number ?food ?group ?protein_g ?lipids_g ?food_en
+WHERE {
+  ?mp taco:ofNutrient nutrient:protein ; taco:ofFood ?f ; qudt:numericValue ?protein_g .
+  ?ml taco:ofNutrient nutrient:lipids  ; taco:ofFood ?f ; qudt:numericValue ?lipids_g .
+  ?f taco:foodNumber ?food_number ; rdfs:label ?food ; taco:inGroup/skos:prefLabel ?group .
+  FILTER (?protein_g >= 20 && ?lipids_g <= 5 && LANG(?food) = "pt" && LANG(?group) = "en")
+  OPTIONAL { ?f skos:prefLabel ?food_en . FILTER (LANG(?food_en) = "en") }
+}
+ORDER BY DESC(?protein_g)

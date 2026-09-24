@@ -1,0 +1,214 @@
+@prefix taco:    <https://w3id.org/taco-rdf/vocab#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix obo:     <http://purl.obolibrary.org/obo/> .
+@prefix fio:     <http://www.foodvoc.org/resource/fio#> .
+
+<https://w3id.org/taco-rdf/vocab>
+    a owl:Ontology ;
+    dcterms:title "TACO vocabulary"@en ;
+    dcterms:description """Terms for representing the Brazilian Food Composition Table (TACO, 4th edition) as
+a knowledge graph: foods, food groups, nutrients and nutrient measurements, including the
+distinction TACO makes between measured values, traces, not-applicable and under-re-evaluation cells."""@en ;
+    owl:versionInfo "0.1.0" .
+
+taco:Food a owl:Class ;
+    rdfs:label "Food"@en, "Alimento"@pt ;
+    rdfs:comment """An entry of the TACO table: a food as sold/consumed in Brazil, in the state described by its name (raw, cooked, ...).
+Each entry is also a fio:FoodItem, and, where the alignment licenses it, an instance of a FoodOn class
+(rdf:type), so that FoodOn's class hierarchy classifies TACO foods together with other food composition data."""@en ;
+    rdfs:subClassOf obo:FOODON_00001002 , fio:FoodItem ;
+    owl:disjointWith taco:FoodGroup, taco:Nutrient, taco:NutrientMeasurement .
+
+taco:FoodGroup a owl:Class ;
+    rdfs:label "Food group"@en, "Grupo de alimentos"@pt ;
+    rdfs:comment "One of the 15 groups under which TACO lists its foods (e.g. 'Cereais e derivados')."@en ;
+    rdfs:subClassOf skos:Concept .
+
+taco:Nutrient a owl:Class ;
+    rdfs:label "Nutrient"@en, "Nutriente"@pt ;
+    rdfs:comment "A component whose content TACO reports: proximate constituents, energy, minerals, vitamins, fatty acids and amino acids."@en ;
+    rdfs:subClassOf skos:Concept , fio:Nutrient .
+
+taco:NutrientMeasurement a owl:Class ;
+    rdfs:label "Nutrient measurement"@en, "Medição de nutriente"@pt ;
+    rdfs:comment """The content of one nutrient in one food, per 100 g of edible portion (TACO's reference quantity).
+It is a resource of its own, not a plain property of the food, so that the status of the value
+(measured, trace, ...) and its origin can be stated."""@en ;
+    rdfs:subClassOf qudt:QuantityValue , fio:NutritionalValue ,
+        [ a owl:Restriction ; owl:onProperty taco:ofFood ;      owl:cardinality "1"^^xsd:nonNegativeInteger ] ,
+        [ a owl:Restriction ; owl:onProperty taco:ofNutrient ;  owl:cardinality "1"^^xsd:nonNegativeInteger ] ,
+        [ a owl:Restriction ; owl:onProperty taco:valueStatus ; owl:cardinality "1"^^xsd:nonNegativeInteger ] .
+
+taco:ValueStatus a owl:Class ;
+    rdfs:label "Value status"@en ;
+    rdfs:comment "What kind of entry a cell of the TACO table holds."@en ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( taco:Measured taco:Trace taco:NotApplicable taco:UnderReevaluation ) ] .
+
+taco:ValueOrigin a owl:Class ;
+    rdfs:label "Value origin"@en ;
+    rdfs:comment "Where a value came from when it is not simply a cell of the source table."@en ;
+    owl:equivalentClass [ a owl:Class ; owl:oneOf ( taco:LegendFootnote taco:DocumentedCorrection ) ] .
+
+taco:Measured a taco:ValueStatus ;
+    rdfs:label "Measured"@en ;
+    rdfs:comment "A numeric value (analytical or calculated) is given; qudt:numericValue holds it."@en .
+
+taco:Trace a taco:ValueStatus ;
+    rdfs:label "Trace"@en, "Traço (Tr)"@pt ;
+    rdfs:comment """TACO 'Tr': the value rounds to between 0 and the last printed decimal
+(e.g. 0-0.5, 0-0.05 or 0-0.005 depending on the column) or lies below the quantification limit.
+It is NOT the same as zero, and no numeric value is asserted."""@en .
+
+taco:NotApplicable a taco:ValueStatus ;
+    rdfs:label "Not applicable"@en, "Não aplicável (NA)"@pt ;
+    rdfs:comment "TACO 'NA': the nutrient does not apply to this food.  No numeric value is asserted."@en .
+
+taco:UnderReevaluation a taco:ValueStatus ;
+    rdfs:label "Under re-evaluation"@en, "Em reavaliação (*)"@pt ;
+    rdfs:comment "TACO '*': the analysis is being re-evaluated.  No numeric value is asserted."@en .
+
+taco:LegendFootnote a taco:ValueOrigin ;
+    rdfs:label "Legend footnote"@en ;
+    rdfs:comment "The value is not in a table cell but in a footnote of the table legend (alcohol content of two beverages)."@en .
+
+taco:DocumentedCorrection a taco:ValueOrigin ;
+    rdfs:label "Documented correction"@en ;
+    rdfs:comment "The source workbook has a defect for this value; the correction and its evidence are in data/corrections/."@en .
+
+taco:inGroup a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "in group"@en ;
+    rdfs:domain taco:Food ;
+    rdfs:range taco:FoodGroup .
+
+taco:ofFood a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "of food"@en ;
+    rdfs:domain taco:NutrientMeasurement ;
+    rdfs:range taco:Food .
+
+taco:hasNutritionalValue a owl:ObjectProperty ;
+    rdfs:label "has nutritional value"@en ;
+    owl:inverseOf taco:ofFood ;
+    rdfs:subPropertyOf fio:hasNutritionalValue ;
+    rdfs:domain taco:Food ;
+    rdfs:range taco:NutrientMeasurement .
+
+taco:ofNutrient a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "of nutrient"@en ;
+    rdfs:subPropertyOf fio:hasNutrient ;
+    rdfs:domain taco:NutrientMeasurement ;
+    rdfs:range taco:Nutrient .
+
+taco:valueStatus a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "value status"@en ;
+    rdfs:domain taco:NutrientMeasurement ;
+    rdfs:range taco:ValueStatus .
+
+taco:valueOrigin a owl:ObjectProperty ;
+    rdfs:label "value origin"@en ;
+    rdfs:comment "Only stated when the value does not come straight from a table cell."@en ;
+    rdfs:domain taco:NutrientMeasurement ;
+    rdfs:range taco:ValueOrigin .
+
+taco:unit a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:label "unit"@en ;
+    rdfs:comment "The (QUDT) unit in which TACO reports this nutrient."@en ;
+    rdfs:domain taco:Nutrient .
+
+taco:foodNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:label "food number"@en ;
+    rdfs:comment "The 'Número do Alimento' of the TACO table (1-597)."@en ;
+    rdfs:domain taco:Food ;
+    rdfs:range xsd:integer .
+
+taco:footnoteMarker a owl:DatatypeProperty ;
+    rdfs:label "footnote marker"@en ;
+    rdfs:comment "Legend footnote number that the table prints next to the food name."@en ;
+    rdfs:domain taco:Food ;
+    rdfs:range xsd:integer .
+
+taco:sha256 a owl:DatatypeProperty ;
+    rdfs:label "SHA-256"@en ;
+    rdfs:comment "SHA-256 of the source file the graph was generated from."@en ;
+    rdfs:range xsd:string .
+
+taco:sourceFile a owl:DatatypeProperty ;
+    rdfs:label "source file"@en ;
+    rdfs:range xsd:string .
+
+taco:FoodGroupScheme a skos:ConceptScheme ;
+    skos:prefLabel "TACO food groups"@en, "Grupos de alimentos da TACO"@pt .
+
+taco:NutrientScheme a skos:ConceptScheme ;
+    skos:prefLabel "TACO nutrients"@en, "Nutrientes da TACO"@pt .
+
+taco:NutrientCategoryScheme a skos:ConceptScheme ;
+    skos:prefLabel "TACO nutrient categories"@en, "Categorias de nutrientes da TACO"@pt .
+
+taco:ReferenceBasis a owl:Class ;
+    rdfs:subClassOf qudt:QuantityValue ;
+    rdfs:label "Reference basis"@en ;
+    rdfs:comment "The mass and portion to which a composition observation refers."@en .
+
+taco:referenceBasis a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:domain taco:NutrientMeasurement ; rdfs:range taco:ReferenceBasis ;
+    rdfs:label "reference basis"@en .
+
+taco:foodPortion a owl:ObjectProperty ;
+    rdfs:domain taco:ReferenceBasis ; rdfs:label "food portion"@en .
+
+taco:EdiblePortion a skos:Concept ;
+    skos:prefLabel "Edible portion"@en, "Porção comestível"@pt .
+
+taco:AlignmentAssertion a owl:Class ;
+    rdfs:subClassOf rdf:Statement ; rdfs:label "Alignment assertion"@en ;
+    rdfs:comment "A reified mapping with its rationale, provenance and review status. Reification does not imply equivalence or independent validation."@en .
+
+taco:alignment a owl:ObjectProperty ;
+    rdfs:range taco:AlignmentAssertion ; rdfs:label "alignment assertion"@en .
+
+taco:reviewStatus a owl:ObjectProperty ;
+    rdfs:domain taco:AlignmentAssertion ; rdfs:label "review status"@en .
+
+taco:targetOntology a owl:DatatypeProperty ;
+    rdfs:domain taco:AlignmentAssertion ; rdfs:range xsd:string ; rdfs:label "target ontology"@en .
+
+taco:ontologyVersionStatus a owl:ObjectProperty ;
+    rdfs:domain taco:AlignmentAssertion ; rdfs:label "ontology version recording status"@en .
+
+taco:Unreviewed a skos:Concept ;
+    skos:prefLabel "Independent review pending"@en ;
+    skos:definition "No independent semantic review is recorded; existence checks do not change this status."@en .
+
+taco:NotRecorded a skos:Concept ;
+    skos:prefLabel "Not recorded"@en .
+
+fio:FoodItem a owl:Class ;
+    rdfs:label "Food item"@en ;
+    rdfs:comment "A food to which data sources (composition, ingredients, contaminants, environmental impact) refer."@en ;
+    rdfs:isDefinedBy <http://www.foodvoc.org/resource/fio> .
+
+fio:Nutrient a owl:Class ;
+    rdfs:label "Nutrient"@en ;
+    rdfs:comment "A component of a food composition database (a column of the table), not a chemical entity."@en ;
+    rdfs:isDefinedBy <http://www.foodvoc.org/resource/fio> .
+
+fio:NutritionalValue a owl:Class ;
+    rdfs:label "Nutritional value"@en ;
+    rdfs:comment "The content of one nutrient in one food item."@en ;
+    rdfs:isDefinedBy <http://www.foodvoc.org/resource/fio> .
+
+fio:hasNutritionalValue a owl:ObjectProperty ;
+    rdfs:label "has nutritional value"@en ;
+    rdfs:domain fio:FoodItem ; rdfs:range fio:NutritionalValue ;
+    rdfs:isDefinedBy <http://www.foodvoc.org/resource/fio> .
+
+fio:hasNutrient a owl:ObjectProperty ;
+    rdfs:label "has nutrient"@en ;
+    rdfs:domain fio:NutritionalValue ; rdfs:range fio:Nutrient ;
+    rdfs:isDefinedBy <http://www.foodvoc.org/resource/fio> .

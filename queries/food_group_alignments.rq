@@ -1,0 +1,20 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tacoid:  <https://w3id.org/taco-rdf/id/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+SELECT ?group ?relation ?foodon_class ?foodon_label
+WHERE {
+  ?g a taco:FoodGroup ;
+     skos:prefLabel ?group ;
+     ?rel ?target .
+  ?target rdfs:label ?foodon_label .
+  FILTER (LANG(?group) = "en" && ?rel IN (skos:closeMatch, skos:narrowMatch, skos:broadMatch, skos:relatedMatch, skos:exactMatch))
+  FILTER (STRSTARTS(STR(?target), "http://purl.obolibrary.org/obo/FOODON_"))
+  BIND (STRAFTER(STR(?rel), "core#") AS ?relation)
+  BIND (STRAFTER(STR(?target), "obo/") AS ?foodon_class)
+}
+ORDER BY ?group ?relation ?foodon_class

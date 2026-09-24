@@ -1,0 +1,25 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+
+SELECT ?food_number ?food ?food_en ?protein_status ?protein ?moisture
+WHERE {
+  ?f a taco:Food ;
+     taco:foodNumber ?food_number ;
+     rdfs:label ?food .
+  OPTIONAL { ?f skos:prefLabel ?food_en . FILTER (LANG(?food_en) = "en") }
+  OPTIONAL {
+    ?p taco:ofFood ?f ;
+       taco:ofNutrient <https://w3id.org/taco-rdf/id/nutrient/protein> ;
+       taco:valueStatus ?status .
+    OPTIONAL { ?p qudt:numericValue ?protein }
+  }
+  OPTIONAL {
+    ?w taco:ofFood ?f ;
+       taco:ofNutrient <https://w3id.org/taco-rdf/id/nutrient/moisture> ;
+       qudt:numericValue ?moisture .
+  }
+  BIND (STRAFTER(STR(?status), "#") AS ?protein_status)
+}
+ORDER BY ?food_number

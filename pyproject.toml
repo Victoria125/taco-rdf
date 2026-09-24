@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taco-rdf"
+version = "0.1.0"
+description = "TACO (Tabela Brasileira de Composição de Alimentos) as an RDF knowledge graph, aligned to FoodOn/ChEBI/QUDT, validated with SHACL"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Vitória Maia", email = "vitoriamaia19@gmail.com" }]
+license = { text = "MIT" }
+keywords = ["food composition", "TACO", "RDF", "knowledge graph", "FoodOn", "ChEBI", "SHACL", "FAIR"]
+dependencies = ["rdflib>=7.0", "pyshacl>=0.26", "xlrd>=2.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.6", "owlrl>=6"]
+analysis = ["pandas>=2.2", "matplotlib>=3.8", "nbconvert>=7", "ipykernel>=6"]
+
+[project.urls]
+Homepage = "https://w3id.org/taco-rdf/"
+Repository = "https://github.com/Victoria125/taco-rdf"
+
+[project.scripts]
+taco-rdf = "taco_rdf.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "W",
+    "I",
+    "B",
+    "UP",
+    "RUF",
+]
+ignore = [
+    "RUF012",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["taco_rdf"]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 110

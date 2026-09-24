@@ -1,0 +1,21 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tacoid:  <https://w3id.org/taco-rdf/id/>
+PREFIX nutrient: <https://w3id.org/taco-rdf/id/nutrient/>
+PREFIX category: <https://w3id.org/taco-rdf/id/category/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+SELECT ?group (COUNT(?f) AS ?foods) (ROUND(AVG(?v) * 100) / 100 AS ?mean_g) (MIN(?v) AS ?min_g) (MAX(?v) AS ?max_g)
+WHERE {
+  ?m taco:ofNutrient nutrient:protein ;
+     taco:ofFood ?f ;
+     taco:valueStatus taco:Measured ;
+     qudt:numericValue ?v .
+  ?f taco:inGroup/skos:prefLabel ?group .
+  FILTER (LANG(?group) = "en")
+}
+GROUP BY ?group
+ORDER BY DESC(?mean_g)

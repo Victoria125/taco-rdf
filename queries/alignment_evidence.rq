@@ -1,0 +1,14 @@
+PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+SELECT ?source ?relation ?target ?review_status ?version_status ?rationale ?evidence
+WHERE {
+  ?assertion a taco:AlignmentAssertion ;
+      rdf:subject ?source ; rdf:predicate ?relation ; rdf:object ?target ;
+      taco:reviewStatus ?review_status ; taco:ontologyVersionStatus ?version_status ;
+      prov:wasDerivedFrom ?evidence .
+  OPTIONAL { ?assertion skos:editorialNote ?rationale }
+}
+ORDER BY ?source ?relation ?target

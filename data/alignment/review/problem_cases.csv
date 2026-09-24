@@ -1,0 +1,44 @@
+food_number,flag
+7,"the class label has no word for raw, which the name has (lexical triage)"
+41,"the class says fresh pasta, which the TACO name does not state; it is also an EFSA agency class"
+205,TACO gives no species; jambo is usually the Malay apple and the class is rose apple
+216,"the class says Californian, which the TACO name does not state"
+279,unmapped although FoodOn has codfish (salted)
+284,unmapped although FoodOn has shrimp (cooked)
+285,unmapped although FoodOn has shrimp (raw)
+311,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
+312,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
+313,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
+347,beef ribs related to a ribeye roast
+378,boiled brisket related to barbecued brisket
+380,unmapped although FoodOn has beef culotte steak (the cut)
+381,unmapped although FoodOn has beef culotte steak (the cut) and beef (grilled)
+386,"the class label has no word for fried, which the name has (lexical triage)"
+389,"the class label has no word for precooked or roasted, which the name has (lexical triage)"
+390,"the class label has no word for precooked, which the name has (lexical triage)"
+416,fried patty typed as a hamburger dish; the frying is not in the class
+425,"the class label has no word for frozen or roasted, which the name has (lexical triage)"
+426,"the class label has no word for frozen, which the name has (lexical triage)"
+432,roasted loin typed with a cut name (center roast); the roasting is not in the class
+435,pork leg related to a sirloin tip roast
+437,salted tail typed as raw pork tail; the salting is not in the class
+439,ham related to Canadian bacon
+461,typed fresh cheese; FoodOn has minas cheese
+462,related to semihard cheese; FoodOn has minas cheese
+466,unmapped although FoodOn has petite suisse cheese
+468,"requeijão typed as cream cheese spread, a different product"
+486,unmapped although FoodOn has chicken egg white (boiled)
+488,unmapped although FoodOn has chicken egg (boiled)
+511,"the class says medium ground, which TACO does not state"
+537,"the class adds noodles, which the TACO name does not state"
+538,chicken dish related to a beef class
+559,"EFSA agency class, outside FoodOn's food product classes"
+560,unmapped although FoodOn has pea (canned)
+561,carioca and rajado beans share the pinto bean class
+562,carioca and rajado beans share the pinto bean class
+569,carioca and rajado beans share the pinto bean class
+570,carioca and rajado beans share the pinto bean class
+571,"the class says canned, which TACO does not state"
+577,the class says brown lentil; TACO gives no variety
+587,"the class label has no word for salted, which the name has (lexical triage)"
+588,"the class label has no word for salted, which the name has (lexical triage)"

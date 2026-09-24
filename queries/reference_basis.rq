@@ -1,0 +1,9 @@
+PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+
+SELECT ?basis ?mass ?unit ?portion (COUNT(?measurement) AS ?observations)
+WHERE {
+  ?measurement a taco:NutrientMeasurement ; taco:referenceBasis ?basis .
+  ?basis qudt:numericValue ?mass ; qudt:unit ?unit ; taco:foodPortion ?portion .
+}
+GROUP BY ?basis ?mass ?unit ?portion

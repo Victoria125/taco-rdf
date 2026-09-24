@@ -1,0 +1,5778 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+obo:FOODON_00001235 a owl:Class ;
+    rdfs:label "soy sauce food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001078,
+        obo:FOODON_00002262 .
+
+obo:FOODON_00002207 a owl:Class ;
+    rdfs:label "rice flour"@en ;
+    rdfs:subClassOf obo:FOODON_00001056,
+        obo:FOODON_00001185 .
+
+obo:FOODON_00002354 a owl:Class ;
+    rdfs:label "wheat pasta"@en ;
+    rdfs:subClassOf obo:FOODON_00001211 .
+
+obo:FOODON_00002461 a owl:Class ;
+    rdfs:label "chicken egg (fried)"@en ;
+    rdfs:subClassOf obo:FOODON_00002175,
+        obo:FOODON_00002463 .
+
+obo:FOODON_00002511 a owl:Class ;
+    rdfs:label "navel orange (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03309832 .
+
+obo:FOODON_00002737 a owl:Class ;
+    rdfs:label "beef hamburger (dish)"@en ;
+    rdfs:subClassOf obo:FOODON_00001699,
+        obo:FOODON_00003288 .
+
+obo:FOODON_00002808 a owl:Class ;
+    rdfs:label "olive oil (extra-virgin)"@en ;
+    rdfs:subClassOf obo:FOODON_03306633 .
+
+obo:FOODON_00002843 a owl:Class ;
+    rdfs:label "Williams pear (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03301724 .
+
+obo:FOODON_00002940 a owl:Class ;
+    rdfs:label "instant noodle"@en ;
+    rdfs:subClassOf obo:FOODON_03306944 .
+
+obo:FOODON_00002953 a owl:Class ;
+    rdfs:label "chow mein"@en ;
+    rdfs:subClassOf obo:FOODON_00001180 .
+
+obo:FOODON_00003009 a owl:Class ;
+    rdfs:label "kabocha squash plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411189 .
+
+obo:FOODON_00003012 a owl:Class ;
+    rdfs:label "yellow bell pepper (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003548 .
+
+obo:FOODON_00003066 a owl:Class ;
+    rdfs:label "pomegranate (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003679 .
+
+obo:FOODON_00003087 a owl:Class ;
+    rdfs:label "jackfruit (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003457,
+        obo:FOODON_03302007 .
+
+obo:FOODON_00003138 a owl:Class ;
+    rdfs:label "dulce de leche"@en ;
+    rdfs:subClassOf obo:FOODON_00001149 .
+
+obo:FOODON_00003149 a owl:Class ;
+    rdfs:label "Canadian bacon"@en ;
+    rdfs:subClassOf obo:FOODON_00001061 .
+
+obo:FOODON_00003181 a owl:Class ;
+    rdfs:label "loquat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003672,
+        obo:FOODON_03309756 .
+
+obo:FOODON_00003242 a owl:Class ;
+    rdfs:label "tabbouleh"@en ;
+    rdfs:subClassOf obo:FOODON_03316579 .
+
+obo:FOODON_00003247 a owl:Class ;
+    rdfs:label "parmesan cheese food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001946 .
+
+obo:FOODON_00003503 a owl:Class ;
+    rdfs:label "collard greens bunch"@en ;
+    rdfs:subClassOf obo:FOODON_00001755,
+        obo:FOODON_00004800 .
+
+obo:FOODON_00003661 a owl:Class ;
+    rdfs:label "lime"@en ;
+    rdfs:subClassOf obo:FOODON_00002460,
+        obo:FOODON_00003324 .
+
+obo:FOODON_00003683 a owl:Class ;
+    rdfs:label "flaxseed"@en ;
+    rdfs:subClassOf obo:FOODON_00001859,
+        obo:PO_0009010 .
+
+obo:FOODON_00003845 a owl:Class ;
+    rdfs:label "pork ear"@en ;
+    rdfs:subClassOf obo:FOODON_00001038,
+        obo:FOODON_02010056,
+        obo:FOODON_02021664 .
+
+obo:FOODON_00004137 a owl:Class ;
+    rdfs:label "beetroot (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03317254 .
+
+obo:FOODON_00004138 a owl:Class ;
+    rdfs:label "zucchini squash (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03310943 .
+
+obo:FOODON_00004184 a owl:Class ;
+    rdfs:label "banana (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004183 .
+
+obo:FOODON_00004205 a owl:Class ;
+    rdfs:label "Fuji apple (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002862 .
+
+obo:FOODON_00004236 a owl:Class ;
+    rdfs:label "green bean pod (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03305806 .
+
+obo:FOODON_00004375 a owl:Class ;
+    rdfs:label "pinto bean (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_03309759 .
+
+obo:FOODON_00004376 a owl:Class ;
+    rdfs:label "black turtle bean (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002889 .
+
+obo:FOODON_00004377 a owl:Class ;
+    rdfs:label "yellow bean (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_03000093 .
+
+obo:FOODON_00004429 a owl:Class ;
+    rdfs:label "sweet potato (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00003445 .
+
+obo:FOODON_00004565 a owl:Class ;
+    rdfs:label "winter squash (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003946,
+        obo:FOODON_03302008,
+        obo:FOODON_03304644 .
+
+obo:FOODON_00004634 a owl:Class ;
+    rdfs:label "brown lentil (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00004633 .
+
+obo:FOODON_00004677 a owl:Class ;
+    rdfs:label "white rice (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00003787,
+        obo:FOODON_00004320 .
+
+obo:FOODON_00004678 a owl:Class ;
+    rdfs:label "brown rice kernel (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00003436,
+        obo:FOODON_00004320 .
+
+obo:FOODON_00004679 a owl:Class ;
+    rdfs:label "brown rice kernel (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003436,
+        obo:FOODON_03304644,
+        obo:FOODON_03311126 .
+
+obo:FOODON_00004697 a owl:Class ;
+    rdfs:label "tofu"@en ;
+    rdfs:subClassOf obo:FOODON_03309664 .
+
+obo:FOODON_00004923 a owl:Class ;
+    rdfs:label "Tommy Atkins mango (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004922,
+        obo:FOODON_03302008,
+        obo:FOODON_03304644 .
+
+obo:FOODON_00005166 a owl:Class ;
+    rdfs:label "peach palm pulp (boiled)"@en ;
+    rdfs:subClassOf obo:FOODON_00004794 .
+
+obo:FOODON_00005188 a owl:Class ;
+    rdfs:label "surinam cherry (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003117,
+        obo:FOODON_03302008 .
+
+obo:FOODON_00005223 a owl:Class ;
+    rdfs:label "arugula leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003604,
+        obo:FOODON_00005758 .
+
+obo:FOODON_00005243 a owl:Class ;
+    rdfs:label "black tea (steeped)"@en ;
+    rdfs:subClassOf obo:FOODON_03310546 .
+
+obo:FOODON_00005277 a owl:Class ;
+    rdfs:label "black turtle bean (raw, mature)"@en ;
+    rdfs:subClassOf obo:FOODON_00002889 .
+
+obo:FOODON_00005279 a owl:Class ;
+    rdfs:label "kidney bean (raw, mature)"@en ;
+    rdfs:subClassOf obo:FOODON_00002761 .
+
+obo:FOODON_00005306 a owl:Class ;
+    rdfs:label "rose apple (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00005305,
+        obo:FOODON_03304644,
+        obo:FOODON_03311126 .
+
+obo:FOODON_00005313 a owl:Class ;
+    rdfs:label "jambolan (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00005312 .
+
+obo:FOODON_00005406 a owl:Class ;
+    rdfs:label "pork loin center roast"@en ;
+    rdfs:subClassOf obo:FOODON_00004480 .
+
+obo:FOODON_00005442 a owl:Class ;
+    rdfs:label "breadcrumbs"@en ;
+    rdfs:subClassOf obo:FOODON_00001183 .
+
+obo:FOODON_00005449 a owl:Class ;
+    rdfs:label "coconut water"@en ;
+    rdfs:subClassOf obo:FOODON_03316908 .
+
+obo:FOODON_00005479 a owl:Class ;
+    rdfs:label "cow whole milk (without additives)"@en ;
+    rdfs:subClassOf obo:FOODON_00005478 .
+
+obo:FOODON_00005562 a owl:Class ;
+    rdfs:label "cream of rice"@en ;
+    rdfs:subClassOf obo:FOODON_00002205 .
+
+obo:FOODON_00005619 a owl:Class ;
+    rdfs:label "kidney bean (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002761 .
+
+obo:FOODON_00005791 a owl:Class ;
+    rdfs:label "corn starch"@en ;
+    rdfs:subClassOf obo:FOODON_00002274 .
+
+obo:FOODON_00005804 a owl:Class ;
+    rdfs:label "pastry"@en ;
+    rdfs:subClassOf obo:FOODON_00002125 .
+
+obo:FOODON_00005805 a owl:Class ;
+    rdfs:label "pastry dough"@en ;
+    rdfs:subClassOf obo:FOODON_03311552 .
+
+obo:FOODON_02000003 a owl:Class ;
+    rdfs:label "beef bottom round (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000002,
+        obo:FOODON_02000464 .
+
+obo:FOODON_02000013 a owl:Class ;
+    rdfs:label "beef top round (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000012,
+        obo:FOODON_02000464 .
+
+obo:FOODON_02000040 a owl:Class ;
+    rdfs:label "beef eye of round (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000039,
+        obo:FOODON_02000464 .
+
+obo:FOODON_02000070 a owl:Class ;
+    rdfs:label "beef shoulder clod (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000069,
+        obo:FOODON_02000464 .
+
+obo:FOODON_02000124 a owl:Class ;
+    rdfs:label "beef strip loin (boneless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000123,
+        obo:FOODON_02000464 .
+
+obo:FOODON_02000148 a owl:Class ;
+    rdfs:label "beef top sirloin butt (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000147,
+        obo:FOODON_02000464 .
+
+obo:FOODON_02000166 a owl:Class ;
+    rdfs:label "beef tri-tip steak (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000165,
+        obo:FOODON_03311663 .
+
+obo:FOODON_02000176 a owl:Class ;
+    rdfs:label "beef flank (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000175,
+        obo:FOODON_02000463 .
+
+obo:FOODON_02000190 a owl:Class ;
+    rdfs:label "beef brisket (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000189,
+        obo:FOODON_02000463 .
+
+obo:FOODON_02000198 a owl:Class ;
+    rdfs:label "beef shank (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000197,
+        obo:FOODON_02000463 .
+
+obo:FOODON_02000204 a owl:Class ;
+    rdfs:label "beef rib (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000203,
+        obo:FOODON_02000463 .
+
+obo:FOODON_02000207 a owl:Class ;
+    rdfs:label "beef ribeye roast"@en ;
+    rdfs:subClassOf obo:FOODON_00004477 .
+
+obo:FOODON_02000210 a owl:Class ;
+    rdfs:label "beef ribeye steak (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000209,
+        obo:FOODON_03311663 .
+
+obo:FOODON_02000218 a owl:Class ;
+    rdfs:label "beef ribeye cap steak (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000217,
+        obo:FOODON_03311663 .
+
+obo:FOODON_02000284 a owl:Class ;
+    rdfs:label "pork leg (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000283,
+        obo:FOODON_02021659 .
+
+obo:FOODON_02000289 a owl:Class ;
+    rdfs:label "pork loin (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002570,
+        obo:FOODON_02021659 .
+
+obo:FOODON_02000316 a owl:Class ;
+    rdfs:label "pork loin back ribs (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000315,
+        obo:FOODON_02021659 .
+
+obo:FOODON_02000334 a owl:Class ;
+    rdfs:label "pork sirloin tip roast"@en ;
+    rdfs:subClassOf obo:FOODON_00004480 .
+
+obo:FOODON_02000402 a owl:Class ;
+    rdfs:label "beef tenderloin (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003302,
+        obo:FOODON_02000117 .
+
+obo:FOODON_02020226 a owl:Class ;
+    rdfs:label "chicken thigh (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003331,
+        obo:FOODON_02020011,
+        obo:FOODON_02020208,
+        obo:FOODON_03310166 .
+
+obo:FOODON_02020232 a owl:Class ;
+    rdfs:label "chicken breast (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02020016,
+        obo:FOODON_02020208,
+        obo:FOODON_02020231,
+        obo:FOODON_03303012 .
+
+obo:FOODON_02020238 a owl:Class ;
+    rdfs:label "chicken drumstick (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02020022,
+        obo:FOODON_02020208,
+        obo:FOODON_02020224,
+        obo:FOODON_02020237 .
+
+obo:FOODON_02020723 a owl:Class ;
+    rdfs:label "quail egg (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010004,
+        obo:FOODON_02020722 .
+
+obo:FOODON_02021057 a owl:Class ;
+    rdfs:label "goat milk"@en ;
+    rdfs:subClassOf obo:FOODON_02010012,
+        obo:FOODON_02021056 .
+
+obo:FOODON_02021801 a owl:Class ;
+    rdfs:label "pork tail (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010152,
+        obo:FOODON_02021710,
+        obo:FOODON_02021711 .
+
+obo:FOODON_02021822 a owl:Class ;
+    rdfs:label "catfish"@en ;
+    rdfs:subClassOf obo:FOODON_02021821,
+        obo:FOODON_03411040 .
+
+obo:FOODON_02022078 a owl:Class ;
+    rdfs:label "atlantic salmon fillet (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010031,
+        obo:FOODON_02022076,
+        obo:FOODON_02022077 .
+
+obo:FOODON_03000019 a owl:Class ;
+    rdfs:label "red leaf lettuce (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03000018 .
+
+obo:FOODON_03000038 a owl:Class ;
+    rdfs:label "chicory leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003623 .
+
+obo:FOODON_03000082 a owl:Class ;
+    rdfs:label "crookneck squash (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03000081 .
+
+obo:FOODON_03000085 a owl:Class ;
+    rdfs:label "New Zealand spinach leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03000084 .
+
+obo:FOODON_03000089 a owl:Class ;
+    rdfs:label "pinto bean (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03309759 .
+
+obo:FOODON_03000090 a owl:Class ;
+    rdfs:label "pink bean (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03310060 .
+
+obo:FOODON_03000094 a owl:Class ;
+    rdfs:label "yellow bean (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03000093 .
+
+obo:FOODON_03000103 a owl:Class ;
+    rdfs:label "lentil (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03310641 .
+
+obo:FOODON_03000123 a owl:Class ;
+    rdfs:label "chickpea (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03306811 .
+
+obo:FOODON_03000125 a owl:Class ;
+    rdfs:label "butterhead lettuce (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003509 .
+
+obo:FOODON_03000149 a owl:Class ;
+    rdfs:label "watercress leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03000148 .
+
+obo:FOODON_03000649 a owl:Class ;
+    rdfs:label "fresh cheese"@en ;
+    rdfs:subClassOf obo:FOODON_03000287 .
+
+obo:FOODON_03301040 a owl:Class ;
+    rdfs:label "watermelon (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003673 .
+
+obo:FOODON_03301061 a owl:Class ;
+    rdfs:label "corn syrup"@en ;
+    rdfs:subClassOf obo:FOODON_00001848 .
+
+obo:FOODON_03301075 a owl:Class ;
+    rdfs:label "chicken egg (shell off, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03315102 .
+
+obo:FOODON_03301103 a owl:Class ;
+    rdfs:label "orange juice"@en ;
+    rdfs:subClassOf obo:FOODON_00001100 .
+
+obo:FOODON_03301119 a owl:Class ;
+    rdfs:label "whole wheat bread"@en ;
+    rdfs:subClassOf obo:FOODON_03302200 .
+
+obo:FOODON_03301121 a owl:Class ;
+    rdfs:label "chicken (whole or pieces, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004237,
+        obo:FOODON_03307064 .
+
+obo:FOODON_03301123 a owl:Class ;
+    rdfs:label "grape (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003417 .
+
+obo:FOODON_03301130 a owl:Class ;
+    rdfs:label "Cavendish banana (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03316257 .
+
+obo:FOODON_03301179 a owl:Class ;
+    rdfs:label "chicken liver (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002705,
+        obo:FOODON_02010062,
+        obo:FOODON_02020184 .
+
+obo:FOODON_03301192 a owl:Class ;
+    rdfs:label "basil leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003629,
+        obo:FOODON_00005751 .
+
+obo:FOODON_03301205 a owl:Class ;
+    rdfs:label "parsley leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002942 .
+
+obo:FOODON_03301217 a owl:Class ;
+    rdfs:label "tomato sauce"@en ;
+    rdfs:subClassOf obo:FOODON_00002314,
+        obo:FOODON_03316522 .
+
+obo:FOODON_03301299 a owl:Class ;
+    rdfs:label "peanut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003206 .
+
+obo:FOODON_03301336 a owl:Class ;
+    rdfs:label "infant cereal"@en ;
+    rdfs:subClassOf obo:FOODON_00001709,
+        obo:FOODON_00002152,
+        obo:FOODON_03306448 .
+
+obo:FOODON_03301422 a owl:Class ;
+    rdfs:label "sweet corn kernel (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003785 .
+
+obo:FOODON_03301431 a owl:Class ;
+    rdfs:label "chicken bouillon cube"@en ;
+    rdfs:subClassOf obo:FOODON_00001728 .
+
+obo:FOODON_03301432 a owl:Class ;
+    rdfs:label "beef bouillon cube"@en ;
+    rdfs:subClassOf obo:FOODON_00001606,
+        obo:FOODON_03301469 .
+
+obo:FOODON_03301440 a owl:Class ;
+    rdfs:label "mayonnaise"@en ;
+    rdfs:subClassOf obo:FOODON_00001234 .
+
+obo:FOODON_03301449 a owl:Class ;
+    rdfs:label "potato (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03311126,
+        obo:FOODON_03315354 .
+
+obo:FOODON_03301455 a owl:Class ;
+    rdfs:label "tomato paste"@en ;
+    rdfs:subClassOf obo:FOODON_00002318 .
+
+obo:FOODON_03301457 a owl:Class ;
+    rdfs:label "tomato puree"@en ;
+    rdfs:subClassOf obo:FOODON_00002318 .
+
+obo:FOODON_03301474 a owl:Class ;
+    rdfs:label "corn oil"@en ;
+    rdfs:subClassOf obo:FOODON_00001846,
+        obo:FOODON_03310387 .
+
+obo:FOODON_03301484 a owl:Class ;
+    rdfs:label "skim milk food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001771 .
+
+obo:FOODON_03301502 a owl:Class ;
+    rdfs:label "yogurt (plain)"@en ;
+    rdfs:subClassOf obo:FOODON_00001014 .
+
+obo:FOODON_03301545 a owl:Class ;
+    rdfs:label "cucumber (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003415 .
+
+obo:FOODON_03301570 a owl:Class ;
+    rdfs:label "carrot root (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003408 .
+
+obo:FOODON_03301579 a owl:Class ;
+    rdfs:label "mustard greens (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002684,
+        obo:FOODON_03302008 .
+
+obo:FOODON_03301580 a owl:Class ;
+    rdfs:label "plum (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003483,
+        obo:FOODON_03302007 .
+
+obo:FOODON_03301593 a owl:Class ;
+    rdfs:label "melon (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003597 .
+
+obo:FOODON_03301614 a owl:Class ;
+    rdfs:label "rum"@en ;
+    rdfs:subClassOf obo:FOODON_00001817 .
+
+obo:FOODON_03301657 a owl:Class ;
+    rdfs:label "nonfat dry milk"@en ;
+    rdfs:subClassOf obo:FOODON_00001770 .
+
+obo:FOODON_03301672 a owl:Class ;
+    rdfs:label "margarine"@en ;
+    rdfs:subClassOf obo:FOODON_00002022 .
+
+obo:FOODON_03301697 a owl:Class ;
+    rdfs:label "pumpkin (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003486 .
+
+obo:FOODON_03301704 a owl:Class ;
+    rdfs:label "onion (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03316347 .
+
+obo:FOODON_03301713 a owl:Class ;
+    rdfs:label "broccoli floret (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003405,
+        obo:FOODON_03302008 .
+
+obo:FOODON_03301717 a owl:Class ;
+    rdfs:label "sweet potato (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003445 .
+
+obo:FOODON_03301719 a owl:Class ;
+    rdfs:label "peach (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03302008,
+        obo:FOODON_03304644,
+        obo:FOODON_03315502 .
+
+obo:FOODON_03301722 a owl:Class ;
+    rdfs:label "strawberry (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003443 .
+
+obo:FOODON_03301727 a owl:Class ;
+    rdfs:label "celery stalk (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003411 .
+
+obo:FOODON_03301777 a owl:Class ;
+    rdfs:label "butter (unsalted)"@en ;
+    rdfs:subClassOf obo:FOODON_00001772 .
+
+obo:FOODON_03301804 a owl:Class ;
+    rdfs:label "fig (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003266 .
+
+obo:FOODON_03301813 a owl:Class ;
+    rdfs:label "mango (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003538 .
+
+obo:FOODON_03301816 a owl:Class ;
+    rdfs:label "chocolate milk"@en ;
+    rdfs:subClassOf obo:FOODON_03305509 .
+
+obo:FOODON_03301821 a owl:Class ;
+    rdfs:label "brazilnut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03301645 .
+
+obo:FOODON_03301828 a owl:Class ;
+    rdfs:label "okra (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003681 .
+
+obo:FOODON_03301830 a owl:Class ;
+    rdfs:label "papaya (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003540 .
+
+obo:FOODON_03301831 a owl:Class ;
+    rdfs:label "pineapple (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003459,
+        obo:FOODON_03302007 .
+
+obo:FOODON_03301886 a owl:Class ;
+    rdfs:label "beef (ground, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001282,
+        obo:FOODON_02000413 .
+
+obo:FOODON_03301940 a owl:Class ;
+    rdfs:label "baking powder"@en ;
+    rdfs:subClassOf obo:FOODON_03316449 .
+
+obo:FOODON_03301959 a owl:Class ;
+    rdfs:label "potato (french-fried)"@en ;
+    rdfs:subClassOf obo:FOODON_00002797 .
+
+obo:FOODON_03302000 a owl:Class ;
+    rdfs:label "peanut brittle"@en ;
+    rdfs:subClassOf obo:FOODON_00001664 .
+
+obo:FOODON_03302080 a owl:Class ;
+    rdfs:label "lupine bean (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003737 .
+
+obo:FOODON_03302094 a owl:Class ;
+    rdfs:label "beef stroganoff with noodles"@en ;
+    rdfs:subClassOf obo:FOODON_00002828 .
+
+obo:FOODON_03302142 a owl:Class ;
+    rdfs:label "soybean flour"@en ;
+    rdfs:subClassOf obo:FOODON_00002265 .
+
+obo:FOODON_03302179 a owl:Class ;
+    rdfs:label "popcorn (popped)"@en ;
+    rdfs:subClassOf obo:FOODON_00003139 .
+
+obo:FOODON_03302304 a owl:Class ;
+    rdfs:label "cassava (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003409 .
+
+obo:FOODON_03302327 a owl:Class ;
+    rdfs:label "shortbread cookie"@en ;
+    rdfs:subClassOf obo:FOODON_03301585 .
+
+obo:FOODON_03302343 a owl:Class ;
+    rdfs:label "cornbread"@en ;
+    rdfs:subClassOf obo:FOODON_03301054 .
+
+obo:FOODON_03302371 a owl:Class ;
+    rdfs:label "soya bread"@en ;
+    rdfs:subClassOf obo:FOODON_03301054 .
+
+obo:FOODON_03302452 a owl:Class ;
+    rdfs:label "gluten bread"@en ;
+    rdfs:subClassOf obo:FOODON_03301054 .
+
+obo:FOODON_03302473 a owl:Class ;
+    rdfs:label "oatmeal bread"@en ;
+    rdfs:subClassOf obo:FOODON_03301054 .
+
+obo:FOODON_03302578 a owl:Class ;
+    rdfs:label "canola oil"@en ;
+    rdfs:subClassOf obo:FOODON_00002139,
+        obo:FOODON_00002700 .
+
+obo:FOODON_03302643 a owl:Class ;
+    rdfs:label "butter (salted)"@en ;
+    rdfs:subClassOf obo:FOODON_00001772 .
+
+obo:FOODON_03302659 a owl:Class ;
+    rdfs:label "coffee bean (roasted, medium ground)"@en ;
+    rdfs:subClassOf obo:FOODON_03317450,
+        obo:FOODON_03543402 .
+
+obo:FOODON_03302672 a owl:Class ;
+    rdfs:label "milk (fermented)"@en ;
+    rdfs:subClassOf obo:FOODON_00001875 .
+
+obo:FOODON_03302686 a owl:Class ;
+    rdfs:label "french bread (loaf)"@en ;
+    rdfs:subClassOf obo:FOODON_03301054 .
+
+obo:FOODON_03302732 a owl:Class ;
+    rdfs:label "cauliflower floret (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003410,
+        obo:FOODON_03302008 .
+
+obo:FOODON_03302734 a owl:Class ;
+    rdfs:label "beef liver (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010062,
+        obo:FOODON_02020913,
+        obo:FOODON_02020921 .
+
+obo:FOODON_03302776 a owl:Class ;
+    rdfs:label "soybean oil"@en ;
+    rdfs:subClassOf obo:FOODON_00001173,
+        obo:FOODON_00002264,
+        obo:FOODON_03301467,
+        obo:FOODON_03420307 .
+
+obo:FOODON_03302806 a owl:Class ;
+    rdfs:label "milk chocolate"@en ;
+    rdfs:subClassOf obo:FOODON_00001733 .
+
+obo:FOODON_03302904 a owl:Class ;
+    rdfs:label "corn flakes"@en ;
+    rdfs:subClassOf obo:FOODON_00001842 .
+
+obo:FOODON_03302908 a owl:Class ;
+    rdfs:label "ricotta cheese"@en ;
+    rdfs:subClassOf obo:FOODON_00001127 .
+
+obo:FOODON_03302946 a owl:Class ;
+    rdfs:label "custard"@en ;
+    rdfs:subClassOf obo:FOODON_00001281 .
+
+obo:FOODON_03303027 a owl:Class ;
+    rdfs:label "chicken heart (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010059,
+        obo:FOODON_02020178,
+        obo:FOODON_02020184 .
+
+obo:FOODON_03303029 a owl:Class ;
+    rdfs:label "chicken wing (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002674,
+        obo:FOODON_02020206,
+        obo:FOODON_02020707 .
+
+obo:FOODON_03303080 a owl:Class ;
+    rdfs:label "tangerine (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003488 .
+
+obo:FOODON_03303084 a owl:Class ;
+    rdfs:label "coconut milk"@en ;
+    rdfs:subClassOf obo:FOODON_03316908 .
+
+obo:FOODON_03303085 a owl:Class ;
+    rdfs:label "coconut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003449 .
+
+obo:FOODON_03303096 a owl:Class ;
+    rdfs:label "cappuccino"@en ;
+    rdfs:subClassOf obo:FOODON_00001244 .
+
+obo:FOODON_03303384 a owl:Class ;
+    rdfs:label "catfish (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002240 .
+
+obo:FOODON_03303398 a owl:Class ;
+    rdfs:label "fuzzy kiwifruit (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003578,
+        obo:FOODON_03302008,
+        obo:FOODON_03304644 .
+
+obo:FOODON_03303432 a owl:Class ;
+    rdfs:label "beef brisket (pit barbeque cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001041 .
+
+obo:FOODON_03303566 a owl:Class ;
+    rdfs:label "meatball (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03317284 .
+
+obo:FOODON_03303578 a owl:Class ;
+    rdfs:label "mozzarella cheese"@en ;
+    rdfs:subClassOf obo:FOODON_00002326 .
+
+obo:FOODON_03303613 a owl:Class ;
+    rdfs:label "chocolate chip (semisweet)"@en ;
+    rdfs:subClassOf obo:FOODON_03304096 .
+
+obo:FOODON_03303700 a owl:Class ;
+    rdfs:label "black olive (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00001648 .
+
+obo:FOODON_03303882 a owl:Class ;
+    rdfs:label "mixed vegetables (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00002683 .
+
+obo:FOODON_03304093 a owl:Class ;
+    rdfs:label "beef tripe (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001041 .
+
+obo:FOODON_03304233 a owl:Class ;
+    rdfs:label "coconut haystacks candy"@en ;
+    rdfs:subClassOf obo:FOODON_03316908 .
+
+obo:FOODON_03304384 a owl:Class ;
+    rdfs:label "sweetened condensed milk"@en ;
+    rdfs:subClassOf obo:FOODON_03301503 .
+
+obo:FOODON_03304656 a owl:Class ;
+    rdfs:label "radish (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003431,
+        obo:FOODON_03302008 .
+
+obo:FOODON_03304663 a owl:Class ;
+    rdfs:label "ground beef patty (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03317337 .
+
+obo:FOODON_03304685 a owl:Class ;
+    rdfs:label "red cabbage head (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002922,
+        obo:FOODON_03301326 .
+
+obo:FOODON_03304758 a owl:Class ;
+    rdfs:label "tamale"@en ;
+    rdfs:subClassOf obo:FOODON_00003395 .
+
+obo:FOODON_03304779 a owl:Class ;
+    rdfs:label "beef stew"@en ;
+    rdfs:subClassOf obo:FOODON_00001698 .
+
+obo:FOODON_03305052 a owl:Class ;
+    rdfs:label "chicken egg yolk (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_03315772 .
+
+obo:FOODON_03305085 a owl:Class ;
+    rdfs:label "yogurt (nonfat)"@en ;
+    rdfs:subClassOf obo:FOODON_00001014 .
+
+obo:FOODON_03305208 a owl:Class ;
+    rdfs:label "garlic bulb (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003582 .
+
+obo:FOODON_03305236 a owl:Class ;
+    rdfs:label "avocado (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003600,
+        obo:FOODON_03304644 .
+
+obo:FOODON_03305260 a owl:Class ;
+    rdfs:label "cream cracker"@en ;
+    rdfs:subClassOf obo:FOODON_00002353 .
+
+obo:FOODON_03305285 a owl:Class ;
+    rdfs:label "breadfruit (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003628 .
+
+obo:FOODON_03305289 a owl:Class ;
+    rdfs:label "soybean milk"@en ;
+    rdfs:subClassOf obo:FOODON_03302389 .
+
+obo:FOODON_03305317 a owl:Class ;
+    rdfs:label "guava (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003622 .
+
+obo:FOODON_03305318 a owl:Class ;
+    rdfs:label "soursop (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002937,
+        obo:FOODON_03304644 .
+
+obo:FOODON_03305326 a owl:Class ;
+    rdfs:label "guava (paste)"@en ;
+    rdfs:subClassOf obo:FOODON_00001940 .
+
+obo:FOODON_03305342 a owl:Class ;
+    rdfs:label "gelatin dessert"@en ;
+    rdfs:subClassOf obo:FOODON_00001899 .
+
+obo:FOODON_03305354 a owl:Class ;
+    rdfs:label "chicken croquette"@en ;
+    rdfs:subClassOf obo:FOODON_00001040 .
+
+obo:FOODON_03305417 a owl:Class ;
+    rdfs:label "chocolate cake"@en ;
+    rdfs:subClassOf obo:FOODON_00001278 .
+
+obo:FOODON_03305444 a owl:Class ;
+    rdfs:label "tuna (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002320 .
+
+obo:FOODON_03305563 a owl:Class ;
+    rdfs:label "beverage (carbonated, guarana-flavored)"@en ;
+    rdfs:subClassOf obo:FOODON_00002339 .
+
+obo:FOODON_03305639 a owl:Class ;
+    rdfs:label "marshmallow"@en ;
+    rdfs:subClassOf obo:FOODON_00001576 .
+
+obo:FOODON_03305751 a owl:Class ;
+    rdfs:label "tangerine juice"@en ;
+    rdfs:subClassOf obo:FOODON_00002019 .
+
+obo:FOODON_03306026 a owl:Class ;
+    rdfs:label "plum nectar (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00002161 .
+
+obo:FOODON_03306055 a owl:Class ;
+    rdfs:label "fig (preserved in syrup, canned)"@en ;
+    rdfs:subClassOf obo:FOODON_03316796 .
+
+obo:FOODON_03306092 a owl:Class ;
+    rdfs:label "chicken salad"@en ;
+    rdfs:subClassOf obo:FOODON_00001727 .
+
+obo:FOODON_03306100 a owl:Class ;
+    rdfs:label "potato (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002797 .
+
+obo:FOODON_03306124 a owl:Class ;
+    rdfs:label "lasagna noodle"@en ;
+    rdfs:subClassOf obo:FOODON_03306944 .
+
+obo:FOODON_03306126 a owl:Class ;
+    rdfs:label "loose leaf lettuce (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001998 .
+
+obo:FOODON_03306222 a owl:Class ;
+    rdfs:label "seasoning salt"@en ;
+    rdfs:subClassOf obo:FOODON_00002221 .
+
+obo:FOODON_03306255 a owl:Class ;
+    rdfs:label "toast"@en ;
+    rdfs:subClassOf obo:FOODON_00002351,
+        obo:FOODON_00002659,
+        obo:FOODON_03316433 .
+
+obo:FOODON_03306290 a owl:Class ;
+    rdfs:label "yellow corn flour"@en ;
+    rdfs:subClassOf obo:FOODON_03302500 .
+
+obo:FOODON_03306437 a owl:Class ;
+    rdfs:label "ham (chopped)"@en ;
+    rdfs:subClassOf obo:FOODON_00002502 .
+
+obo:FOODON_03306698 a owl:Class ;
+    rdfs:label "swiss chard leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003631 .
+
+obo:FOODON_03306726 a owl:Class ;
+    rdfs:label "sweet green bell pepper (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003547 .
+
+obo:FOODON_03306815 a owl:Class ;
+    rdfs:label "pigeon pea (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002115,
+        obo:FOODON_00002781 .
+
+obo:FOODON_03306832 a owl:Class ;
+    rdfs:label "heart of palm (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00003141 .
+
+obo:FOODON_03307043 a owl:Class ;
+    rdfs:label "yam (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003448 .
+
+obo:FOODON_03307110 a owl:Class ;
+    rdfs:label "rolled oats"@en ;
+    rdfs:subClassOf obo:FOODON_00001759 .
+
+obo:FOODON_03307154 a owl:Class ;
+    rdfs:label "rice (flavored with beef extract)"@en ;
+    rdfs:subClassOf obo:FOODON_00004327 .
+
+obo:FOODON_03307208 a owl:Class ;
+    rdfs:label "turkey meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001286 .
+
+obo:FOODON_03307441 a owl:Class ;
+    rdfs:label "strawberry yogurt"@en ;
+    rdfs:subClassOf obo:FOODON_03307443 .
+
+obo:FOODON_03307577 a owl:Class ;
+    rdfs:label "chicken pie"@en ;
+    rdfs:subClassOf obo:FOODON_00001726 .
+
+obo:FOODON_03307615 a owl:Class ;
+    rdfs:label "vegetable (steamed)"@en ;
+    rdfs:subClassOf obo:FOODON_03315308 .
+
+obo:FOODON_03307633 a owl:Class ;
+    rdfs:label "turnip (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003447 .
+
+obo:FOODON_03307660 a owl:Class ;
+    rdfs:label "tonic water"@en ;
+    rdfs:subClassOf obo:FOODON_00002339 .
+
+obo:FOODON_03307663 a owl:Class ;
+    rdfs:label "tapioca"@en ;
+    rdfs:subClassOf obo:FOODON_00002274 .
+
+obo:FOODON_03307670 a owl:Class ;
+    rdfs:label "turkey roast"@en ;
+    rdfs:subClassOf obo:FOODON_00001286,
+        obo:FOODON_02020634 .
+
+obo:FOODON_03307782 a owl:Class ;
+    rdfs:label "pork rind (fried)"@en ;
+    rdfs:subClassOf obo:FOODON_00002304,
+        obo:FOODON_00002663 .
+
+obo:FOODON_03307997 a owl:Class ;
+    rdfs:label "weakfish (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001248 .
+
+obo:FOODON_03308100 a owl:Class ;
+    rdfs:label "sardine (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002223 .
+
+obo:FOODON_03308183 a owl:Class ;
+    rdfs:label "croaker (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03301193 .
+
+obo:FOODON_03308329 a owl:Class ;
+    rdfs:label "sardine in oil (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00002223 .
+
+obo:FOODON_03309095 a owl:Class ;
+    rdfs:label "hake fillet (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001751 .
+
+obo:FOODON_03309552 a owl:Class ;
+    rdfs:label "passion fruit (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003675 .
+
+obo:FOODON_03309626 a owl:Class ;
+    rdfs:label "shark (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002235 .
+
+obo:FOODON_03309668 a owl:Class ;
+    rdfs:label "tuna (solid pack, canned in oil)"@en ;
+    rdfs:subClassOf obo:FOODON_00002320 .
+
+obo:FOODON_03309709 a owl:Class ;
+    rdfs:label "eggplant (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003618 .
+
+obo:FOODON_03309715 a owl:Class ;
+    rdfs:label "eggplant (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001830 .
+
+obo:FOODON_03309827 a owl:Class ;
+    rdfs:label "peanut (skin off, salted, roasted)"@en ;
+    rdfs:subClassOf obo:FOODON_03301352 .
+
+obo:FOODON_03309834 a owl:Class ;
+    rdfs:label "cowpea (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003414 .
+
+obo:FOODON_03309926 a owl:Class ;
+    rdfs:label "california valencia orange (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003619,
+        obo:FOODON_03309832 .
+
+obo:FOODON_03309932 a owl:Class ;
+    rdfs:label "tamarind pod (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003674 .
+
+obo:FOODON_03310107 a owl:Class ;
+    rdfs:label "summer squash (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003708,
+        obo:FOODON_03301577 .
+
+obo:FOODON_03310125 a owl:Class ;
+    rdfs:label "cassava flour"@en ;
+    rdfs:subClassOf obo:FOODON_00001056,
+        obo:FOODON_00001692 .
+
+obo:FOODON_03310126 a owl:Class ;
+    rdfs:label "plantain (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003784 .
+
+obo:FOODON_03310203 a owl:Class ;
+    rdfs:label "triggerfish (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03301193 .
+
+obo:FOODON_03310226 a owl:Class ;
+    rdfs:label "hominy"@en ;
+    rdfs:subClassOf obo:FOODON_03310791 .
+
+obo:FOODON_03310228 a owl:Class ;
+    rdfs:label "green cabbage head (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002921,
+        obo:FOODON_03301326 .
+
+obo:FOODON_03310232 a owl:Class ;
+    rdfs:label "palm oil"@en ;
+    rdfs:subClassOf obo:FOODON_00002078 .
+
+obo:FOODON_03310257 a owl:Class ;
+    rdfs:label "cornmeal"@en ;
+    rdfs:subClassOf obo:FOODON_00001089,
+        obo:FOODON_00001845 .
+
+obo:FOODON_03310296 a owl:Class ;
+    rdfs:label "peanut candy"@en ;
+    rdfs:subClassOf obo:FOODON_00002097 .
+
+obo:FOODON_03310306 a owl:Class ;
+    rdfs:label "sesame seed"@en ;
+    rdfs:subClassOf obo:FOODON_00002232 .
+
+obo:FOODON_03310357 a owl:Class ;
+    rdfs:label "sunflower seed oil"@en ;
+    rdfs:subClassOf obo:FOODON_00002294,
+        obo:FOODON_03420307 .
+
+obo:FOODON_03310453 a owl:Class ;
+    rdfs:label "passion fruit pulp (frozen)"@en ;
+    rdfs:subClassOf obo:FOODON_00002086 .
+
+obo:FOODON_03310623 a owl:Class ;
+    rdfs:label "pork sausage (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002729 .
+
+obo:FOODON_03310696 a owl:Class ;
+    rdfs:label "meat croquette (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03317170 .
+
+obo:FOODON_03310723 a owl:Class ;
+    rdfs:label "shrimp (fried)"@en ;
+    rdfs:subClassOf obo:FOODON_03301481 .
+
+obo:FOODON_03310753 a owl:Class ;
+    rdfs:label "ground beef (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001282 .
+
+obo:FOODON_03310823 a owl:Class ;
+    rdfs:label "acerola (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003593 .
+
+obo:FOODON_03310829 a owl:Class ;
+    rdfs:label "green olive (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00001936 .
+
+obo:FOODON_03310938 a owl:Class ;
+    rdfs:label "beef tongue (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010066,
+        obo:FOODON_02020916,
+        obo:FOODON_02020921 .
+
+obo:FOODON_03310939 a owl:Class ;
+    rdfs:label "beef chuck (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001041,
+        obo:FOODON_02000045,
+        obo:FOODON_02000463 .
+
+obo:FOODON_03311014 a owl:Class ;
+    rdfs:label "beef top round roast (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001041 .
+
+obo:FOODON_03311076 a owl:Class ;
+    rdfs:label "pork chop (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00001049,
+        obo:FOODON_00004490,
+        obo:FOODON_02010318,
+        obo:FOODON_02021756 .
+
+obo:FOODON_03311100 a owl:Class ;
+    rdfs:label "carrot (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001687 .
+
+obo:FOODON_03311101 a owl:Class ;
+    rdfs:label "chicken (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00003361 .
+
+obo:FOODON_03311121 a owl:Class ;
+    rdfs:label "white rice (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003787 .
+
+obo:FOODON_03311139 a owl:Class ;
+    rdfs:label "chicken drumstick (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002716,
+        obo:FOODON_03305103 .
+
+obo:FOODON_03311140 a owl:Class ;
+    rdfs:label "chicken breast (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002703,
+        obo:FOODON_03305103 .
+
+obo:FOODON_03311141 a owl:Class ;
+    rdfs:label "beef chuck (roast cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001041 .
+
+obo:FOODON_03311210 a owl:Class ;
+    rdfs:label "almond (dry, roasted)"@en ;
+    rdfs:subClassOf obo:FOODON_00001587 .
+
+obo:FOODON_03311214 a owl:Class ;
+    rdfs:label "cashew nut (shell off, roasted)"@en ;
+    rdfs:subClassOf obo:FOODON_00001688 .
+
+obo:FOODON_03311304 a owl:Class ;
+    rdfs:label "crabmeat (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_03301081 .
+
+obo:FOODON_03311318 a owl:Class ;
+    rdfs:label "breakfast cereal (corn-based, ready-to-eat)"@en ;
+    rdfs:subClassOf obo:FOODON_03311075 .
+
+obo:FOODON_03311340 a owl:Class ;
+    rdfs:label "scallion (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003697 .
+
+obo:FOODON_03311420 a owl:Class ;
+    rdfs:label "broccoli (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001666 .
+
+obo:FOODON_03311502 a owl:Class ;
+    rdfs:label "chayote (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003653 .
+
+obo:FOODON_03311514 a owl:Class ;
+    rdfs:label "roast beef bottom round (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002734 .
+
+obo:FOODON_03311555 a owl:Class ;
+    rdfs:label "porridge"@en ;
+    rdfs:subClassOf obo:FOODON_00002152 .
+
+obo:FOODON_03311570 a owl:Class ;
+    rdfs:label "pink bean (cooked, canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00002768 .
+
+obo:FOODON_03311682 a owl:Class ;
+    rdfs:label "mortadella"@en ;
+    rdfs:subClassOf obo:FOODON_00001605 .
+
+obo:FOODON_03311757 a owl:Class ;
+    rdfs:label "leek (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003670 .
+
+obo:FOODON_03311790 a owl:Class ;
+    rdfs:label "persimmon (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003723 .
+
+obo:FOODON_03312059 a owl:Class ;
+    rdfs:label "corn bread product"@en ;
+    rdfs:subClassOf obo:FOODON_00002665 .
+
+obo:FOODON_03312067 a owl:Class ;
+    rdfs:label "salami"@en ;
+    rdfs:subClassOf obo:FOODON_03310675 .
+
+obo:FOODON_03315233 a owl:Class ;
+    rdfs:label "walnut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03301364 .
+
+obo:FOODON_03315638 a owl:Class ;
+    rdfs:label "cream cheese spread"@en ;
+    rdfs:subClassOf obo:FOODON_00001127 .
+
+obo:FOODON_03315868 a owl:Class ;
+    rdfs:label "cheese varietal semi-hard"@en ;
+    rdfs:subClassOf obo:FOODON_00002230 .
+
+obo:FOODON_03315874 a owl:Class ;
+    rdfs:label "red bell pepper (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002191 .
+
+obo:FOODON_03316148 a owl:Class ;
+    rdfs:label "semihard cheese"@en ;
+    rdfs:subClassOf obo:FOODON_00002230 .
+
+obo:FOODON_03316688 a owl:Class ;
+    rdfs:label "babassu oil (edible)"@en ;
+    rdfs:subClassOf obo:FOODON_00001172,
+        obo:FOODON_00001233 .
+
+obo:FOODON_03317068 a owl:Class ;
+    rdfs:label "cake mix"@en ;
+    rdfs:subClassOf obo:FOODON_00001278 .
+
+obo:FOODON_03317508 a owl:Class ;
+    rdfs:label "polenta"@en ;
+    rdfs:subClassOf obo:FOODON_00002330 .
+
+obo:FOODON_03400192 a owl:Class ;
+    rdfs:label "pudding, starch (us cfr)"@en ;
+    rdfs:subClassOf obo:FOODON_03400285 .
+
+obo:FOODON_03400787 a owl:Class ;
+    rdfs:label "processed cheese (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400784 .
+
+obo:FOODON_03400843 a owl:Class ;
+    rdfs:label "soft drink (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400842 .
+
+obo:FOODON_03400866 a owl:Class ;
+    rdfs:label "prepared salad (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400861 .
+
+obo:FOODON_03401114 a owl:Class ;
+    rdfs:label "10000213 - honey (shelf stable) (gs1 gpc)"@en ;
+    rdfs:subClassOf obo:FOODON_03401112 .
+
+obo:FOODON_03401427 a owl:Class ;
+    rdfs:label "10006759 - acai berries (gs1 gpc)"@en ;
+    rdfs:subClassOf obo:FOODON_03401337 .
+
+obo:FOODON_03411193 a owl:Class ;
+    rdfs:label "sour orange plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411339,
+        obo:FOODON_03414168 .
+
+obo:FOODON_03411221 a owl:Class ;
+    rdfs:label "cashew plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411022 .
+
+obo:FOODON_03411284 a owl:Class ;
+    rdfs:label "ambarella plant"@en ;
+    rdfs:subClassOf obo:FOODON_03412398 .
+
+obo:FOODON_03411307 a owl:Class ;
+    rdfs:label "hog plum plant"@en ;
+    rdfs:subClassOf obo:FOODON_03412398 .
+
+obo:FOODON_03411423 a owl:Class ;
+    rdfs:label "cod"@en ;
+    rdfs:subClassOf obo:FOODON_03411835 .
+
+obo:FOODON_03411558 a owl:Class ;
+    rdfs:label "sardine"@en ;
+    rdfs:subClassOf obo:FOODON_03411124 .
+
+obo:FOODON_03411717 a owl:Class ;
+    rdfs:label "amaranth plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411324,
+        obo:FOODON_03411566 .
+
+obo:FOODON_03411794 a owl:Class ;
+    rdfs:label "croaker"@en ;
+    rdfs:subClassOf obo:FOODON_03412005 .
+
+obo:FOODON_03412059 a owl:Class ;
+    rdfs:label "mate plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411179 .
+
+obo:FOODON_03412375 a owl:Class ;
+    rdfs:label "weakfish"@en ;
+    rdfs:subClassOf obo:FOODON_03412657 .
+
+obo:FOODON_03413797 a owl:Class ;
+    rdfs:label "baker's yeast"@en ;
+    rdfs:subClassOf obo:FOODON_03411345 .
+
+obo:FOODON_03413876 a owl:Class ;
+    rdfs:label "pollock"@en ;
+    rdfs:subClassOf obo:FOODON_03411835 .
+
+obo:FOODON_03413878 a owl:Class ;
+    rdfs:label "hake"@en ;
+    rdfs:subClassOf obo:FOODON_03413879 .
+
+obo:FOODON_03414214 a owl:Class ;
+    rdfs:label "mandarin lime plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411067 .
+
+obo:FOODON_03414266 a owl:Class ;
+    rdfs:label "jaboticaba plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411024,
+        obo:FOODON_03411231 .
+
+obo:FOODON_03414346 a owl:Class ;
+    rdfs:label "tucum plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411017 .
+
+obo:FOODON_03414545 a owl:Class ;
+    rdfs:label "pequi plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411024 .
+
+obo:FOODON_03414982 a owl:Class ;
+    rdfs:label "ethiopian eggplant plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411458 .
+
+obo:FOODON_03420108 a owl:Class ;
+    rdfs:label "sugar"@en ;
+    rdfs:subClassOf obo:FOODON_03420152 .
+
+obo:FOODON_03420156 a owl:Class ;
+    rdfs:label "brown sugar"@en ;
+    rdfs:subClassOf obo:FOODON_00001083,
+        obo:FOODON_03301073 .
+
+obo:FOODON_03420160 a owl:Class ;
+    rdfs:label "mammalian light cream (18%-30%)"@en ;
+    rdfs:subClassOf obo:FOODON_00002399 .
+
+obo:FOODON_03420190 a owl:Class ;
+    rdfs:label "fat or oil"@en ;
+    rdfs:subClassOf obo:FOODON_00002196,
+        obo:FOODON_00002664 .
+
+obo:FOODON_03420192 a owl:Class ;
+    rdfs:label "tripe"@en ;
+    rdfs:subClassOf obo:UBERON_0007366 .
+
+obo:FOODON_03540081 a owl:Class ;
+    rdfs:label "00810 - rye flour, wholemeal (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540078 .
+
+obo:FOODON_03540088 a owl:Class ;
+    rdfs:label "00880 - wheat flour (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540067 .
+
+obo:FOODON_03540179 a owl:Class ;
+    rdfs:label "01790 - fresh egg pasta (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540178 .
+
+obo:FOODON_03540193 a owl:Class ;
+    rdfs:label "01930 - gnocchi (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540191 .
+
+obo:FOODON_03540337 a owl:Class ;
+    rdfs:label "03370 - mixed breakfast cereals (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540335 .
+
+obo:FOODON_03540369 a owl:Class ;
+    rdfs:label "03690 - head lettuces (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540364 .
+
+obo:FOODON_03540408 a owl:Class ;
+    rdfs:label "04080 - sowthistle leaves (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540397 .
+
+obo:FOODON_03540620 a owl:Class ;
+    rdfs:label "06200 - garden peas (with pods) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540619 .
+
+obo:FOODON_03540755 a owl:Class ;
+    rdfs:label "07550 - arracacha (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540754 .
+
+obo:FOODON_03540952 a owl:Class ;
+    rdfs:label "09520 - sweet corn canned (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540951 .
+
+obo:FOODON_03541661 a owl:Class ;
+    rdfs:label "16610 - carambolas (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03541660 .
+
+obo:FOODON_03542683 a owl:Class ;
+    rdfs:label "26830 - cream sprayable (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542680 .
+
+obo:FOODON_03542725 a owl:Class ;
+    rdfs:label "27250 - milk powder (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542724 .
+
+obo:FOODON_03543004 a owl:Class ;
+    rdfs:label "30040 - sugar cane molasses (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543001 .
+
+obo:FOODON_03543067 a owl:Class ;
+    rdfs:label "30670 - quince cheese (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543058 .
+
+obo:FOODON_03543238 a owl:Class ;
+    rdfs:label "32380 - juice concentrate, grape (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543230 .
+
+obo:FOODON_03543324 a owl:Class ;
+    rdfs:label "33240 - isotonic and sport drinks (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543322 .
+
+obo:FOODON_03543331 a owl:Class ;
+    rdfs:label "33310 - beer and beer-like beverage (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543330 .
+
+obo:FOODON_03543694 a owl:Class ;
+    rdfs:label "36940 - cupuaçu (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543666 .
+
+obo:FOODON_03543723 a owl:Class ;
+    rdfs:label "37230 - hot chocolate (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543722 .
+
+obo:FOODON_03543875 a owl:Class ;
+    rdfs:label "38750 - cheese omelette (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543873 .
+
+obo:FOODON_03544158 a owl:Class ;
+    rdfs:label "41580 - gelatine (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03544154 .
+
+obo:FOODON_03544170 a owl:Class ;
+    rdfs:label "41700 - tapioca starch (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03544162 .
+
+<https://w3id.org/taco-rdf/imports/foodon-module> a owl:Ontology ;
+    dcterms:description "The FoodOn classes targeted by the TACO alignments and all their named superclasses (rdfs:subClassOf and labels only), extracted by scripts/extract_foodon_module.py."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:source <https://foodon.org/> ;
+    dcterms:title "FoodOn module for taco-rdf"@en ;
+    owl:versionIRI <http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl> ;
+    prov:wasDerivedFrom <http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl> .
+
+obo:BFO_0000030 a owl:Class ;
+    rdfs:label "object"@en ;
+    rdfs:subClassOf obo:BFO_0000040 .
+
+obo:COB_0000022 a owl:Class ;
+    rdfs:label "organism"@en ;
+    rdfs:subClassOf obo:UBERON_0000465 .
+
+obo:ENVO_01001686 a owl:Class ;
+    rdfs:label "mass of environmental material"@en ;
+    rdfs:subClassOf obo:BFO_0000030 .
+
+obo:ENVO_01001688 a owl:Class ;
+    rdfs:label "mass of fluid"@en ;
+    rdfs:subClassOf obo:ENVO_01001686 .
+
+obo:ENVO_01001690 a owl:Class ;
+    rdfs:label "mass of liquid"@en ;
+    rdfs:subClassOf obo:ENVO_01001688 .
+
+obo:FOODON_00001007 a owl:Class ;
+    rdfs:label "meat sausage food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001010 .
+
+obo:FOODON_00001016 a owl:Class ;
+    rdfs:label "cabbage food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001171,
+        obo:FOODON_00003341 .
+
+obo:FOODON_00001042 a owl:Class ;
+    rdfs:label "bovine milk beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001217 .
+
+obo:FOODON_00001046 a owl:Class ;
+    rdfs:label "animal seafood product"@en ;
+    rdfs:subClassOf obo:FOODON_00004242 .
+
+obo:FOODON_00001049 a owl:Class ;
+    rdfs:label "pork chop food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001038 .
+
+obo:FOODON_00001053 a owl:Class ;
+    rdfs:label "fermented dairy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001256,
+        obo:FOODON_00001258 .
+
+obo:FOODON_00001061 a owl:Class ;
+    rdfs:label "bacon food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001241 .
+
+obo:FOODON_00001078 a owl:Class ;
+    rdfs:label "fermented soybean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002266,
+        obo:FOODON_03310006 .
+
+obo:FOODON_00001094 a owl:Class ;
+    rdfs:label "fermented beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001258,
+        obo:FOODON_03301977 .
+
+obo:FOODON_00001100 a owl:Class ;
+    rdfs:label "orange fruit beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001156,
+        obo:FOODON_00002071 .
+
+obo:FOODON_00001105 a owl:Class ;
+    rdfs:label "avian egg food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001251,
+        obo:FOODON_00001274 .
+
+obo:FOODON_00001107 a owl:Class ;
+    rdfs:label "bovine dairy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001256 .
+
+obo:FOODON_00001118 a owl:Class ;
+    rdfs:label "cattle dairy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001107 .
+
+obo:FOODON_00001123 a owl:Class ;
+    rdfs:label "cow milk beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001042,
+        obo:FOODON_00001771 .
+
+obo:FOODON_00001126 a owl:Class ;
+    rdfs:label "bovine cheese food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001013 .
+
+obo:FOODON_00001134 a owl:Class ;
+    rdfs:label "bovine meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001006 .
+
+obo:FOODON_00001138 a owl:Class ;
+    rdfs:label "tea based beverage product"@en ;
+    rdfs:subClassOf obo:FOODON_00001255,
+        obo:FOODON_00002275 .
+
+obo:FOODON_00001140 a owl:Class ;
+    rdfs:label "fruit juice food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057,
+        obo:FOODON_00001255,
+        obo:FOODON_03301444 .
+
+obo:FOODON_00001144 a owl:Class ;
+    rdfs:label "yeast material"@en ;
+    rdfs:subClassOf obo:FOODON_00002403,
+        obo:FOODON_00004336 .
+
+obo:FOODON_00001150 a owl:Class ;
+    rdfs:label "cucurbit fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00001154 a owl:Class ;
+    rdfs:label "citrullus lanatus fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001152 .
+
+obo:FOODON_00001163 a owl:Class ;
+    rdfs:label "solanaceous fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057,
+        obo:FOODON_00001165 .
+
+obo:FOODON_00001164 a owl:Class ;
+    rdfs:label "tomato food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001163,
+        obo:FOODON_00002141 .
+
+obo:FOODON_00001166 a owl:Class ;
+    rdfs:label "plant inflorescence food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001170 a owl:Class ;
+    rdfs:label "grape berry food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001640 .
+
+obo:FOODON_00001171 a owl:Class ;
+    rdfs:label "cruciferous inflorescence food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001166,
+        obo:FOODON_00001169 .
+
+obo:FOODON_00001175 a owl:Class ;
+    rdfs:label "plant stem food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001176 a owl:Class ;
+    rdfs:label "invertebrate food product"@en ;
+    rdfs:subClassOf obo:FOODON_00004242,
+        obo:FOODON_00005522 .
+
+obo:FOODON_00001189 a owl:Class ;
+    rdfs:label "oat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001093 .
+
+obo:FOODON_00001199 a owl:Class ;
+    rdfs:label "chickpea food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001209,
+        obo:FOODON_00001635 .
+
+obo:FOODON_00001209 a owl:Class ;
+    rdfs:label "pulse food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001264 .
+
+obo:FOODON_00001217 a owl:Class ;
+    rdfs:label "mammalian milk beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001252,
+        obo:FOODON_03315150 .
+
+obo:FOODON_00001231 a owl:Class ;
+    rdfs:label "creamy salad dressing"@en ;
+    rdfs:subClassOf obo:FOODON_00001290 .
+
+obo:FOODON_00001233 a owl:Class ;
+    rdfs:label "nut oil food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001087 .
+
+obo:FOODON_00001234 a owl:Class ;
+    rdfs:label "mayonnaise food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001231 .
+
+obo:FOODON_00001241 a owl:Class ;
+    rdfs:label "processed pork meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001010,
+        obo:FOODON_00001038 .
+
+obo:FOODON_00001244 a owl:Class ;
+    rdfs:label "coffee beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001139 .
+
+obo:FOODON_00001245 a owl:Class ;
+    rdfs:label "tea beverage (liquid)"@en ;
+    rdfs:subClassOf obo:FOODON_00001138 .
+
+obo:FOODON_00001252 a owl:Class ;
+    rdfs:label "animal derived beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00003202,
+        obo:FOODON_00004242 .
+
+obo:FOODON_00001274 a owl:Class ;
+    rdfs:label "egg food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001092 .
+
+obo:FOODON_00001275 a owl:Class ;
+    rdfs:label "chicken egg food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001105,
+        obo:FOODON_03315102 .
+
+obo:FOODON_00001281 a owl:Class ;
+    rdfs:label "custard dessert food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001181,
+        obo:FOODON_00001777 .
+
+obo:FOODON_00001283 a owl:Class ;
+    rdfs:label "poultry food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001251,
+        obo:FOODON_02020686 .
+
+obo:FOODON_00001290 a owl:Class ;
+    rdfs:label "salad dressing"@en ;
+    rdfs:subClassOf obo:FOODON_00001133,
+        obo:FOODON_00002146 .
+
+obo:FOODON_00001293 a owl:Class ;
+    rdfs:label "shellfish food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001046,
+        obo:FOODON_00001176 .
+
+obo:FOODON_00001576 a owl:Class ;
+    rdfs:label "aerated confectionery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002251 .
+
+obo:FOODON_00001579 a owl:Class ;
+    rdfs:label "alcoholic beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001094 .
+
+obo:FOODON_00001587 a owl:Class ;
+    rdfs:label "almond food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001172 .
+
+obo:FOODON_00001596 a owl:Class ;
+    rdfs:label "animal based salad food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002219,
+        obo:FOODON_00004242 .
+
+obo:FOODON_00001598 a owl:Class ;
+    rdfs:label "animal-based stew or hash"@en ;
+    rdfs:subClassOf obo:FOODON_00002276 .
+
+obo:FOODON_00001604 a owl:Class ;
+    rdfs:label "animal product sandwich"@en ;
+    rdfs:subClassOf obo:FOODON_03301906 .
+
+obo:FOODON_00001611 a owl:Class ;
+    rdfs:label "apple food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001158 .
+
+obo:FOODON_00001625 a owl:Class ;
+    rdfs:label "avocado food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141,
+        obo:FOODON_00002277 .
+
+obo:FOODON_00001648 a owl:Class ;
+    rdfs:label "black olive food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002066 .
+
+obo:FOODON_00001663 a owl:Class ;
+    rdfs:label "brazil nut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001172 .
+
+obo:FOODON_00001664 a owl:Class ;
+    rdfs:label "brittle food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001944 .
+
+obo:FOODON_00001673 a owl:Class ;
+    rdfs:label "butter product analog"@en ;
+    rdfs:subClassOf obo:FOODON_00001801 .
+
+obo:FOODON_00001677 a owl:Class ;
+    rdfs:label "cabbage head food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001016,
+        obo:FOODON_00002142 .
+
+obo:FOODON_00001688 a owl:Class ;
+    rdfs:label "cashew nut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001172 .
+
+obo:FOODON_00001698 a owl:Class ;
+    rdfs:label "cattle product stew or hash"@en ;
+    rdfs:subClassOf obo:FOODON_00001598 .
+
+obo:FOODON_00001699 a owl:Class ;
+    rdfs:label "cattle sandwich"@en ;
+    rdfs:subClassOf obo:FOODON_00001604 .
+
+obo:FOODON_00001703 a owl:Class ;
+    rdfs:label "cauliflower food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002140,
+        obo:FOODON_00003341 .
+
+obo:FOODON_00001704 a owl:Class ;
+    rdfs:label "celery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002156 .
+
+obo:FOODON_00001717 a owl:Class ;
+    rdfs:label "cherry food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002277 .
+
+obo:FOODON_00001726 a owl:Class ;
+    rdfs:label "chicken pie food product"@en ;
+    rdfs:subClassOf obo:FOODON_03315926 .
+
+obo:FOODON_00001727 a owl:Class ;
+    rdfs:label "chicken salad food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002028 .
+
+obo:FOODON_00001728 a owl:Class ;
+    rdfs:label "chicken soup food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001606 .
+
+obo:FOODON_00001730 a owl:Class ;
+    rdfs:label "chicory food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_00001733 a owl:Class ;
+    rdfs:label "chocolate candy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001214 .
+
+obo:FOODON_00001751 a owl:Class ;
+    rdfs:label "codling food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001248 .
+
+obo:FOODON_00001755 a owl:Class ;
+    rdfs:label "collard food product"@en ;
+    rdfs:subClassOf obo:FOODON_00003341 .
+
+obo:FOODON_00001756 a owl:Class ;
+    rdfs:label "Cavendish banana food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001628 .
+
+obo:FOODON_00001759 a owl:Class ;
+    rdfs:label "common oat cereal food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001189,
+        obo:FOODON_00001709 .
+
+obo:FOODON_00001761 a owl:Class ;
+    rdfs:label "condiment sauce"@en ;
+    rdfs:subClassOf obo:FOODON_00001133,
+        obo:FOODON_00001931 .
+
+obo:FOODON_00001762 a owl:Class ;
+    rdfs:label "cookie food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001626 .
+
+obo:FOODON_00001764 a owl:Class ;
+    rdfs:label "corn snack"@en ;
+    rdfs:subClassOf obo:FOODON_00002330,
+        obo:FOODON_03315013 .
+
+obo:FOODON_00001765 a owl:Class ;
+    rdfs:label "vegetable corn food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001142,
+        obo:FOODON_00002153 .
+
+obo:FOODON_00001770 a owl:Class ;
+    rdfs:label "dried cow milk food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001771 .
+
+obo:FOODON_00001777 a owl:Class ;
+    rdfs:label "cow milk dessert"@en ;
+    rdfs:subClassOf obo:FOODON_00001771,
+        obo:FOODON_00002035 .
+
+obo:FOODON_00001783 a owl:Class ;
+    rdfs:label "cowpea vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_00001795 a owl:Class ;
+    rdfs:label "cucumber food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00001800 a owl:Class ;
+    rdfs:label "dairy dessert food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001256,
+        obo:FOODON_03303220 .
+
+obo:FOODON_00001801 a owl:Class ;
+    rdfs:label "dairy product analog"@en ;
+    rdfs:subClassOf obo:FOODON_00001871 .
+
+obo:FOODON_00001817 a owl:Class ;
+    rdfs:label "alcoholic beverage (distilled)"@en ;
+    rdfs:subClassOf obo:FOODON_00001579 .
+
+obo:FOODON_00001842 a owl:Class ;
+    rdfs:label "field corn cereal food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001845,
+        obo:FOODON_03311075 .
+
+obo:FOODON_00001846 a owl:Class ;
+    rdfs:label "field corn refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001845 .
+
+obo:FOODON_00001848 a owl:Class ;
+    rdfs:label "field corn sweetener product"@en ;
+    rdfs:subClassOf obo:FOODON_00001083,
+        obo:FOODON_00002157 .
+
+obo:FOODON_00001857 a owl:Class ;
+    rdfs:label "food flavoring or seasoning"@en ;
+    rdfs:subClassOf obo:FOODON_00001714 .
+
+obo:FOODON_00001859 a owl:Class ;
+    rdfs:label "flaxseed food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_00001867 a owl:Class ;
+    rdfs:label "food dressing"@en ;
+    rdfs:subClassOf obo:FOODON_00002501 .
+
+obo:FOODON_00001871 a owl:Class ;
+    rdfs:label "food material analog"@en ;
+    rdfs:subClassOf obo:FOODON_00001002 .
+
+obo:FOODON_00001875 a owl:Class ;
+    rdfs:label "fermented milk food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001257 .
+
+obo:FOODON_00001895 a owl:Class ;
+    rdfs:label "garlic food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001242 .
+
+obo:FOODON_00001899 a owl:Class ;
+    rdfs:label "gelatin dessert food product"@en ;
+    rdfs:subClassOf obo:FOODON_03303220 .
+
+obo:FOODON_00001907 a owl:Class ;
+    rdfs:label "gluten refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002131 .
+
+obo:FOODON_00001915 a owl:Class ;
+    rdfs:label "gourd food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00001917 a owl:Class ;
+    rdfs:label "grain based bakery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002151 .
+
+obo:FOODON_00001934 a owl:Class ;
+    rdfs:label "green bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001757 .
+
+obo:FOODON_00001935 a owl:Class ;
+    rdfs:label "green bell pepper food product"@en ;
+    rdfs:subClassOf obo:FOODON_00003013 .
+
+obo:FOODON_00001936 a owl:Class ;
+    rdfs:label "green olive food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002066 .
+
+obo:FOODON_00001944 a owl:Class ;
+    rdfs:label "hard candy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001214 .
+
+obo:FOODON_00001945 a owl:Class ;
+    rdfs:label "hard cheese food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001013 .
+
+obo:FOODON_00001946 a owl:Class ;
+    rdfs:label "hard grating cheese food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001945 .
+
+obo:FOODON_00001986 a owl:Class ;
+    rdfs:label "kidney bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001635 .
+
+obo:FOODON_00001994 a owl:Class ;
+    rdfs:label "leguminous vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001264 .
+
+obo:FOODON_00001997 a owl:Class ;
+    rdfs:label "lentil food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002153 .
+
+obo:FOODON_00002001 a owl:Class ;
+    rdfs:label "acerola food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002012 a owl:Class ;
+    rdfs:label "lupine bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001635 .
+
+obo:FOODON_00002019 a owl:Class ;
+    rdfs:label "mandarin orange juice"@en ;
+    rdfs:subClassOf obo:FOODON_00001156,
+        obo:FOODON_00002018 .
+
+obo:FOODON_00002020 a owl:Class ;
+    rdfs:label "mango food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002022 a owl:Class ;
+    rdfs:label "margarine food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001673 .
+
+obo:FOODON_00002028 a owl:Class ;
+    rdfs:label "meat salad food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001596 .
+
+obo:FOODON_00002029 a owl:Class ;
+    rdfs:label "melon food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001150 .
+
+obo:FOODON_00002035 a owl:Class ;
+    rdfs:label "milk dessert food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001800 .
+
+obo:FOODON_00002053 a owl:Class ;
+    rdfs:label "mustard food product"@en ;
+    rdfs:subClassOf obo:FOODON_00003341 .
+
+obo:FOODON_00002060 a owl:Class ;
+    rdfs:label "nut candy"@en ;
+    rdfs:subClassOf obo:FOODON_00001172,
+        obo:FOODON_00002126 .
+
+obo:FOODON_00002064 a owl:Class ;
+    rdfs:label "okra food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00002065 a owl:Class ;
+    rdfs:label "olive fat or oil refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002139 .
+
+obo:FOODON_00002069 a owl:Class ;
+    rdfs:label "onion food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00002078 a owl:Class ;
+    rdfs:label "palm fat or oil refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002139 .
+
+obo:FOODON_00002079 a owl:Class ;
+    rdfs:label "palm vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_00002081 a owl:Class ;
+    rdfs:label "papaya food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002084 a owl:Class ;
+    rdfs:label "parsley food product"@en ;
+    rdfs:subClassOf obo:FOODON_00003042 .
+
+obo:FOODON_00002095 a owl:Class ;
+    rdfs:label "peach food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002277 .
+
+obo:FOODON_00002097 a owl:Class ;
+    rdfs:label "peanut candy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002060,
+        obo:FOODON_00002099 .
+
+obo:FOODON_00002101 a owl:Class ;
+    rdfs:label "pear food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001158 .
+
+obo:FOODON_00002114 a owl:Class ;
+    rdfs:label "pie food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001180,
+        obo:FOODON_00002347 .
+
+obo:FOODON_00002115 a owl:Class ;
+    rdfs:label "pigeon pea vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001994,
+        obo:FOODON_00002780 .
+
+obo:FOODON_00002119 a owl:Class ;
+    rdfs:label "pineapple food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002122 a owl:Class ;
+    rdfs:label "pinto bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001635 .
+
+obo:FOODON_00002126 a owl:Class ;
+    rdfs:label "plant-based candy"@en ;
+    rdfs:subClassOf obo:FOODON_00001214,
+        obo:FOODON_03316579 .
+
+obo:FOODON_00002128 a owl:Class ;
+    rdfs:label "plant based gravy or sauce food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001931 .
+
+obo:FOODON_00002140 a owl:Class ;
+    rdfs:label "plant floret vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_00002146 a owl:Class ;
+    rdfs:label "plant material dressing"@en ;
+    rdfs:subClassOf obo:FOODON_00001867,
+        obo:FOODON_03316579 .
+
+obo:FOODON_00002147 a owl:Class ;
+    rdfs:label "food material by consumer group"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_00002151 a owl:Class ;
+    rdfs:label "plant seed based bakery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173,
+        obo:FOODON_00002125 .
+
+obo:FOODON_00002159 a owl:Class ;
+    rdfs:label "plantain (musa) food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001628 .
+
+obo:FOODON_00002175 a owl:Class ;
+    rdfs:label "prepared chicken egg product"@en ;
+    rdfs:subClassOf obo:FOODON_00001180,
+        obo:FOODON_00001275 .
+
+obo:FOODON_00002180 a owl:Class ;
+    rdfs:label "pumpkin food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00002184 a owl:Class ;
+    rdfs:label "radish food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00002191 a owl:Class ;
+    rdfs:label "red bell pepper food product"@en ;
+    rdfs:subClassOf obo:FOODON_00003013 .
+
+obo:FOODON_00002205 a owl:Class ;
+    rdfs:label "rice cereal food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001185,
+        obo:FOODON_00001709 .
+
+obo:FOODON_00002219 a owl:Class ;
+    rdfs:label "salad food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001180 .
+
+obo:FOODON_00002221 a owl:Class ;
+    rdfs:label "salt product"@en ;
+    rdfs:subClassOf obo:FOODON_00002250 .
+
+obo:FOODON_00002222 a owl:Class ;
+    rdfs:label "sandwich food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001180 .
+
+obo:FOODON_00002232 a owl:Class ;
+    rdfs:label "sesame food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001093,
+        obo:FOODON_03304497 .
+
+obo:FOODON_00002235 a owl:Class ;
+    rdfs:label "shark food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001248 .
+
+obo:FOODON_00002239 a owl:Class ;
+    rdfs:label "shrimp food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001792,
+        obo:FOODON_02021462 .
+
+obo:FOODON_00002240 a owl:Class ;
+    rdfs:label "siluriform fish food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001248,
+        obo:FOODON_02021821 .
+
+obo:FOODON_00002250 a owl:Class ;
+    rdfs:label "sodium chloride food material"@en ;
+    rdfs:subClassOf obo:FOODON_00001714 .
+
+obo:FOODON_00002251 a owl:Class ;
+    rdfs:label "soft candy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001214 .
+
+obo:FOODON_00002253 a owl:Class ;
+    rdfs:label "soft drink food product"@en ;
+    rdfs:subClassOf obo:FOODON_03301977 .
+
+obo:FOODON_00002262 a owl:Class ;
+    rdfs:label "soybean condiment"@en ;
+    rdfs:subClassOf obo:FOODON_00001761 .
+
+obo:FOODON_00002264 a owl:Class ;
+    rdfs:label "soybean refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001907 .
+
+obo:FOODON_00002276 a owl:Class ;
+    rdfs:label "stew or hash"@en ;
+    rdfs:subClassOf obo:FOODON_00001180 .
+
+obo:FOODON_00002282 a owl:Class ;
+    rdfs:label "strawberry food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001640 .
+
+obo:FOODON_00002286 a owl:Class ;
+    rdfs:label "sugar based cacao food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00002294 a owl:Class ;
+    rdfs:label "sunflower food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_00002297 a owl:Class ;
+    rdfs:label "sweet potato food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001146 .
+
+obo:FOODON_00002300 a owl:Class ;
+    rdfs:label "sweetener"@en ;
+    rdfs:subClassOf obo:FOODON_00001133,
+        obo:FOODON_00001857 .
+
+obo:FOODON_00002304 a owl:Class ;
+    rdfs:label "swine snack food"@en ;
+    rdfs:subClassOf obo:FOODON_00001132,
+        obo:FOODON_03315013 .
+
+obo:FOODON_00002306 a owl:Class ;
+    rdfs:label "swine sausage"@en ;
+    rdfs:subClassOf obo:FOODON_00001132,
+        obo:FOODON_03310675 .
+
+obo:FOODON_00002309 a owl:Class ;
+    rdfs:label "tamarind food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002314 a owl:Class ;
+    rdfs:label "tomato based gravy or sauce food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002329 .
+
+obo:FOODON_00002324 a owl:Class ;
+    rdfs:label "turnip food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002143,
+        obo:FOODON_00003341 .
+
+obo:FOODON_00002326 a owl:Class ;
+    rdfs:label "uncured cheese food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001013 .
+
+obo:FOODON_00002329 a owl:Class ;
+    rdfs:label "vegetable based gravy or sauce food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002128 .
+
+obo:FOODON_00002338 a owl:Class ;
+    rdfs:label "walnut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001172 .
+
+obo:FOODON_00002343 a owl:Class ;
+    rdfs:label "watermelon food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001154 .
+
+obo:FOODON_00002353 a owl:Class ;
+    rdfs:label "wheat cracker food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002347 .
+
+obo:FOODON_00002368 a owl:Class ;
+    rdfs:label "yam food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00002384 a owl:Class ;
+    rdfs:label "baking supply material"@en ;
+    rdfs:subClassOf obo:FOODON_00001714 .
+
+obo:FOODON_00002386 a owl:Class ;
+    rdfs:label "breakfast food"@en ;
+    rdfs:subClassOf obo:FOODON_00002373 .
+
+obo:FOODON_00002399 a owl:Class ;
+    rdfs:label "mammalian milk cream (18%+)"@en ;
+    rdfs:subClassOf obo:FOODON_03315150 .
+
+obo:FOODON_00002448 a owl:Class ;
+    rdfs:label "zucchini food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002271 .
+
+obo:FOODON_00002456 a owl:Class ;
+    rdfs:label "food (baked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001181,
+        obo:FOODON_03000555 .
+
+obo:FOODON_00002460 a owl:Class ;
+    rdfs:label "lime fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001151 .
+
+obo:FOODON_00002463 a owl:Class ;
+    rdfs:label "food (pan-fried)"@en ;
+    rdfs:subClassOf obo:FOODON_00002660 .
+
+obo:FOODON_00002473 a owl:Class ;
+    rdfs:label "apple"@en ;
+    rdfs:subClassOf obo:FOODON_03310788,
+        obo:PO_0030110 .
+
+obo:FOODON_00002478 a owl:Class ;
+    rdfs:label "cherry (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001717 .
+
+obo:FOODON_00002485 a owl:Class ;
+    rdfs:label "peach (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00002095 .
+
+obo:FOODON_00002488 a owl:Class ;
+    rdfs:label "pear (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00002101 .
+
+obo:FOODON_00002495 a owl:Class ;
+    rdfs:label "kiwifruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002497 a owl:Class ;
+    rdfs:label "persimmon food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002498 a owl:Class ;
+    rdfs:label "chard food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002143 .
+
+obo:FOODON_00002502 a owl:Class ;
+    rdfs:label "ham food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001038 .
+
+obo:FOODON_00002570 a owl:Class ;
+    rdfs:label "pork loin"@en ;
+    rdfs:subClassOf obo:FOODON_00001038,
+        obo:FOODON_00004483 .
+
+obo:FOODON_00002576 a owl:Class ;
+    rdfs:label "bean sprout"@en ;
+    rdfs:subClassOf obo:FOODON_00001635,
+        obo:FOODON_00005762,
+        obo:FOODON_03411567,
+        obo:FOODON_03420183 .
+
+obo:FOODON_00002659 a owl:Class ;
+    rdfs:label "food (toasted)"@en ;
+    rdfs:subClassOf obo:FOODON_00001181,
+        obo:FOODON_03000555 .
+
+obo:FOODON_00002660 a owl:Class ;
+    rdfs:label "food (fried)"@en ;
+    rdfs:subClassOf obo:FOODON_00001181 .
+
+obo:FOODON_00002665 a owl:Class ;
+    rdfs:label "quick bread"@en ;
+    rdfs:subClassOf obo:FOODON_00001183 .
+
+obo:FOODON_00002674 a owl:Class ;
+    rdfs:label "chicken wing"@en ;
+    rdfs:subClassOf obo:FOODON_02020205,
+        obo:FOODON_03530157 .
+
+obo:FOODON_00002683 a owl:Class ;
+    rdfs:label "mixed vegetables"@en ;
+    rdfs:subClassOf obo:FOODON_03316579 .
+
+obo:FOODON_00002684 a owl:Class ;
+    rdfs:label "mustard greens"@en ;
+    rdfs:subClassOf obo:FOODON_00002053,
+        obo:FOODON_00002143 .
+
+obo:FOODON_00002695 a owl:Class ;
+    rdfs:label "scallion food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00002700 a owl:Class ;
+    rdfs:label "canola plant food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_00002705 a owl:Class ;
+    rdfs:label "chicken liver"@en ;
+    rdfs:subClassOf obo:FOODON_02010045,
+        obo:FOODON_02020177 .
+
+obo:FOODON_00002729 a owl:Class ;
+    rdfs:label "pork sausage"@en ;
+    rdfs:subClassOf obo:FOODON_00002306 .
+
+obo:FOODON_00002734 a owl:Class ;
+    rdfs:label "roast beef"@en ;
+    rdfs:subClassOf obo:FOODON_00001041 .
+
+obo:FOODON_00002781 a owl:Class ;
+    rdfs:label "pigeon pea"@en ;
+    rdfs:subClassOf obo:FOODON_00002780,
+        obo:FOODON_03310646 .
+
+obo:FOODON_00002812 a owl:Class ;
+    rdfs:label "edible bean pod"@en ;
+    rdfs:subClassOf obo:FOODON_00002765 .
+
+obo:FOODON_00002828 a owl:Class ;
+    rdfs:label "multi-component pasta product"@en ;
+    rdfs:subClassOf obo:FOODON_03316579 .
+
+obo:FOODON_00002862 a owl:Class ;
+    rdfs:label "Fuji apple"@en ;
+    rdfs:subClassOf obo:FOODON_00002473 .
+
+obo:FOODON_00002921 a owl:Class ;
+    rdfs:label "green cabbage head"@en ;
+    rdfs:subClassOf obo:FOODON_00003406 .
+
+obo:FOODON_00002922 a owl:Class ;
+    rdfs:label "red cabbage head"@en ;
+    rdfs:subClassOf obo:FOODON_00003406 .
+
+obo:FOODON_00002937 a owl:Class ;
+    rdfs:label "soursop"@en ;
+    rdfs:subClassOf obo:FOODON_00003789,
+        obo:PO_0025628 .
+
+obo:FOODON_00002942 a owl:Class ;
+    rdfs:label "parsley leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00002084,
+        obo:PO_0025034 .
+
+obo:FOODON_00003041 a owl:Class ;
+    rdfs:label "pear"@en ;
+    rdfs:subClassOf obo:FOODON_00002488,
+        obo:PO_0030110 .
+
+obo:FOODON_00003044 a owl:Class ;
+    rdfs:label "basil food product"@en ;
+    rdfs:subClassOf obo:FOODON_00003042 .
+
+obo:FOODON_00003065 a owl:Class ;
+    rdfs:label "pomegranate food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00003117 a owl:Class ;
+    rdfs:label "surinam cherry"@en ;
+    rdfs:subClassOf obo:FOODON_03301240,
+        obo:PO_0030108 .
+
+obo:FOODON_00003139 a owl:Class ;
+    rdfs:label "popcorn food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001764 .
+
+obo:FOODON_00003141 a owl:Class ;
+    rdfs:label "heart of palm"@en ;
+    rdfs:subClassOf obo:FOODON_00002079,
+        obo:PO_0009001 .
+
+obo:FOODON_00003202 a owl:Class ;
+    rdfs:label "beverage (liquid)"@en ;
+    rdfs:subClassOf obo:FOODON_03301977,
+        obo:FOODON_03430130 .
+
+obo:FOODON_00003205 a owl:Class ;
+    rdfs:label "peanut (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00002099 .
+
+obo:FOODON_00003206 a owl:Class ;
+    rdfs:label "peanut"@en ;
+    rdfs:subClassOf obo:FOODON_00002099,
+        obo:FOODON_03310646 .
+
+obo:FOODON_00003266 a owl:Class ;
+    rdfs:label "fig"@en ;
+    rdfs:subClassOf obo:FLOPO_0016496,
+        obo:FOODON_00001851 .
+
+obo:FOODON_00003288 a owl:Class ;
+    rdfs:label "multi-component meat product"@en ;
+    rdfs:subClassOf obo:FOODON_00002501 .
+
+obo:FOODON_00003302 a owl:Class ;
+    rdfs:label "beef tenderloin"@en ;
+    rdfs:subClassOf obo:FOODON_00003301 .
+
+obo:FOODON_00003331 a owl:Class ;
+    rdfs:label "chicken thigh (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010153,
+        obo:FOODON_02020207,
+        obo:FOODON_02020219 .
+
+obo:FOODON_00003361 a owl:Class ;
+    rdfs:label "chicken (butchered)"@en ;
+    rdfs:subClassOf obo:FOODON_00001040 .
+
+obo:FOODON_00003405 a owl:Class ;
+    rdfs:label "broccoli floret"@en ;
+    rdfs:subClassOf obo:FOODON_00001666,
+        obo:PO_0030115 .
+
+obo:FOODON_00003408 a owl:Class ;
+    rdfs:label "carrot root"@en ;
+    rdfs:subClassOf obo:FOODON_00001687,
+        obo:PO_0020127 .
+
+obo:FOODON_00003409 a owl:Class ;
+    rdfs:label "cassava"@en ;
+    rdfs:subClassOf obo:FOODON_00001692,
+        obo:PO_0025476,
+        obo:PO_0025523 .
+
+obo:FOODON_00003410 a owl:Class ;
+    rdfs:label "cauliflower floret"@en ;
+    rdfs:subClassOf obo:FOODON_00001703,
+        obo:PO_0030115 .
+
+obo:FOODON_00003411 a owl:Class ;
+    rdfs:label "celery stalk"@en ;
+    rdfs:subClassOf obo:FOODON_00004123,
+        obo:PO_0020038 .
+
+obo:FOODON_00003414 a owl:Class ;
+    rdfs:label "cowpea"@en ;
+    rdfs:subClassOf obo:FOODON_00001783,
+        obo:FOODON_03310646 .
+
+obo:FOODON_00003415 a owl:Class ;
+    rdfs:label "cucumber"@en ;
+    rdfs:subClassOf obo:FOODON_00001795,
+        obo:PO_0030111 .
+
+obo:FOODON_00003417 a owl:Class ;
+    rdfs:label "grape"@en ;
+    rdfs:subClassOf obo:FOODON_00001170,
+        obo:FOODON_00003521,
+        obo:PO_0030108 .
+
+obo:FOODON_00003423 a owl:Class ;
+    rdfs:label "lettuce leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00001998,
+        obo:FOODON_00003650,
+        obo:PO_0000014 .
+
+obo:FOODON_00003427 a owl:Class ;
+    rdfs:label "maize kernel"@en ;
+    rdfs:subClassOf obo:FOODON_00001142,
+        obo:PO_0030104 .
+
+obo:FOODON_00003431 a owl:Class ;
+    rdfs:label "radish"@en ;
+    rdfs:subClassOf obo:FOODON_00002184,
+        obo:PO_0009005 .
+
+obo:FOODON_00003434 a owl:Class ;
+    rdfs:label "whole grain rice kernel"@en ;
+    rdfs:subClassOf obo:FOODON_03301641,
+        obo:PO_0030104 .
+
+obo:FOODON_00003443 a owl:Class ;
+    rdfs:label "strawberry"@en ;
+    rdfs:subClassOf obo:FOODON_00002282,
+        obo:PO_0025628 .
+
+obo:FOODON_00003447 a owl:Class ;
+    rdfs:label "turnip"@en ;
+    rdfs:subClassOf obo:FOODON_00002324,
+        obo:PO_0020100 .
+
+obo:FOODON_00003448 a owl:Class ;
+    rdfs:label "yam"@en ;
+    rdfs:subClassOf obo:FOODON_00002368,
+        obo:PO_0004543 .
+
+obo:FOODON_00003449 a owl:Class ;
+    rdfs:label "coconut"@en ;
+    rdfs:subClassOf obo:FOODON_00005733,
+        obo:PO_0030103 .
+
+obo:FOODON_00003456 a owl:Class ;
+    rdfs:label "jackfruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002689 .
+
+obo:FOODON_00003457 a owl:Class ;
+    rdfs:label "jackfruit"@en ;
+    rdfs:subClassOf obo:FLOPO_0016496,
+        obo:FOODON_00003456 .
+
+obo:FOODON_00003459 a owl:Class ;
+    rdfs:label "pineapple"@en ;
+    rdfs:subClassOf obo:FLOPO_0016496,
+        obo:FOODON_00002119 .
+
+obo:FOODON_00003478 a owl:Class ;
+    rdfs:label "cherry"@en ;
+    rdfs:subClassOf obo:FOODON_00002478 .
+
+obo:FOODON_00003483 a owl:Class ;
+    rdfs:label "plum"@en ;
+    rdfs:subClassOf obo:FOODON_00002161,
+        obo:PO_0030103 .
+
+obo:FOODON_00003486 a owl:Class ;
+    rdfs:label "pumpkin"@en ;
+    rdfs:subClassOf obo:FOODON_00002180,
+        obo:FOODON_00003946 .
+
+obo:FOODON_00003488 a owl:Class ;
+    rdfs:label "tangerine"@en ;
+    rdfs:subClassOf obo:FOODON_00002018,
+        obo:FOODON_00003324 .
+
+obo:FOODON_00003507 a owl:Class ;
+    rdfs:label "lettuce head (anatomical)"@en ;
+    rdfs:subClassOf obo:FOODON_00001998,
+        obo:PO_0025615 .
+
+obo:FOODON_00003509 a owl:Class ;
+    rdfs:label "butterhead lettuce"@en ;
+    rdfs:subClassOf obo:FOODON_00003507 .
+
+obo:FOODON_00003521 a owl:Class ;
+    rdfs:label "culinary berry"@en ;
+    rdfs:subClassOf obo:FOODON_03315614,
+        obo:PO_0009001 .
+
+obo:FOODON_00003530 a owl:Class ;
+    rdfs:label "chard leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00002498,
+        obo:FOODON_00003633,
+        obo:FOODON_00005757 .
+
+obo:FOODON_00003540 a owl:Class ;
+    rdfs:label "papaya"@en ;
+    rdfs:subClassOf obo:FOODON_00002081,
+        obo:PO_0030111 .
+
+obo:FOODON_00003547 a owl:Class ;
+    rdfs:label "sweet green bell pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00001935,
+        obo:FOODON_00003546 .
+
+obo:FOODON_00003548 a owl:Class ;
+    rdfs:label "sweet yellow bell pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00003546 .
+
+obo:FOODON_00003567 a owl:Class ;
+    rdfs:label "tropical fruit"@en ;
+    rdfs:subClassOf obo:FOODON_00002689,
+        obo:PO_0009001 .
+
+obo:FOODON_00003578 a owl:Class ;
+    rdfs:label "fuzzy kiwifruit"@en ;
+    rdfs:subClassOf obo:FOODON_00004387 .
+
+obo:FOODON_00003582 a owl:Class ;
+    rdfs:label "garlic bulb"@en ;
+    rdfs:subClassOf obo:FOODON_00001895,
+        obo:PO_0025356 .
+
+obo:FOODON_00003593 a owl:Class ;
+    rdfs:label "acerola"@en ;
+    rdfs:subClassOf obo:FOODON_00002001,
+        obo:PO_0030103 .
+
+obo:FOODON_00003594 a owl:Class ;
+    rdfs:label "fish meat"@en ;
+    rdfs:subClassOf obo:FOODON_03301077 .
+
+obo:FOODON_00003597 a owl:Class ;
+    rdfs:label "melon"@en ;
+    rdfs:subClassOf obo:FOODON_00001152,
+        obo:PO_0030111 .
+
+obo:FOODON_00003600 a owl:Class ;
+    rdfs:label "avocado"@en ;
+    rdfs:subClassOf obo:FOODON_00001625,
+        obo:PO_0030108 .
+
+obo:FOODON_00003603 a owl:Class ;
+    rdfs:label "arugula food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002143 .
+
+obo:FOODON_00003604 a owl:Class ;
+    rdfs:label "arugula leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00003603,
+        obo:FOODON_00005757,
+        obo:PO_0025034 .
+
+obo:FOODON_00003618 a owl:Class ;
+    rdfs:label "eggplant"@en ;
+    rdfs:subClassOf obo:FOODON_00001830,
+        obo:PO_0030108 .
+
+obo:FOODON_00003619 a owl:Class ;
+    rdfs:label "california valencia orange"@en ;
+    rdfs:subClassOf obo:FOODON_03315106 .
+
+obo:FOODON_00003622 a owl:Class ;
+    rdfs:label "guava"@en ;
+    rdfs:subClassOf obo:FOODON_00001940,
+        obo:FOODON_00003567,
+        obo:PO_0030108 .
+
+obo:FOODON_00003623 a owl:Class ;
+    rdfs:label "chicory leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00001730,
+        obo:FOODON_00003650,
+        obo:PO_0000014 .
+
+obo:FOODON_00003628 a owl:Class ;
+    rdfs:label "breadfruit"@en ;
+    rdfs:subClassOf obo:FLOPO_0016496,
+        obo:FOODON_00001057 .
+
+obo:FOODON_00003629 a owl:Class ;
+    rdfs:label "basil leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00003044,
+        obo:PO_0000014 .
+
+obo:FOODON_00003631 a owl:Class ;
+    rdfs:label "swiss chard leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00003530 .
+
+obo:FOODON_00003633 a owl:Class ;
+    rdfs:label "beet leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00001638,
+        obo:PO_0025034 .
+
+obo:FOODON_00003653 a owl:Class ;
+    rdfs:label "chayote"@en ;
+    rdfs:subClassOf obo:FOODON_00001915,
+        obo:PO_0030111 .
+
+obo:FOODON_00003670 a owl:Class ;
+    rdfs:label "leek"@en ;
+    rdfs:subClassOf obo:FOODON_00002150,
+        obo:FOODON_03420100,
+        obo:FOODON_03420238 .
+
+obo:FOODON_00003672 a owl:Class ;
+    rdfs:label "loquat"@en ;
+    rdfs:subClassOf obo:PO_0030110 .
+
+obo:FOODON_00003673 a owl:Class ;
+    rdfs:label "watermelon"@en ;
+    rdfs:subClassOf obo:FOODON_00002343,
+        obo:PO_0030111 .
+
+obo:FOODON_00003674 a owl:Class ;
+    rdfs:label "tamarind pod"@en ;
+    rdfs:subClassOf obo:FOODON_00002309,
+        obo:FOODON_00002765,
+        obo:PO_0030104 .
+
+obo:FOODON_00003675 a owl:Class ;
+    rdfs:label "passion fruit"@en ;
+    rdfs:subClassOf obo:FOODON_00002086,
+        obo:PO_0030111 .
+
+obo:FOODON_00003679 a owl:Class ;
+    rdfs:label "pomegranate"@en ;
+    rdfs:subClassOf obo:FOODON_00003065,
+        obo:PO_0030108 .
+
+obo:FOODON_00003681 a owl:Class ;
+    rdfs:label "okra pod"@en ;
+    rdfs:subClassOf obo:FOODON_00002064,
+        obo:PO_0030092 .
+
+obo:FOODON_00003697 a owl:Class ;
+    rdfs:label "scallion"@en ;
+    rdfs:subClassOf obo:FOODON_03302008,
+        obo:FOODON_03411478 .
+
+obo:FOODON_00003723 a owl:Class ;
+    rdfs:label "persimmon"@en ;
+    rdfs:subClassOf obo:FOODON_00002497,
+        obo:PO_0030108 .
+
+obo:FOODON_00003737 a owl:Class ;
+    rdfs:label "lupine bean"@en ;
+    rdfs:subClassOf obo:FOODON_00002012,
+        obo:FOODON_00002753 .
+
+obo:FOODON_00003744 a owl:Class ;
+    rdfs:label "chili pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00003520 .
+
+obo:FOODON_00003784 a owl:Class ;
+    rdfs:label "plantain"@en ;
+    rdfs:subClassOf obo:FOODON_00002159,
+        obo:FOODON_00004183 .
+
+obo:FOODON_00003785 a owl:Class ;
+    rdfs:label "sweet corn kernel"@en ;
+    rdfs:subClassOf obo:FOODON_00003427 .
+
+obo:FOODON_00003789 a owl:Class ;
+    rdfs:label "soursop food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00004123 a owl:Class ;
+    rdfs:label "celery (Dulce Group) food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001704 .
+
+obo:FOODON_00004237 a owl:Class ;
+    rdfs:label "chicken (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001040 .
+
+obo:FOODON_00004334 a owl:Class ;
+    rdfs:label "piece(s) of plant"@en ;
+    rdfs:subClassOf obo:FOODON_00004331 .
+
+obo:FOODON_00004335 a owl:Class ;
+    rdfs:label "piece(s) of animal"@en ;
+    rdfs:subClassOf obo:BFO_0000027,
+        obo:FOODON_03420164 .
+
+obo:FOODON_00004387 a owl:Class ;
+    rdfs:label "kiwifruit"@en ;
+    rdfs:subClassOf obo:FOODON_00002495,
+        obo:PO_0030108 .
+
+obo:FOODON_00004477 a owl:Class ;
+    rdfs:label "beef roast"@en ;
+    rdfs:subClassOf obo:FOODON_00004478 .
+
+obo:FOODON_00004486 a owl:Class ;
+    rdfs:label "pork sub-primal cut"@en ;
+    rdfs:subClassOf obo:FOODON_00004337,
+        obo:FOODON_02021752 .
+
+obo:FOODON_00004490 a owl:Class ;
+    rdfs:label "pork chop"@en ;
+    rdfs:subClassOf obo:FOODON_00004488,
+        obo:FOODON_02010317 .
+
+obo:FOODON_00004532 a owl:Class ;
+    rdfs:label "piece(s) of cow"@en ;
+    rdfs:subClassOf obo:FOODON_00004335,
+        obo:FOODON_02020889 .
+
+obo:FOODON_00004554 a owl:Class ;
+    rdfs:label "food (pulped)"@en ;
+    rdfs:subClassOf obo:FOODON_00002454,
+        obo:FOODON_00002645 .
+
+obo:FOODON_00004633 a owl:Class ;
+    rdfs:label "brown lentil"@en ;
+    rdfs:subClassOf obo:FOODON_03310641 .
+
+obo:FOODON_00004787 a owl:Class ;
+    rdfs:label "peach palm food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002689 .
+
+obo:FOODON_00004794 a owl:Class ;
+    rdfs:label "peach palm pulp"@en ;
+    rdfs:subClassOf obo:FOODON_00004787,
+        obo:FOODON_03305320 .
+
+obo:FOODON_00004800 a owl:Class ;
+    rdfs:label "plant leaf bunch"@en ;
+    rdfs:subClassOf obo:BFO_0000027,
+        obo:FOODON_00005753 .
+
+obo:FOODON_00004922 a owl:Class ;
+    rdfs:label "Tommy Atkins mango"@en ;
+    rdfs:subClassOf obo:FOODON_00003538 .
+
+obo:FOODON_00005305 a owl:Class ;
+    rdfs:label "rose apple"@en ;
+    rdfs:subClassOf obo:PO_0030103 .
+
+obo:FOODON_00005312 a owl:Class ;
+    rdfs:label "jambolan"@en ;
+    rdfs:subClassOf obo:PO_0030103 .
+
+obo:FOODON_00005478 a owl:Class ;
+    rdfs:label "cow whole milk"@en ;
+    rdfs:subClassOf obo:FOODON_03302116 .
+
+obo:FOODON_00005679 a owl:Class ;
+    rdfs:label "perciform fish material"@en ;
+    rdfs:subClassOf obo:FOODON_00005674 .
+
+obo:FOODON_00005680 a owl:Class ;
+    rdfs:label "bovid material"@en ;
+    rdfs:subClassOf obo:FOODON_00005501 .
+
+obo:FOODON_00005683 a owl:Class ;
+    rdfs:label "aquatic invertebrate material"@en ;
+    rdfs:subClassOf obo:FOODON_00005522 .
+
+obo:FOODON_00005726 a owl:Class ;
+    rdfs:label "gadiform fish material"@en ;
+    rdfs:subClassOf obo:FOODON_00005674 .
+
+obo:FOODON_00005727 a owl:Class ;
+    rdfs:label "clupeiform fish material"@en ;
+    rdfs:subClassOf obo:FOODON_00005674 .
+
+obo:FOODON_00005730 a owl:Class ;
+    rdfs:label "sweet pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00003520 .
+
+obo:FOODON_00005735 a owl:Class ;
+    rdfs:label "nut material"@en ;
+    rdfs:subClassOf obo:FOODON_00004331 .
+
+obo:FOODON_00005753 a owl:Class ;
+    rdfs:label "piece(s) of plant leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00004334 .
+
+obo:FOODON_00005758 a owl:Class ;
+    rdfs:label "plant leaf (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00005751,
+        obo:FOODON_00005757 .
+
+obo:FOODON_00005762 a owl:Class ;
+    rdfs:label "plant seed"@en ;
+    rdfs:subClassOf obo:FOODON_00004333 .
+
+obo:FOODON_02000002 a owl:Class ;
+    rdfs:label "beef bottom round"@en ;
+    rdfs:subClassOf obo:FOODON_00004476 .
+
+obo:FOODON_02000012 a owl:Class ;
+    rdfs:label "beef top round"@en ;
+    rdfs:subClassOf obo:FOODON_00004476 .
+
+obo:FOODON_02000039 a owl:Class ;
+    rdfs:label "beef eye of round"@en ;
+    rdfs:subClassOf obo:FOODON_00004476 .
+
+obo:FOODON_02000045 a owl:Class ;
+    rdfs:label "beef chuck"@en ;
+    rdfs:subClassOf obo:FOODON_00004470 .
+
+obo:FOODON_02000069 a owl:Class ;
+    rdfs:label "beef shoulder clod"@en ;
+    rdfs:subClassOf obo:FOODON_00004476 .
+
+obo:FOODON_02000117 a owl:Class ;
+    rdfs:label "beef loin (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003301,
+        obo:FOODON_02000463 .
+
+obo:FOODON_02000123 a owl:Class ;
+    rdfs:label "beef strip loin (boneless)"@en ;
+    rdfs:subClassOf obo:FOODON_00004476 .
+
+obo:FOODON_02000147 a owl:Class ;
+    rdfs:label "beef top sirloin butt"@en ;
+    rdfs:subClassOf obo:FOODON_00004476 .
+
+obo:FOODON_02000165 a owl:Class ;
+    rdfs:label "beef tri-tip steak"@en ;
+    rdfs:subClassOf obo:FOODON_00003029 .
+
+obo:FOODON_02000175 a owl:Class ;
+    rdfs:label "beef flank"@en ;
+    rdfs:subClassOf obo:FOODON_00004470 .
+
+obo:FOODON_02000189 a owl:Class ;
+    rdfs:label "beef brisket"@en ;
+    rdfs:subClassOf obo:FOODON_00004470,
+        obo:FOODON_03530020 .
+
+obo:FOODON_02000197 a owl:Class ;
+    rdfs:label "beef shank"@en ;
+    rdfs:subClassOf obo:FOODON_00004470 .
+
+obo:FOODON_02000203 a owl:Class ;
+    rdfs:label "beef rib"@en ;
+    rdfs:subClassOf obo:FOODON_00004470 .
+
+obo:FOODON_02000209 a owl:Class ;
+    rdfs:label "beef ribeye steak"@en ;
+    rdfs:subClassOf obo:FOODON_00003029 .
+
+obo:FOODON_02000217 a owl:Class ;
+    rdfs:label "beef ribeye cap steak"@en ;
+    rdfs:subClassOf obo:FOODON_00003029 .
+
+obo:FOODON_02000283 a owl:Class ;
+    rdfs:label "pork leg"@en ;
+    rdfs:subClassOf obo:FOODON_00004483 .
+
+obo:FOODON_02000315 a owl:Class ;
+    rdfs:label "pork loin back ribs"@en ;
+    rdfs:subClassOf obo:FOODON_00004486 .
+
+obo:FOODON_02000403 a owl:Class ;
+    rdfs:label "piece of beef"@en ;
+    rdfs:subClassOf obo:FOODON_00004530,
+        obo:FOODON_02010107 .
+
+obo:FOODON_02000413 a owl:Class ;
+    rdfs:label "piece(s) of beef (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02000412 .
+
+obo:FOODON_02000465 a owl:Class ;
+    rdfs:label "beef retail cut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004478,
+        obo:FOODON_02000415,
+        obo:FOODON_02010309 .
+
+obo:FOODON_02010004 a owl:Class ;
+    rdfs:label "animal egg (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010002 .
+
+obo:FOODON_02010012 a owl:Class ;
+    rdfs:label "animal milk"@en ;
+    rdfs:subClassOf obo:FOODON_02010001,
+        obo:UBERON_0001913 .
+
+obo:FOODON_02010056 a owl:Class ;
+    rdfs:label "animal ear"@en ;
+    rdfs:subClassOf obo:FOODON_00004436 .
+
+obo:FOODON_02010059 a owl:Class ;
+    rdfs:label "animal heart (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010042,
+        obo:FOODON_02010058 .
+
+obo:FOODON_02010066 a owl:Class ;
+    rdfs:label "animal tongue (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010049,
+        obo:FOODON_02010058 .
+
+obo:FOODON_02010141 a owl:Class ;
+    rdfs:label "animal wing (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010108,
+        obo:FOODON_02010126 .
+
+obo:FOODON_02010152 a owl:Class ;
+    rdfs:label "animal tail (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010108,
+        obo:FOODON_02010137 .
+
+obo:FOODON_02010312 a owl:Class ;
+    rdfs:label "animal roast"@en ;
+    rdfs:subClassOf obo:FOODON_00004338 .
+
+obo:FOODON_02010318 a owl:Class ;
+    rdfs:label "animal chop (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010309,
+        obo:FOODON_02010317 .
+
+obo:FOODON_02020011 a owl:Class ;
+    rdfs:label "animal thigh (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010110,
+        obo:FOODON_02010138,
+        obo:FOODON_02010153 .
+
+obo:FOODON_02020016 a owl:Class ;
+    rdfs:label "animal breast (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010110,
+        obo:FOODON_02010139,
+        obo:FOODON_02020015 .
+
+obo:FOODON_02020022 a owl:Class ;
+    rdfs:label "animal drumstick (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010110,
+        obo:FOODON_02010140,
+        obo:FOODON_02020021 .
+
+obo:FOODON_02020063 a owl:Class ;
+    rdfs:label "piece of avian animal meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010108,
+        obo:FOODON_02020061,
+        obo:FOODON_02020062 .
+
+obo:FOODON_02020149 a owl:Class ;
+    rdfs:label "chicken food product"@en ;
+    rdfs:subClassOf obo:FOODON_00004242,
+        obo:FOODON_02020150 .
+
+obo:FOODON_02020175 a owl:Class ;
+    rdfs:label "piece of chicken (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010031,
+        obo:FOODON_02020173,
+        obo:FOODON_03311865 .
+
+obo:FOODON_02020178 a owl:Class ;
+    rdfs:label "chicken heart"@en ;
+    rdfs:subClassOf obo:FOODON_02010042,
+        obo:FOODON_02020177 .
+
+obo:FOODON_02020224 a owl:Class ;
+    rdfs:label "chicken drumstick (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002716,
+        obo:FOODON_02020206,
+        obo:FOODON_02020706 .
+
+obo:FOODON_02020231 a owl:Class ;
+    rdfs:label "chicken breast (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_00002703,
+        obo:FOODON_02020015,
+        obo:FOODON_02020207 .
+
+obo:FOODON_02020237 a owl:Class ;
+    rdfs:label "chicken drumstick (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_00002716,
+        obo:FOODON_02020021,
+        obo:FOODON_02020207 .
+
+obo:FOODON_02020404 a owl:Class ;
+    rdfs:label "turkey material"@en ;
+    rdfs:subClassOf obo:FOODON_02020686 .
+
+obo:FOODON_02020428 a owl:Class ;
+    rdfs:label "piece of turkey"@en ;
+    rdfs:subClassOf obo:FOODON_02020404,
+        obo:FOODON_02020694 .
+
+obo:FOODON_02020633 a owl:Class ;
+    rdfs:label "butchery cut of turkey"@en ;
+    rdfs:subClassOf obo:FOODON_02020428 .
+
+obo:FOODON_02020634 a owl:Class ;
+    rdfs:label "turkey retail cut"@en ;
+    rdfs:subClassOf obo:FOODON_02020633 .
+
+obo:FOODON_02020705 a owl:Class ;
+    rdfs:label "poultry breast (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010139,
+        obo:FOODON_02020696,
+        obo:FOODON_03530158 .
+
+obo:FOODON_02020706 a owl:Class ;
+    rdfs:label "poultry drumstick (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003469,
+        obo:FOODON_02010140,
+        obo:FOODON_02020696 .
+
+obo:FOODON_02020707 a owl:Class ;
+    rdfs:label "poultry wing (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010141,
+        obo:FOODON_02020696,
+        obo:FOODON_03530157 .
+
+obo:FOODON_02020720 a owl:Class ;
+    rdfs:label "quail material"@en ;
+    rdfs:subClassOf obo:FOODON_02020050 .
+
+obo:FOODON_02020721 a owl:Class ;
+    rdfs:label "quail substance"@en ;
+    rdfs:subClassOf obo:FOODON_02010001,
+        obo:FOODON_02020720 .
+
+obo:FOODON_02020722 a owl:Class ;
+    rdfs:label "quail egg"@en ;
+    rdfs:subClassOf obo:FOODON_02010002,
+        obo:FOODON_02020721 .
+
+obo:FOODON_02020913 a owl:Class ;
+    rdfs:label "beef liver"@en ;
+    rdfs:subClassOf obo:FOODON_02010045,
+        obo:FOODON_02020910 .
+
+obo:FOODON_02020916 a owl:Class ;
+    rdfs:label "beef tongue"@en ;
+    rdfs:subClassOf obo:FOODON_02010049,
+        obo:FOODON_02020910 .
+
+obo:FOODON_02021055 a owl:Class ;
+    rdfs:label "goat material"@en ;
+    rdfs:subClassOf obo:FOODON_00005501 .
+
+obo:FOODON_02021056 a owl:Class ;
+    rdfs:label "goat substance"@en ;
+    rdfs:subClassOf obo:FOODON_02010001,
+        obo:FOODON_02021055 .
+
+obo:FOODON_02021444 a owl:Class ;
+    rdfs:label "crab food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001792,
+        obo:FOODON_02021445 .
+
+obo:FOODON_02021445 a owl:Class ;
+    rdfs:label "crab material"@en ;
+    rdfs:subClassOf obo:FOODON_00005708 .
+
+obo:FOODON_02021462 a owl:Class ;
+    rdfs:label "shrimp material"@en ;
+    rdfs:subClassOf obo:FOODON_00005708 .
+
+obo:FOODON_02021664 a owl:Class ;
+    rdfs:label "pork organ"@en ;
+    rdfs:subClassOf obo:FOODON_00004436,
+        obo:FOODON_00004493 .
+
+obo:FOODON_02021710 a owl:Class ;
+    rdfs:label "piece of pork meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010108,
+        obo:FOODON_02021659,
+        obo:FOODON_02021709 .
+
+obo:FOODON_02021711 a owl:Class ;
+    rdfs:label "pork tail"@en ;
+    rdfs:subClassOf obo:FOODON_02010137,
+        obo:FOODON_02021709 .
+
+obo:FOODON_02021756 a owl:Class ;
+    rdfs:label "pork retail cut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004488,
+        obo:FOODON_02010309,
+        obo:FOODON_02021659 .
+
+obo:FOODON_02022068 a owl:Class ;
+    rdfs:label "atlantic salmon material"@en ;
+    rdfs:subClassOf obo:FOODON_03420164 .
+
+obo:FOODON_02022072 a owl:Class ;
+    rdfs:label "piece of atlantic salmon"@en ;
+    rdfs:subClassOf obo:FOODON_00004332,
+        obo:FOODON_02022068 .
+
+obo:FOODON_02022074 a owl:Class ;
+    rdfs:label "butchery cut of atlantic salmon"@en ;
+    rdfs:subClassOf obo:FOODON_02022072 .
+
+obo:FOODON_02022076 a owl:Class ;
+    rdfs:label "atlantic salmon fillet (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010027,
+        obo:FOODON_02022075 .
+
+obo:FOODON_02022077 a owl:Class ;
+    rdfs:label "atlantic salmon fillet (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010029,
+        obo:FOODON_02022075 .
+
+obo:FOODON_03000018 a owl:Class ;
+    rdfs:label "red leaf lettuce"@en ;
+    rdfs:subClassOf obo:FOODON_00003423 .
+
+obo:FOODON_03000081 a owl:Class ;
+    rdfs:label "crookneck squash"@en ;
+    rdfs:subClassOf obo:FOODON_00003708 .
+
+obo:FOODON_03000083 a owl:Class ;
+    rdfs:label "New Zealand spinach food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002143 .
+
+obo:FOODON_03000084 a owl:Class ;
+    rdfs:label "New Zealand spinach leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00005757,
+        obo:FOODON_03000083,
+        obo:PO_0025034 .
+
+obo:FOODON_03000092 a owl:Class ;
+    rdfs:label "yellow bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001757 .
+
+obo:FOODON_03000128 a owl:Class ;
+    rdfs:label "serrano pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00003744 .
+
+obo:FOODON_03000148 a owl:Class ;
+    rdfs:label "watercress leaf"@en ;
+    rdfs:subClassOf obo:PO_0025034 .
+
+obo:FOODON_03000165 a owl:Class ;
+    rdfs:label "fish material"@en ;
+    rdfs:subClassOf obo:FOODON_00005502 .
+
+obo:FOODON_03000287 a owl:Class ;
+    rdfs:label "cheese"@en ;
+    rdfs:subClassOf obo:FOODON_00001013 .
+
+obo:FOODON_03301000 a owl:Class ;
+    rdfs:label "starch food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002131 .
+
+obo:FOODON_03301073 a owl:Class ;
+    rdfs:label "sugar (granulated)"@en ;
+    rdfs:subClassOf obo:FOODON_03307345 .
+
+obo:FOODON_03301077 a owl:Class ;
+    rdfs:label "fish (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001248 .
+
+obo:FOODON_03301081 a owl:Class ;
+    rdfs:label "crabmeat (shell off)"@en ;
+    rdfs:subClassOf obo:FOODON_02021444 .
+
+obo:FOODON_03301109 a owl:Class ;
+    rdfs:label "fruit pulp"@en ;
+    rdfs:subClassOf obo:FOODON_00004554,
+        obo:FOODON_03315615 .
+
+obo:FOODON_03301240 a owl:Class ;
+    rdfs:label "cherry (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003478,
+        obo:FOODON_03304644,
+        obo:PO_0030103 .
+
+obo:FOODON_03301337 a owl:Class ;
+    rdfs:label "citrus fruit (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003324,
+        obo:FOODON_03302007,
+        obo:FOODON_03304644 .
+
+obo:FOODON_03301352 a owl:Class ;
+    rdfs:label "peanut (skin off)"@en ;
+    rdfs:subClassOf obo:FOODON_00003205 .
+
+obo:FOODON_03301364 a owl:Class ;
+    rdfs:label "walnut"@en ;
+    rdfs:subClassOf obo:FOODON_00002338,
+        obo:PO_0030103 .
+
+obo:FOODON_03301444 a owl:Class ;
+    rdfs:label "vegetable juice food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001253 .
+
+obo:FOODON_03301469 a owl:Class ;
+    rdfs:label "bouillon cube"@en ;
+    rdfs:subClassOf obo:FOODON_00002257 .
+
+obo:FOODON_03301477 a owl:Class ;
+    rdfs:label "coffee bean"@en ;
+    rdfs:subClassOf obo:FOODON_00001139 .
+
+obo:FOODON_03301481 a owl:Class ;
+    rdfs:label "shrimp (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_03301673,
+        obo:FOODON_03310904 .
+
+obo:FOODON_03301503 a owl:Class ;
+    rdfs:label "cow milk (concentrated)"@en ;
+    rdfs:subClassOf obo:FOODON_03302116 .
+
+obo:FOODON_03301577 a owl:Class ;
+    rdfs:label "squash (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003539 .
+
+obo:FOODON_03301585 a owl:Class ;
+    rdfs:label "cookie"@en ;
+    rdfs:subClassOf obo:FOODON_00001762 .
+
+obo:FOODON_03301645 a owl:Class ;
+    rdfs:label "brazilnut (shell on)"@en ;
+    rdfs:subClassOf obo:FOODON_00001663,
+        obo:PO_0009010 .
+
+obo:FOODON_03301673 a owl:Class ;
+    rdfs:label "shrimp (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00002239 .
+
+obo:FOODON_03301724 a owl:Class ;
+    rdfs:label "pear (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003041 .
+
+obo:FOODON_03301826 a owl:Class ;
+    rdfs:label "olive oil"@en ;
+    rdfs:subClassOf obo:FOODON_00002065 .
+
+obo:FOODON_03301906 a owl:Class ;
+    rdfs:label "sandwich"@en ;
+    rdfs:subClassOf obo:FOODON_00002222 .
+
+obo:FOODON_03302200 a owl:Class ;
+    rdfs:label "wheat bread"@en ;
+    rdfs:subClassOf obo:FOODON_03301054 .
+
+obo:FOODON_03302389 a owl:Class ;
+    rdfs:label "soybean beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001253 .
+
+obo:FOODON_03302500 a owl:Class ;
+    rdfs:label "corn flour"@en ;
+    rdfs:subClassOf obo:FOODON_00001056,
+        obo:FOODON_00001089,
+        obo:FOODON_00001845 .
+
+obo:FOODON_03303012 a owl:Class ;
+    rdfs:label "chicken breast (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002703,
+        obo:FOODON_02020184,
+        obo:FOODON_02020206,
+        obo:FOODON_02020705 .
+
+obo:FOODON_03304096 a owl:Class ;
+    rdfs:label "chocolate chip"@en ;
+    rdfs:subClassOf obo:FOODON_00002286 .
+
+obo:FOODON_03304313 a owl:Class ;
+    rdfs:label "seed sprout"@en ;
+    rdfs:subClassOf obo:FOODON_00002153 .
+
+obo:FOODON_03304497 a owl:Class ;
+    rdfs:label "edible seed food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_03304996 a owl:Class ;
+    rdfs:label "soybean material"@en ;
+    rdfs:subClassOf obo:FOODON_00002403,
+        obo:FOODON_03301467 .
+
+obo:FOODON_03305320 a owl:Class ;
+    rdfs:label "tropical fruit (pulp)"@en ;
+    rdfs:subClassOf obo:FOODON_00002689,
+        obo:FOODON_03301109 .
+
+obo:FOODON_03305509 a owl:Class ;
+    rdfs:label "chocolate cow milk food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001123 .
+
+obo:FOODON_03305806 a owl:Class ;
+    rdfs:label "green bean pod"@en ;
+    rdfs:subClassOf obo:FOODON_00001934,
+        obo:FOODON_00002812,
+        obo:FOODON_03311356 .
+
+obo:FOODON_03306448 a owl:Class ;
+    rdfs:label "infant food product"@en ;
+    rdfs:subClassOf obo:FOODON_03317423 .
+
+obo:FOODON_03306633 a owl:Class ;
+    rdfs:label "olive oil (virgin)"@en ;
+    rdfs:subClassOf obo:FOODON_03301826 .
+
+obo:FOODON_03306811 a owl:Class ;
+    rdfs:label "chickpea"@en ;
+    rdfs:subClassOf obo:FOODON_00001199,
+        obo:FOODON_00002753 .
+
+obo:FOODON_03307064 a owl:Class ;
+    rdfs:label "poultry (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03310611 .
+
+obo:FOODON_03307345 a owl:Class ;
+    rdfs:label "sugar (refined)"@en ;
+    rdfs:subClassOf obo:FOODON_03316271 .
+
+obo:FOODON_03307443 a owl:Class ;
+    rdfs:label "yogurt with fruit"@en ;
+    rdfs:subClassOf obo:FOODON_00001014 .
+
+obo:FOODON_03309664 a owl:Class ;
+    rdfs:label "tofu food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002266 .
+
+obo:FOODON_03309756 a owl:Class ;
+    rdfs:label "loquat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_03310006 a owl:Class ;
+    rdfs:label "fermented bean product"@en ;
+    rdfs:subClassOf obo:FOODON_00001258,
+        obo:FOODON_00001635 .
+
+obo:FOODON_03310060 a owl:Class ;
+    rdfs:label "pink bean"@en ;
+    rdfs:subClassOf obo:FOODON_00002768,
+        obo:FOODON_00003403 .
+
+obo:FOODON_03310166 a owl:Class ;
+    rdfs:label "chicken thigh (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010138,
+        obo:FOODON_02020206,
+        obo:FOODON_02020219 .
+
+obo:FOODON_03310546 a owl:Class ;
+    rdfs:label "tea (steeped)"@en ;
+    rdfs:subClassOf obo:FOODON_00001245 .
+
+obo:FOODON_03310788 a owl:Class ;
+    rdfs:label "apple (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001611 .
+
+obo:FOODON_03310791 a owl:Class ;
+    rdfs:label "corn cob (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001142 .
+
+obo:FOODON_03310904 a owl:Class ;
+    rdfs:label "crustacean (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001181,
+        obo:FOODON_03317448 .
+
+obo:FOODON_03310943 a owl:Class ;
+    rdfs:label "zucchini squash"@en ;
+    rdfs:subClassOf obo:FOODON_00002448,
+        obo:FOODON_00003539 .
+
+obo:FOODON_03311356 a owl:Class ;
+    rdfs:label "pole bean pod"@en ;
+    rdfs:subClassOf obo:FOODON_00002765 .
+
+obo:FOODON_03311552 a owl:Class ;
+    rdfs:label "dough"@en ;
+    rdfs:subClassOf obo:FOODON_00002125 .
+
+obo:FOODON_03311737 a owl:Class ;
+    rdfs:label "processed food"@en ;
+    rdfs:subClassOf obo:FOODON_00001002,
+        obo:FOODON_00002645 .
+
+obo:FOODON_03315354 a owl:Class ;
+    rdfs:label "potato"@en ;
+    rdfs:subClassOf obo:FOODON_00001148,
+        obo:PO_0004543 .
+
+obo:FOODON_03315502 a owl:Class ;
+    rdfs:label "peach"@en ;
+    rdfs:subClassOf obo:FOODON_00002485,
+        obo:PO_0030103 .
+
+obo:FOODON_03315614 a owl:Class ;
+    rdfs:label "berry product"@en ;
+    rdfs:subClassOf obo:FOODON_00001640 .
+
+obo:FOODON_03315772 a owl:Class ;
+    rdfs:label "chicken egg yolk food product"@en ;
+    rdfs:subClassOf obo:FOODON_03315102 .
+
+obo:FOODON_03315926 a owl:Class ;
+    rdfs:label "meat pie food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002114 .
+
+obo:FOODON_03316257 a owl:Class ;
+    rdfs:label "Cavendish banana"@en ;
+    rdfs:subClassOf obo:FOODON_00001756,
+        obo:FOODON_00004183 .
+
+obo:FOODON_03316271 a owl:Class ;
+    rdfs:label "sugar product"@en ;
+    rdfs:subClassOf obo:FOODON_00002157 .
+
+obo:FOODON_03316347 a owl:Class ;
+    rdfs:label "onion"@en ;
+    rdfs:subClassOf obo:FOODON_00002069,
+        obo:PO_0025356 .
+
+obo:FOODON_03316433 a owl:Class ;
+    rdfs:label "bread (cut)"@en ;
+    rdfs:subClassOf obo:FOODON_00001183 .
+
+obo:FOODON_03316449 a owl:Class ;
+    rdfs:label "dough raising agent"@en ;
+    rdfs:subClassOf obo:FOODON_00002384 .
+
+obo:FOODON_03316522 a owl:Class ;
+    rdfs:label "tomato multi-component product"@en ;
+    rdfs:subClassOf obo:FOODON_03316579 .
+
+obo:FOODON_03316796 a owl:Class ;
+    rdfs:label "fig (canned)"@en ;
+    rdfs:subClassOf obo:FOODON_00001851 .
+
+obo:FOODON_03317254 a owl:Class ;
+    rdfs:label "beetroot"@en ;
+    rdfs:subClassOf obo:FOODON_00001638,
+        obo:PO_0020127 .
+
+obo:FOODON_03317284 a owl:Class ;
+    rdfs:label "meatball"@en ;
+    rdfs:subClassOf obo:FOODON_03315665 .
+
+obo:FOODON_03317337 a owl:Class ;
+    rdfs:label "ground beef patty"@en ;
+    rdfs:subClassOf obo:FOODON_00001282 .
+
+obo:FOODON_03317423 a owl:Class ;
+    rdfs:label "food for infants or young children"@en ;
+    rdfs:subClassOf obo:FOODON_00002147 .
+
+obo:FOODON_03317448 a owl:Class ;
+    rdfs:label "crustacean (whole or flesh piece)"@en ;
+    rdfs:subClassOf obo:FOODON_00001792 .
+
+obo:FOODON_03317450 a owl:Class ;
+    rdfs:label "coffee bean (roasted)"@en ;
+    rdfs:subClassOf obo:FOODON_03301477 .
+
+obo:FOODON_03400172 a owl:Class ;
+    rdfs:label "prepared food product (us cfr)"@en ;
+    rdfs:subClassOf obo:FOODON_03401270 .
+
+obo:FOODON_03400222 a owl:Class ;
+    rdfs:label "dessert (us cfr)"@en ;
+    rdfs:subClassOf obo:FOODON_03400172 .
+
+obo:FOODON_03400285 a owl:Class ;
+    rdfs:label "custard or pudding (us cfr)"@en ;
+    rdfs:subClassOf obo:FOODON_03400222 .
+
+obo:FOODON_03400289 a owl:Class ;
+    rdfs:label "USA agency food product type"@en ;
+    rdfs:subClassOf obo:FOODON_03400361 .
+
+obo:FOODON_03400352 a owl:Class ;
+    rdfs:label "international agency food product type"@en ;
+    rdfs:subClassOf obo:FOODON_03400361 .
+
+obo:FOODON_03400778 a owl:Class ;
+    rdfs:label "milk, milk product or milk substitute (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400777 .
+
+obo:FOODON_03400784 a owl:Class ;
+    rdfs:label "cheese (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400778 .
+
+obo:FOODON_03400840 a owl:Class ;
+    rdfs:label "beverage (non-milk) (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400777 .
+
+obo:FOODON_03400842 a owl:Class ;
+    rdfs:label "non alcoholic beverage (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400840 .
+
+obo:FOODON_03400852 a owl:Class ;
+    rdfs:label "miscellaneous food product (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400777 .
+
+obo:FOODON_03400861 a owl:Class ;
+    rdfs:label "prepared food product (eurofir)"@en ;
+    rdfs:subClassOf obo:FOODON_03400852 .
+
+obo:FOODON_03400994 a owl:Class ;
+    rdfs:label "50250000 - fruits - unprepared/unprocessed (fresh) (gs1 gpc)"@en ;
+    rdfs:subClassOf obo:FOODON_03400874 .
+
+obo:FOODON_03401061 a owl:Class ;
+    rdfs:label "50190000 - prepared/preserved foods (gs1 gpc)"@en ;
+    rdfs:subClassOf obo:FOODON_03400874 .
+
+obo:FOODON_03401112 a owl:Class ;
+    rdfs:label "50192400 - sweet spreads (gs1 gpc)"@en ;
+    rdfs:subClassOf obo:FOODON_03401061 .
+
+obo:FOODON_03401270 a owl:Class ;
+    rdfs:label "U.S. code of federal regulations, title 21 food product type"@en ;
+    rdfs:subClassOf obo:FOODON_03400289 .
+
+obo:FOODON_03401337 a owl:Class ;
+    rdfs:label "50251000 - berries/small fruit (gs1 gpc)"@en ;
+    rdfs:subClassOf obo:FOODON_03400994 .
+
+obo:FOODON_03411013 a owl:Class ;
+    rdfs:label "plant used for producing extract or concentrate"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03411017 a owl:Class ;
+    rdfs:label "oil-producing plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411013 .
+
+obo:FOODON_03411021 a owl:Class ;
+    rdfs:label "fish or lower water animal"@en ;
+    rdfs:subClassOf obo:FOODON_00003004 .
+
+obo:FOODON_03411022 a owl:Class ;
+    rdfs:label "tropical or subtropical nut producing plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411213 .
+
+obo:FOODON_03411040 a owl:Class ;
+    rdfs:label "bullhead catfish family"@en ;
+    rdfs:subClassOf obo:FOODON_03411598 .
+
+obo:FOODON_03411058 a owl:Class ;
+    rdfs:label "vegetable-producing plant, most parts"@en ;
+    rdfs:subClassOf obo:FOODON_03411579 .
+
+obo:FOODON_03411067 a owl:Class ;
+    rdfs:label "lime (citrus) plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411139 .
+
+obo:FOODON_03411124 a owl:Class ;
+    rdfs:label "herring family"@en ;
+    rdfs:subClassOf obo:FOODON_03411601 .
+
+obo:FOODON_03411156 a owl:Class ;
+    rdfs:label "pod or seed vegetable plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411057 .
+
+obo:FOODON_03411179 a owl:Class ;
+    rdfs:label "spice or flavor-producing plant"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03411189 a owl:Class ;
+    rdfs:label "winter squash cultivar"@en ;
+    rdfs:subClassOf obo:FOODON_03411208 .
+
+obo:FOODON_03411208 a owl:Class ;
+    rdfs:label "squash plant"@en ;
+    rdfs:subClassOf obo:FOODON_03412091 .
+
+obo:FOODON_03411213 a owl:Class ;
+    rdfs:label "nut producing plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411607 .
+
+obo:FOODON_03411222 a owl:Class ;
+    rdfs:label "fish species"@en ;
+    rdfs:subClassOf obo:FOODON_03411021,
+        obo:FOODON_03411297 .
+
+obo:FOODON_03411231 a owl:Class ;
+    rdfs:label "berry plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411140 .
+
+obo:FOODON_03411261 a owl:Class ;
+    rdfs:label "fungus"@en ;
+    rdfs:subClassOf obo:FOODON_00004336 .
+
+obo:FOODON_03411297 a owl:Class ;
+    rdfs:label "vertebrate animal"@en ;
+    rdfs:subClassOf obo:FOODON_00003004 .
+
+obo:FOODON_03411324 a owl:Class ;
+    rdfs:label "grain plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411047 .
+
+obo:FOODON_03411339 a owl:Class ;
+    rdfs:label "orange plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411139 .
+
+obo:FOODON_03411345 a owl:Class ;
+    rdfs:label "yeast"@en ;
+    rdfs:subClassOf obo:FOODON_00001144,
+        obo:FOODON_03411261 .
+
+obo:FOODON_03411458 a owl:Class ;
+    rdfs:label "eggplant plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411006,
+        obo:FOODON_03415104 .
+
+obo:FOODON_03411478 a owl:Class ;
+    rdfs:label "scallion plant"@en ;
+    rdfs:subClassOf obo:FOODON_00002695,
+        obo:FOODON_03411058,
+        obo:FOODON_03414302 .
+
+obo:FOODON_03411566 a owl:Class ;
+    rdfs:label "leafy vegetable plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411057 .
+
+obo:FOODON_03411567 a owl:Class ;
+    rdfs:label "bean plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411156 .
+
+obo:FOODON_03411581 a owl:Class ;
+    rdfs:label "perciform fish"@en ;
+    rdfs:subClassOf obo:FOODON_00005679,
+        obo:FOODON_03411365 .
+
+obo:FOODON_03411598 a owl:Class ;
+    rdfs:label "siluriform fish"@en ;
+    rdfs:subClassOf obo:FOODON_03411365 .
+
+obo:FOODON_03411601 a owl:Class ;
+    rdfs:label "clupeiform fish"@en ;
+    rdfs:subClassOf obo:FOODON_00005727,
+        obo:FOODON_03411365 .
+
+obo:FOODON_03411607 a owl:Class ;
+    rdfs:label "nut or edible seed producing plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411047 .
+
+obo:FOODON_03412091 a owl:Class ;
+    rdfs:label "squash, gourd or pumpkin plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411006,
+        obo:FOODON_03414460 .
+
+obo:FOODON_03412657 a owl:Class ;
+    rdfs:label "weakfish group"@en ;
+    rdfs:subClassOf obo:FOODON_03412005 .
+
+obo:FOODON_03413387 a owl:Class ;
+    rdfs:label "tropical or subtropical fruit - edible peel plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411024 .
+
+obo:FOODON_03413879 a owl:Class ;
+    rdfs:label "hake family"@en ;
+    rdfs:subClassOf obo:FOODON_03411157 .
+
+obo:FOODON_03414168 a owl:Class ;
+    rdfs:label "plant used for dietary supplements"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03414302 a owl:Class ;
+    rdfs:label "allium species"@en ;
+    rdfs:subClassOf obo:FOODON_03413357 .
+
+obo:FOODON_03414460 a owl:Class ;
+    rdfs:label "gourd/squash family"@en ;
+    rdfs:subClassOf obo:FOODON_03413357 .
+
+obo:FOODON_03414934 a owl:Class ;
+    rdfs:label "solanaceae plant"@en ;
+    rdfs:subClassOf obo:FOODON_03413357 .
+
+obo:FOODON_03415104 a owl:Class ;
+    rdfs:label "solanum plant"@en ;
+    rdfs:subClassOf obo:FOODON_03414934 .
+
+obo:FOODON_03420100 a owl:Class ;
+    rdfs:label "root, tuber or bulb, with part of top"@en ;
+    rdfs:subClassOf obo:FOODON_03420148 .
+
+obo:FOODON_03420102 a owl:Class ;
+    rdfs:label "germinated or sprouted seed"@en ;
+    rdfs:subClassOf obo:FOODON_03304313,
+        obo:FOODON_03420133 .
+
+obo:FOODON_03420129 a owl:Class ;
+    rdfs:label "cardiovascular system organ"@en ;
+    rdfs:subClassOf obo:FOODON_03420218 .
+
+obo:FOODON_03420133 a owl:Class ;
+    rdfs:label "seed, skin present, germ present"@en ;
+    rdfs:subClassOf obo:FOODON_03420135 .
+
+obo:FOODON_03420134 a owl:Class ;
+    rdfs:label "seed, skin removed"@en ;
+    rdfs:subClassOf obo:FOODON_03420178 .
+
+obo:FOODON_03420135 a owl:Class ;
+    rdfs:label "seed, skin present"@en ;
+    rdfs:subClassOf obo:FOODON_03420178 .
+
+obo:FOODON_03420152 a owl:Class ;
+    rdfs:label "carbohydrate extract, concentrate, or isolate"@en ;
+    rdfs:subClassOf obo:FOODON_03420228 .
+
+obo:FOODON_03420183 a owl:Class ;
+    rdfs:label "sprout"@en ;
+    rdfs:subClassOf obo:FOODON_03420144 .
+
+obo:FOODON_03420208 a owl:Class ;
+    rdfs:label "seed, skin removed, germ removed (endosperm)"@en ;
+    rdfs:subClassOf obo:FOODON_03420134 .
+
+obo:FOODON_03420238 a owl:Class ;
+    rdfs:label "root, tuber or bulb"@en ;
+    rdfs:subClassOf obo:FOODON_03420148 .
+
+obo:FOODON_03430109 a owl:Class ;
+    rdfs:label "liquid, lower viscosity"@en ;
+    rdfs:subClassOf obo:FOODON_03430130 .
+
+obo:FOODON_03430123 a owl:Class ;
+    rdfs:label "liquid, low viscosity, with no visible particles"@en ;
+    rdfs:subClassOf obo:FOODON_03430109 .
+
+obo:FOODON_03460263 a owl:Class ;
+    rdfs:label "vegetable fat or oil"@en ;
+    rdfs:subClassOf obo:FOODON_00001174 .
+
+obo:FOODON_03530008 a owl:Class ;
+    rdfs:label "cut of meat, u.s."@en ;
+    rdfs:subClassOf obo:FOODON_03530146 .
+
+obo:FOODON_03530020 a owl:Class ;
+    rdfs:label "brisket"@en ;
+    rdfs:subClassOf obo:FOODON_03530008 .
+
+obo:FOODON_03530156 a owl:Class ;
+    rdfs:label "cut of poultry meat"@en ;
+    rdfs:subClassOf obo:FOODON_03530146 .
+
+obo:FOODON_03530160 a owl:Class ;
+    rdfs:label "poultry thigh"@en ;
+    rdfs:subClassOf obo:FOODON_02010123,
+        obo:FOODON_03315883 .
+
+obo:FOODON_03540002 a owl:Class ;
+    rdfs:label "00020 - cereals and cereal primary derivatives (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540001 .
+
+obo:FOODON_03540078 a owl:Class ;
+    rdfs:label "00780 - rye flour (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540067 .
+
+obo:FOODON_03540174 a owl:Class ;
+    rdfs:label "01740 - pasta, doughs and similar products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540001 .
+
+obo:FOODON_03540176 a owl:Class ;
+    rdfs:label "01760 - pasta, plain (not stuffed), uncooked (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540175 .
+
+obo:FOODON_03540178 a owl:Class ;
+    rdfs:label "01780 - fresh pasta (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540176 .
+
+obo:FOODON_03540191 a owl:Class ;
+    rdfs:label "01910 - pasta-like products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540175 .
+
+obo:FOODON_03540308 a owl:Class ;
+    rdfs:label "03080 - breakfast cereals (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540001 .
+
+obo:FOODON_03540335 a owl:Class ;
+    rdfs:label "03350 - muesli and similar mixed breakfast cereals (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540308 .
+
+obo:FOODON_03540359 a owl:Class ;
+    rdfs:label "03590 - leafy vegetables (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540358 .
+
+obo:FOODON_03540364 a owl:Class ;
+    rdfs:label "03640 - lettuces and similar- (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540360 .
+
+obo:FOODON_03540397 a owl:Class ;
+    rdfs:label "03970 - other lettuces and salad plants (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540360 .
+
+obo:FOODON_03540594 a owl:Class ;
+    rdfs:label "05940 - legumes with pod (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540358 .
+
+obo:FOODON_03540619 a owl:Class ;
+    rdfs:label "06190 - peas (with pods) and similar- (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540594 .
+
+obo:FOODON_03540708 a owl:Class ;
+    rdfs:label "07080 - root and tuber vegetables (excluding starchy- and sugar-) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540358 .
+
+obo:FOODON_03540754 a owl:Class ;
+    rdfs:label "07540 - additional not listed root and tuber vegetables (excluding starchy- and sugar-) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540708 .
+
+obo:FOODON_03540932 a owl:Class ;
+    rdfs:label "09320 - processed or preserved vegetables and similar (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540358 .
+
+obo:FOODON_03540951 a owl:Class ;
+    rdfs:label "09510 - canned/jarred vegetables (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540932 .
+
+obo:FOODON_03541421 a owl:Class ;
+    rdfs:label "14210 - fruit and fruit products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03541422 a owl:Class ;
+    rdfs:label "14220 - fruit used as fruit (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03541421 .
+
+obo:FOODON_03541640 a owl:Class ;
+    rdfs:label "16400 - miscellaneous fruits with edible peel (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03541422 .
+
+obo:FOODON_03541660 a owl:Class ;
+    rdfs:label "16600 - carambolas and similar- (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03541640 .
+
+obo:FOODON_03542650 a owl:Class ;
+    rdfs:label "26500 - milk, whey and cream (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542649 .
+
+obo:FOODON_03542680 a owl:Class ;
+    rdfs:label "26800 - cream and cream products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542650 .
+
+obo:FOODON_03542719 a owl:Class ;
+    rdfs:label "27190 - milk and dairy powders and concentrates (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542649 .
+
+obo:FOODON_03542724 a owl:Class ;
+    rdfs:label "27240 - milk and dairy powders (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542719 .
+
+obo:FOODON_03542982 a owl:Class ;
+    rdfs:label "29820 - sugar and other sweetening ingredients (excluding intensive sweeteners) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542981 .
+
+obo:FOODON_03543000 a owl:Class ;
+    rdfs:label "30000 - syrups (molasses and other syrups) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542982 .
+
+obo:FOODON_03543001 a owl:Class ;
+    rdfs:label "30010 - molasses (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543000 .
+
+obo:FOODON_03543032 a owl:Class ;
+    rdfs:label "30320 - confectionery including chocolate (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03542981 .
+
+obo:FOODON_03543058 a owl:Class ;
+    rdfs:label "30580 - sweet bars and other formed sweet masses (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543032 .
+
+obo:FOODON_03543157 a owl:Class ;
+    rdfs:label "31570 - fruit and vegetable juices and nectars (including concentrates) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03543228 a owl:Class ;
+    rdfs:label "32280 - concentrated or dehydrated fruit/vegetables juices (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543157 .
+
+obo:FOODON_03543229 a owl:Class ;
+    rdfs:label "32290 - fruit/vegetable juice concentrate (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543228 .
+
+obo:FOODON_03543230 a owl:Class ;
+    rdfs:label "32300 - fruit juice concentrates (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543229 .
+
+obo:FOODON_03543261 a owl:Class ;
+    rdfs:label "32610 - water and water-based beverages (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03543277 a owl:Class ;
+    rdfs:label "32770 - water based beverages (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543261 .
+
+obo:FOODON_03543322 a owl:Class ;
+    rdfs:label "33220 - functional drinks (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543277 .
+
+obo:FOODON_03543330 a owl:Class ;
+    rdfs:label "33300 - alcoholic beverages (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03543403 a owl:Class ;
+    rdfs:label "34030 - ingredients for coffee, cocoa, tea, and herbal infusions (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543402 .
+
+obo:FOODON_03543662 a owl:Class ;
+    rdfs:label "36620 - materials for infusions or hot drinks of miscellaneous origin (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543403 .
+
+obo:FOODON_03543666 a owl:Class ;
+    rdfs:label "36660 - herbal infusion materials from any other parts of the plant (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543662 .
+
+obo:FOODON_03543700 a owl:Class ;
+    rdfs:label "37000 - hot drinks and similar (coffee, cocoa, tea and herbal infusions) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543402 .
+
+obo:FOODON_03543722 a owl:Class ;
+    rdfs:label "37220 - cocoa beverages (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543700 .
+
+obo:FOODON_03543845 a owl:Class ;
+    rdfs:label "38450 - composite dishes (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03543846 a owl:Class ;
+    rdfs:label "38460 - dishes, incl. ready to eat meals (excluding soups and salads) (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543845 .
+
+obo:FOODON_03543847 a owl:Class ;
+    rdfs:label "38470 - dishes excluding pasta or rice dishes, sandwiches and pizza (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543846 .
+
+obo:FOODON_03543873 a owl:Class ;
+    rdfs:label "38730 - egg based dishes (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03543847 .
+
+obo:FOODON_03544154 a owl:Class ;
+    rdfs:label "41540 - isolated proteins and other protein products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03544153 .
+
+obo:FOODON_03544162 a owl:Class ;
+    rdfs:label "41620 - starches (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03544153 .
+
+obo:PO_0005005 a owl:Class ;
+    rdfs:label "shoot axis internode"@en ;
+    rdfs:subClassOf obo:PO_0025001 .
+
+obo:PO_0006001 a owl:Class ;
+    rdfs:label "phyllome"@en ;
+    rdfs:subClassOf obo:PO_0009008,
+        obo:UBERON_0001062 .
+
+obo:PO_0009006 a owl:Class ;
+    rdfs:label "shoot system"@en ;
+    rdfs:subClassOf obo:PO_0025007 .
+
+obo:PO_0009025 a owl:Class ;
+    rdfs:label "vascular leaf"@en ;
+    rdfs:subClassOf obo:PO_0025034 .
+
+obo:PO_0009049 a owl:Class ;
+    rdfs:label "inflorescence"@en ;
+    rdfs:subClassOf obo:PO_0025131 .
+
+obo:PO_0020038 a owl:Class ;
+    rdfs:label "petiole"@en ;
+    rdfs:subClassOf obo:PO_0025066 .
+
+obo:PO_0020100 a owl:Class ;
+    rdfs:label "hypocotyl"@en ;
+    rdfs:subClassOf obo:PO_0020142 .
+
+obo:PO_0020142 a owl:Class ;
+    rdfs:label "stem internode"@en ;
+    rdfs:subClassOf obo:PO_0005005 .
+
+obo:PO_0025022 a owl:Class ;
+    rdfs:label "collective leaf structure"@en ;
+    rdfs:subClassOf obo:PO_0025023 .
+
+obo:PO_0025023 a owl:Class ;
+    rdfs:label "collective phyllome structure"@en ;
+    rdfs:subClassOf obo:PO_0025007 .
+
+obo:PO_0025029 a owl:Class ;
+    rdfs:label "shoot axis"@en ;
+    rdfs:subClassOf obo:PO_0025004 .
+
+obo:PO_0025066 a owl:Class ;
+    rdfs:label "stalk"@en ;
+    rdfs:subClassOf obo:PO_0025001 .
+
+obo:PO_0025497 a owl:Class ;
+    rdfs:label "collective plant structure"@en ;
+    rdfs:subClassOf obo:PO_0009011 .
+
+obo:PO_0025498 a owl:Class ;
+    rdfs:label "cardinal part of multi-tissue plant structure"@en ;
+    rdfs:subClassOf obo:PO_0009011 .
+
+obo:PO_0030091 a owl:Class ;
+    rdfs:label "capsule fruit"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:PO_0030092 a owl:Class ;
+    rdfs:label "loculicidal capsule fruit"@en ;
+    rdfs:subClassOf obo:PO_0030091 .
+
+obo:PO_0030100 a owl:Class ;
+    rdfs:label "legume fruit"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:PO_0030109 a owl:Class ;
+    rdfs:label "hesperidium fruit"@en ;
+    rdfs:subClassOf obo:PO_0030108 .
+
+obo:UBERON_0000001 a owl:Class ;
+    rdfs:label "gross anatomical part"@en ;
+    rdfs:subClassOf obo:UBERON_0000465 .
+
+obo:UBERON_0000061 a owl:Class ;
+    rdfs:label "anatomical structure"@en ;
+    rdfs:subClassOf obo:UBERON_0000465 .
+
+obo:UBERON_0000062 a owl:Class ;
+    rdfs:label "organ"@en ;
+    rdfs:subClassOf obo:UBERON_0010000 .
+
+obo:UBERON_0000064 a owl:Class ;
+    rdfs:label "organ part"@en ;
+    rdfs:subClassOf obo:UBERON_0010000 .
+
+obo:UBERON_0000456 a owl:Class ;
+    rdfs:label "secretion of exocrine gland"@en ;
+    rdfs:subClassOf obo:UBERON_0000463 .
+
+obo:UBERON_0000468 a owl:Class ;
+    rdfs:label "multicellular organism"@en ;
+    rdfs:subClassOf obo:UBERON_0010000 .
+
+obo:UBERON_0000945 a owl:Class ;
+    rdfs:label "stomach"@en ;
+    rdfs:subClassOf obo:UBERON_0004921,
+        obo:UBERON_0010039 .
+
+obo:UBERON_0001913 a owl:Class ;
+    rdfs:label "milk"@en ;
+    rdfs:subClassOf obo:FOODON_03315150,
+        obo:UBERON_0006314,
+        obo:UBERON_0006539 .
+
+obo:UBERON_0004921 a owl:Class ;
+    rdfs:label "subdivision of digestive tract"@en ;
+    rdfs:subClassOf obo:UBERON_0013522 .
+
+obo:UBERON_0006314 a owl:Class ;
+    rdfs:label "bodily fluid"@en ;
+    rdfs:subClassOf obo:UBERON_0000463 .
+
+obo:UBERON_0006539 a owl:Class ;
+    rdfs:label "mammary gland fluid/secretion"@en ;
+    rdfs:subClassOf obo:UBERON_0000456 .
+
+obo:UBERON_0007366 a owl:Class ;
+    rdfs:label "ruminant stomach"@en ;
+    rdfs:subClassOf obo:UBERON_0000945 .
+
+obo:UBERON_0010039 a owl:Class ;
+    rdfs:label "food storage organ"@en ;
+    rdfs:subClassOf obo:UBERON_0013765 .
+
+obo:UBERON_0013522 a owl:Class ;
+    rdfs:label "subdivision of tube"@en ;
+    rdfs:subClassOf obo:UBERON_0000064 .
+
+obo:UBERON_0013765 a owl:Class ;
+    rdfs:label "digestive system element"@en ;
+    rdfs:subClassOf obo:UBERON_0000062 .
+
+obo:BFO_0000027 a owl:Class ;
+    rdfs:label "object aggregate"@en ;
+    rdfs:subClassOf obo:BFO_0000040 .
+
+obo:FOODON_00001010 a owl:Class ;
+    rdfs:label "processed meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001006 .
+
+obo:FOODON_00001083 a owl:Class ;
+    rdfs:label "sugar condiment"@en ;
+    rdfs:subClassOf obo:FOODON_00001133 .
+
+obo:FOODON_00001087 a owl:Class ;
+    rdfs:label "vegetable oil food product"@en ;
+    rdfs:subClassOf obo:FOODON_03310387,
+        obo:FOODON_03460263 .
+
+obo:FOODON_00001089 a owl:Class ;
+    rdfs:label "milled corn food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001142,
+        obo:FOODON_00004509 .
+
+obo:FOODON_00001139 a owl:Class ;
+    rdfs:label "coffee based beverage product"@en ;
+    rdfs:subClassOf obo:FOODON_00001255,
+        obo:FOODON_00002275 .
+
+obo:FOODON_00001146 a owl:Class ;
+    rdfs:label "solanaceous root food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001147,
+        obo:FOODON_00001165 .
+
+obo:FOODON_00001147 a owl:Class ;
+    rdfs:label "plant root food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001148 a owl:Class ;
+    rdfs:label "potato food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001146 .
+
+obo:FOODON_00001149 a owl:Class ;
+    rdfs:label "confectionery food"@en ;
+    rdfs:subClassOf obo:FOODON_00002373 .
+
+obo:FOODON_00001152 a owl:Class ;
+    rdfs:label "melon fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002029 .
+
+obo:FOODON_00001156 a owl:Class ;
+    rdfs:label "citrus fruit juice"@en ;
+    rdfs:subClassOf obo:FOODON_00001140,
+        obo:FOODON_00001151 .
+
+obo:FOODON_00001158 a owl:Class ;
+    rdfs:label "pomaceous fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00001165 a owl:Class ;
+    rdfs:label "solanaceous food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001169 a owl:Class ;
+    rdfs:label "cruciferous food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001174 a owl:Class ;
+    rdfs:label "plant lipid food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015,
+        obo:FOODON_00002664 .
+
+obo:FOODON_00001211 a owl:Class ;
+    rdfs:label "pasta food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001002 .
+
+obo:FOODON_00001242 a owl:Class ;
+    rdfs:label "spice or herb"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001251 a owl:Class ;
+    rdfs:label "avian food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001092,
+        obo:FOODON_02020050 .
+
+obo:FOODON_00001262 a owl:Class ;
+    rdfs:label "botanical fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001278 a owl:Class ;
+    rdfs:label "cake food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001626 .
+
+obo:FOODON_00001286 a owl:Class ;
+    rdfs:label "turkey meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001131 .
+
+obo:FOODON_00001567 a owl:Class ;
+    rdfs:label "animal primal cut"@en ;
+    rdfs:subClassOf obo:FOODON_03530146 .
+
+obo:FOODON_00001605 a owl:Class ;
+    rdfs:label "animal product sausage"@en ;
+    rdfs:subClassOf obo:FOODON_00001007 .
+
+obo:FOODON_00001606 a owl:Class ;
+    rdfs:label "soup animal component"@en ;
+    rdfs:subClassOf obo:FOODON_00002257 .
+
+obo:FOODON_00001638 a owl:Class ;
+    rdfs:label "beet food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00001666 a owl:Class ;
+    rdfs:label "broccoli food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002142,
+        obo:FOODON_00002156,
+        obo:FOODON_00003341 .
+
+obo:FOODON_00001687 a owl:Class ;
+    rdfs:label "carrot food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00001692 a owl:Class ;
+    rdfs:label "cassava food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002150 .
+
+obo:FOODON_00001772 a owl:Class ;
+    rdfs:label "cow milk butter food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001771 .
+
+obo:FOODON_00001830 a owl:Class ;
+    rdfs:label "eggplant food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00001851 a owl:Class ;
+    rdfs:label "fig food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00001931 a owl:Class ;
+    rdfs:label "gravy or sauce"@en ;
+    rdfs:subClassOf obo:FOODON_00001714 .
+
+obo:FOODON_00001940 a owl:Class ;
+    rdfs:label "guava food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002689 .
+
+obo:FOODON_00002018 a owl:Class ;
+    rdfs:label "mandarin orange food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001151 .
+
+obo:FOODON_00002066 a owl:Class ;
+    rdfs:label "olive food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00002071 a owl:Class ;
+    rdfs:label "orange food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001151 .
+
+obo:FOODON_00002086 a owl:Class ;
+    rdfs:label "passion food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002111 a owl:Class ;
+    rdfs:label "pepper vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00002152 a owl:Class ;
+    rdfs:label "plant seed cereal food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_00002156 a owl:Class ;
+    rdfs:label "plant stem or spear food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001175,
+        obo:FOODON_00001261 .
+
+obo:FOODON_00002157 a owl:Class ;
+    rdfs:label "plant sweetener"@en ;
+    rdfs:subClassOf obo:FOODON_00002300 .
+
+obo:FOODON_00002161 a owl:Class ;
+    rdfs:label "plum fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002277 .
+
+obo:FOODON_00002196 a owl:Class ;
+    rdfs:label "refined or partially-refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_03311737 .
+
+obo:FOODON_00002223 a owl:Class ;
+    rdfs:label "sardine food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001248 .
+
+obo:FOODON_00002230 a owl:Class ;
+    rdfs:label "semihard cheese product"@en ;
+    rdfs:subClassOf obo:FOODON_00001127 .
+
+obo:FOODON_00002257 a owl:Class ;
+    rdfs:label "soup food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002501,
+        obo:FOODON_03430130 .
+
+obo:FOODON_00002265 a owl:Class ;
+    rdfs:label "soybean seed (field) food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_00002266 a owl:Class ;
+    rdfs:label "soybean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001635,
+        obo:FOODON_00002265,
+        obo:FOODON_03304996 .
+
+obo:FOODON_00002271 a owl:Class ;
+    rdfs:label "squash food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002141 .
+
+obo:FOODON_00002274 a owl:Class ;
+    rdfs:label "refined starch food product"@en ;
+    rdfs:subClassOf obo:FOODON_03301000 .
+
+obo:FOODON_00002275 a owl:Class ;
+    rdfs:label "steeped beverage product"@en ;
+    rdfs:subClassOf obo:FOODON_00001253 .
+
+obo:FOODON_00002318 a owl:Class ;
+    rdfs:label "tomato (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001164 .
+
+obo:FOODON_00002320 a owl:Class ;
+    rdfs:label "tuna food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001248 .
+
+obo:FOODON_00002330 a owl:Class ;
+    rdfs:label "multi-component corn food product"@en ;
+    rdfs:subClassOf obo:FOODON_03316579 .
+
+obo:FOODON_00002339 a owl:Class ;
+    rdfs:label "water based soft drink food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002253 .
+
+obo:FOODON_00002347 a owl:Class ;
+    rdfs:label "wheat based bakery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001917 .
+
+obo:FOODON_00002351 a owl:Class ;
+    rdfs:label "wheat bread food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001183,
+        obo:FOODON_00003395 .
+
+obo:FOODON_00002663 a owl:Class ;
+    rdfs:label "pig food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001132,
+        obo:FOODON_02021649 .
+
+obo:FOODON_00002761 a owl:Class ;
+    rdfs:label "kidney bean"@en ;
+    rdfs:subClassOf obo:FOODON_00001986,
+        obo:FOODON_00003403 .
+
+obo:FOODON_00002768 a owl:Class ;
+    rdfs:label "pink bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001757 .
+
+obo:FOODON_00002780 a owl:Class ;
+    rdfs:label "pigeon pea food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001264 .
+
+obo:FOODON_00002797 a owl:Class ;
+    rdfs:label "potato prepared food"@en ;
+    rdfs:subClassOf obo:FOODON_00001148 .
+
+obo:FOODON_00002889 a owl:Class ;
+    rdfs:label "black turtle bean"@en ;
+    rdfs:subClassOf obo:FOODON_00003403 .
+
+obo:FOODON_00003004 a owl:Class ;
+    rdfs:label "animal"@en ;
+    rdfs:subClassOf obo:COB_0000022,
+        obo:FOODON_03420164,
+        obo:UBERON_0000468 .
+
+obo:FOODON_00003042 a owl:Class ;
+    rdfs:label "herb food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001242 .
+
+obo:FOODON_00003301 a owl:Class ;
+    rdfs:label "beef loin"@en ;
+    rdfs:subClassOf obo:FOODON_00004470 .
+
+obo:FOODON_00003395 a owl:Class ;
+    rdfs:label "multi-component wheat food product"@en ;
+    rdfs:subClassOf obo:FOODON_03316579 .
+
+obo:FOODON_00003436 a owl:Class ;
+    rdfs:label "brown rice kernel"@en ;
+    rdfs:subClassOf obo:FOODON_00003434 .
+
+obo:FOODON_00003445 a owl:Class ;
+    rdfs:label "sweet potato"@en ;
+    rdfs:subClassOf obo:FOODON_00002297,
+        obo:PO_0025476,
+        obo:PO_0025523 .
+
+obo:FOODON_00003469 a owl:Class ;
+    rdfs:label "poultry drumstick"@en ;
+    rdfs:subClassOf obo:FOODON_02010125,
+        obo:FOODON_03315883 .
+
+obo:FOODON_00003520 a owl:Class ;
+    rdfs:label "pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00002111,
+        obo:PO_0030108 .
+
+obo:FOODON_00003538 a owl:Class ;
+    rdfs:label "mango"@en ;
+    rdfs:subClassOf obo:FOODON_00002020,
+        obo:PO_0030103 .
+
+obo:FOODON_00003546 a owl:Class ;
+    rdfs:label "bell pepper"@en ;
+    rdfs:subClassOf obo:FOODON_00003013,
+        obo:FOODON_00005730,
+        obo:FOODON_03000128 .
+
+obo:FOODON_00003650 a owl:Class ;
+    rdfs:label "vegetable leaf"@en ;
+    rdfs:subClassOf obo:FOODON_03315308,
+        obo:PO_0025034 .
+
+obo:FOODON_00003708 a owl:Class ;
+    rdfs:label "summer squash"@en ;
+    rdfs:subClassOf obo:FOODON_00003946 .
+
+obo:FOODON_00003787 a owl:Class ;
+    rdfs:label "white rice"@en ;
+    rdfs:subClassOf obo:FOODON_03420102,
+        obo:FOODON_03420208 .
+
+obo:FOODON_00004320 a owl:Class ;
+    rdfs:label "rice (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00004327 .
+
+obo:FOODON_00004327 a owl:Class ;
+    rdfs:label "rice"@en ;
+    rdfs:subClassOf obo:FOODON_03301641 .
+
+obo:FOODON_00004328 a owl:Class ;
+    rdfs:label "organism piece"@en ;
+    rdfs:subClassOf obo:FOODON_03420116 .
+
+obo:FOODON_00004336 a owl:Class ;
+    rdfs:label "fungus material"@en ;
+    rdfs:subClassOf obo:FOODON_03420116 .
+
+obo:FOODON_00004337 a owl:Class ;
+    rdfs:label "animal sub-primal cut"@en ;
+    rdfs:subClassOf obo:FOODON_03530146 .
+
+obo:FOODON_00004480 a owl:Class ;
+    rdfs:label "pork roast"@en ;
+    rdfs:subClassOf obo:FOODON_00004488,
+        obo:FOODON_02010312 .
+
+obo:FOODON_00004483 a owl:Class ;
+    rdfs:label "pork primal cut"@en ;
+    rdfs:subClassOf obo:FOODON_00001567,
+        obo:FOODON_02021752 .
+
+obo:FOODON_00004509 a owl:Class ;
+    rdfs:label "milled food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00005522 a owl:Class ;
+    rdfs:label "invertebrate material"@en ;
+    rdfs:subClassOf obo:FOODON_03420164 .
+
+obo:FOODON_00005689 a owl:Class ;
+    rdfs:label "swine material"@en ;
+    rdfs:subClassOf obo:FOODON_00005501 .
+
+obo:FOODON_00005704 a owl:Class ;
+    rdfs:label "crustacean material"@en ;
+    rdfs:subClassOf obo:FOODON_00005683 .
+
+obo:FOODON_00005708 a owl:Class ;
+    rdfs:label "decapod material"@en ;
+    rdfs:subClassOf obo:FOODON_00005704 .
+
+obo:FOODON_00005733 a owl:Class ;
+    rdfs:label "coconut material"@en ;
+    rdfs:subClassOf obo:FOODON_00005735 .
+
+obo:FOODON_00005751 a owl:Class ;
+    rdfs:label "piece of plant (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004333 .
+
+obo:FOODON_02000412 a owl:Class ;
+    rdfs:label "piece(s) of beef"@en ;
+    rdfs:subClassOf obo:FOODON_00004532 .
+
+obo:FOODON_02010002 a owl:Class ;
+    rdfs:label "animal egg"@en ;
+    rdfs:subClassOf obo:FOODON_02010001 .
+
+obo:FOODON_02010042 a owl:Class ;
+    rdfs:label "animal heart"@en ;
+    rdfs:subClassOf obo:FOODON_03420129 .
+
+obo:FOODON_02010049 a owl:Class ;
+    rdfs:label "animal tongue"@en ;
+    rdfs:subClassOf obo:FOODON_03420106 .
+
+obo:FOODON_02010062 a owl:Class ;
+    rdfs:label "animal liver (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010045,
+        obo:FOODON_02010058 .
+
+obo:FOODON_02010126 a owl:Class ;
+    rdfs:label "animal wing"@en ;
+    rdfs:subClassOf obo:FOODON_02010107 .
+
+obo:FOODON_02010137 a owl:Class ;
+    rdfs:label "animal tail"@en ;
+    rdfs:subClassOf obo:FOODON_02010107 .
+
+obo:FOODON_02010138 a owl:Class ;
+    rdfs:label "animal thigh (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010108,
+        obo:FOODON_02010123 .
+
+obo:FOODON_02010139 a owl:Class ;
+    rdfs:label "animal breast (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010058,
+        obo:FOODON_02010108,
+        obo:FOODON_02010124 .
+
+obo:FOODON_02010140 a owl:Class ;
+    rdfs:label "animal drumstick (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010108,
+        obo:FOODON_02010125 .
+
+obo:FOODON_02010153 a owl:Class ;
+    rdfs:label "animal thigh (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010109,
+        obo:FOODON_02010123 .
+
+obo:FOODON_02010317 a owl:Class ;
+    rdfs:label "animal chop"@en ;
+    rdfs:subClassOf obo:FOODON_00004338 .
+
+obo:FOODON_02020015 a owl:Class ;
+    rdfs:label "animal breast (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010109,
+        obo:FOODON_02010124 .
+
+obo:FOODON_02020021 a owl:Class ;
+    rdfs:label "animal drumstick (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010109,
+        obo:FOODON_02010125 .
+
+obo:FOODON_02020061 a owl:Class ;
+    rdfs:label "piece of avian animal (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010027,
+        obo:FOODON_02020060 .
+
+obo:FOODON_02020062 a owl:Class ;
+    rdfs:label "piece of avian animal meat"@en ;
+    rdfs:subClassOf obo:FOODON_02010107,
+        obo:FOODON_02020060 .
+
+obo:FOODON_02020173 a owl:Class ;
+    rdfs:label "piece of chicken (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010029,
+        obo:FOODON_02020171 .
+
+obo:FOODON_02020219 a owl:Class ;
+    rdfs:label "chicken thigh"@en ;
+    rdfs:subClassOf obo:FOODON_02020205,
+        obo:FOODON_03530160 .
+
+obo:FOODON_02020695 a owl:Class ;
+    rdfs:label "piece of poultry (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02020061,
+        obo:FOODON_02020694 .
+
+obo:FOODON_02020900 a owl:Class ;
+    rdfs:label "piece of cow (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004530,
+        obo:FOODON_02010027 .
+
+obo:FOODON_02020921 a owl:Class ;
+    rdfs:label "beef organ (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010058,
+        obo:FOODON_02020900,
+        obo:FOODON_02020910 .
+
+obo:FOODON_02021649 a owl:Class ;
+    rdfs:label "pig material"@en ;
+    rdfs:subClassOf obo:FOODON_00005689 .
+
+obo:FOODON_02021709 a owl:Class ;
+    rdfs:label "piece of pork meat"@en ;
+    rdfs:subClassOf obo:FOODON_00004493,
+        obo:FOODON_02010107 .
+
+obo:FOODON_02021821 a owl:Class ;
+    rdfs:label "catfish material"@en ;
+    rdfs:subClassOf obo:FOODON_03420164 .
+
+obo:FOODON_02022075 a owl:Class ;
+    rdfs:label "atlantic salmon fillet"@en ;
+    rdfs:subClassOf obo:FOODON_02022074 .
+
+obo:FOODON_03000093 a owl:Class ;
+    rdfs:label "yellow bean"@en ;
+    rdfs:subClassOf obo:FOODON_00003403,
+        obo:FOODON_03000092 .
+
+obo:FOODON_03000555 a owl:Class ;
+    rdfs:label "food (dry heat cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002454 .
+
+obo:FOODON_03301193 a owl:Class ;
+    rdfs:label "fish meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003594 .
+
+obo:FOODON_03301326 a owl:Class ;
+    rdfs:label "cabbage head (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003406,
+        obo:FOODON_03302008 .
+
+obo:FOODON_03301641 a owl:Class ;
+    rdfs:label "rice kernel food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001185 .
+
+obo:FOODON_03302116 a owl:Class ;
+    rdfs:label "cow milk (liquid)"@en ;
+    rdfs:subClassOf obo:FOODON_00001771,
+        obo:FOODON_03430123 .
+
+obo:FOODON_03303220 a owl:Class ;
+    rdfs:label "dessert food"@en ;
+    rdfs:subClassOf obo:FOODON_00002373 .
+
+obo:FOODON_03305103 a owl:Class ;
+    rdfs:label "meat (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00001181,
+        obo:FOODON_03315665 .
+
+obo:FOODON_03306944 a owl:Class ;
+    rdfs:label "noodle"@en ;
+    rdfs:subClassOf obo:FOODON_00001211 .
+
+obo:FOODON_03309759 a owl:Class ;
+    rdfs:label "pinto bean"@en ;
+    rdfs:subClassOf obo:FOODON_00002122,
+        obo:FOODON_00003403 .
+
+obo:FOODON_03309832 a owl:Class ;
+    rdfs:label "orange (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03301337,
+        obo:FOODON_03315106 .
+
+obo:FOODON_03310387 a owl:Class ;
+    rdfs:label "edible oil"@en ;
+    rdfs:subClassOf obo:FOODON_00002664 .
+
+obo:FOODON_03310611 a owl:Class ;
+    rdfs:label "poultry (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001131 .
+
+obo:FOODON_03310641 a owl:Class ;
+    rdfs:label "lentil"@en ;
+    rdfs:subClassOf obo:FOODON_00001997,
+        obo:FOODON_03310646 .
+
+obo:FOODON_03310675 a owl:Class ;
+    rdfs:label "luncheon meat"@en ;
+    rdfs:subClassOf obo:FOODON_00001605 .
+
+obo:FOODON_03311075 a owl:Class ;
+    rdfs:label "breakfast cereal"@en ;
+    rdfs:subClassOf obo:FOODON_00001709,
+        obo:FOODON_00002386 .
+
+obo:FOODON_03315013 a owl:Class ;
+    rdfs:label "snack food"@en ;
+    rdfs:subClassOf obo:FOODON_00002373 .
+
+obo:FOODON_03315106 a owl:Class ;
+    rdfs:label "orange (fruit)"@en ;
+    rdfs:subClassOf obo:FOODON_00002071,
+        obo:FOODON_00003324 .
+
+obo:FOODON_03315615 a owl:Class ;
+    rdfs:label "fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_03315665 a owl:Class ;
+    rdfs:label "meat (prepared)"@en ;
+    rdfs:subClassOf obo:FOODON_00001180,
+        obo:FOODON_03317170 .
+
+obo:FOODON_03317170 a owl:Class ;
+    rdfs:label "meat (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001006 .
+
+obo:FOODON_03400356 a owl:Class ;
+    rdfs:label "European Union agency food product type"@en ;
+    rdfs:subClassOf obo:FOODON_03400361 .
+
+obo:FOODON_03400874 a owl:Class ;
+    rdfs:label "GS1 Global Product Classification (GPC)"@en ;
+    rdfs:subClassOf obo:FOODON_03400352 .
+
+obo:FOODON_03411006 a owl:Class ;
+    rdfs:label "fruit plant used as vegetable"@en ;
+    rdfs:subClassOf obo:FOODON_03411057 .
+
+obo:FOODON_03411047 a owl:Class ;
+    rdfs:label "grain or seed-producing plant"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03411139 a owl:Class ;
+    rdfs:label "citrus family"@en ;
+    rdfs:subClassOf obo:FOODON_03411140,
+        obo:FOODON_03413357 .
+
+obo:FOODON_03411157 a owl:Class ;
+    rdfs:label "gadiform fish"@en ;
+    rdfs:subClassOf obo:FOODON_00005726,
+        obo:FOODON_03411365 .
+
+obo:FOODON_03411579 a owl:Class ;
+    rdfs:label "vegetable-producing plant"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03411835 a owl:Class ;
+    rdfs:label "cod family"@en ;
+    rdfs:subClassOf obo:FOODON_03411157 .
+
+obo:FOODON_03412005 a owl:Class ;
+    rdfs:label "drum family"@en ;
+    rdfs:subClassOf obo:FOODON_03411581 .
+
+obo:FOODON_03412398 a owl:Class ;
+    rdfs:label "ciruela plant"@en ;
+    rdfs:subClassOf obo:FOODON_03413387 .
+
+obo:FOODON_03420106 a owl:Class ;
+    rdfs:label "digestive system organ"@en ;
+    rdfs:subClassOf obo:FOODON_03420218 .
+
+obo:FOODON_03420144 a owl:Class ;
+    rdfs:label "plant above surface, excluding fruit and seed"@en ;
+    rdfs:subClassOf obo:FOODON_03420148 .
+
+obo:FOODON_03420178 a owl:Class ;
+    rdfs:label "seed part"@en ;
+    rdfs:subClassOf obo:PO_0025496 .
+
+obo:FOODON_03420218 a owl:Class ;
+    rdfs:label "animal organ by physiological system"@en ;
+    rdfs:subClassOf obo:FOODON_00004436 .
+
+obo:FOODON_03420228 a owl:Class ;
+    rdfs:label "extract, concentrate or isolate of plant or animal"@en ;
+    rdfs:subClassOf obo:FOODON_00001714 .
+
+obo:FOODON_03420307 a owl:Class ;
+    rdfs:label "seed oil"@en ;
+    rdfs:subClassOf obo:FOODON_00001087 .
+
+obo:FOODON_03460177 a owl:Class ;
+    rdfs:label "plant seed or nut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_03530157 a owl:Class ;
+    rdfs:label "poultry wing"@en ;
+    rdfs:subClassOf obo:FOODON_02010126,
+        obo:FOODON_03315883 .
+
+obo:FOODON_03530158 a owl:Class ;
+    rdfs:label "poultry breast"@en ;
+    rdfs:subClassOf obo:FOODON_02010124,
+        obo:FOODON_03315883,
+        obo:FOODON_03530156 .
+
+obo:FOODON_03540067 a owl:Class ;
+    rdfs:label "00670 - cereal and cereal-like flours (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540002 .
+
+obo:FOODON_03540175 a owl:Class ;
+    rdfs:label "01750 - pasta and similar products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540174 .
+
+obo:FOODON_03540360 a owl:Class ;
+    rdfs:label "03600 - lettuces and salad plants (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03540359 .
+
+obo:FOODON_03542649 a owl:Class ;
+    rdfs:label "26490 - milk and dairy products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03542981 a owl:Class ;
+    rdfs:label "29810 - sugar and similar, confectionery and water-based sweet desserts (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03544153 a owl:Class ;
+    rdfs:label "41530 - major isolated ingredients, additives, flavours, baking and processing aids (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:PO_0004543 a owl:Class ;
+    rdfs:label "shoot axis tuber"@en ;
+    rdfs:subClassOf obo:PO_0025029,
+        obo:PO_0025522,
+        obo:UBERON_0001062 .
+
+obo:PO_0009008 a owl:Class ;
+    rdfs:label "plant organ"@en ;
+    rdfs:subClassOf obo:PO_0025496 .
+
+obo:PO_0020127 a owl:Class ;
+    rdfs:label "primary root"@en ;
+    rdfs:subClassOf obo:PO_0009005 .
+
+obo:PO_0025001 a owl:Class ;
+    rdfs:label "cardinal organ part"@en ;
+    rdfs:subClassOf obo:PO_0025498 .
+
+obo:PO_0025007 a owl:Class ;
+    rdfs:label "collective plant organ structure"@en ;
+    rdfs:subClassOf obo:PO_0025497 .
+
+obo:PO_0025131 a owl:Class ;
+    rdfs:label "plant anatomical entity"@en ;
+    rdfs:subClassOf obo:BFO_0000040 .
+
+obo:PO_0025356 a owl:Class ;
+    rdfs:label "bulb"@en ;
+    rdfs:subClassOf obo:PO_0009006 .
+
+obo:PO_0025476 a owl:Class ;
+    rdfs:label "tuberous root tuber"@en ;
+    rdfs:subClassOf obo:PO_0009005,
+        obo:PO_0025522 .
+
+obo:PO_0025522 a owl:Class ;
+    rdfs:label "tuber"@en ;
+    rdfs:subClassOf obo:PO_0025004 .
+
+obo:PO_0025523 a owl:Class ;
+    rdfs:label "tuberous root"@en ;
+    rdfs:subClassOf obo:PO_0009005 .
+
+obo:PO_0025615 a owl:Class ;
+    rdfs:label "rosette"@en ;
+    rdfs:subClassOf obo:PO_0025022 .
+
+obo:PO_0025628 a owl:Class ;
+    rdfs:label "aggregate fruit"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:PO_0030115 a owl:Class ;
+    rdfs:label "raceme inflorescence"@en ;
+    rdfs:subClassOf obo:PO_0009049 .
+
+obo:FOODON_00001014 a owl:Class ;
+    rdfs:label "yogurt food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001053 .
+
+obo:FOODON_00001040 a owl:Class ;
+    rdfs:label "chicken meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001131,
+        obo:FOODON_02020149 .
+
+obo:FOODON_00001056 a owl:Class ;
+    rdfs:label "flour food product"@en ;
+    rdfs:subClassOf obo:FOODON_00004509 .
+
+obo:FOODON_00001127 a owl:Class ;
+    rdfs:label "cow milk cheese"@en ;
+    rdfs:subClassOf obo:FOODON_00001126,
+        obo:FOODON_00001771 .
+
+obo:FOODON_00001131 a owl:Class ;
+    rdfs:label "poultry meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001283 .
+
+obo:FOODON_00001132 a owl:Class ;
+    rdfs:label "swine food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001006,
+        obo:FOODON_00005689 .
+
+obo:FOODON_00001185 a owl:Class ;
+    rdfs:label "rice food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001093 .
+
+obo:FOODON_00001255 a owl:Class ;
+    rdfs:label "nonfermented plant derived beverage product"@en ;
+    rdfs:subClassOf obo:FOODON_00001253 .
+
+obo:FOODON_00001257 a owl:Class ;
+    rdfs:label "milk or milk based food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001256 .
+
+obo:FOODON_00001258 a owl:Class ;
+    rdfs:label "food (fermented)"@en ;
+    rdfs:subClassOf obo:FOODON_00002501,
+        obo:FOODON_00002645 .
+
+obo:FOODON_00001282 a owl:Class ;
+    rdfs:label "beef (ground)"@en ;
+    rdfs:subClassOf obo:FOODON_00001041,
+        obo:FOODON_02000412 .
+
+obo:FOODON_00001626 a owl:Class ;
+    rdfs:label "bakery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001002 .
+
+obo:FOODON_00001628 a owl:Class ;
+    rdfs:label "banana food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00001640 a owl:Class ;
+    rdfs:label "berry food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00001792 a owl:Class ;
+    rdfs:label "crustacean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001293,
+        obo:FOODON_00005704 .
+
+obo:FOODON_00001998 a owl:Class ;
+    rdfs:label "lettuce head food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002142 .
+
+obo:FOODON_00002099 a owl:Class ;
+    rdfs:label "peanut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001172,
+        obo:FOODON_00001264 .
+
+obo:FOODON_00002125 a owl:Class ;
+    rdfs:label "plant based bakery food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001626,
+        obo:FOODON_03316579 .
+
+obo:FOODON_00002131 a owl:Class ;
+    rdfs:label "plant based refined or partially-refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002196 .
+
+obo:FOODON_00002139 a owl:Class ;
+    rdfs:label "plant fat or oil refined food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001174,
+        obo:FOODON_00002131 .
+
+obo:FOODON_00002142 a owl:Class ;
+    rdfs:label "plant head vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_00002664 a owl:Class ;
+    rdfs:label "lipid food product"@en ;
+    rdfs:subClassOf obo:FOODON_03420228 .
+
+obo:FOODON_00002703 a owl:Class ;
+    rdfs:label "chicken breast"@en ;
+    rdfs:subClassOf obo:FOODON_02020177,
+        obo:FOODON_02020205,
+        obo:FOODON_03530158 .
+
+obo:FOODON_00002716 a owl:Class ;
+    rdfs:label "chicken drumstick"@en ;
+    rdfs:subClassOf obo:FOODON_00003469,
+        obo:FOODON_02020205 .
+
+obo:FOODON_00002753 a owl:Class ;
+    rdfs:label "bean"@en ;
+    rdfs:subClassOf obo:FOODON_03301467,
+        obo:FOODON_03310646 .
+
+obo:FOODON_00002765 a owl:Class ;
+    rdfs:label "bean pod"@en ;
+    rdfs:subClassOf obo:FOODON_00002576,
+        obo:PO_0030100 .
+
+obo:FOODON_00003013 a owl:Class ;
+    rdfs:label "bell pepper food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002111 .
+
+obo:FOODON_00003406 a owl:Class ;
+    rdfs:label "cabbage head"@en ;
+    rdfs:subClassOf obo:FOODON_00001677,
+        obo:PO_0025615 .
+
+obo:FOODON_00003539 a owl:Class ;
+    rdfs:label "squash"@en ;
+    rdfs:subClassOf obo:FOODON_00002271,
+        obo:PO_0030111 .
+
+obo:FOODON_00003946 a owl:Class ;
+    rdfs:label "winter squash"@en ;
+    rdfs:subClassOf obo:FOODON_00003539 .
+
+obo:FOODON_00004183 a owl:Class ;
+    rdfs:label "banana"@en ;
+    rdfs:subClassOf obo:FOODON_00001628,
+        obo:PO_0030108 .
+
+obo:FOODON_00004478 a owl:Class ;
+    rdfs:label "beef retail cut"@en ;
+    rdfs:subClassOf obo:FOODON_00002574,
+        obo:FOODON_00004338 .
+
+obo:FOODON_00004488 a owl:Class ;
+    rdfs:label "pork retail cut"@en ;
+    rdfs:subClassOf obo:FOODON_00004338,
+        obo:FOODON_02021752 .
+
+obo:FOODON_00004530 a owl:Class ;
+    rdfs:label "piece of cow"@en ;
+    rdfs:subClassOf obo:FOODON_00004332,
+        obo:FOODON_02020889 .
+
+obo:FOODON_02000415 a owl:Class ;
+    rdfs:label "butchery cut of beef (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002574,
+        obo:FOODON_02010108,
+        obo:FOODON_02020900 .
+
+obo:FOODON_02010031 a owl:Class ;
+    rdfs:label "piece of animal (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010027,
+        obo:FOODON_02010029 .
+
+obo:FOODON_02010045 a owl:Class ;
+    rdfs:label "animal liver"@en ;
+    rdfs:subClassOf obo:FOODON_03420106 .
+
+obo:FOODON_02010123 a owl:Class ;
+    rdfs:label "animal thigh"@en ;
+    rdfs:subClassOf obo:FOODON_02010107 .
+
+obo:FOODON_02010124 a owl:Class ;
+    rdfs:label "animal breast"@en ;
+    rdfs:subClassOf obo:FOODON_00004436,
+        obo:FOODON_02010107 .
+
+obo:FOODON_02010125 a owl:Class ;
+    rdfs:label "animal drumstick"@en ;
+    rdfs:subClassOf obo:FOODON_02010107 .
+
+obo:FOODON_02010309 a owl:Class ;
+    rdfs:label "animal retail cut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004338,
+        obo:FOODON_02010027 .
+
+obo:FOODON_02020060 a owl:Class ;
+    rdfs:label "piece of avian animal"@en ;
+    rdfs:subClassOf obo:FOODON_00004332,
+        obo:FOODON_02020050 .
+
+obo:FOODON_02020150 a owl:Class ;
+    rdfs:label "chicken material"@en ;
+    rdfs:subClassOf obo:FOODON_02020686 .
+
+obo:FOODON_02020184 a owl:Class ;
+    rdfs:label "chicken organ (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010058,
+        obo:FOODON_02020177,
+        obo:FOODON_03311865 .
+
+obo:FOODON_02020208 a owl:Class ;
+    rdfs:label "piece of chicken meat (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010110,
+        obo:FOODON_02020175,
+        obo:FOODON_02020206,
+        obo:FOODON_02020207 .
+
+obo:FOODON_02020889 a owl:Class ;
+    rdfs:label "cow material"@en ;
+    rdfs:subClassOf obo:FOODON_00005680 .
+
+obo:FOODON_02020910 a owl:Class ;
+    rdfs:label "beef organ"@en ;
+    rdfs:subClassOf obo:FOODON_00004436,
+        obo:FOODON_00004530 .
+
+obo:FOODON_02021752 a owl:Class ;
+    rdfs:label "butchery cut of pork"@en ;
+    rdfs:subClassOf obo:FOODON_00004493 .
+
+obo:FOODON_03311663 a owl:Class ;
+    rdfs:label "beef steak (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00003029,
+        obo:FOODON_02000465 .
+
+obo:FOODON_03311865 a owl:Class ;
+    rdfs:label "piece of chicken (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02020171,
+        obo:FOODON_02020695 .
+
+obo:FOODON_03315102 a owl:Class ;
+    rdfs:label "chicken egg material"@en ;
+    rdfs:subClassOf obo:FOODON_02020150 .
+
+obo:FOODON_03315150 a owl:Class ;
+    rdfs:label "mammalian milk product"@en ;
+    rdfs:subClassOf obo:FOODON_00001257 .
+
+obo:FOODON_03315308 a owl:Class ;
+    rdfs:label "vegetable (whole or pieces)"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_03316908 a owl:Class ;
+    rdfs:label "coconut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001172,
+        obo:FOODON_00005733 .
+
+obo:FOODON_03400361 a owl:Class ;
+    rdfs:label "agency food product type"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_03400777 a owl:Class ;
+    rdfs:label "eurofir food classification"@en ;
+    rdfs:subClassOf obo:FOODON_03400356 .
+
+obo:FOODON_03411024 a owl:Class ;
+    rdfs:label "tropical or subtropical fruit producing plant"@en ;
+    rdfs:subClassOf obo:FOODON_03411140 .
+
+obo:FOODON_03411057 a owl:Class ;
+    rdfs:label "vegetable-producing plant, above-ground parts"@en ;
+    rdfs:subClassOf obo:FOODON_03411579 .
+
+obo:FOODON_03411140 a owl:Class ;
+    rdfs:label "fruit-producing plant"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03420148 a owl:Class ;
+    rdfs:label "root, stem, leaf or flower"@en ;
+    rdfs:subClassOf obo:FOODON_00004333 .
+
+obo:FOODON_03430130 a owl:Class ;
+    rdfs:label "food (liquid)"@en ;
+    rdfs:subClassOf obo:ENVO_01001690,
+        obo:FOODON_00002454 .
+
+obo:FOODON_03540001 a owl:Class ;
+    rdfs:label "00010 - grains and grain-based products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:FOODON_03543402 a owl:Class ;
+    rdfs:label "34020 - coffee, cocoa, tea and infusions (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:PO_0000014 a owl:Class ;
+    rdfs:label "rosette leaf"@en ;
+    rdfs:subClassOf obo:PO_0009025 .
+
+obo:PO_0009010 a owl:Class ;
+    rdfs:label "seed"@en ;
+    rdfs:subClassOf obo:PO_0025496,
+        obo:UBERON_0001062 .
+
+obo:PO_0025004 a owl:Class ;
+    rdfs:label "plant axis"@en ;
+    rdfs:subClassOf obo:PO_0009008 .
+
+obo:PO_0030104 a owl:Class ;
+    rdfs:label "caryopsis fruit"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:PO_0030110 a owl:Class ;
+    rdfs:label "pome fruit"@en ;
+    rdfs:subClassOf obo:PO_0030108 .
+
+obo:UBERON_0000463 a owl:Class ;
+    rdfs:label "organism substance"@en ;
+    rdfs:subClassOf obo:UBERON_0000001 .
+
+obo:UBERON_0000465 a owl:Class ;
+    rdfs:label "material anatomical entity"@en ;
+    rdfs:subClassOf obo:BFO_0000040,
+        obo:UBERON_0001062 .
+
+obo:UBERON_0010000 a owl:Class ;
+    rdfs:label "multicellular anatomical structure"@en ;
+    rdfs:subClassOf obo:UBERON_0000061 .
+
+obo:FLOPO_0016496 a owl:Class ;
+    rdfs:label "fruit multiple"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:FOODON_00001006 a owl:Class ;
+    rdfs:label "mammalian meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001092,
+        obo:FOODON_00005501 .
+
+obo:FOODON_00001013 a owl:Class ;
+    rdfs:label "cheese food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001256 .
+
+obo:FOODON_00001093 a owl:Class ;
+    rdfs:label "cereal grain food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173 .
+
+obo:FOODON_00001133 a owl:Class ;
+    rdfs:label "condiment"@en ;
+    rdfs:subClassOf obo:FOODON_00001002 .
+
+obo:FOODON_00001142 a owl:Class ;
+    rdfs:label "maize (corn) food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:FOODON_00001183 a owl:Class ;
+    rdfs:label "bread food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002456 .
+
+obo:FOODON_00001214 a owl:Class ;
+    rdfs:label "candy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001149 .
+
+obo:FOODON_00001253 a owl:Class ;
+    rdfs:label "plant derived beverage"@en ;
+    rdfs:subClassOf obo:FOODON_00001015,
+        obo:FOODON_03301977 .
+
+obo:FOODON_00001709 a owl:Class ;
+    rdfs:label "cereal food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001093 .
+
+obo:FOODON_00001757 a owl:Class ;
+    rdfs:label "common bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001635 .
+
+obo:FOODON_00001845 a owl:Class ;
+    rdfs:label "field corn food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001765 .
+
+obo:FOODON_00002277 a owl:Class ;
+    rdfs:label "stone fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00002574 a owl:Class ;
+    rdfs:label "butchery cut of beef"@en ;
+    rdfs:subClassOf obo:FOODON_02000403,
+        obo:FOODON_03530146 .
+
+obo:FOODON_00002645 a owl:Class ;
+    rdfs:label "food material by process"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_00003029 a owl:Class ;
+    rdfs:label "beef steak"@en ;
+    rdfs:subClassOf obo:FOODON_00004478 .
+
+obo:FOODON_00003324 a owl:Class ;
+    rdfs:label "citrus fruit"@en ;
+    rdfs:subClassOf obo:FOODON_00001151,
+        obo:PO_0030109 .
+
+obo:FOODON_00004333 a owl:Class ;
+    rdfs:label "piece of plant"@en ;
+    rdfs:subClassOf obo:FOODON_00004328,
+        obo:FOODON_00004331 .
+
+obo:FOODON_00004493 a owl:Class ;
+    rdfs:label "piece of pig"@en ;
+    rdfs:subClassOf obo:FOODON_00004332,
+        obo:FOODON_02021649 .
+
+obo:FOODON_00005502 a owl:Class ;
+    rdfs:label "vertebrate material"@en ;
+    rdfs:subClassOf obo:FOODON_03420164 .
+
+obo:FOODON_00005674 a owl:Class ;
+    rdfs:label "bony fish material"@en ;
+    rdfs:subClassOf obo:FOODON_03000165 .
+
+obo:FOODON_00005757 a owl:Class ;
+    rdfs:label "plant leaf"@en ;
+    rdfs:subClassOf obo:FOODON_00004333 .
+
+obo:FOODON_02010001 a owl:Class ;
+    rdfs:label "animal substance"@en ;
+    rdfs:subClassOf obo:FOODON_03420164,
+        obo:UBERON_0000463 .
+
+obo:FOODON_02010029 a owl:Class ;
+    rdfs:label "piece of animal (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_00004332 .
+
+obo:FOODON_02010110 a owl:Class ;
+    rdfs:label "piece of animal meat (skinless, raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010031,
+        obo:FOODON_02010108,
+        obo:FOODON_02010109 .
+
+obo:FOODON_02020050 a owl:Class ;
+    rdfs:label "avian material"@en ;
+    rdfs:subClassOf obo:FOODON_00005502 .
+
+obo:FOODON_02020171 a owl:Class ;
+    rdfs:label "piece of chicken"@en ;
+    rdfs:subClassOf obo:FOODON_02020150,
+        obo:FOODON_02020694 .
+
+obo:FOODON_02020177 a owl:Class ;
+    rdfs:label "chicken organ"@en ;
+    rdfs:subClassOf obo:FOODON_00004436,
+        obo:FOODON_02020171 .
+
+obo:FOODON_02020207 a owl:Class ;
+    rdfs:label "piece of chicken meat (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010109,
+        obo:FOODON_02020173,
+        obo:FOODON_02020205 .
+
+obo:FOODON_02020686 a owl:Class ;
+    rdfs:label "poultry material"@en ;
+    rdfs:subClassOf obo:FOODON_02020050 .
+
+obo:FOODON_02020694 a owl:Class ;
+    rdfs:label "piece of poultry"@en ;
+    rdfs:subClassOf obo:FOODON_02020060,
+        obo:FOODON_02020686 .
+
+obo:FOODON_02020696 a owl:Class ;
+    rdfs:label "piece of poultry meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02020063,
+        obo:FOODON_02020695,
+        obo:FOODON_03315883 .
+
+obo:FOODON_03301467 a owl:Class ;
+    rdfs:label "bean material"@en ;
+    rdfs:subClassOf obo:FOODON_00004331 .
+
+obo:FOODON_03301977 a owl:Class ;
+    rdfs:label "beverage food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001002,
+        obo:FOODON_00002373 .
+
+obo:FOODON_03302007 a owl:Class ;
+    rdfs:label "fruit ((whole or pieces), raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03315615 .
+
+obo:FOODON_03311126 a owl:Class ;
+    rdfs:label "food (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002454 .
+
+obo:FOODON_03411365 a owl:Class ;
+    rdfs:label "bony fish"@en ;
+    rdfs:subClassOf obo:FOODON_00005674,
+        obo:FOODON_03411222 .
+
+obo:FOODON_03413357 a owl:Class ;
+    rdfs:label "plant by taxonomy"@en ;
+    rdfs:subClassOf obo:PO_0000003 .
+
+obo:FOODON_03420116 a owl:Class ;
+    rdfs:label "organism material"@en ;
+    rdfs:subClassOf obo:BFO_0000040 .
+
+obo:FOODON_03540358 a owl:Class ;
+    rdfs:label "03580 - vegetables and vegetable products (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03401895 .
+
+obo:PO_0009005 a owl:Class ;
+    rdfs:label "root"@en ;
+    rdfs:subClassOf obo:PO_0025004,
+        obo:UBERON_0001062 .
+
+obo:PO_0009011 a owl:Class ;
+    rdfs:label "plant structure"@en ;
+    rdfs:subClassOf obo:PO_0025131 .
+
+obo:PO_0025496 a owl:Class ;
+    rdfs:label "multi-tissue plant structure"@en ;
+    rdfs:subClassOf obo:PO_0009011 .
+
+obo:FOODON_00001038 a owl:Class ;
+    rdfs:label "pork meat food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002663 .
+
+obo:FOODON_00001092 a owl:Class ;
+    rdfs:label "vertebrate food product"@en ;
+    rdfs:subClassOf obo:FOODON_00004242,
+        obo:FOODON_00005502 .
+
+obo:FOODON_00001151 a owl:Class ;
+    rdfs:label "citrus fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00001256 a owl:Class ;
+    rdfs:label "dairy food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001092,
+        obo:FOODON_00005501 .
+
+obo:FOODON_00001714 a owl:Class ;
+    rdfs:label "food material component"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_00002143 a owl:Class ;
+    rdfs:label "plant leaf food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+
+obo:FOODON_00002153 a owl:Class ;
+    rdfs:label "plant seed vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001173,
+        obo:FOODON_00001261 .
+
+obo:FOODON_00002373 a owl:Class ;
+    rdfs:label "food by meal type"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_00002454 a owl:Class ;
+    rdfs:label "food material by characteristic"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_00002501 a owl:Class ;
+    rdfs:label "multi-component food"@en ;
+    rdfs:subClassOf obo:FOODON_00001002 .
+
+obo:FOODON_00002689 a owl:Class ;
+    rdfs:label "tropical fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_00003403 a owl:Class ;
+    rdfs:label "common bean"@en ;
+    rdfs:subClassOf obo:FOODON_00001757,
+        obo:FOODON_00002753 .
+
+obo:FOODON_00004338 a owl:Class ;
+    rdfs:label "animal retail cut"@en ;
+    rdfs:subClassOf obo:FOODON_03530146 .
+
+obo:FOODON_00005501 a owl:Class ;
+    rdfs:label "mammal material"@en ;
+    rdfs:subClassOf obo:FOODON_00005502 .
+
+obo:FOODON_02010109 a owl:Class ;
+    rdfs:label "piece of animal meat (skinless)"@en ;
+    rdfs:subClassOf obo:FOODON_02010029,
+        obo:FOODON_02010107 .
+
+obo:FOODON_02020206 a owl:Class ;
+    rdfs:label "piece of chicken meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02020205,
+        obo:FOODON_02020696,
+        obo:FOODON_03311865 .
+
+obo:FOODON_02021659 a owl:Class ;
+    rdfs:label "piece of pig (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004493,
+        obo:FOODON_02010027 .
+
+obo:FOODON_03310646 a owl:Class ;
+    rdfs:label "legume"@en ;
+    rdfs:subClassOf obo:FOODON_00001264,
+        obo:FOODON_00002153,
+        obo:PO_0009010 .
+
+obo:BFO_0000040 a owl:Class ;
+    rdfs:label "material entity"@en .
+
+obo:FOODON_00001181 a owl:Class ;
+    rdfs:label "food (cooked)"@en ;
+    rdfs:subClassOf obo:FOODON_00002645 .
+
+obo:FOODON_00001264 a owl:Class ;
+    rdfs:label "legume food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001262 .
+
+obo:FOODON_00003341 a owl:Class ;
+    rdfs:label "brassica food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001169,
+        obo:FOODON_00001261 .
+
+obo:FOODON_00004242 a owl:Class ;
+    rdfs:label "animal food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001002,
+        obo:FOODON_03420164 .
+
+obo:FOODON_00004331 a owl:Class ;
+    rdfs:label "plant material"@en ;
+    rdfs:subClassOf obo:FOODON_03420116 .
+
+obo:FOODON_02000463 a owl:Class ;
+    rdfs:label "beef primal cut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004470,
+        obo:FOODON_02000415 .
+
+obo:FOODON_02000464 a owl:Class ;
+    rdfs:label "beef sub-primal cut (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004476,
+        obo:FOODON_02000415 .
+
+obo:FOODON_02010058 a owl:Class ;
+    rdfs:label "animal organ (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004436,
+        obo:FOODON_02010027 .
+
+obo:FOODON_02020205 a owl:Class ;
+    rdfs:label "piece of chicken meat"@en ;
+    rdfs:subClassOf obo:FOODON_02020171,
+        obo:FOODON_03315883 .
+
+obo:FOODON_03301054 a owl:Class ;
+    rdfs:label "bread loaf containing wheat"@en ;
+    rdfs:subClassOf obo:FOODON_00002351 .
+
+obo:FOODON_03315883 a owl:Class ;
+    rdfs:label "piece of poultry meat"@en ;
+    rdfs:subClassOf obo:FOODON_02020062,
+        obo:FOODON_02020694,
+        obo:FOODON_03310611 .
+
+obo:FOODON_03530146 a owl:Class ;
+    rdfs:label "butchery cut of animal"@en ;
+    rdfs:subClassOf obo:FOODON_00004332 .
+
+obo:UBERON_0001062 a owl:Class ;
+    rdfs:label "anatomical entity"@en .
+
+obo:FOODON_00001041 a owl:Class ;
+    rdfs:label "cow food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001134,
+        obo:FOODON_02020889 .
+
+obo:FOODON_00001180 a owl:Class ;
+    rdfs:label "prepared food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001002 .
+
+obo:FOODON_00001248 a owl:Class ;
+    rdfs:label "fish food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001092 .
+
+obo:FOODON_00001771 a owl:Class ;
+    rdfs:label "cow milk based food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001118,
+        obo:FOODON_00001257 .
+
+obo:FOODON_00004436 a owl:Class ;
+    rdfs:label "animal organ"@en ;
+    rdfs:subClassOf obo:FOODON_00004332 .
+
+obo:FOODON_00004470 a owl:Class ;
+    rdfs:label "beef primal cut"@en ;
+    rdfs:subClassOf obo:FOODON_00001567,
+        obo:FOODON_00002574 .
+
+obo:FOODON_00004476 a owl:Class ;
+    rdfs:label "beef sub-primal cut"@en ;
+    rdfs:subClassOf obo:FOODON_00002574,
+        obo:FOODON_00004337 .
+
+obo:PO_0000003 a owl:Class ;
+    rdfs:label "whole plant"@en ;
+    rdfs:subClassOf obo:FOODON_00004331,
+        obo:PO_0009011 .
+
+obo:PO_0025034 a owl:Class ;
+    rdfs:label "leaf"@en ;
+    rdfs:subClassOf obo:FOODON_03420144,
+        obo:PO_0006001 .
+
+obo:PO_0030111 a owl:Class ;
+    rdfs:label "pepo fruit"@en ;
+    rdfs:subClassOf obo:PO_0030108 .
+
+obo:FOODON_00001172 a owl:Class ;
+    rdfs:label "nut food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001262,
+        obo:FOODON_03460177 .
+
+obo:FOODON_00001635 a owl:Class ;
+    rdfs:label "bean food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001264,
+        obo:FOODON_00002153,
+        obo:FOODON_03301467 .
+
+obo:FOODON_00002150 a owl:Class ;
+    rdfs:label "plant root vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001147,
+        obo:FOODON_00001261 .
+
+obo:FOODON_02010027 a owl:Class ;
+    rdfs:label "piece of animal (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00004332 .
+
+obo:FOODON_00002403 a owl:Class ;
+    rdfs:label "food material"@en ;
+    rdfs:subClassOf obo:BFO_0000040 .
+
+obo:FOODON_00004332 a owl:Class ;
+    rdfs:label "piece of animal"@en ;
+    rdfs:subClassOf obo:FOODON_00004328,
+        obo:FOODON_03420164 .
+
+obo:FOODON_02010108 a owl:Class ;
+    rdfs:label "piece of animal meat (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_02010027,
+        obo:FOODON_02010107 .
+
+obo:FOODON_03316579 a owl:Class ;
+    rdfs:label "multi-component plant food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002501 .
+
+obo:FOODON_03420164 a owl:Class ;
+    rdfs:label "animal material"@en ;
+    rdfs:subClassOf obo:FOODON_03420116 .
+
+obo:PO_0030103 a owl:Class ;
+    rdfs:label "drupe fruit"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:FOODON_00001002 a owl:Class ;
+    rdfs:label "food product"@en ;
+    rdfs:subClassOf obo:FOODON_00002403 .
+
+obo:FOODON_00001173 a owl:Class ;
+    rdfs:label "plant seed food product"@en ;
+    rdfs:subClassOf obo:FOODON_03460177 .
+
+obo:FOODON_00002141 a owl:Class ;
+    rdfs:label "plant fruit as vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001057 .
+
+obo:FOODON_02010107 a owl:Class ;
+    rdfs:label "piece of animal meat"@en ;
+    rdfs:subClassOf obo:FOODON_00004332 .
+
+obo:FOODON_03304644 a owl:Class ;
+    rdfs:label "fruit (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_00002454,
+        obo:PO_0009001 .
+
+obo:FOODON_03302008 a owl:Class ;
+    rdfs:label "vegetable (raw)"@en ;
+    rdfs:subClassOf obo:FOODON_03311126,
+        obo:FOODON_03315308 .
+
+obo:FOODON_03401895 a owl:Class ;
+    rdfs:label "efsa food classification and description system for exposure assessment (efsa foodex2)"@en ;
+    rdfs:subClassOf obo:FOODON_03400356 .
+
+obo:PO_0009001 a owl:Class ;
+    rdfs:label "fruit"@en ;
+    rdfs:subClassOf obo:PO_0025496,
+        obo:UBERON_0001062 .
+
+obo:FOODON_00001261 a owl:Class ;
+    rdfs:label "vegetable food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001015 .
+
+obo:PO_0030108 a owl:Class ;
+    rdfs:label "berry fruit"@en ;
+    rdfs:subClassOf obo:PO_0009001 .
+
+obo:FOODON_00001015 a owl:Class ;
+    rdfs:label "plant food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001002,
+        obo:FOODON_00004331 .
+
+obo:FOODON_00001057 a owl:Class ;
+    rdfs:label "plant fruit food product"@en ;
+    rdfs:subClassOf obo:FOODON_00001261 .
+

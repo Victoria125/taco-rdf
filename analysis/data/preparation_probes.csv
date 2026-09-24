@@ -1,0 +1,26 @@
+name_pt,name_en,food_numbers,query_en,verdict,foodon_class,foodon_label,taco_link
+"Contra-filé, grelhado","Striploin, grilled",344 346,beef strip loin (broiled),not found in documented searches,,,relatedMatch beef loin
+"Filé mignon, grelhado","Tenderloin, grilled",358,beef tenderloin (broiled),not found in documented searches,,,relatedMatch beef loin
+"Miolo de alcatra, grelhado","Top sirloin, grilled",370,beef top sirloin (broiled),search not recorded,,,none
+"Língua, cozida","Beef tongue, cooked",365,beef tongue (cooked),not found in documented searches,,,none
+"Fígado, grelhado","Beef liver, grilled",356,beef liver (cooked),not found in documented searches,,,relatedMatch beef liver
+"Bucho, cozido","Beef tripe, cooked",332,beef tripe (cooked),search not recorded,,,none
+"Frango, peito, sem pele, grelhado","Chicken breast, skinless, grilled",410,chicken breast (grilled),search not recorded,,,none
+"Frango, peito, com pele, assado","Chicken breast, with skin, roasted",406,chicken breast (roasted),not found in documented searches,,,none
+"Frango, sobrecoxa, assada","Chicken thigh, roasted",411 413,chicken thigh (roasted),search not recorded,,,none
+"Frango, coxa, com pele, assada","Chicken drumstick, with skin, roasted",396,chicken drumstick (roasted),search not recorded,,,none
+"Porco, bisteca, frita","Pork chop, fried",428,pork chop (fried),search not recorded,,,relatedMatch pork chop
+"Lingüiça, porco, frita","Pork sausage, fried",422,pork sausage (fried),not found in documented searches,,,none
+"Salmão, grelhado","Salmon, grilled",315 317,salmon (grilled),search not recorded,,,none
+"Sardinha, frita","Sardine, fried",320,sardine (fried),not found in documented searches,,,none
+"Feijão, fradinho, cozido","Black-eyed pea, cooked",563,cowpea (cooked),search not recorded,,,none
+"Frango, peito, sem pele, cozido","Chicken breast, skinless, cooked",408,chicken breast (cooked),class exists,FOODON_03311140,chicken breast (cooked),type
+"Ovo, de galinha, inteiro, cozido/10minutos","Chicken egg, whole, boiled 10 minutes",488,chicken egg (boiled),class exists,FOODON_00002800,chicken egg (boiled),none
+"Ovo, de galinha, clara, cozida/10minutos","Chicken egg white, boiled 10 minutes",486,chicken egg white (boiled),class exists,FOODON_03310224,chicken egg white (boiled),none
+"Camarão, Rio Grande, grande, cozido","Rio Grande shrimp, large, cooked",284,shrimp (cooked),class exists,FOODON_03301481,shrimp (cooked),none
+"Ervilha, enlatada, drenada","Pea, canned, drained",560,pea (canned),class exists,FOODON_03306809,pea (canned),none
+"Queijo, petit suisse, morango","Petit suisse cheese, strawberry",466,petite suisse cheese,class exists,FOODON_03303550,petite suisse cheese,none
+"Bacalhau, salgado, cru","Salted cod, raw",279,codfish (salted),class exists,FOODON_03307021,codfish (salted),none
+"Carne bovina grelhada, qualquer corte","Grilled beef, any cut",335 337 342 344 346 358 368 370 377 381 383,beef (grilled),class exists,FOODON_03310244,beef (grilled),not used
+"Carne bovina cozida, qualquer corte","Cooked beef, any cut",328 338 349 351 359 361 363 371 374 378 384,beef (cooked),class exists,FOODON_03309738,beef (cooked),not used
+"Peixe frito, qualquer peixe","Fried fish, any fish",281 297 299 300 303 305 306 308 320,fish (fried),class exists,FOODON_03310717,fish (fried),not used

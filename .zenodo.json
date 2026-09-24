@@ -1,0 +1,16 @@
+{
+  "title": "taco-rdf: the Brazilian Food Composition Table (TACO) as an RDF knowledge graph",
+  "upload_type": "dataset",
+  "description": "<p>The Brazilian Food Composition Table (TACO, 4th edition, NEPA-UNICAMP 2011) as an RDF knowledge graph: 597 foods in 15 groups with 21,150 nutrient measurements, typed with FoodOn and the Food Item Ontology, aligned to ChEBI, CDNO and QUDT, validated with SHACL, with PROV-O provenance and an ODRL attribution policy.</p><p>Persistent IRIs: https://w3id.org/taco-rdf/. Graph, vocabulary, shapes and alignments under CC BY 4.0; code under MIT. The nutrient values come from TACO, whose terms allow total or partial reproduction provided the source is cited.</p>",
+  "creators": [{"name": "Maia, Vitória"}],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "por",
+  "keywords": ["food composition", "TACO", "Brazil", "knowledge graph", "RDF", "FoodOn", "ChEBI", "CDNO", "Food Item Ontology", "QUDT", "SHACL", "ODRL", "FAIR data"],
+  "related_identifiers": [
+    {"identifier": "https://w3id.org/taco-rdf/", "relation": "isIdenticalTo", "scheme": "url"},
+    {"identifier": "https://github.com/Victoria125/taco-rdf", "relation": "isSupplementTo", "scheme": "url"},
+    {"identifier": "https://nepa.unicamp.br/publicacoes/tabela-taco-pdf/", "relation": "isDerivedFrom", "scheme": "url"}
+  ],
+  "references": ["NEPA-UNICAMP. Tabela brasileira de composição de alimentos - TACO. 4. ed. rev. e ampl. Campinas: NEPA-UNICAMP, 2011."]
+}

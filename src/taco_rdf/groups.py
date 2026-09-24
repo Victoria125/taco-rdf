@@ -1,0 +1,17 @@
+GROUP_LABELS_EN = {
+    "Cereais e derivados": "Cereals and derivatives",
+    "Verduras, hortaliças e derivados": "Vegetables and derivatives",
+    "Frutas e derivados": "Fruits and derivatives",
+    "Gorduras e óleos": "Fats and oils",
+    "Pescados e frutos do mar": "Fish and seafood",
+    "Carnes e derivados": "Meats and derivatives",
+    "Leite e derivados": "Milk and dairy products",
+    "Bebidas (alcoólicas e não alcoólicas)": "Beverages (alcoholic and non-alcoholic)",
+    "Ovos e derivados": "Eggs and derivatives",
+    "Produtos açucarados": "Sugary products",
+    "Miscelâneas": "Miscellaneous",
+    "Outros alimentos industrializados": "Other industrialised foods",
+    "Alimentos preparados": "Prepared foods",
+    "Leguminosas e derivados": "Legumes and derivatives",
+    "Nozes e sementes": "Nuts and seeds",
+}

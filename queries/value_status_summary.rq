@@ -1,0 +1,20 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tacoid:  <https://w3id.org/taco-rdf/id/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+SELECT ?nutrient
+       (SUM(IF(?st = taco:Trace, 1, 0)) AS ?trace)
+       (SUM(IF(?st = taco:NotApplicable, 1, 0)) AS ?not_applicable)
+       (SUM(IF(?st = taco:UnderReevaluation, 1, 0)) AS ?under_reevaluation)
+WHERE {
+  ?m taco:ofNutrient ?n ; taco:valueStatus ?st .
+  ?n skos:prefLabel ?nutrient .
+  FILTER (LANG(?nutrient) = "en" && ?st != taco:Measured)
+}
+GROUP BY ?nutrient
+ORDER BY DESC(?trace) DESC(?not_applicable)
+LIMIT 15

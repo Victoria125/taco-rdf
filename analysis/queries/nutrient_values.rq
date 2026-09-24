@@ -1,0 +1,13 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+
+SELECT ?food_number ?value
+WHERE {
+  ?n skos:notation ?key .
+  ?m taco:ofNutrient ?n ;
+     taco:ofFood ?f ;
+     qudt:numericValue ?value .
+  ?f taco:foodNumber ?food_number .
+}
+ORDER BY ?food_number

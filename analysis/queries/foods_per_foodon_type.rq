@@ -1,0 +1,28 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+
+SELECT ?foodon_class ?foodon_label ?food_number ?food ?protein ?lipids ?sodium
+WHERE {
+  {
+    SELECT ?class
+    WHERE {
+      ?f a taco:Food , ?class .
+      FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/FOODON_"))
+    }
+    GROUP BY ?class
+    HAVING (COUNT(DISTINCT ?f) > 1)
+  }
+  ?f a taco:Food , ?class ;
+     taco:foodNumber ?food_number ;
+     rdfs:label ?food .
+  ?class rdfs:label ?foodon_label .
+  OPTIONAL { ?p taco:ofFood ?f ; taco:ofNutrient <https://w3id.org/taco-rdf/id/nutrient/protein> ;
+                qudt:numericValue ?protein . }
+  OPTIONAL { ?l taco:ofFood ?f ; taco:ofNutrient <https://w3id.org/taco-rdf/id/nutrient/lipids> ;
+                qudt:numericValue ?lipids . }
+  OPTIONAL { ?s taco:ofFood ?f ; taco:ofNutrient <https://w3id.org/taco-rdf/id/nutrient/sodium> ;
+                qudt:numericValue ?sodium . }
+  BIND (STRAFTER(STR(?class), "obo/") AS ?foodon_class)
+}
+ORDER BY ?foodon_label ?food_number

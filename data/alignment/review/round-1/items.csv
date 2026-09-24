@@ -1,0 +1,142 @@
+food_number,part,stratum,stratum_size,sample_size,inclusion_probability,flag
+591,sample,15/relatedMatch,1,1,1.0,
+72,sample,2/relatedMatch,21,2,0.0952,
+435,sample,6/relatedMatch,23,2,0.087,pork leg related to a sirloin tip roast
+517,sample,11/none,2,2,1.0,
+216,problem case,,0,0,,"the class says Californian, which the TACO name does not state"
+271,sample,4/none,1,1,1.0,
+527,prepared dish,,0,0,,
+468,problem case,,0,0,,"requeijão typed as cream cheese spread, a different product"
+488,sample,9/none,2,2,1.0,unmapped although FoodOn has chicken egg (boiled)
+536,prepared dish,,0,0,,
+514,sample,11/type,5,2,0.4,
+577,sample,14/relatedMatch,2,2,1.0,the class says brown lentil; TACO gives no variety
+559,problem case,,0,0,,"EFSA agency class, outside FoodOn's food product classes"
+533,prepared dish,,0,0,,
+457,sample,7/type,17,2,0.1176,
+20,sample,1/none,11,2,0.1818,
+490,sample,9/type,5,2,0.4,
+543,prepared dish,,0,0,,
+521,sample,12/type,4,2,0.5,
+534,prepared dish,,0,0,,
+528,prepared dish,,0,0,,
+160,sample,2/type,59,2,0.0339,
+529,prepared dish,,0,0,,
+311,problem case,,0,0,,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
+416,problem case,,0,0,,fried patty typed as a hamburger dish; the frying is not in the class
+126,sample,2/type,59,2,0.0339,
+260,sample,4/type,13,2,0.1538,
+592,sample,15/none,2,2,1.0,
+545,prepared dish,,0,0,,
+312,problem case,,0,0,,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
+466,sample,7/none,4,2,0.5,unmapped although FoodOn has petite suisse cheese
+569,problem case,,0,0,,carioca and rajado beans share the pinto bean class
+505,sample,10/none,5,2,0.4,
+588,sample,15/type,8,2,0.25,"the class label has no word for salted, which the name has (lexical triage)"
+540,prepared dish,,0,0,,
+561,sample,14/type,24,2,0.0833,carioca and rajado beans share the pinto bean class
+310,sample,5/type,13,2,0.1538,
+437,problem case,,0,0,,salted tail typed as raw pork tail; the salting is not in the class
+294,sample,5/closeMatch,7,2,0.2857,
+461,problem case,,0,0,,typed fresh cheese; FoodOn has minas cheese
+511,problem case,,0,0,,"the class says medium ground, which TACO does not state"
+515,sample,11/relatedMatch,2,2,1.0,
+280,sample,5/relatedMatch,10,2,0.2,
+462,sample,7/relatedMatch,3,2,0.6667,related to semihard cheese; FoodOn has minas cheese
+347,problem case,,0,0,,beef ribs related to a ribeye roast
+551,prepared dish,,0,0,,
+548,prepared dish,,0,0,,
+450,sample,7/none,4,2,0.5,
+380,problem case,,0,0,,unmapped although FoodOn has beef culotte steak (the cut)
+560,sample,14/none,4,2,0.5,unmapped although FoodOn has pea (canned)
+467,sample,7/relatedMatch,3,2,0.6667,
+503,sample,10/type,10,2,0.2,
+26,sample,1/relatedMatch,10,2,0.2,
+410,sample,6/none,48,2,0.0417,
+302,sample,5/type,13,2,0.1538,
+478,sample,8/type,7,2,0.2857,
+313,problem case,,0,0,,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
+389,problem case,,0,0,,"the class label has no word for precooked or roasted, which the name has (lexical triage)"
+587,problem case,,0,0,,"the class label has no word for salted, which the name has (lexical triage)"
+595,sample,15/none,2,2,1.0,
+108,sample,2/closeMatch,3,2,0.6667,
+15,sample,1/relatedMatch,10,2,0.2,
+535,prepared dish,,0,0,,
+151,sample,2/relatedMatch,21,2,0.0952,
+250,sample,3/closeMatch,1,1,1.0,
+331,sample,6/none,48,2,0.0417,
+516,sample,11/none,2,2,1.0,
+281,sample,5/none,20,2,0.1,
+381,problem case,,0,0,,unmapped although FoodOn has beef culotte steak (the cut) and beef (grilled)
+483,sample,8/relatedMatch,4,2,0.5,
+555,prepared dish,,0,0,,
+549,sample,13/type,4,2,0.5,
+570,problem case,,0,0,,carioca and rajado beans share the pinto bean class
+386,problem case,,0,0,,"the class label has no word for fried, which the name has (lexical triage)"
+211,sample,3/none,23,2,0.087,
+562,problem case,,0,0,,carioca and rajado beans share the pinto bean class
+512,sample,11/relatedMatch,2,2,1.0,
+284,sample,5/none,20,2,0.1,unmapped although FoodOn has shrimp (cooked)
+167,sample,3/relatedMatch,24,2,0.0833,
+251,sample,3/type,48,2,0.0417,
+546,sample,13/type,4,2,0.5,
+486,sample,9/none,2,2,1.0,unmapped although FoodOn has chicken egg white (boiled)
+541,sample,13/none,20,2,0.1,
+571,sample,14/relatedMatch,2,2,1.0,"the class says canned, which TACO does not state"
+502,sample,10/relatedMatch,5,2,0.4,
+513,sample,11/type,5,2,0.4,
+162,sample,2/closeMatch,3,2,0.6667,
+454,sample,7/type,17,2,0.1176,
+531,prepared dish,,0,0,,
+390,problem case,,0,0,,"the class label has no word for precooked, which the name has (lexical triage)"
+552,sample,13/none,20,2,0.1,
+471,sample,8/type,7,2,0.2857,
+550,prepared dish,,0,0,,
+240,sample,3/type,48,2,0.0417,
+530,prepared dish,,0,0,,
+171,sample,3/relatedMatch,24,2,0.0833,
+473,sample,8/none,3,2,0.6667,
+425,sample,6/type,52,2,0.0385,"the class label has no word for frozen or roasted, which the name has (lexical triage)"
+102,sample,2/none,16,2,0.125,
+293,sample,5/closeMatch,7,2,0.2857,
+426,problem case,,0,0,,"the class label has no word for frozen, which the name has (lexical triage)"
+472,sample,8/relatedMatch,4,2,0.5,
+526,prepared dish,,0,0,,
+270,sample,4/type,13,2,0.1538,
+532,prepared dish,,0,0,,
+538,sample,13/relatedMatch,8,2,0.25,chicken dish related to a beef class
+525,prepared dish,,0,0,,
+494,sample,10/type,10,2,0.2,
+586,sample,14/none,4,2,0.5,
+553,prepared dish,,0,0,,
+417,sample,6/relatedMatch,23,2,0.087,
+99,sample,2/none,16,2,0.125,
+439,problem case,,0,0,,ham related to Canadian bacon
+575,sample,14/type,24,2,0.0833,
+539,prepared dish,,0,0,,
+279,problem case,,0,0,,unmapped although FoodOn has codfish (salted)
+547,prepared dish,,0,0,,
+285,problem case,,0,0,,unmapped although FoodOn has shrimp (raw)
+556,sample,13/relatedMatch,8,2,0.25,
+378,problem case,,0,0,,boiled brisket related to barbecued brisket
+432,problem case,,0,0,,roasted loin typed with a cut name (center roast); the roasting is not in the class
+63,sample,1/type,42,2,0.0476,
+205,problem case,,0,0,,TACO gives no species; jambo is usually the Malay apple and the class is rose apple
+554,prepared dish,,0,0,,
+500,sample,10/none,5,2,0.4,
+522,sample,12/relatedMatch,1,1,1.0,
+520,sample,12/type,4,2,0.5,
+544,prepared dish,,0,0,,
+56,sample,1/none,11,2,0.1818,
+188,sample,3/none,23,2,0.087,
+499,sample,10/relatedMatch,5,2,0.4,
+303,sample,5/relatedMatch,10,2,0.2,
+407,sample,6/type,52,2,0.0385,
+489,sample,9/type,5,2,0.4,
+41,problem case,,0,0,,"the class says fresh pasta, which the TACO name does not state; it is also an EFSA agency class"
+3,sample,1/type,42,2,0.0476,
+475,sample,8/none,3,2,0.6667,
+537,problem case,,0,0,,"the class adds noodles, which the TACO name does not state"
+542,prepared dish,,0,0,,
+589,sample,15/type,8,2,0.25,
+7,problem case,,0,0,,"the class label has no word for raw, which the name has (lexical triage)"

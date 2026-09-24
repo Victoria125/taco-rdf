@@ -1,0 +1,36 @@
+{
+  "created": "2026-09-24",
+  "seed": "taco-review-v1",
+  "per_stratum": 2,
+  "items": 141,
+  "parts": {
+    "sample": 86,
+    "problem case": 30,
+    "prepared dish": 25
+  },
+  "foodon_release": "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+  "candidates": true,
+  "alignments_sha256": "8c3841511736f9a5c3334b5fc3170632d91c0ed36c2dcdc2672777278276402c",
+  "workbook_sha256": "2a30f4dcada572ababbc1bbf024f47e6fd5207f0ff71f8351dbd0584116b681d",
+  "names_sha256": "da4517e8d9be92a6ade4204e0f39689422b3dc55692f317b1a73f62c2fbe8df4",
+  "problem_cases_sha256": "4afbf9ca32567a4c3efb54ef33643b3b25228f1c456418421d950dbf35a82317",
+  "protocol": "docs/alignment-review.md",
+  "foodon_module_sha256": "e920abd1a37fa64be602de6248ff3d5b02769c9850776a38de07d0107efb1af3",
+  "correction_cells_sha256": "09a93409d62def827f1e29585821e9f22788b6baf4c36efd555d8ee961396bd9",
+  "correction_ids_sha256": "3367c29908a5a319fd8887825fcdcf4ced2fd39ea76696fd2d3180b75733a80b",
+  "protocol_sha256": "0122a720545721810e04fa9c3a671f4c9da59772935322cde3e5ab63d8dba923",
+  "context_sha256": "98af85f40ffc21c70475ed12989e44983b0f9eb7692dd7ea25eebcc4f6f1bae9",
+  "items_sha256": "a48d1090b3a5b73caf8d3483385b505842eae01d8836901079d682901386f132",
+  "context_updated": "2026-09-24",
+  "candidate_search_not_rerun": [
+    527,
+    533,
+    536,
+    539,
+    544,
+    554,
+    555
+  ],
+  "lookup_note": "Existing definitions and candidates were retained; candidate searches were not rerun for the updated English names listed in candidate_search_not_rerun.",
+  "hash_format": "sha256-lf-v1"
+}

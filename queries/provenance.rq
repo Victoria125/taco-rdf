@@ -1,0 +1,20 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tacoid:  <https://w3id.org/taco-rdf/id/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+SELECT ?source_title ?citation ?publisher ?file ?sha256 ?software ?source_title_en
+WHERE {
+  tacoid:dataset prov:wasDerivedFrom ?src ;
+                 prov:wasGeneratedBy/prov:wasAssociatedWith/rdfs:label ?software .
+  ?src dcterms:title ?source_title ;
+       dcterms:bibliographicCitation ?citation ;
+       dcterms:publisher/<http://xmlns.com/foaf/0.1/name> ?publisher ;
+       taco:sourceFile ?file ;
+       taco:sha256 ?sha256 .
+  FILTER (LANG(?source_title) = "pt")
+  OPTIONAL { ?src dcterms:title ?source_title_en . FILTER (LANG(?source_title_en) = "en") }
+}

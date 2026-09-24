@@ -1,0 +1,582 @@
+source_type,source_key,predicate,target_iri,target_label,target_ontology,note
+group,1,closeMatch,http://purl.obolibrary.org/obo/FOODON_00001709,cereal food product,FoodOn,
+group,2,closeMatch,http://purl.obolibrary.org/obo/FOODON_00001261,vegetable food product,FoodOn,
+group,3,closeMatch,http://purl.obolibrary.org/obo/FOODON_03315615,fruit food product,FoodOn,
+group,4,closeMatch,http://purl.obolibrary.org/obo/FOODON_03420190,fat or oil,FoodOn,
+group,5,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001248,fish food product,FoodOn,TACO group covers fish and other seafood: narrower FoodOn classes
+group,5,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001293,shellfish food product,FoodOn,
+group,6,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001006,mammalian meat food product,FoodOn,"No single FoodOn ""meat food product"" class was found; the TACO group spans several narrower classes"
+group,6,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001131,poultry meat food product,FoodOn,
+group,6,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001010,processed meat food product,FoodOn,
+group,7,closeMatch,http://purl.obolibrary.org/obo/FOODON_00001256,dairy food product,FoodOn,
+group,8,closeMatch,http://purl.obolibrary.org/obo/FOODON_00003202,beverage (liquid),FoodOn,
+group,8,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001579,alcoholic beverage,FoodOn,
+group,9,closeMatch,http://purl.obolibrary.org/obo/FOODON_00001274,egg food product,FoodOn,
+group,10,narrowMatch,http://purl.obolibrary.org/obo/FOODON_03420108,sugar,FoodOn,
+group,10,narrowMatch,http://purl.obolibrary.org/obo/FOODON_00001149,confectionery food,FoodOn,
+group,11,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00001133,condiment,FoodOn,"Miscellaneous group (salt, vinegar, yeast, ...) only partly overlaps with condiments"
+group,12,broadMatch,http://purl.obolibrary.org/obo/FOODON_00001002,food product,FoodOn,No more specific FoodOn class for a group defined by industrial processing
+group,13,closeMatch,http://purl.obolibrary.org/obo/FOODON_00001180,prepared food product,FoodOn,
+group,14,closeMatch,http://purl.obolibrary.org/obo/FOODON_00001264,legume food product,FoodOn,
+group,15,closeMatch,http://purl.obolibrary.org/obo/FOODON_03460177,plant seed or nut food product,FoodOn,
+nutrient,moisture,closeMatch,http://purl.obolibrary.org/obo/CHEBI_15377,water,ChEBI,
+nutrient,protein,closeMatch,http://purl.obolibrary.org/obo/CHEBI_36080,protein,ChEBI,
+nutrient,lipids,closeMatch,http://purl.obolibrary.org/obo/CHEBI_18059,lipid,ChEBI,
+nutrient,cholesterol,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16113,cholesterol,ChEBI,
+nutrient,carbohydrate,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16646,carbohydrate,ChEBI,
+nutrient,alcohol,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_16236,ethanol,ChEBI,"The legend gives ""alcohol content""; ethanol is the beverage alcohol"
+nutrient,calcium,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_22984,calcium atom,ChEBI,Dietary mineral (as analysed) vs the chemical element
+nutrient,magnesium,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_25107,magnesium atom,ChEBI,
+nutrient,manganese,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_18291,manganese atom,ChEBI,
+nutrient,phosphorus,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_28659,phosphorus atom,ChEBI,
+nutrient,iron,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_18248,iron atom,ChEBI,
+nutrient,sodium,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_26708,sodium atom,ChEBI,
+nutrient,potassium,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_26216,potassium atom,ChEBI,
+nutrient,copper,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_28694,copper atom,ChEBI,
+nutrient,zinc,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_27363,zinc atom,ChEBI,
+nutrient,retinol,closeMatch,http://purl.obolibrary.org/obo/CHEBI_50211,retinol,ChEBI,
+nutrient,re,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_12777,vitamin A,ChEBI,RE is a vitamin-A activity measure (retinol + carotenoid-derived)
+nutrient,rae,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_12777,vitamin A,ChEBI,RAE is a vitamin-A activity measure (retinol + carotenoid-derived)
+nutrient,thiamin,closeMatch,http://purl.obolibrary.org/obo/CHEBI_26948,vitamin B1,ChEBI,
+nutrient,riboflavin,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17015,riboflavin,ChEBI,
+nutrient,pyridoxine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16709,pyridoxine,ChEBI,
+nutrient,niacin,closeMatch,http://purl.obolibrary.org/obo/CHEBI_15940,nicotinic acid,ChEBI,Niacin = nicotinic acid (nicotinamide is a separate ChEBI entity)
+nutrient,vitamin_c,closeMatch,http://purl.obolibrary.org/obo/CHEBI_176783,vitamin C,ChEBI,
+nutrient,sfa,closeMatch,http://purl.obolibrary.org/obo/CHEBI_26607,saturated fatty acid,ChEBI,
+nutrient,mufa,closeMatch,http://purl.obolibrary.org/obo/CHEBI_25413,monounsaturated fatty acid,ChEBI,
+nutrient,pufa,closeMatch,http://purl.obolibrary.org/obo/CHEBI_26208,polyunsaturated fatty acid,ChEBI,
+nutrient,fa_12_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_30805,dodecanoic acid,ChEBI,
+nutrient,fa_14_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_28875,tetradecanoic acid,ChEBI,
+nutrient,fa_16_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_15756,hexadecanoic acid,ChEBI,
+nutrient,fa_18_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_28842,octadecanoic acid,ChEBI,
+nutrient,fa_20_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_28822,icosanoic acid,ChEBI,
+nutrient,fa_22_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_28941,docosanoic acid,ChEBI,
+nutrient,fa_24_0,closeMatch,http://purl.obolibrary.org/obo/CHEBI_28866,tetracosanoic acid,ChEBI,
+nutrient,fa_14_1,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_27781,myristoleic acid,ChEBI,Double-bond position/geometry not stated in TACO
+nutrient,fa_16_1,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_28716,palmitoleic acid,ChEBI,Double-bond position/geometry not stated in TACO
+nutrient,fa_18_1,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_16196,oleic acid,ChEBI,Double-bond position/geometry not stated in TACO
+nutrient,fa_20_1,closeMatch,http://purl.obolibrary.org/obo/CHEBI_23902,icosenoic acid,ChEBI,
+nutrient,fa_18_2_n6,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17351,linoleic acid,ChEBI,
+nutrient,fa_18_3_n3,closeMatch,http://purl.obolibrary.org/obo/CHEBI_27432,alpha-linolenic acid,ChEBI,
+nutrient,fa_20_4,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_15843,arachidonic acid,ChEBI,Series (n-x) not stated in TACO
+nutrient,fa_20_5,closeMatch,http://purl.obolibrary.org/obo/CHEBI_36006,icosapentaenoic acid,ChEBI,
+nutrient,fa_22_5,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_61204,docosapentaenoic acid,ChEBI,Series (n-3 / n-6) not stated in TACO
+nutrient,fa_22_6,closeMatch,http://purl.obolibrary.org/obo/CHEBI_36005,docosahexaenoic acid,ChEBI,
+nutrient,fa_18_1t,relatedMatch,http://purl.obolibrary.org/obo/CHEBI_27997,elaidic acid,ChEBI,All trans-18:1 isomers together; elaidic acid is one of them
+nutrient,fa_18_2t,broadMatch,http://purl.obolibrary.org/obo/CHEBI_25627,octadecadienoic acid,ChEBI,
+nutrient,tryptophan,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16828,L-tryptophan,ChEBI,
+nutrient,threonine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16857,L-threonine,ChEBI,
+nutrient,isoleucine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17191,L-isoleucine,ChEBI,
+nutrient,leucine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_15603,L-leucine,ChEBI,
+nutrient,lysine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_18019,L-lysine,ChEBI,
+nutrient,methionine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16643,L-methionine,ChEBI,
+nutrient,cystine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16283,L-cystine,ChEBI,
+nutrient,phenylalanine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17295,L-phenylalanine,ChEBI,
+nutrient,tyrosine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17895,L-tyrosine,ChEBI,
+nutrient,valine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16414,L-valine,ChEBI,
+nutrient,arginine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16467,L-arginine,ChEBI,
+nutrient,histidine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_15971,L-histidine,ChEBI,
+nutrient,alanine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16977,L-alanine,ChEBI,
+nutrient,aspartic_acid,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17053,L-aspartic acid,ChEBI,
+nutrient,glutamic_acid,closeMatch,http://purl.obolibrary.org/obo/CHEBI_16015,L-glutamic acid,ChEBI,
+nutrient,glycine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_15428,glycine,ChEBI,
+nutrient,proline,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17203,L-proline,ChEBI,
+nutrient,serine,closeMatch,http://purl.obolibrary.org/obo/CHEBI_17115,L-serine,ChEBI,
+nutrient,moisture,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200002,concentration of water in material entity,CDNO,"logical definition names water (CHEBI_15377), the ChEBI target of this nutrient; TACO reports moisture in % of the 100 g edible portion, i.e. g/100 g"
+nutrient,protein,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200040,concentration of protein in material entity,CDNO,"logical definition names protein (CHEBI_36080), the ChEBI target of this nutrient"
+nutrient,lipids,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200068,concentration of lipid in material entity,CDNO,"logical definition names lipid (CHEBI_18059), the ChEBI target of this nutrient; TACO reports total lipids"
+nutrient,cholesterol,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200123,concentration of cholesterol in material entity,CDNO,"logical definition names cholesterol (CHEBI_16113), the ChEBI target of this nutrient"
+nutrient,carbohydrate,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200005,concentration of carbohydrate in material entity,CDNO,"logical definition names carbohydrate (CHEBI_16646); TACO carbohydrate is total carbohydrate by difference and includes dietary fibre, so it is not CDNO available carbohydrate (CDNO_0200033)"
+nutrient,dietary_fiber,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200035,concentration of dietary fibre in material entity,CDNO,logical definition names dietary fibre (CDNO_0000005); TACO reports total dietary fibre
+nutrient,ash,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200004,concentration of ash in material entity,CDNO,logical definition names ash (ENVO_02000090)
+nutrient,calcium,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200544,concentration of dietary calcium in material entity,CDNO,"CDNO models dietary minerals as CDNO entities (dietary calcium, CDNO_0000015), not as the ChEBI atom that the ChEBI alignment uses; TACO reports total calcium content"
+nutrient,magnesium,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200570,concentration of dietary magnesium in material entity,CDNO,CDNO dietary magnesium (CDNO_0000017); TACO reports total magnesium content
+nutrient,manganese,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200657,concentration of dietary manganese in material entity,CDNO,"CDNO dietary manganese (CDNO_0000027), chosen over the atom-based CDNO_0200160 for consistency with the other minerals; TACO reports total manganese content"
+nutrient,phosphorus,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200578,concentration of dietary phosphorus in material entity,CDNO,CDNO dietary phosphorus (CDNO_0000018); TACO reports total phosphorus content
+nutrient,iron,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200651,concentration of dietary iron in material entity,CDNO,"CDNO dietary iron (CDNO_0000026); TACO reports total iron content, not haem or non-haem iron"
+nutrient,sodium,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200599,concentration of dietary sodium in material entity,CDNO,CDNO dietary sodium (CDNO_0000020); TACO reports total sodium content
+nutrient,potassium,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200592,concentration of dietary potassium in material entity,CDNO,CDNO dietary potassium (CDNO_0000019); TACO reports total potassium content
+nutrient,copper,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200642,concentration of dietary copper in material entity,CDNO,CDNO dietary copper (CDNO_0000023); TACO reports total copper content
+nutrient,zinc,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200670,concentration of dietary zinc in material entity,CDNO,CDNO dietary zinc (CDNO_0000030); TACO reports total zinc content
+nutrient,retinol,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200420,concentration of retinol in material entity,CDNO,"logical definition names retinol (CHEBI_50211), the ChEBI target of this nutrient"
+nutrient,re,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200195,concentration of vitamin A in material entity,CDNO,"vitamin A expressed as retinol equivalents; CDNO has one vitamin A concentration class, which cannot stand for both the RE and the RAE columns"
+nutrient,rae,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200195,concentration of vitamin A in material entity,CDNO,"vitamin A expressed as retinol activity equivalents; CDNO has one vitamin A concentration class, which cannot stand for both the RE and the RAE columns"
+nutrient,thiamin,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200184,concentration of vitamin B1 in material entity,CDNO,"logical definition names vitamin B1 (CHEBI_26948), the ChEBI target of this nutrient"
+nutrient,riboflavin,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200185,concentration of riboflavin in material entity,CDNO,"logical definition names riboflavin (CHEBI_17015), the ChEBI target of this nutrient"
+nutrient,pyridoxine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200188,concentration of pyridoxine in material entity,CDNO,"logical definition names pyridoxine (CHEBI_16709), the ChEBI target of this nutrient"
+nutrient,niacin,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200186,concentration of nicotinic acid in material entity,CDNO,"logical definition names nicotinic acid (CHEBI_15940), the ChEBI target of this nutrient"
+nutrient,vitamin_c,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200192,concentration of vitamin C in material entity,CDNO,"logical definition names vitamin C (CHEBI_176783), the ChEBI target of this nutrient"
+nutrient,sfa,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200458,concentration of saturated fatty acid in material entity,CDNO,"logical definition names saturated fatty acid (CHEBI_26607), the ChEBI target of this nutrient"
+nutrient,mufa,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200456,concentration of monounsaturated fatty acid in material entity,CDNO,"logical definition names monounsaturated fatty acid (CHEBI_25413), the ChEBI target of this nutrient"
+nutrient,pufa,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200449,concentration of polyunsaturated fatty acid in material entity,CDNO,"logical definition names polyunsaturated fatty acid (CHEBI_26208), the ChEBI target of this nutrient"
+nutrient,fa_12_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200074,concentration of dodecanoic acid in material entity,CDNO,"logical definition names dodecanoic acid (CHEBI_30805), the ChEBI target of this nutrient"
+nutrient,fa_14_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200075,concentration of tetradecanoic acid in material entity,CDNO,"logical definition names tetradecanoic acid (CHEBI_28875), the ChEBI target of this nutrient"
+nutrient,fa_16_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200076,concentration of hexadecanoic acid in material entity,CDNO,"logical definition names hexadecanoic acid (CHEBI_15756), the ChEBI target of this nutrient"
+nutrient,fa_18_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200078,concentration of octadecanoic acid in material entity,CDNO,"logical definition names octadecanoic acid (CHEBI_28842), the ChEBI target of this nutrient"
+nutrient,fa_20_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200079,concentration of icosanoic acid in material entity,CDNO,"logical definition names icosanoic acid (CHEBI_28822), the ChEBI target of this nutrient"
+nutrient,fa_22_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200080,concentration of docosanoic acid in material entity,CDNO,"logical definition names docosanoic acid (CHEBI_28941), the ChEBI target of this nutrient"
+nutrient,fa_24_0,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200073,concentration of tetracosanoic acid in material entity,CDNO,"logical definition names tetracosanoic acid (CHEBI_28866), the ChEBI target of this nutrient"
+nutrient,fa_14_1,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200083,concentration of myristoleic acid in material entity,CDNO,"CDNO class is one isomer (myristoleic acid); TACO gives 14:1 without the double-bond position, as for the ChEBI alignment"
+nutrient,fa_16_1,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200084,concentration of palmitoleic acid in material entity,CDNO,"CDNO class is one isomer (palmitoleic acid, cis-9); TACO gives 16:1 without the double-bond position, as for the ChEBI alignment"
+nutrient,fa_18_1,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200085,concentration of oleic acid in material entity,CDNO,"CDNO class is one isomer (oleic acid); TACO gives 18:1 without the double-bond position, as for the ChEBI alignment"
+nutrient,fa_18_2_n6,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200104,concentration of linoleic acid in material entity,CDNO,"logical definition names linoleic acid (CHEBI_17351), the ChEBI target of this nutrient"
+nutrient,fa_18_3_n3,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200097,concentration of α-linolenic acid in material entity,CDNO,"logical definition names alpha-linolenic acid (CHEBI_27432), the ChEBI target of this nutrient"
+nutrient,fa_20_4,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200108,concentration of arachidonic acid in material entity,CDNO,"CDNO class is one isomer (arachidonic acid); TACO gives 20:4 without the double-bond position, as for the ChEBI alignment"
+nutrient,fa_20_5,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200098,concentration of icosapentaenoic acid in material entity,CDNO,"logical definition names icosapentaenoic acid (CHEBI_36006), the ChEBI target of this nutrient"
+nutrient,fa_22_5,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200099,concentration of docosapentaenoic acid in material entity,CDNO,"CDNO class is one isomer (docosapentaenoic acid); TACO gives 22:5 without the double-bond position, as for the ChEBI alignment"
+nutrient,fa_22_6,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200100,concentration of docosahexaenoic acid in material entity,CDNO,"logical definition names docosahexaenoic acid (CHEBI_36005), the ChEBI target of this nutrient"
+nutrient,fa_18_1t,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200087,concentration of elaidic acid in material entity,CDNO,CDNO class is one trans isomer (elaidic acid); TACO gives total 18:1 trans
+nutrient,tryptophan,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200065,concentration of tryptophan in material entity,CDNO,"CDNO has no L-form class; its logical definition names tryptophan (CHEBI_27897), the ChEBI parent of the L-tryptophan target"
+nutrient,threonine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200064,concentration of threonine in material entity,CDNO,"CDNO has no L-form class; its logical definition names threonine (CHEBI_26986), the ChEBI parent of the L-threonine target"
+nutrient,isoleucine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200057,concentration of isoleucine in material entity,CDNO,"CDNO has no L-form class; its logical definition names isoleucine (CHEBI_24898), the ChEBI parent of the L-isoleucine target"
+nutrient,leucine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200058,concentration of leucine in material entity,CDNO,"CDNO has no L-form class; its logical definition names leucine (CHEBI_25017), the ChEBI parent of the L-leucine target"
+nutrient,lysine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200059,concentration of lysine in material entity,CDNO,"CDNO has no L-form class; its logical definition names lysine (CHEBI_25094), the ChEBI parent of the L-lysine target"
+nutrient,methionine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200060,concentration of methionine in material entity,CDNO,"CDNO has no L-form class; its logical definition names methionine (CHEBI_16811), the ChEBI parent of the L-methionine target"
+nutrient,cystine,relatedMatch,http://purl.obolibrary.org/obo/CDNO_0200051,concentration of cysteine in material entity,CDNO,"CDNO has cysteine, not cystine (the disulfide-linked dimer that TACO reports)"
+nutrient,phenylalanine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200061,concentration of phenylalanine in material entity,CDNO,"CDNO has no L-form class; its logical definition names phenylalanine (CHEBI_28044), the ChEBI parent of the L-phenylalanine target"
+nutrient,tyrosine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200066,concentration of tyrosine in material entity,CDNO,"CDNO has no L-form class; its logical definition names tyrosine (CHEBI_18186), the ChEBI parent of the L-tyrosine target"
+nutrient,valine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200067,concentration of valine in material entity,CDNO,"CDNO has no L-form class; its logical definition names valine (CHEBI_27266), the ChEBI parent of the L-valine target"
+nutrient,arginine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200048,concentration of arginine in material entity,CDNO,"CDNO has no L-form class; its logical definition names arginine (CHEBI_29016), the ChEBI parent of the L-arginine target"
+nutrient,histidine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200055,concentration of histidine in material entity,CDNO,"CDNO has no L-form class; its logical definition names histidine (CHEBI_27570), the ChEBI parent of the L-histidine target"
+nutrient,alanine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200047,concentration of alanine in material entity,CDNO,"CDNO has no L-form class; its logical definition names alanine (CHEBI_16449), the ChEBI parent of the L-alanine target"
+nutrient,aspartic_acid,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200050,concentration of aspartic acid in material entity,CDNO,"CDNO has no L-form class; its logical definition names aspartic acid (CHEBI_22660), the ChEBI parent of the L-aspartic acid target"
+nutrient,glutamic_acid,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200052,concentration of glutamic acid in material entity,CDNO,"CDNO has no L-form class; its logical definition names glutamic acid (CHEBI_18237), the ChEBI parent of the L-glutamic acid target"
+nutrient,glycine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200054,concentration of glycine in material entity,CDNO,"logical definition names glycine (CHEBI_15428), the ChEBI target of this nutrient"
+nutrient,proline,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200062,concentration of proline in material entity,CDNO,"CDNO has no L-form class; its logical definition names proline (CHEBI_26271), the ChEBI parent of the L-proline target"
+nutrient,serine,closeMatch,http://purl.obolibrary.org/obo/CDNO_0200063,concentration of serine in material entity,CDNO,"CDNO has no L-form class; its logical definition names serine (CHEBI_17822), the ChEBI parent of the L-serine target"
+food,1,type,http://purl.obolibrary.org/obo/FOODON_00004678,brown rice kernel (cooked),FoodOn,
+food,2,type,http://purl.obolibrary.org/obo/FOODON_00004679,brown rice kernel (raw),FoodOn,
+food,3,type,http://purl.obolibrary.org/obo/FOODON_00004677,white rice (cooked),FoodOn,TACO's tipo 1/tipo 2 milling grade is not distinguished in FoodOn; both grades map to this class
+food,4,type,http://purl.obolibrary.org/obo/FOODON_03311121,white rice (raw),FoodOn,TACO's tipo 1/tipo 2 milling grade is not distinguished in FoodOn; both grades map to this class
+food,5,type,http://purl.obolibrary.org/obo/FOODON_00004677,white rice (cooked),FoodOn,TACO's tipo 1/tipo 2 milling grade is not distinguished in FoodOn; both grades map to this class
+food,6,type,http://purl.obolibrary.org/obo/FOODON_03311121,white rice (raw),FoodOn,TACO's tipo 1/tipo 2 milling grade is not distinguished in FoodOn; both grades map to this class
+food,7,type,http://purl.obolibrary.org/obo/FOODON_03307110,rolled oats,FoodOn,
+food,8,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302327,shortbread cookie,FoodOn,"Brazilian cornstarch-based maisena cookie; closest available class, composition not identical"
+food,13,type,http://purl.obolibrary.org/obo/FOODON_03305260,cream cracker,FoodOn,
+food,14,type,http://purl.obolibrary.org/obo/FOODON_03317068,cake mix,FoodOn,
+food,15,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003409,cassava,FoodOn,"TACO item is a ready-made cassava cake, not the raw root; no FoodOn cassava-cake class found"
+food,16,type,http://purl.obolibrary.org/obo/FOODON_03305417,chocolate cake,FoodOn,
+food,18,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302343,cornbread,FoodOn,US cornbread and Brazilian bolo de milho differ in sweetness and texture; closest available class
+food,19,type,http://purl.obolibrary.org/obo/FOODON_03310226,hominy,FoodOn,
+food,21,type,http://purl.obolibrary.org/obo/FOODON_03302904,corn flakes,FoodOn,TACO's salted variant is not distinguished
+food,22,type,http://purl.obolibrary.org/obo/FOODON_03302904,corn flakes,FoodOn,
+food,23,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301336,infant cereal,FoodOn,generic infant cereal class; does not capture the corn-specific porridge form
+food,24,type,http://purl.obolibrary.org/obo/FOODON_03540337,03370 - mixed breakfast cereals (efsa foodex2),FoodOn,
+food,25,type,http://purl.obolibrary.org/obo/FOODON_03311318,"breakfast cereal (corn-based, ready-to-eat)",FoodOn,
+food,26,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302904,corn flakes,FoodOn,TACO item is sugared; generic corn flakes class does not capture the sugar coating
+food,27,type,http://purl.obolibrary.org/obo/FOODON_00005562,cream of rice,FoodOn,
+food,29,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400192,"pudding, starch (us cfr)",FoodOn,curau is a Brazilian sweet corn pudding; broad starch-pudding category is the closest available class
+food,30,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400192,"pudding, starch (us cfr)",FoodOn,curau mix; same caveat as the prepared dish
+food,31,type,http://purl.obolibrary.org/obo/FOODON_00002207,rice flour,FoodOn,TACO's iron/folate enrichment is not captured by this generic class
+food,32,type,http://purl.obolibrary.org/obo/FOODON_03540081,"00810 - rye flour, wholemeal (efsa foodex2)",FoodOn,
+food,33,type,http://purl.obolibrary.org/obo/FOODON_03306290,yellow corn flour,FoodOn,
+food,34,type,http://purl.obolibrary.org/obo/FOODON_00005442,breadcrumbs,FoodOn,
+food,35,type,http://purl.obolibrary.org/obo/FOODON_03540088,00880 - wheat flour (efsa foodex2),FoodOn,
+food,36,type,http://purl.obolibrary.org/obo/FOODON_03301336,infant cereal,FoodOn,the milk-based (láctea) composition is not distinguished by this generic class
+food,37,type,http://purl.obolibrary.org/obo/FOODON_03306124,lasagna noodle,FoodOn,
+food,38,type,http://purl.obolibrary.org/obo/FOODON_03306124,lasagna noodle,FoodOn,
+food,39,type,http://purl.obolibrary.org/obo/FOODON_00002940,instant noodle,FoodOn,
+food,40,type,http://purl.obolibrary.org/obo/FOODON_00002354,wheat pasta,FoodOn,
+food,41,type,http://purl.obolibrary.org/obo/FOODON_03540179,01790 - fresh egg pasta (efsa foodex2),FoodOn,
+food,42,type,http://purl.obolibrary.org/obo/FOODON_00005791,corn starch,FoodOn,
+food,43,type,http://purl.obolibrary.org/obo/FOODON_03310257,cornmeal,FoodOn,
+food,44,type,http://purl.obolibrary.org/obo/FOODON_03301422,sweet corn kernel (raw),FoodOn,
+food,45,type,http://purl.obolibrary.org/obo/FOODON_03540952,09520 - sweet corn canned (efsa foodex2),FoodOn,
+food,46,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311555,porridge,FoodOn,generic porridge class; TACO's specific instant powder mix form is not captured
+food,47,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304758,tamale,FoodOn,"pamonha is a Brazilian corn tamale wrapped in husk; tamale is the closest available class, not an identical dish"
+food,48,type,http://purl.obolibrary.org/obo/FOODON_03302473,oatmeal bread,FoodOn,
+food,49,type,http://purl.obolibrary.org/obo/FOODON_03302371,soya bread,FoodOn,
+food,50,type,http://purl.obolibrary.org/obo/FOODON_03302452,gluten bread,FoodOn,
+food,51,type,http://purl.obolibrary.org/obo/FOODON_03312059,corn bread product,FoodOn,
+food,52,type,http://purl.obolibrary.org/obo/FOODON_03301119,whole wheat bread,FoodOn,
+food,53,type,http://purl.obolibrary.org/obo/FOODON_03302686,french bread (loaf),FoodOn,
+food,54,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302200,wheat bread,FoodOn,"Brazilian pão sovado is a specific enriched, kneaded bread style; generic wheat bread is the closest available class"
+food,59,type,http://purl.obolibrary.org/obo/FOODON_00005805,pastry dough,FoodOn,
+food,60,type,http://purl.obolibrary.org/obo/FOODON_00005804,pastry,FoodOn,
+food,61,type,http://purl.obolibrary.org/obo/FOODON_03302179,popcorn (popped),FoodOn,TACO item is made with soybean oil; the air-popped variant was avoided as it contradicts the preparation
+food,62,type,http://purl.obolibrary.org/obo/FOODON_03317508,polenta,FoodOn,
+food,63,type,http://purl.obolibrary.org/obo/FOODON_03306255,toast,FoodOn,
+food,259,type,http://purl.obolibrary.org/obo/FOODON_03310232,palm oil,FoodOn,
+food,260,type,http://purl.obolibrary.org/obo/FOODON_00002808,olive oil (extra-virgin),FoodOn,
+food,261,type,http://purl.obolibrary.org/obo/FOODON_03302643,butter (salted),FoodOn,
+food,262,type,http://purl.obolibrary.org/obo/FOODON_03301777,butter (unsalted),FoodOn,
+food,263,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
+food,264,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
+food,265,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
+food,266,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
+food,267,type,http://purl.obolibrary.org/obo/FOODON_03316688,babassu oil (edible),FoodOn,
+food,268,type,http://purl.obolibrary.org/obo/FOODON_03302578,canola oil,FoodOn,
+food,269,type,http://purl.obolibrary.org/obo/FOODON_03310357,sunflower seed oil,FoodOn,
+food,270,type,http://purl.obolibrary.org/obo/FOODON_03301474,corn oil,FoodOn,
+food,272,type,http://purl.obolibrary.org/obo/FOODON_03302776,soybean oil,FoodOn,
+food,484,type,http://purl.obolibrary.org/obo/FOODON_03543875,38750 - cheese omelette (efsa foodex2),FoodOn,
+food,485,type,http://purl.obolibrary.org/obo/FOODON_02020723,quail egg (raw),FoodOn,
+food,487,type,http://purl.obolibrary.org/obo/FOODON_03305052,chicken egg yolk (cooked),FoodOn,
+food,489,type,http://purl.obolibrary.org/obo/FOODON_03301075,"chicken egg (shell off, raw)",FoodOn,
+food,490,type,http://purl.obolibrary.org/obo/FOODON_00002461,chicken egg (fried),FoodOn,
+food,511,type,http://purl.obolibrary.org/obo/FOODON_03302659,"coffee bean (roasted, medium ground)",FoodOn,TACO does not state the grind size; medium grind assumed as the generic default
+food,512,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303096,cappuccino,FoodOn,TACO item is the instant powder mix; this class more directly represents the prepared beverage
+food,513,type,http://purl.obolibrary.org/obo/FOODON_03301940,baking powder,FoodOn,
+food,514,type,http://purl.obolibrary.org/obo/FOODON_03413797,baker's yeast,FoodOn,
+food,515,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03544158,41580 - gelatine (efsa foodex2),FoodOn,generic gelatin; does not capture the flavoured-dessert-powder form
+food,518,type,http://purl.obolibrary.org/obo/FOODON_00001235,soy sauce food product,FoodOn,
+food,519,type,http://purl.obolibrary.org/obo/FOODON_03306222,seasoning salt,FoodOn,
+food,520,type,http://purl.obolibrary.org/obo/FOODON_03303700,black olive (canned),FoodOn,
+food,521,type,http://purl.obolibrary.org/obo/FOODON_03310829,green olive (canned),FoodOn,
+food,522,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03542683,26830 - cream sprayable (efsa foodex2),FoodOn,"TACO item is a vegetable-fat-based whipped topping, not dairy cream; closest available class"
+food,523,type,http://purl.obolibrary.org/obo/FOODON_03303084,coconut milk,FoodOn,
+food,524,type,http://purl.obolibrary.org/obo/FOODON_03301440,mayonnaise,FoodOn,
+food,587,type,http://purl.obolibrary.org/obo/FOODON_03311210,"almond (dry, roasted)",FoodOn,the salted preparation is not distinguished
+food,588,type,http://purl.obolibrary.org/obo/FOODON_03311214,"cashew nut (shell off, roasted)",FoodOn,the salted preparation is not distinguished
+food,589,type,http://purl.obolibrary.org/obo/FOODON_03301821,brazilnut (raw),FoodOn,
+food,590,type,http://purl.obolibrary.org/obo/FOODON_03303085,coconut (raw),FoodOn,
+food,591,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00005449,coconut water,FoodOn,"TACO's 'Coco, verde, cru' entry may cover the whole green coconut rather than only its water; not fully certain which part was analysed"
+food,593,type,http://purl.obolibrary.org/obo/FOODON_03310306,sesame seed,FoodOn,
+food,594,type,http://purl.obolibrary.org/obo/FOODON_00003683,flaxseed,FoodOn,
+food,596,type,http://purl.obolibrary.org/obo/FOODON_00005166,peach palm pulp (boiled),FoodOn,
+food,597,type,http://purl.obolibrary.org/obo/FOODON_03315233,walnut (raw),FoodOn,
+food,470,type,http://purl.obolibrary.org/obo/FOODON_03543324,33240 - isotonic and sport drinks (efsa foodex2),FoodOn,
+food,471,type,http://purl.obolibrary.org/obo/FOODON_00001244,coffee beverage,FoodOn,
+food,472,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301614,rum,FoodOn,cachaça is a sugarcane spirit distinct from rum by production tradition; closest available spirits class
+food,474,type,http://purl.obolibrary.org/obo/FOODON_03543331,33310 - beer and beer-like beverage (efsa foodex2),FoodOn,the pilsner style is not distinguished
+food,476,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412059,mate plant,FoodOn,"no dedicated mate-tea-infusion class exists; this points to the botanical source, not the prepared beverage"
+food,477,type,http://purl.obolibrary.org/obo/FOODON_00005243,black tea (steeped),FoodOn,
+food,478,type,http://purl.obolibrary.org/obo/FOODON_00005449,coconut water,FoodOn,
+food,479,type,http://purl.obolibrary.org/obo/FOODON_03307660,tonic water,FoodOn,
+food,480,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400843,soft drink (eurofir),FoodOn,the cola flavour is not distinguished
+food,481,type,http://purl.obolibrary.org/obo/FOODON_03305563,"beverage (carbonated, guarana-flavored)",FoodOn,
+food,483,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400843,soft drink (eurofir),FoodOn,the lemon-lime flavour is not distinguished
+food,447,type,http://purl.obolibrary.org/obo/FOODON_03420160,mammalian light cream (18%-30%),FoodOn,
+food,448,type,http://purl.obolibrary.org/obo/FOODON_03301502,yogurt (plain),FoodOn,
+food,449,type,http://purl.obolibrary.org/obo/FOODON_03305085,yogurt (nonfat),FoodOn,
+food,451,type,http://purl.obolibrary.org/obo/FOODON_03307441,strawberry yogurt,FoodOn,
+food,453,type,http://purl.obolibrary.org/obo/FOODON_03304384,sweetened condensed milk,FoodOn,
+food,454,type,http://purl.obolibrary.org/obo/FOODON_02021057,goat milk,FoodOn,
+food,455,type,http://purl.obolibrary.org/obo/FOODON_03301816,chocolate milk,FoodOn,
+food,456,type,http://purl.obolibrary.org/obo/FOODON_03301657,nonfat dry milk,FoodOn,
+food,457,type,http://purl.obolibrary.org/obo/FOODON_03301484,skim milk food product,FoodOn,the UHT processing is not distinguished
+food,458,type,http://purl.obolibrary.org/obo/FOODON_00005479,cow whole milk (without additives),FoodOn,
+food,459,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03542725,27250 - milk powder (efsa foodex2),FoodOn,generic milk powder class; whole-fat is not distinguished from other milk powders
+food,460,type,http://purl.obolibrary.org/obo/FOODON_03302672,milk (fermented),FoodOn,
+food,461,type,http://purl.obolibrary.org/obo/FOODON_03000649,fresh cheese,FoodOn,the Brazilian minas frescal style is not distinguished
+food,462,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03316148,semihard cheese,FoodOn,the Brazilian minas meia-cura style is not distinguished
+food,463,type,http://purl.obolibrary.org/obo/FOODON_03303578,mozzarella cheese,FoodOn,
+food,464,type,http://purl.obolibrary.org/obo/FOODON_00003247,parmesan cheese food product,FoodOn,
+food,465,type,http://purl.obolibrary.org/obo/FOODON_03400787,processed cheese (eurofir),FoodOn,
+food,467,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03315868,cheese varietal semi-hard,FoodOn,the Brazilian queijo prato style (similar to Gouda/Edam) is not distinguished
+food,468,type,http://purl.obolibrary.org/obo/FOODON_03315638,cream cheese spread,FoodOn,
+food,469,type,http://purl.obolibrary.org/obo/FOODON_03302908,ricotta cheese,FoodOn,
+food,491,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03543723,37230 - hot chocolate (efsa foodex2),FoodOn,TACO item is the powder mix itself; this class more directly represents the prepared drink
+food,492,type,http://purl.obolibrary.org/obo/FOODON_03301073,sugar (granulated),FoodOn,
+food,493,type,http://purl.obolibrary.org/obo/FOODON_03420156,brown sugar,FoodOn,
+food,494,type,http://purl.obolibrary.org/obo/FOODON_03307345,sugar (refined),FoodOn,
+food,495,type,http://purl.obolibrary.org/obo/FOODON_03302806,milk chocolate,FoodOn,
+food,498,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303613,chocolate chip (semisweet),FoodOn,"matches on sweetness class only; TACO item is presumed to be a bar/block, not chips"
+food,499,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304233,coconut haystacks candy,FoodOn,Brazilian cocada and US coconut haystacks are similar but distinct coconut-sugar candies
+food,501,type,http://purl.obolibrary.org/obo/FOODON_00003138,dulce de leche,FoodOn,
+food,502,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305342,gelatin dessert,FoodOn,generic gelatin dessert class; does not capture the traditional beef/cow-foot collagen source
+food,503,type,http://purl.obolibrary.org/obo/FOODON_03301061,corn syrup,FoodOn,
+food,504,type,http://purl.obolibrary.org/obo/FOODON_03305639,marshmallow,FoodOn,Brazilian Maria mole is a coconut-marshmallow confection
+food,506,type,http://purl.obolibrary.org/obo/FOODON_03543067,30670 - quince cheese (efsa foodex2),FoodOn,'quince cheese' is the English trade term for quince paste/marmalade
+food,507,type,http://purl.obolibrary.org/obo/FOODON_03401114,10000213 - honey (shelf stable) (gs1 gpc),FoodOn,
+food,508,type,http://purl.obolibrary.org/obo/FOODON_03543004,30040 - sugar cane molasses (efsa foodex2),FoodOn,
+food,509,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302946,custard,FoodOn,quindim is a specific Brazilian baked coconut-egg-yolk custard; generic custard class is the closest available
+food,557,type,http://purl.obolibrary.org/obo/FOODON_03301299,peanut (raw),FoodOn,
+food,558,type,http://purl.obolibrary.org/obo/FOODON_03309827,"peanut (skin off, salted, roasted)",FoodOn,
+food,559,type,http://purl.obolibrary.org/obo/FOODON_03540620,06200 - garden peas (with pods) (efsa foodex2),FoodOn,
+food,561,type,http://purl.obolibrary.org/obo/FOODON_00004375,pinto bean (cooked),FoodOn,TACO's feijão carioca is the pinto-bean-type variety
+food,562,type,http://purl.obolibrary.org/obo/FOODON_03000089,pinto bean (raw),FoodOn,TACO's feijão carioca is the pinto-bean-type variety
+food,564,type,http://purl.obolibrary.org/obo/FOODON_03309834,cowpea (raw),FoodOn,TACO's feijão fradinho (black-eyed pea) is a cowpea variety
+food,565,type,http://purl.obolibrary.org/obo/FOODON_00004377,yellow bean (cooked),FoodOn,
+food,566,type,http://purl.obolibrary.org/obo/FOODON_03000094,yellow bean (raw),FoodOn,
+food,567,type,http://purl.obolibrary.org/obo/FOODON_00004376,black turtle bean (cooked),FoodOn,
+food,568,type,http://purl.obolibrary.org/obo/FOODON_00005277,"black turtle bean (raw, mature)",FoodOn,
+food,569,type,http://purl.obolibrary.org/obo/FOODON_00004375,pinto bean (cooked),FoodOn,TACO's feijão rajado is treated here as a pinto-bean-type variety; FoodOn does not distinguish it from feijão carioca
+food,570,type,http://purl.obolibrary.org/obo/FOODON_03000089,pinto bean (raw),FoodOn,TACO's feijão rajado is treated here as a pinto-bean-type variety; FoodOn does not distinguish it from feijão carioca
+food,571,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311570,"pink bean (cooked, canned)",FoodOn,TACO does not state the bean was canned
+food,572,type,http://purl.obolibrary.org/obo/FOODON_03000090,pink bean (raw),FoodOn,
+food,573,type,http://purl.obolibrary.org/obo/FOODON_00005619,kidney bean (cooked),FoodOn,TACO's feijão roxo is treated here as a kidney-bean-type variety
+food,574,type,http://purl.obolibrary.org/obo/FOODON_00005279,"kidney bean (raw, mature)",FoodOn,TACO's feijão roxo is treated here as a kidney-bean-type variety
+food,575,type,http://purl.obolibrary.org/obo/FOODON_03000123,chickpea (raw),FoodOn,
+food,576,type,http://purl.obolibrary.org/obo/FOODON_03306815,pigeon pea (raw),FoodOn,
+food,577,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004634,brown lentil (cooked),FoodOn,TACO does not state the lentil variety; brown is assumed as the common default
+food,578,type,http://purl.obolibrary.org/obo/FOODON_03000103,lentil (raw),FoodOn,
+food,579,type,http://purl.obolibrary.org/obo/FOODON_03310296,peanut candy,FoodOn,
+food,580,type,http://purl.obolibrary.org/obo/FOODON_03302000,peanut brittle,FoodOn,
+food,581,type,http://purl.obolibrary.org/obo/FOODON_03302142,soybean flour,FoodOn,
+food,582,type,http://purl.obolibrary.org/obo/FOODON_03305289,soybean milk,FoodOn,
+food,584,type,http://purl.obolibrary.org/obo/FOODON_00004697,tofu,FoodOn,
+food,585,type,http://purl.obolibrary.org/obo/FOODON_03302080,lupine bean (raw),FoodOn,
+food,273,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,274,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,275,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,276,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,277,type,http://purl.obolibrary.org/obo/FOODON_03309668,"tuna (solid pack, canned in oil)",FoodOn,
+food,278,type,http://purl.obolibrary.org/obo/FOODON_03305444,tuna (raw),FoodOn,
+food,280,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411423,cod,FoodOn,generic species class; the salted and sautéed preparation is not captured
+food,283,type,http://purl.obolibrary.org/obo/FOODON_03309626,shark (raw),FoodOn,
+food,286,type,http://purl.obolibrary.org/obo/FOODON_03310723,shrimp (fried),FoodOn,the specific 'sete barbas' species is not distinguished
+food,287,type,http://purl.obolibrary.org/obo/FOODON_03311304,crabmeat (cooked),FoodOn,
+food,292,type,http://purl.obolibrary.org/obo/FOODON_03308183,croaker (raw),FoodOn,
+food,293,closeMatch,http://purl.obolibrary.org/obo/FOODON_03411794,croaker,FoodOn,"generic species class; size and baking are not captured; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,294,closeMatch,http://purl.obolibrary.org/obo/FOODON_03411794,croaker,FoodOn,"generic species class; size and cooking method are not captured; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,301,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413878,hake,FoodOn,"generic species class; baking is not captured; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
+food,302,type,http://purl.obolibrary.org/obo/FOODON_03309095,hake fillet (raw),FoodOn,
+food,303,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03413878,hake,FoodOn,generic species class; frying is not captured
+food,304,type,http://purl.obolibrary.org/obo/FOODON_03307997,weakfish (raw),FoodOn,
+food,305,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,FoodOn,generic species class; frying is not captured
+food,306,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,FoodOn,"generic species class; the breaded, fried preparation is not captured"
+food,307,type,http://purl.obolibrary.org/obo/FOODON_03307997,weakfish (raw),FoodOn,
+food,308,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,FoodOn,generic species class; frying is not captured
+food,310,type,http://purl.obolibrary.org/obo/FOODON_03307997,weakfish (raw),FoodOn,TACO's pescadinha is a small weakfish
+food,311,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02021822,catfish,FoodOn,generic catfish class; TACO's pintado is a specific Brazilian species (Pseudoplatystoma) not distinguished here
+food,312,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303384,catfish (raw),FoodOn,generic catfish class; TACO's pintado is a specific Brazilian species (Pseudoplatystoma) not distinguished here
+food,313,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02021822,catfish,FoodOn,generic catfish class; TACO's pintado is a specific Brazilian species (Pseudoplatystoma) not distinguished here
+food,314,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03310203,triggerfish (raw),FoodOn,the regional name 'porquinho' is not certainly this species
+food,316,type,http://purl.obolibrary.org/obo/FOODON_02022078,"atlantic salmon fillet (skinless, raw)",FoodOn,
+food,318,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411558,sardine,FoodOn,generic species class; baking is not captured
+food,319,type,http://purl.obolibrary.org/obo/FOODON_03308329,sardine in oil (canned),FoodOn,
+food,321,type,http://purl.obolibrary.org/obo/FOODON_03308100,sardine (raw),FoodOn,
+food,526,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03307154,rice (flavored with beef extract),FoodOn,approximates arroz carreteiro; does not capture the full dish
+food,528,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,generic beef stew; the specific Paraná recipe is not captured
+food,536,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03420192,tripe,FoodOn,ingredient-level match; tripe is the dish's defining ingredient
+food,537,type,http://purl.obolibrary.org/obo/FOODON_03302094,beef stroganoff with noodles,FoodOn,
+food,538,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302094,beef stroganoff with noodles,FoodOn,TACO item is chicken stroganoff; this class is specifically beef
+food,545,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400866,prepared salad (eurofir),FoodOn,the mayonnaise dressing is not captured
+food,546,type,http://purl.obolibrary.org/obo/FOODON_03307615,vegetable (steamed),FoodOn,
+food,547,type,http://purl.obolibrary.org/obo/FOODON_03306092,chicken salad,FoodOn,
+food,549,type,http://purl.obolibrary.org/obo/FOODON_00003242,tabbouleh,FoodOn,
+food,551,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03307663,tapioca,FoodOn,does not capture the griddled crepe with butter preparation
+food,553,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,generic beef stew; the cassava component is not captured
+food,556,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00002953,chow mein,FoodOn,closest available stir-fried noodle dish; not identical to yakisoba
+food,323,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306437,ham (chopped),FoodOn,apresuntado is a cheaper pressed/reformed ham product
+food,324,type,http://purl.obolibrary.org/obo/FOODON_03301432,beef bouillon cube,FoodOn,
+food,325,type,http://purl.obolibrary.org/obo/FOODON_03301431,chicken bouillon cube,FoodOn,
+food,326,type,http://purl.obolibrary.org/obo/FOODON_03310753,ground beef (cooked),FoodOn,the acém/chuck cut is not distinguished
+food,327,type,http://purl.obolibrary.org/obo/FOODON_03301886,"beef (ground, raw)",FoodOn,the acém/chuck cut is not distinguished
+food,328,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311141,beef chuck (roast cooked),FoodOn,the lean/fat-trimmed distinction is not captured
+food,329,type,http://purl.obolibrary.org/obo/FOODON_03310939,beef chuck (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,330,type,http://purl.obolibrary.org/obo/FOODON_03303566,meatball (raw),FoodOn,
+food,333,type,http://purl.obolibrary.org/obo/FOODON_03304093,beef tripe (raw),FoodOn,
+food,334,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000218,beef ribeye cap steak (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,336,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000218,beef ribeye cap steak (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,341,type,http://purl.obolibrary.org/obo/FOODON_02000210,beef ribeye steak (raw),FoodOn,
+food,343,type,http://purl.obolibrary.org/obo/FOODON_02000124,"beef strip loin (boneless, raw)",FoodOn,
+food,344,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,FoodOn,generic parent class only; grilling is not captured
+food,345,type,http://purl.obolibrary.org/obo/FOODON_02000124,"beef strip loin (boneless, raw)",FoodOn,the lean/fat-trimmed distinction is not captured
+food,346,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,FoodOn,generic parent class only; grilling is not captured
+food,347,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000207,beef ribeye roast,FoodOn,
+food,348,type,http://purl.obolibrary.org/obo/FOODON_02000204,beef rib (raw),FoodOn,
+food,349,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311514,roast beef bottom round (cooked),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,350,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000003,beef bottom round (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,351,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311014,beef top round roast (cooked),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,352,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000013,beef top round (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,355,type,http://purl.obolibrary.org/obo/FOODON_03302734,beef liver (raw),FoodOn,
+food,356,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02020913,beef liver,FoodOn,the cooking method is not captured
+food,357,type,http://purl.obolibrary.org/obo/FOODON_02000402,beef tenderloin (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,358,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,FoodOn,generic parent class only; grilling is not captured
+food,360,type,http://purl.obolibrary.org/obo/FOODON_02000176,beef flank (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,364,type,http://purl.obolibrary.org/obo/FOODON_02000040,beef eye of round (raw),FoodOn,
+food,366,type,http://purl.obolibrary.org/obo/FOODON_03310938,beef tongue (raw),FoodOn,
+food,367,type,http://purl.obolibrary.org/obo/FOODON_02000166,beef tri-tip steak (raw),FoodOn,
+food,369,type,http://purl.obolibrary.org/obo/FOODON_02000148,beef top sirloin butt (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,372,type,http://purl.obolibrary.org/obo/FOODON_02000198,beef shank (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,373,type,http://purl.obolibrary.org/obo/FOODON_02000070,beef shoulder clod (raw),FoodOn,
+food,375,type,http://purl.obolibrary.org/obo/FOODON_02000070,beef shoulder clod (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,378,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303432,beef brisket (pit barbeque cooked),FoodOn,TACO does not specify a barbecue preparation
+food,379,type,http://purl.obolibrary.org/obo/FOODON_02000190,beef brisket (raw),FoodOn,the lean/fat-trimmed distinction is not captured
+food,386,type,http://purl.obolibrary.org/obo/FOODON_03305354,chicken croquette,FoodOn,
+food,387,type,http://purl.obolibrary.org/obo/FOODON_03310696,meat croquette (raw),FoodOn,
+food,389,type,http://purl.obolibrary.org/obo/FOODON_03307577,chicken pie,FoodOn,
+food,390,type,http://purl.obolibrary.org/obo/FOODON_03307577,chicken pie,FoodOn,the pre-cooked state is not captured
+food,391,type,http://purl.obolibrary.org/obo/FOODON_03303029,chicken wing (raw),FoodOn,
+food,394,type,http://purl.obolibrary.org/obo/FOODON_03303027,chicken heart (raw),FoodOn,
+food,395,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02020178,chicken heart,FoodOn,the cooking method is not captured
+food,397,type,http://purl.obolibrary.org/obo/FOODON_02020224,chicken drumstick (raw),FoodOn,
+food,398,type,http://purl.obolibrary.org/obo/FOODON_03311139,chicken drumstick (cooked),FoodOn,
+food,399,type,http://purl.obolibrary.org/obo/FOODON_02020238,"chicken drumstick (skinless, raw)",FoodOn,
+food,400,type,http://purl.obolibrary.org/obo/FOODON_03301179,chicken liver (raw),FoodOn,
+food,402,type,http://purl.obolibrary.org/obo/FOODON_03301121,"chicken (whole or pieces, raw)",FoodOn,
+food,404,type,http://purl.obolibrary.org/obo/FOODON_03311101,chicken (cooked),FoodOn,
+food,405,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301121,"chicken (whole or pieces, raw)",FoodOn,the skinless state is not captured
+food,407,type,http://purl.obolibrary.org/obo/FOODON_03303012,chicken breast (raw),FoodOn,
+food,408,type,http://purl.obolibrary.org/obo/FOODON_03311140,chicken breast (cooked),FoodOn,
+food,409,type,http://purl.obolibrary.org/obo/FOODON_02020232,"chicken breast (skinless, raw)",FoodOn,
+food,412,type,http://purl.obolibrary.org/obo/FOODON_03310166,chicken thigh (raw),FoodOn,
+food,414,type,http://purl.obolibrary.org/obo/FOODON_02020226,"chicken thigh (skinless, raw)",FoodOn,
+food,415,type,http://purl.obolibrary.org/obo/FOODON_03304663,ground beef patty (raw),FoodOn,
+food,416,type,http://purl.obolibrary.org/obo/FOODON_00002737,beef hamburger (dish),FoodOn,
+food,417,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00002737,beef hamburger (dish),FoodOn,grilling vs. frying is not distinguished
+food,421,type,http://purl.obolibrary.org/obo/FOODON_03310623,pork sausage (raw),FoodOn,
+food,424,type,http://purl.obolibrary.org/obo/FOODON_03311682,mortadella,FoodOn,
+food,425,type,http://purl.obolibrary.org/obo/FOODON_03307670,turkey roast,FoodOn,
+food,426,type,http://purl.obolibrary.org/obo/FOODON_03307208,turkey meat (raw),FoodOn,
+food,427,type,http://purl.obolibrary.org/obo/FOODON_03311076,pork chop (raw),FoodOn,
+food,428,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004490,pork chop,FoodOn,frying is not captured
+food,429,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004490,pork chop,FoodOn,grilling is not captured
+food,431,type,http://purl.obolibrary.org/obo/FOODON_02000316,pork loin back ribs (raw),FoodOn,
+food,432,type,http://purl.obolibrary.org/obo/FOODON_00005406,pork loin center roast,FoodOn,
+food,433,type,http://purl.obolibrary.org/obo/FOODON_02000289,pork loin (raw),FoodOn,
+food,434,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003845,pork ear,FoodOn,the salted preparation is not captured
+food,435,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000334,pork sirloin tip roast,FoodOn,TACO's pernil is the whole leg; this is a sub-cut
+food,436,type,http://purl.obolibrary.org/obo/FOODON_02000284,pork leg (raw),FoodOn,
+food,437,type,http://purl.obolibrary.org/obo/FOODON_02021801,pork tail (raw),FoodOn,the salted preparation is not captured
+food,439,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003149,Canadian bacon,FoodOn,similar lean cured pork product; not identical to Brazilian presunto
+food,443,type,http://purl.obolibrary.org/obo/FOODON_03312067,salami,FoodOn,
+food,445,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03307782,pork rind (fried),FoodOn,"toucinho is fried pork fat, not skin/rind; closest available class"
+food,64,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003009,kabocha squash plant,FoodOn,the cooking/sauteing state is not captured
+food,65,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003009,kabocha squash plant,FoodOn,
+food,66,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301697,pumpkin (raw),FoodOn,the specific Brazilian variety is not distinguished
+food,67,type,http://purl.obolibrary.org/obo/FOODON_00004565,winter squash (raw),FoodOn,
+food,68,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004565,winter squash (raw),FoodOn,the cooking/sauteing state is not captured
+food,69,type,http://purl.obolibrary.org/obo/FOODON_03000082,crookneck squash (raw),FoodOn,
+food,71,type,http://purl.obolibrary.org/obo/FOODON_00004138,zucchini squash (raw),FoodOn,
+food,72,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004138,zucchini squash (raw),FoodOn,the cooking/sauteing state is not captured
+food,73,type,http://purl.obolibrary.org/obo/FOODON_03310107,summer squash (raw),FoodOn,
+food,74,type,http://purl.obolibrary.org/obo/FOODON_03306698,swiss chard leaf (raw),FoodOn,
+food,75,type,http://purl.obolibrary.org/obo/FOODON_03000149,watercress leaf (raw),FoodOn,
+food,76,type,http://purl.obolibrary.org/obo/FOODON_03301727,celery stalk (raw),FoodOn,
+food,77,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03540369,03690 - head lettuces (efsa foodex2),FoodOn,the iceberg variety is not distinguished
+food,78,type,http://purl.obolibrary.org/obo/FOODON_03306126,loose leaf lettuce (raw),FoodOn,
+food,79,type,http://purl.obolibrary.org/obo/FOODON_03000125,butterhead lettuce (raw),FoodOn,
+food,80,type,http://purl.obolibrary.org/obo/FOODON_03000019,red leaf lettuce (raw),FoodOn,
+food,81,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301192,basil leaf (raw),FoodOn,"alfavaca is a related basil variety, not certainly the same species"
+food,82,type,http://purl.obolibrary.org/obo/FOODON_03305208,garlic bulb (raw),FoodOn,
+food,83,type,http://purl.obolibrary.org/obo/FOODON_03311757,leek (raw),FoodOn,
+food,84,type,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,
+food,85,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,the cooking/sauteing state is not captured
+food,86,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03540755,07550 - arracacha (efsa foodex2),FoodOn,the cooked state is not captured
+food,87,type,http://purl.obolibrary.org/obo/FOODON_03540755,07550 - arracacha (efsa foodex2),FoodOn,
+food,88,type,http://purl.obolibrary.org/obo/FOODON_00004429,sweet potato (cooked),FoodOn,
+food,89,type,http://purl.obolibrary.org/obo/FOODON_03301717,sweet potato (raw),FoodOn,
+food,91,type,http://purl.obolibrary.org/obo/FOODON_03306100,potato (cooked),FoodOn,
+food,92,type,http://purl.obolibrary.org/obo/FOODON_03301449,potato (raw),FoodOn,
+food,93,type,http://purl.obolibrary.org/obo/FOODON_03301959,potato (french-fried),FoodOn,
+food,94,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306100,potato (cooked),FoodOn,sauteing is not distinguished from other cooking methods
+food,95,type,http://purl.obolibrary.org/obo/FOODON_03309715,eggplant (cooked),FoodOn,
+food,96,type,http://purl.obolibrary.org/obo/FOODON_03309709,eggplant (raw),FoodOn,
+food,98,type,http://purl.obolibrary.org/obo/FOODON_00004137,beetroot (raw),FoodOn,
+food,100,type,http://purl.obolibrary.org/obo/FOODON_03311420,broccoli (cooked),FoodOn,
+food,101,type,http://purl.obolibrary.org/obo/FOODON_03301713,broccoli floret (raw),FoodOn,
+food,103,type,http://purl.obolibrary.org/obo/FOODON_03307043,yam (raw),FoodOn,
+food,104,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411717,amaranth plant,FoodOn,botanical class; the leafy-green food state is not captured
+food,105,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,the catalonha variety is not distinguished
+food,106,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,the catalonha variety is not distinguished; sauteing is not captured
+food,107,type,http://purl.obolibrary.org/obo/FOODON_03301704,onion (raw),FoodOn,
+food,108,closeMatch,http://purl.obolibrary.org/obo/FOODON_03311340,scallion (raw),FoodOn,not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (scallion is_a scallion plant)
+food,109,type,http://purl.obolibrary.org/obo/FOODON_03311100,carrot (cooked),FoodOn,
+food,110,type,http://purl.obolibrary.org/obo/FOODON_03301570,carrot root (raw),FoodOn,
+food,111,type,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,
+food,112,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311502,chayote (raw),FoodOn,the cooking/sauteing state is not captured
+food,113,type,http://purl.obolibrary.org/obo/FOODON_03311502,chayote (raw),FoodOn,
+food,115,type,http://purl.obolibrary.org/obo/FOODON_00003503,collard greens bunch,FoodOn,
+food,116,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003503,collard greens bunch,FoodOn,the cooking/sauteing state is not captured
+food,117,type,http://purl.obolibrary.org/obo/FOODON_03302732,cauliflower floret (raw),FoodOn,
+food,119,type,http://purl.obolibrary.org/obo/FOODON_03000085,New Zealand spinach leaf (raw),FoodOn,
+food,120,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000085,New Zealand spinach leaf (raw),FoodOn,the cooking/sauteing state is not captured
+food,121,type,http://purl.obolibrary.org/obo/FOODON_03310125,cassava flour,FoodOn,the raw/toasted distinction is not captured
+food,122,type,http://purl.obolibrary.org/obo/FOODON_03310125,cassava flour,FoodOn,the raw/toasted distinction is not captured
+food,124,type,http://purl.obolibrary.org/obo/FOODON_03544170,41700 - tapioca starch (efsa foodex2),FoodOn,
+food,125,closeMatch,http://purl.obolibrary.org/obo/FOODON_00002576,bean sprout,FoodOn,the bean variety is not distinguished; not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (bean sprout is_a bean plant)
+food,126,type,http://purl.obolibrary.org/obo/FOODON_03307043,yam (raw),FoodOn,
+food,127,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414982,ethiopian eggplant plant,FoodOn,botanical class matching jiló's species (Solanum aethiopicum)
+food,129,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302304,cassava (raw),FoodOn,the cooking/sauteing state is not captured
+food,130,type,http://purl.obolibrary.org/obo/FOODON_03302304,cassava (raw),FoodOn,
+food,133,type,http://purl.obolibrary.org/obo/FOODON_03301192,basil leaf (raw),FoodOn,
+food,134,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003415,cucumber,FoodOn,maxixe (Cucumis anguria) is a distinct relative of cucumber
+food,135,type,http://purl.obolibrary.org/obo/FOODON_03301579,mustard greens (raw),FoodOn,
+food,136,type,http://purl.obolibrary.org/obo/FOODON_03540193,01930 - gnocchi (efsa foodex2),FoodOn,
+food,137,type,http://purl.obolibrary.org/obo/FOODON_03307633,turnip (raw),FoodOn,
+food,138,type,http://purl.obolibrary.org/obo/FOODON_03306832,heart of palm (canned),FoodOn,
+food,139,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306832,heart of palm (canned),FoodOn,the pupunha (peach palm) species is not distinguished from juçara
+food,142,type,http://purl.obolibrary.org/obo/FOODON_03301545,cucumber (raw),FoodOn,
+food,143,type,http://purl.obolibrary.org/obo/FOODON_00003012,yellow bell pepper (raw),FoodOn,
+food,144,type,http://purl.obolibrary.org/obo/FOODON_03306726,sweet green bell pepper (raw),FoodOn,
+food,145,type,http://purl.obolibrary.org/obo/FOODON_03315874,red bell pepper (raw),FoodOn,
+food,146,type,http://purl.obolibrary.org/obo/FOODON_03544170,41700 - tapioca starch (efsa foodex2),FoodOn,
+food,147,type,http://purl.obolibrary.org/obo/FOODON_03301828,okra (raw),FoodOn,
+food,148,type,http://purl.obolibrary.org/obo/FOODON_03304656,radish (raw),FoodOn,
+food,149,type,http://purl.obolibrary.org/obo/FOODON_03310228,green cabbage head (raw),FoodOn,
+food,150,type,http://purl.obolibrary.org/obo/FOODON_03304685,red cabbage head (raw),FoodOn,
+food,151,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304685,red cabbage head (raw),FoodOn,the cooking/sauteing state is not captured
+food,152,type,http://purl.obolibrary.org/obo/FOODON_00005223,arugula leaf (raw),FoodOn,
+food,153,type,http://purl.obolibrary.org/obo/FOODON_03301205,parsley leaf (raw),FoodOn,
+food,154,type,http://purl.obolibrary.org/obo/FOODON_03303882,mixed vegetables (canned),FoodOn,
+food,155,type,http://purl.obolibrary.org/obo/FOODON_03540408,04080 - sowthistle leaves (efsa foodex2),FoodOn,
+food,158,type,http://purl.obolibrary.org/obo/FOODON_03301455,tomato paste,FoodOn,
+food,159,type,http://purl.obolibrary.org/obo/FOODON_03301217,tomato sauce,FoodOn,
+food,160,type,http://purl.obolibrary.org/obo/FOODON_03301457,tomato puree,FoodOn,
+food,162,closeMatch,http://purl.obolibrary.org/obo/FOODON_00004236,green bean pod (raw),FoodOn,not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (bean pod is_a bean sprout is_a bean plant)
+food,163,type,http://purl.obolibrary.org/obo/FOODON_03305236,avocado (raw),FoodOn,
+food,164,type,http://purl.obolibrary.org/obo/FOODON_03301831,pineapple (raw),FoodOn,
+food,165,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301831,pineapple (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,167,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03401427,10006759 - acai berries (gs1 gpc),FoodOn,does not capture the guarana syrup/glucose addition
+food,168,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03401427,10006759 - acai berries (gs1 gpc),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,169,type,http://purl.obolibrary.org/obo/FOODON_03310823,acerola (raw),FoodOn,
+food,170,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03310823,acerola (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,171,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306026,plum nectar (canned),FoodOn,nectar is a liquid product; TACO's item is fruit in syrup
+food,172,type,http://purl.obolibrary.org/obo/FOODON_03301580,plum (raw),FoodOn,
+food,175,type,http://purl.obolibrary.org/obo/FOODON_03310126,plantain (raw),FoodOn,
+food,177,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,the figo cultivar is not distinguished
+food,179,type,http://purl.obolibrary.org/obo/FOODON_03301130,Cavendish banana (raw),FoodOn,TACO's banana nanica is the Brazilian Cavendish
+food,181,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,the pacova cultivar is not distinguished
+food,184,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411284,ambarella plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,185,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411307,hog plum plant,FoodOn,botanical class only; no food-item-state class was found for this species (matches Spondias mombin)
+food,186,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411221,cashew plant,FoodOn,botanical class; does not isolate the cashew apple specifically
+food,187,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411221,cashew plant,FoodOn,botanical class; does not isolate the cashew apple or its frozen pulp
+food,189,type,http://purl.obolibrary.org/obo/FOODON_03311790,persimmon (raw),FoodOn,the specific cultivar is not distinguished
+food,190,type,http://purl.obolibrary.org/obo/FOODON_03541661,16610 - carambolas (efsa foodex2),FoodOn,
+food,191,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412398,ciruela plant,FoodOn,botanical class only; no food-item-state class was found for this species (matches Spondias purpurea)
+food,192,type,http://purl.obolibrary.org/obo/FOODON_03543694,36940 - cupuaçu (efsa foodex2),FoodOn,
+food,193,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03543694,36940 - cupuaçu (efsa foodex2),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,194,type,http://purl.obolibrary.org/obo/FOODON_03301804,fig (raw),FoodOn,
+food,195,type,http://purl.obolibrary.org/obo/FOODON_03306055,"fig (preserved in syrup, canned)",FoodOn,
+food,196,type,http://purl.obolibrary.org/obo/FOODON_03305285,breadfruit (raw),FoodOn,
+food,197,type,http://purl.obolibrary.org/obo/FOODON_03305317,guava (raw),FoodOn,the white variety is not distinguished
+food,198,type,http://purl.obolibrary.org/obo/FOODON_03305326,guava (paste),FoodOn,
+food,199,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305326,guava (paste),FoodOn,the thicker cascão preparation is not distinguished
+food,200,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305317,guava (raw),FoodOn,the red variety is not distinguished
+food,201,type,http://purl.obolibrary.org/obo/FOODON_03305318,soursop (raw),FoodOn,
+food,202,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305318,soursop (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,203,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414266,jaboticaba plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,204,type,http://purl.obolibrary.org/obo/FOODON_00003087,jackfruit (raw),FoodOn,
+food,205,type,http://purl.obolibrary.org/obo/FOODON_00005306,rose apple (raw),FoodOn,
+food,206,type,http://purl.obolibrary.org/obo/FOODON_00005313,jambolan (raw),FoodOn,
+food,207,type,http://purl.obolibrary.org/obo/FOODON_03303398,fuzzy kiwifruit (raw),FoodOn,the common green kiwifruit is assumed
+food,208,type,http://purl.obolibrary.org/obo/FOODON_00002511,navel orange (raw),FoodOn,
+food,210,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411193,sour orange plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,214,type,http://purl.obolibrary.org/obo/FOODON_03309832,orange (raw),FoodOn,the specific cultivar is not distinguished
+food,215,type,http://purl.obolibrary.org/obo/FOODON_03301103,orange juice,FoodOn,
+food,216,type,http://purl.obolibrary.org/obo/FOODON_03309926,california valencia orange (raw),FoodOn,
+food,218,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414214,mandarin lime plant,FoodOn,botanical class only; no food-item-state class was found for this species; juice form not captured
+food,219,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411067,lime (citrus) plant,FoodOn,botanical class only; no food-item-state class was found for this species; the galego (key lime) variety and juice form are not captured
+food,220,type,http://purl.obolibrary.org/obo/FOODON_00003661,lime,FoodOn,
+food,222,type,http://purl.obolibrary.org/obo/FOODON_00004205,Fuji apple (raw),FoodOn,
+food,225,type,http://purl.obolibrary.org/obo/FOODON_03301830,papaya (raw),FoodOn,the specific cultivar is not distinguished
+food,226,type,http://purl.obolibrary.org/obo/FOODON_03301830,papaya (raw),FoodOn,
+food,228,type,http://purl.obolibrary.org/obo/FOODON_03301813,mango (raw),FoodOn,the specific cultivar is not distinguished
+food,229,type,http://purl.obolibrary.org/obo/FOODON_03301813,mango (raw),FoodOn,the specific cultivar is not distinguished
+food,230,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301813,mango (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,231,type,http://purl.obolibrary.org/obo/FOODON_00004923,Tommy Atkins mango (raw),FoodOn,
+food,232,type,http://purl.obolibrary.org/obo/FOODON_03309552,passion fruit (raw),FoodOn,
+food,233,type,http://purl.obolibrary.org/obo/FOODON_03310453,passion fruit pulp (frozen),FoodOn,
+food,235,type,http://purl.obolibrary.org/obo/FOODON_03301040,watermelon (raw),FoodOn,
+food,236,type,http://purl.obolibrary.org/obo/FOODON_03301593,melon (raw),FoodOn,the specific cultivar is not distinguished
+food,237,type,http://purl.obolibrary.org/obo/FOODON_03303080,tangerine (raw),FoodOn,the specific cultivar is not distinguished
+food,238,type,http://purl.obolibrary.org/obo/FOODON_03303080,tangerine (raw),FoodOn,the specific cultivar is not distinguished
+food,239,type,http://purl.obolibrary.org/obo/FOODON_03301722,strawberry (raw),FoodOn,
+food,240,type,http://purl.obolibrary.org/obo/FOODON_00003181,loquat (raw),FoodOn,
+food,241,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414545,pequi plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,242,type,http://purl.obolibrary.org/obo/FOODON_03301724,pear (raw),FoodOn,the specific cultivar is not distinguished
+food,243,type,http://purl.obolibrary.org/obo/FOODON_00002843,Williams pear (raw),FoodOn,
+food,244,type,http://purl.obolibrary.org/obo/FOODON_03301719,peach (raw),FoodOn,the specific cultivar is not distinguished
+food,247,type,http://purl.obolibrary.org/obo/FOODON_00005188,surinam cherry (raw),FoodOn,
+food,248,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00005188,surinam cherry (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,249,type,http://purl.obolibrary.org/obo/FOODON_00003066,pomegranate (raw),FoodOn,
+food,250,closeMatch,http://purl.obolibrary.org/obo/FOODON_03309932,tamarind pod (raw),FoodOn,not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (bean pod is_a bean sprout is_a bean plant)
+food,251,type,http://purl.obolibrary.org/obo/FOODON_03303080,tangerine (raw),FoodOn,the specific cultivar is not distinguished
+food,252,type,http://purl.obolibrary.org/obo/FOODON_03305751,tangerine juice,FoodOn,
+food,253,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414346,tucum plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,256,type,http://purl.obolibrary.org/obo/FOODON_03301123,grape (raw),FoodOn,the specific cultivar is not distinguished
+food,257,type,http://purl.obolibrary.org/obo/FOODON_03301123,grape (raw),FoodOn,the specific cultivar is not distinguished
+food,258,type,http://purl.obolibrary.org/obo/FOODON_03543238,"32380 - juice concentrate, grape (efsa foodex2)",FoodOn,

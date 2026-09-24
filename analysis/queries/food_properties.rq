@@ -1,0 +1,9 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+
+SELECT ?property (COUNT(DISTINCT ?f) AS ?foods)
+WHERE {
+  ?f a taco:Food ;
+     ?property ?value .
+}
+GROUP BY ?property
+ORDER BY DESC(?foods) ?property

@@ -1,0 +1,267 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix taco:    <https://w3id.org/taco-rdf/vocab#> .
+@prefix tacoid:  <https://w3id.org/taco-rdf/id/> .
+@prefix shp:     <https://w3id.org/taco-rdf/shapes#> .
+@prefix fio:     <http://www.foodvoc.org/resource/fio#> .
+
+<https://w3id.org/taco-rdf/shapes> a owl:Ontology ;
+    sh:declare
+        [ sh:prefix "taco"   ; sh:namespace "https://w3id.org/taco-rdf/vocab#"^^xsd:anyURI ] ,
+        [ sh:prefix "tacoid" ; sh:namespace "https://w3id.org/taco-rdf/id/"^^xsd:anyURI ] ,
+        [ sh:prefix "qudt"   ; sh:namespace "http://qudt.org/schema/qudt/"^^xsd:anyURI ] ,
+        [ sh:prefix "unit"   ; sh:namespace "http://qudt.org/vocab/unit/"^^xsd:anyURI ] ,
+        [ sh:prefix "skos"   ; sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ] ,
+        [ sh:prefix "rdfs"   ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] ,
+        [ sh:prefix "obo"    ; sh:namespace "http://purl.obolibrary.org/obo/"^^xsd:anyURI ] .
+
+shp:FoodShape a sh:NodeShape ;
+    sh:targetClass taco:Food ;
+    sh:property [
+        sh:path taco:foodNumber ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype xsd:integer ; sh:minInclusive 1 ;
+        sh:message "A food needs exactly one positive integer taco:foodNumber."
+    ] ;
+    sh:property [
+        sh:path rdfs:label ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:datatype rdf:langString ; sh:languageIn ( "pt" ) ;
+        sh:message "A food needs exactly one Portuguese rdfs:label."
+    ] ;
+    sh:property [
+        sh:path skos:prefLabel ; sh:minCount 1 ; sh:uniqueLang true ; sh:languageIn ( "pt" "en" ) ;
+        sh:message "A food has at most one skos:prefLabel per language, in Portuguese and English."
+    ] ;
+    sh:property [
+        sh:path taco:inGroup ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class taco:FoodGroup ; sh:nodeKind sh:IRI ;
+        sh:message "A food belongs to exactly one taco:FoodGroup."
+    ] ;
+    sh:property [
+        sh:path rdf:type ; sh:hasValue fio:FoodItem ;
+        sh:message "A TACO food is a fio:FoodItem (the FIO class NICE-Food uses for food items)."
+    ] .
+
+shp:FoodOnTypingShape a sh:NodeShape ;
+    sh:targetNode tacoid:dataset ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Food {?value} has {?count} FoodOn types; at most one is asserted per food." ;
+        sh:select """
+            SELECT $this (?food AS ?value) (COUNT(DISTINCT ?class) AS ?count)
+            WHERE { ?food a taco:Food ; a ?class .
+                    FILTER STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/FOODON_") }
+            GROUP BY $this ?food
+            HAVING (COUNT(DISTINCT ?class) > 1)""" ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Food {?value} is typed with {?class}, a class of whole organisms, or one missing from the FoodOn module." ;
+        sh:select """
+            SELECT $this (?food AS ?value) ?class
+            WHERE { ?food a taco:Food ; a ?class .
+                    FILTER STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/FOODON_")
+                    { ?class rdfs:subClassOf* ?root . FILTER (?root IN (obo:COB_0000022, obo:PO_0000003)) }
+                    UNION
+                    { FILTER NOT EXISTS { ?class rdfs:label ?label } } }""" ;
+    ] .
+
+shp:GraphConsistencyShape a sh:NodeShape ;
+    sh:targetNode tacoid:dataset ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Food {?value} has {?count} measurements of nutrient {?nutrient}." ;
+        sh:select """
+            SELECT $this (?food AS ?value) ?nutrient (COUNT(?m) AS ?count)
+            WHERE { ?m taco:ofFood ?food ; taco:ofNutrient ?nutrient . }
+            GROUP BY $this ?food ?nutrient
+            HAVING (COUNT(?m) > 1)""" ;
+    ] ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Energy of {?value} is inconsistent: {?kcal} kcal vs {?kj} kJ (expected ratio 4.184 within 1 %)." ;
+        sh:select """
+            SELECT $this (?food AS ?value)
+                   (SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/energy_kcal>, ?num, 0)) AS ?kcal)
+                   (SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/energy_kj>,   ?num, 0)) AS ?kj)
+            WHERE {
+                ?m taco:ofNutrient ?n ; taco:ofFood ?food ; qudt:numericValue ?num .
+                FILTER (?n IN (<https://w3id.org/taco-rdf/id/nutrient/energy_kcal>, <https://w3id.org/taco-rdf/id/nutrient/energy_kj>))
+            }
+            GROUP BY $this ?food
+            HAVING (COUNT(?m) = 2
+                    && SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/energy_kcal>, ?num, 0)) > 0
+                    && ABS(SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/energy_kj>, ?num, 0))
+                           - 4.184 * SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/energy_kcal>, ?num, 0)))
+                       > 0.01 * 4.184 * SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/energy_kcal>, ?num, 0)))""" ;
+    ] .
+
+shp:SourcePlausibilityShape a sh:NodeShape ;
+    sh:targetNode tacoid:dataset ;
+    sh:severity sh:Warning ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Proximate composition of {?value} adds up to {?total} g per 100 g (expected 100 +/- 2)." ;
+        sh:select """
+            SELECT $this (?food AS ?value) (SUM(?v) AS ?total)
+            WHERE {
+                ?m taco:ofNutrient ?n ; taco:ofFood ?food ; taco:valueStatus ?st .
+                FILTER (?n IN (<https://w3id.org/taco-rdf/id/nutrient/moisture>, <https://w3id.org/taco-rdf/id/nutrient/protein>, <https://w3id.org/taco-rdf/id/nutrient/lipids>, <https://w3id.org/taco-rdf/id/nutrient/carbohydrate>, <https://w3id.org/taco-rdf/id/nutrient/ash>, <https://w3id.org/taco-rdf/id/nutrient/alcohol>))
+                FILTER (?st IN (taco:Measured, taco:Trace))
+                OPTIONAL { ?m qudt:numericValue ?num }
+                BIND (IF(?st = taco:Measured, ?num, 0) AS ?v)
+            }
+            GROUP BY $this ?food
+            HAVING (SUM(IF(?n != <https://w3id.org/taco-rdf/id/nutrient/alcohol>, 1, 0)) = 5 && (SUM(?v) > 102 || SUM(?v) < 98))""" ;
+    ] ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Saturated + mono- + poly-unsaturated fatty acids of {?value} exceed total lipids by {?excess} g per 100 g." ;
+        sh:select """
+            SELECT $this (?food AS ?value)
+                   (SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/lipids>, -?num, ?num)) AS ?excess)
+            WHERE {
+                ?m taco:ofNutrient ?n ; taco:ofFood ?food ; qudt:numericValue ?num .
+                FILTER (?n IN (<https://w3id.org/taco-rdf/id/nutrient/sfa>, <https://w3id.org/taco-rdf/id/nutrient/mufa>, <https://w3id.org/taco-rdf/id/nutrient/pufa>, <https://w3id.org/taco-rdf/id/nutrient/lipids>))
+            }
+            GROUP BY $this ?food
+            HAVING (COUNT(?m) = 4 && SUM(IF(?n = <https://w3id.org/taco-rdf/id/nutrient/lipids>, -?num, ?num)) > 1)""" ;
+    ] .
+
+shp:FoodGroupShape a sh:NodeShape ;
+    sh:targetClass taco:FoodGroup ;
+    sh:property [
+        sh:path skos:prefLabel ; sh:minCount 2 ; sh:uniqueLang true ; sh:languageIn ( "pt" "en" ) ;
+        sh:message "A food group needs one Portuguese and one English skos:prefLabel."
+    ] ;
+    sh:property [
+        sh:path skos:inScheme ; sh:hasValue taco:FoodGroupScheme
+    ] ;
+    sh:property [
+        sh:path [ sh:inversePath taco:inGroup ] ; sh:minCount 1 ;
+        sh:message "A food group without any food."
+    ] .
+
+shp:NutrientShape a sh:NodeShape ;
+    sh:targetClass taco:Nutrient ;
+    sh:property [
+        sh:path skos:prefLabel ; sh:minCount 2 ; sh:uniqueLang true ; sh:languageIn ( "pt" "en" ) ;
+        sh:message "A nutrient needs one Portuguese and one English skos:prefLabel."
+    ] ;
+    sh:property [
+        sh:path taco:unit ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ;
+        sh:in ( unit:PERCENT unit:KiloCAL unit:KiloJ unit:GM unit:MilliGM unit:MicroGM ) ;
+        sh:message "A nutrient needs exactly one QUDT unit among the units TACO uses."
+    ] ;
+    sh:property [
+        sh:path skos:broader ; sh:minCount 1 ; sh:maxCount 1 ; sh:class skos:Concept ;
+        sh:message "A nutrient belongs to exactly one nutrient category."
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Measurement {?value} is in unit {?unit} but {$this} is reported in {?expected}." ;
+        sh:select """
+            SELECT $this ?value ?unit ?expected
+            WHERE {
+                $this taco:unit ?expected .
+                ?value taco:ofNutrient $this ; qudt:unit ?unit .
+                FILTER (?unit != ?expected)
+            }""" ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Measurement {?value} = {?v} {?unit} exceeds 100 g per 100 g." ;
+        sh:select """
+            SELECT $this ?value ?v ?unit
+            WHERE {
+                $this taco:unit ?unit .
+                ?value taco:ofNutrient $this ; qudt:numericValue ?v .
+                FILTER ( (?unit IN (unit:GM, unit:PERCENT) && ?v > 100)
+                      || (?unit = unit:MilliGM && ?v > 100000)
+                      || (?unit = unit:MicroGM && ?v > 100000000) )
+            }""" ;
+    ] .
+
+shp:NutrientPlausibilityShape a sh:NodeShape ;
+    sh:targetClass taco:Nutrient ;
+    sh:severity sh:Warning ;
+
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/shapes> ;
+        sh:message "Measurement {?value} of {$this} is negative ({?v}); carbohydrate is computed by difference, so small negatives are rounding artefacts in the source." ;
+        sh:select """
+            SELECT $this ?value ?v
+            WHERE {
+                ?value taco:ofNutrient $this ; qudt:numericValue ?v .
+                FILTER (?v < 0)
+            }""" ;
+    ] .
+
+shp:NutrientMeasurementShape a sh:NodeShape ;
+    sh:targetClass taco:NutrientMeasurement ;
+    sh:property [
+        sh:path taco:referenceBasis ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class taco:ReferenceBasis ; sh:nodeKind sh:IRI
+    ] ;
+    sh:property [
+        sh:path taco:ofFood ; sh:minCount 1 ; sh:maxCount 1 ; sh:class taco:Food ;
+        sh:message "A measurement is of exactly one taco:Food."
+    ] ;
+    sh:property [
+        sh:path taco:ofNutrient ; sh:minCount 1 ; sh:maxCount 1 ; sh:class taco:Nutrient ;
+        sh:message "A measurement is of exactly one taco:Nutrient."
+    ] ;
+    sh:property [
+        sh:path taco:valueStatus ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:in ( taco:Measured taco:Trace taco:NotApplicable taco:UnderReevaluation ) ;
+        sh:message "A measurement has exactly one taco:valueStatus from the TACO value statuses."
+    ] ;
+    sh:property [
+        sh:path qudt:numericValue ; sh:maxCount 1 ; sh:datatype xsd:decimal
+    ] ;
+    sh:property [
+        sh:path qudt:unit ; sh:maxCount 1 ; sh:nodeKind sh:IRI
+    ] ;
+    sh:or (
+        [ sh:not [ sh:property [ sh:path taco:valueStatus ; sh:hasValue taco:Measured ] ] ]
+        [ sh:property [ sh:path qudt:numericValue ; sh:minCount 1 ] ]
+    ) ;
+    sh:or (
+        [ sh:not [ sh:property [ sh:path taco:valueStatus ; sh:hasValue taco:Measured ] ] ]
+        [ sh:property [ sh:path qudt:unit ; sh:minCount 1 ] ]
+    ) ;
+    sh:or (
+        [ sh:property [ sh:path taco:valueStatus ; sh:hasValue taco:Measured ] ]
+        [ sh:property [ sh:path qudt:numericValue ; sh:maxCount 0 ] ]
+    ) ;
+    sh:or (
+        [ sh:property [ sh:path taco:valueStatus ; sh:hasValue taco:Measured ] ]
+        [ sh:property [ sh:path qudt:unit ; sh:maxCount 0 ] ]
+    ) ;
+    sh:message "Status and value disagree: only taco:Measured measurements carry qudt:numericValue and qudt:unit." .
+
+shp:ReferenceBasisShape a sh:NodeShape ;
+    sh:targetClass taco:ReferenceBasis ;
+    sh:property [ sh:path qudt:numericValue ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:datatype xsd:decimal ; sh:hasValue 100.0 ] ;
+    sh:property [ sh:path qudt:unit ; sh:minCount 1 ; sh:maxCount 1 ; sh:hasValue unit:GM ] ;
+    sh:property [ sh:path taco:foodPortion ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:hasValue taco:EdiblePortion ] .

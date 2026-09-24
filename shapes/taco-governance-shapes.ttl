@@ -1,0 +1,79 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix odrl:    <http://www.w3.org/ns/odrl/2/> .
+@prefix taco:    <https://w3id.org/taco-rdf/vocab#> .
+@prefix tacoid:  <https://w3id.org/taco-rdf/id/> .
+@prefix gov:     <https://w3id.org/taco-rdf/governance#> .
+
+<https://w3id.org/taco-rdf/governance> a owl:Ontology ;
+    sh:declare
+        [ sh:prefix "odrl" ; sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ] .
+
+gov:DatasetShape a sh:NodeShape ;
+    sh:targetNode tacoid:dataset ;
+    sh:property [ sh:path dcterms:title ; sh:minCount 1 ] ;
+    sh:property [
+        sh:path dcterms:license ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "The dataset must declare its licence as an IRI (dcterms:license)."
+    ] ;
+    sh:property [
+        sh:path dcat:distribution ; sh:minCount 1 ;
+        sh:message "The dataset must list at least one downloadable distribution (dcat:distribution)."
+    ] ;
+    sh:property [
+        sh:path odrl:hasPolicy ; sh:minCount 1 ;
+        sh:or ( [ sh:class odrl:Set ] [ sh:class odrl:Offer ] [ sh:class odrl:Agreement ] ) ;
+        sh:message "The dataset must reference an ODRL policy (odrl:hasPolicy)."
+    ] ;
+    sh:property [
+        sh:path prov:wasDerivedFrom ; sh:minCount 1 ; sh:node gov:SourceShape ;
+        sh:message "The dataset must be derived from a source that is fully described (citation, publisher, checksum)."
+    ] ;
+    sh:property [
+        sh:path prov:wasGeneratedBy ; sh:minCount 1 ;
+        sh:message "The dataset must record the activity that generated it."
+    ] .
+
+gov:SourceShape a sh:NodeShape ;
+    sh:property [ sh:path dcterms:bibliographicCitation ; sh:minCount 1 ; sh:datatype xsd:string ] ;
+    sh:property [ sh:path dcterms:publisher ; sh:minCount 1 ] ;
+    sh:property [
+        sh:path dcterms:rights ; sh:minCount 1 ;
+        sh:message "The source must state its terms of use (dcterms:rights)."
+    ] ;
+    sh:property [
+        sh:path taco:sha256 ; sh:minCount 1 ; sh:maxCount 1 ; sh:pattern "^[0-9a-f]{64}$" ;
+        sh:message "The source must carry the SHA-256 of the file it was converted from."
+    ] .
+
+gov:PolicyShape a sh:NodeShape ;
+    sh:targetClass odrl:Set, odrl:Offer, odrl:Agreement ;
+    sh:property [ sh:path odrl:permission ; sh:minCount 1 ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/governance> ;
+        sh:message "Permission {?perm} allows reuse of the data but carries no attribution duty (odrl:attribute)." ;
+        sh:select """
+            SELECT $this ?perm
+            WHERE {
+                $this odrl:permission ?perm .
+                ?perm odrl:action ?a .
+                FILTER (?a IN (odrl:reproduce, odrl:distribute, odrl:derive))
+                FILTER NOT EXISTS { ?perm odrl:duty ?d . ?d odrl:action odrl:attribute }
+            }""" ;
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:prefixes <https://w3id.org/taco-rdf/governance> ;
+        sh:message "Permission {?perm} of {$this} does not target a dcat:Dataset." ;
+        sh:select """
+            SELECT $this ?perm
+            WHERE {
+                $this odrl:permission ?perm .
+                FILTER NOT EXISTS { ?perm odrl:target ?t . ?t a <http://www.w3.org/ns/dcat#Dataset> }
+            }""" ;
+    ] .

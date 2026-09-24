@@ -1,0 +1,53 @@
+particularity,name_pt,name_en,food_numbers,in_taco,query_en,verdict,foodon_class,foodon_label,taco_recipe,taco_page,note
+Brazilian beef cut,Picanha,Top sirloin cap (picanha),380 381 382 383,yes,top sirloin cap,specific class available,FOODON_02000157,beef culotte steak,,,cut without preparation; no grilled form identified in this analysis
+Brazilian beef cut,Cupim,Zebu hump (cupim),353 354,yes,beef hump,search not recorded,,,,,hump of zebu cattle (Bos indicus)
+Brazilian beef cut,Fraldinha,Flap (fraldinha),361 362,yes,beef flap,specific class available,FOODON_02000171,beef sirloin bavette flap,,,cut without preparation; no cooked form identified in this analysis
+Brazilian beef cut,Patinho,Knuckle (patinho),376 377,yes,beef knuckle,specific class available,FOODON_02000025,beef sirloin tip,,,cut without preparation; no grilled form identified in this analysis
+Brazilian beef cut,Capa de contra-filé,Ribeye cap (capa de contra-filé),334 335 336 337,yes,beef ribeye cap steak (raw),specific class available,FOODON_02000218,beef ribeye cap steak (raw),,,used as skos:relatedMatch for the raw cut; no grilled form identified in this analysis
+offal by Brazilian name,Dobradinha,"Dobradinha (beef tripe, boiled)",536,yes,tripe stew,generic class only,FOODON_03420192,tripe,"beef tripe boiled in water, nothing added",124,"TACO's item is tripe boiled in water, not a stew"
+salted or dried product,Charque,Salted sun-dried beef (charque),338 339,yes,jerked beef,not found in documented searches,,,,,"a candidate considered is beef jerky (FOODON_03302103), a different product"
+salted or dried product,Carne seca (jabá),Salted dried beef (carne seca),384 385,yes,dried salted beef,not found in documented searches,,,,,
+salted or dried product,Carne de sol,"Lightly salted, air-dried beef (carne de sol)",,no,carne de sol,search not recorded,,,,,not in TACO 4th edition
+salted or dried product,Bacalhau salgado,Salted cod (bacalhau),279 280,yes,salted cod,specific class available,FOODON_03307021,codfish (salted),,,279 unaligned; 280 related to generic cod
+salted or dried product,Orelha e rabo de porco salgados,Salted pork ear and tail,434 437,yes,salt pork,generic class only,FOODON_00001077,salt pork meat food product,,,"437 is typed pork tail (raw), whose label does not mention salting"
+species by Brazilian common name,Tucunaré,Peacock bass (tucunaré),322,yes,peacock bass,taxon only,NCBITaxon_50735,Cichla ocellaris,,,the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Pintado,Spotted sorubim catfish (pintado),311 312 313,yes,Pseudoplatystoma,specific class available,FOODON_03414867,sorubim catfish,,,TACO uses the generic catfish class; the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,"Curimbatá, corimba",Curimbatá (Prochilodus),288 289 290,yes,Prochilodus,taxon only,NCBITaxon_27695,Prochilodus lineatus,,,the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Corvina de água doce,Freshwater croaker (Plagioscion),291,yes,Plagioscion,taxon only,NCBITaxon_254544,Plagioscion squamosissimus,,,the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Dourada de água doce,Freshwater dourada,295,yes,Brachyplatystoma,taxon only,NCBITaxon_337631,Brachyplatystoma,,,"probably B. rousseauxii, an Amazon catfish; the recorded lookup identifies a genus; dourado (Salminus) is a different fish; the species is assumed from the common name; TACO gives no scientific name"
+species by Brazilian common name,Lambari,Lambari (Astyanax),296 297 298,yes,Astyanax,search not recorded,,,,,the search result for this taxon was not recorded; the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Manjuba,Manjuba (anchovy),299 300,yes,anchovy,generic class only,FOODON_03316282,anchovy,,,the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Camarão Rio Grande,Rio Grande shrimp,284 285,yes,shrimp (raw),generic class only,FOODON_03301837,shrimp (raw),,,unaligned in TACO although shrimp (raw) and shrimp (cooked) exist; the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Pirarucu,Arapaima (pirarucu),,no,Arapaima,specific class available,FOODON_03414870,arapaima,,,not in TACO 4th edition
+species by Brazilian common name,Tambaqui,Tambaqui (Colossoma),,no,Colossoma,specific class available,FOODON_03414876,cachama,,,not in TACO 4th edition
+species by Brazilian common name,Sururu,Sururu mussel,,no,sururu,generic class only,FOODON_03411223,mussel,,,not in TACO 4th edition; the species is assumed from the common name; TACO gives no scientific name
+species by Brazilian common name,Castanha-do-Brasil,Brazil nut,589,yes,brazilnut,specific class used,FOODON_03301821,brazilnut (raw),,,
+species by Brazilian common name,Pupunha,Peach palm fruit (pupunha),596,yes,peach palm,specific class used,FOODON_00005166,peach palm pulp (boiled),,,
+species by Brazilian common name,Pinhão,Araucaria seed (pinhão),595,yes,Araucaria angustifolia seed,taxon only,FOODON_03414684,araucaria tree,,,the recorded candidate is a plant class; a seed or food class was not identified in this analysis
+meat type,Carne de bode e de carneiro,Goat and sheep meat,,no,goat meat (raw),specific class available,FOODON_00004422,piece of goat meat (raw),,,TACO has no goat or sheep meat (name search)
+cultivar name,Feijão carioca,Carioca bean,561 562,yes,carioca bean,search not recorded,,,,,"typed pinto bean, the selected approximate class"
+cultivar name,Feijão rajado,Rajado bean,569 570,yes,rajado bean,search not recorded,,,,,"typed pinto bean, the same class as feijão carioca"
+cultivar name,Feijão fradinho (feijão-de-corda),Black-eyed pea (cowpea),563 564,yes,cowpea (raw),specific class used,FOODON_03309834,cowpea (raw),,,the raw entry uses this class; cooked entry 563 is unaligned and its search result was not recorded
+Brazilian cheese type,"Queijo minas (frescal, meia cura)","Minas cheese (fresh, semi-cured)",461 462,yes,minas cheese,specific class available,FOODON_03601036,minas cheese,,,TACO uses fresh cheese and semihard cheese
+Brazilian cheese type,Queijo prato,Prato cheese,467,yes,prato cheese,search not recorded,,,,,related to semi-hard cheese
+Brazilian cheese type,Requeijão cremoso,Requeijão (creamy cheese spread),468,yes,requeijao,search not recorded,,,,,"typed cream cheese spread, the selected approximate class"
+Brazilian cheese type,Queijo coalho,Coalho cheese,,no,coalho cheese,search not recorded,,,,,not in TACO 4th edition as a food; it is an ingredient of baião de dois (TACO p. 110)
+production system,Frango caipira,Free-range chicken (caipira),392 393,yes,free range chicken,search not recorded,,,"whole chicken boiled in water, nothing added; the name alone says it is free-range (caipira)",130,"FoodOn has the process free-range food animal rearing (FOODON_03530292), not a food class"
+Brazilian dish,Feijoada,Feijoada (black bean and pork stew),540,yes,feijoada,search not recorded,,,"black beans with pork ear, tail, feet, salted ribs and loin, paio, linguiça, carne seca and smoked bacon",129,
+Brazilian dish,Feijão tropeiro,"Feijão tropeiro (red beans, cassava flour, egg and pork)",539,yes,tropeiro,search not recorded,,,"red beans (feijão roxo), cassava flour, boiled eggs, smoked bacon and pork sausage",128,
+Brazilian dish,Acarajé,Acarajé (black-eyed pea fritter),525,yes,acaraje,search not recorded,,,"black-eyed pea and onion batter fried in palm oil, filled with dried shrimp, onion, chilli and palm oil",108,a generic candidate considered is fritter (FOODON_03601041)
+Brazilian dish,Vatapá,"Vatapá (dried shrimp, nuts, coconut milk and palm oil)",554,yes,vatapa,search not recorded,,,"dried salted shrimp, coconut milk, roasted peanuts and cashews, wheat flour, palm oil, tomato, onion and ginger",154,
+Brazilian dish,Camarão à baiana,Bahian shrimp stew,531,yes,shrimp stew,search not recorded,,,"shrimp, tomato, onion, palm oil, coconut milk and chilli",115,
+Brazilian dish,Baião de dois,"Baião de dois (rice, cowpeas, fatback and coalho cheese)",527,yes,baiao de dois,search not recorded,,,"cowpea (feijão-de-corda), rice, fatback, coalho cheese, onion, garlic, salt and coriander",110,
+Brazilian dish,Sarapatel,Sarapatel (pork offal stew),548,yes,sarapatel,search not recorded,,,"pork offal (heart, liver, kidney, tripe, intestines) and pork blood, with onion, garlic, sweet pepper and tomato",150,
+Brazilian dish,Quibebe,Quibebe (squash with carne seca),544,yes,quibebe,search not recorded,,,"kabocha squash and carne seca, with onion",148,
+Brazilian dish,Cuxá,Cuxá (roselle leaf sauce),535,yes,cuxa,search not recorded,,,"roselle leaves, fresh and dried salted shrimp, cassava flour, sesame, okra, tomato, herbs and olive oil",123,
+Brazilian dish,Maniçoba,Maniçoba (cassava leaf and pork stew),543,yes,manicoba,search not recorded,,,"cassava leaves (maniva) with smoked fatback, carne seca, pork loin, ear, tail and salted ribs, tripe, chouriço, linguiça and paio",137,FoodOn has the ingredient cassava leaf
+Brazilian dish,Tacacá,Tacacá (tucupi soup),550,yes,tacaca,search not recorded,,,"tucupi, jambu, dried salted shrimp, cassava starch, garlic, pimenta-de-cheiro and chicory leaves",152,
+Brazilian dish,Barreado,Barreado (slow-cooked beef stew),528,yes,barreado,generic class only,FOODON_03304779,beef stew,"beef knuckle (patinho) and fresh fatback, slow-cooked with onion, bay leaf, marjoram and pepper",110,
+Brazilian dish,Arroz carreteiro,Arroz carreteiro (rice with charque),526,yes,carreteiro,generic class only,FOODON_03307154,rice (flavored with beef extract),"desalted charque and rice, with onion, tomato and parsley",109,
+Brazilian dish,Vaca atolada,Vaca atolada (beef ribs with cassava),553,yes,vaca atolada,generic class only,FOODON_03304779,beef stew,"beef ribs and cassava, with onion, garlic and tomato",153,
+Brazilian dish,Virado à paulista,"Virado à paulista (beans with corn flour, pork and egg)",555,yes,virado,search not recorded,,,"carioca beans, corn flour, pork sausage, paio, fatback, bacon, collard greens and boiled eggs",154,
+Brazilian dish,Buchada,Buchada (goat offal),,no,buchada,search not recorded,,,,,not in TACO 4th edition
+Brazilian dish,Panelada,Panelada (beef offal stew),,no,panelada,search not recorded,,,,,not in TACO 4th edition
+Brazilian dish,Moqueca,Moqueca (fish stew),,no,moqueca,search not recorded,,,,,not in TACO 4th edition

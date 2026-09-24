@@ -1,0 +1,40 @@
+food_number,name_pt,role,legume
+557,"Amendoim, grão, cru",legume group,peanut
+558,"Amendoim, torrado, salgado",legume group,peanut
+559,"Ervilha, em vagem",legume group,pea
+560,"Ervilha, enlatada, drenada",legume group,pea
+561,"Feijão, carioca, cozido",legume group,common bean
+562,"Feijão, carioca, cru",legume group,common bean
+563,"Feijão, fradinho, cozido",legume group,cowpea
+564,"Feijão, fradinho, cru",legume group,cowpea
+565,"Feijão, jalo, cozido",legume group,common bean
+566,"Feijão, jalo, cru",legume group,common bean
+567,"Feijão, preto, cozido",legume group,common bean
+568,"Feijão, preto, cru",legume group,common bean
+569,"Feijão, rajado, cozido",legume group,common bean
+570,"Feijão, rajado, cru",legume group,common bean
+571,"Feijão, rosinha, cozido",legume group,common bean
+572,"Feijão, rosinha, cru",legume group,common bean
+573,"Feijão, roxo, cozido",legume group,common bean
+574,"Feijão, roxo, cru",legume group,common bean
+575,"Grão-de-bico, cru",legume group,chickpea
+576,"Guandu, cru",legume group,pigeon pea
+577,"Lentilha, cozida",legume group,lentil
+578,"Lentilha, crua",legume group,lentil
+579,"Paçoca, amendoim",legume group,peanut
+580,"Pé-de-moleque, amendoim",legume group,peanut
+581,"Soja, farinha",legume group,soybean
+582,"Soja, extrato solúvel, natural, fluido",legume group,soybean
+583,"Soja, extrato solúvel, pó",legume group,soybean
+584,"Soja, queijo (tofu)",legume group,soybean
+585,"Tremoço, cru",legume group,lupin
+586,"Tremoço, em conserva",legume group,lupin
+125,"Feijão, broto, cru",legume product in another group,bean sprout
+162,"Vagem, crua",legume product in another group,common bean
+272,"Óleo, de soja",legume product in another group,soybean
+518,Shoyu,legume product in another group,soybean
+525,Acarajé,legume dish,cowpea
+527,"Baião de dois, arroz e feijão-de-corda",legume dish,cowpea
+539,Feijão tropeiro mineiro,legume dish,red bean
+540,Feijoada,legume dish,black bean
+555,Virado à paulista,legume dish,carioca bean

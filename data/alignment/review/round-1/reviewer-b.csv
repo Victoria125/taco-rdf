@@ -1,0 +1,364 @@
+food_number,name_pt,name_en,group,current_relation,current_class,current_label,current_definition,candidates,foodon_release,decision,relation,class,certainty,justification,evidence,reviewer,reviewed_on
+591,"Coco, verde, cru","Coconut, green, raw",Nozes e sementes,relatedMatch,FOODON_00005449,coconut water,"The naturally occurring liquid extracted from a young, green coconut.","coconut (FOODON_00003449); coconut palm plant (FOODON_03411536); coconut (grated, in coconut oil) (FOODON_03305686); peach (coconut-flavored, canned) (FOODON_03307018); coconut cheese (FOODON_00003865)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+72,"Abobrinha, italiana, refogada","Zucchini, Italian, sauteed","Verduras, hortaliças e derivados",relatedMatch,FOODON_00004138,zucchini squash (raw),,golden zucchini plant (FOODON_00003014); golden zucchini squash (FOODON_00003015); zucchini squash (FOODON_03310943); zucchini plant (FOODON_03411462); baby zucchini squash (raw) (FOODON_03000098),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+435,"Porco, pernil, assado","Pork, leg (pernil), roasted",Carnes e derivados,relatedMatch,FOODON_02000334,pork sirloin tip roast,A pork roast that is derived from the leg tip.The Sirloin Tip also known as the Knuckle is the muscle group that runs parallel with the (Femur) Leg bone that extends upward from the (Patella) Kneecap to the Ball of the Femur. It is given the name Sirloin Tip because anatomically it is located next to the tip of the Sirloin.,pork leg (FOODON_02000283); pork leg sirloin half (FOODON_02000285); pork leg cap steak (FOODON_02000336); pork leg (raw) (FOODON_02000284); pork leg sirloin half (raw) (FOODON_02000286),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+517,"Sal, grosso","Salt, coarse",Miscelâneas,none,,,,pesto sauce (FOODON_03310218); 01690 - pretzels (efsa foodex2) (FOODON_03540169); 21560 - cured ripened raw sausages (efsa foodex2) (FOODON_03542156); salt (CHEBI_24866); salt or salt substitute (us cfr) (FOODON_03400134),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+216,"Laranja, valência, crua","Orange, valencia, raw",Frutas e derivados,type,FOODON_03309926,california valencia orange (raw),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* fruit, peel present, core, pit or seed present FOODON:03420140",california valencia orange (FOODON_00003619); california valencia orange plant (FOODON_03411056); Citrus sinensis (NCBITaxon_2711); orange (PATO_0000953); orange plant (FOODON_03411339),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+271,"Óleo, de pequi","Oil, pequi",Gorduras e óleos,none,,,,"flaxseed oil (FOODON_00001088); tea seed oil (FOODON_00002884); 067  vegetable oils, crude (oc) (ccpr) (FOODON_03400763); 068  vegetable oils, edible (or refined) (or) (ccpr) (FOODON_03400764); oil-roasted (FOODON_03000576)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+527,"Baião de dois, arroz e feijão-de-corda","Baião de dois (rice, cowpeas, fatback and coalho cheese)",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+468,"Queijo, requeijão, cremoso","Cheese, requeijão, creamy",Leite e derivados,type,FOODON_03315638,cream cheese spread,"SIREN DB annotation:
+* semisolid FOODON:03430144
+* curd FOODON:03420245
+* lactic acid fermentation process FOODON:03460101",cheese (FOODON_03000287); cheese product analog (us cfr) (FOODON_03400128); 39520 - cheese-based canapé (efsa foodex2) (FOODON_03543952); macaroni and cheese (FOODON_00002960); cheese or cheese product (us cfr) (FOODON_03400115),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+488,"Ovo, de galinha, inteiro, cozido/10minutos","Egg, chicken, whole, boiled 10 minutes",Ovos e derivados,none,,,,chicken egg (cooked) (FOODON_00005341); chicken egg (FOODON_03316061); chicken egg white (FOODON_02020155); chicken egg food product (FOODON_00001275); chicken egg yolk (FOODON_02020157),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+536,Dobradinha,"Dobradinha (beef tripe), boiled",Alimentos preparados,relatedMatch,FOODON_03420192,tripe,The stomach of a beef cow.,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+514,"Fermento, biológico, levedura, tablete","Yeast, baker's, compressed",Miscelâneas,type,FOODON_03413797,baker's yeast,,"bakers yeast (FOODON_03310334); bakery product (yeast leavened) (FOODON_03315085); bakery product (yeast leavened, prepared mix) (FOODON_03315086); bakery product (non-yeast leavened) (FOODON_03315266); 44560 - baking yeast (efsa foodex2) (FOODON_03544456)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+577,"Lentilha, cozida","Lentil, cooked",Leguminosas e derivados,relatedMatch,FOODON_00004634,brown lentil (cooked),A brown lentil which is cooked.,red lentil (cooked) (FOODON_00004636); green lentil (cooked) (FOODON_00005618); haleem (FOODON_03601025); khichra (FOODON_03601026); poppadum (FOODON_03307020),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+559,"Ervilha, em vagem","Pea, in pod",Leguminosas e derivados,type,FOODON_03540620,06200 - garden peas (with pods) (efsa foodex2),"Legumes with pod from the plant classified under the species Pisum sativum L. (any subspp. and var.), commonly known as Garden peas or Green peas or Mangetout or Sugar peas or Snow peas or Wrinkled pea. The part consumed/analysed is not specified. When relevant, information on the part consumed/analysed has to be reported with additional facet descriptors. In case of data collections related to legislations, the default part consumed/analysed is the one defined in the applicable legislation.[https://en.wikipedia.org/wiki/Pisum_sativum] and [https://www.google.co.uk/search?tbm=isch&q=Garden peas (with pods)]","06210 - podded pea (young pods) (efsa foodex2) (FOODON_03540621); edible pea pod (fresh) (FOODON_03315218); edible pea pod (FOODON_03000117); sugar pea pod (edible, fresh) (FOODON_03311801); snow pea pod (edible, fresh) (FOODON_00002804)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+533,"Cuscuz, de milho, cozido com sal","Cuscuz, corn, cooked with salt",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+457,"Leite, de vaca, desnatado, UHT","Milk, cow, skimmed, UHT",Leite e derivados,type,FOODON_03301484,skim milk food product,"SIREN DB annotation:
+* liquid, low viscosity, with no visible particles FOODON:03430123
+* partially heat-treated FOODON:03440018
+* milk (mammary secretion) UBERON:0001913
+* full fat removal process FOODON:03460248
+* pasteurization by heating FOODON:03470135
+* low fat food FOODON:03510039 Skimmed milk (British English), or skim milk (American English), is made when all the milkfat is removed from whole milk. It tends to contain around 0.1% fat.","cow milk (semi-skimmed, uht-sterilized) (FOODON_03317580); liquid milk (eurofir) (FOODON_03400780); cow milk (liquid) (FOODON_03302116); 26940 - yoghurt, cow milk (efsa foodex2) (FOODON_03542694); 26960 - yoghurt, cow milk, flavoured (efsa foodex2) (FOODON_03542696)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+20,"Canjica, com leite integral","Canjica (hominy pudding), with whole milk",Cereais e derivados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+490,"Ovo, de galinha, inteiro, frito","Egg, chicken, whole, fried",Ovos e derivados,type,FOODON_00002461,chicken egg (fried),"* 'whole' FOODON:03430131
+* fully heat-treated FOODON:03440014
+* whole egg without shell FOODON:03420225","chicken egg (fried, frozen) (FOODON_03304798); chicken egg (FOODON_03316061); chicken egg (cooked) (FOODON_00005341); chicken egg white (FOODON_02020155); chicken egg food product (FOODON_00001275)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+543,Maniçoba,Maniçoba (cassava leaf and pork stew),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+521,"Azeitona, verde, conserva","Olive, green, preserved",Outros alimentos industrializados,type,FOODON_03310829,green olive (canned),"SIREN DB annotation:
+* surrounded by 'can, bottle or jar' FOODON:03490194
+* whole, natural shape FOODON:03430150
+* fruit, peel present FOODON:03420137
+* pickling process FOODON:03460190
+* acidified FOODON:03460200
+* sterilization by heating FOODON:03470123",10000238 - olives (perishable) (gs1 gpc) (FOODON_03401179); green olive food product (FOODON_00001936); green olive (FOODON_03301269); green olive (in brine) (FOODON_03307136); green olive (pickled) (FOODON_03310911),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+534,"Cuscuz, paulista",Cuscuz paulista (São Paulo corn couscous),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+528,Barreado,Barreado (slow-cooked beef stew),Alimentos preparados,relatedMatch,FOODON_03304779,beef stew,"SIREN DB annotation:
+* semisolid with solid pieces FOODON:03430134
+* skeletal meat part, without bone, without skin FOODON:03420268
+* ingredient: flavoring, spice or herb added FOODON:03460227
+* packed in gravy or sauce, meat FOODON:03480036",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+160,"Tomate, purê","Tomato, puree","Verduras, hortaliças e derivados",type,FOODON_03301457,tomato puree,"SIREN DB annotation:
+* liquid, high viscosity, with small particles FOODON:03430121
+* fully heat-treated FOODON:03440014
+* fruit, peel removed, core, pit or seed removed FOODON:03420229
+* water removal to reconstitution ratio 1 plus 1 FOODON:03460114",09360 - tomato puree (efsa foodex2) (FOODON_03540936); tomato puree (for further processing) (FOODON_03317029); tikka masala sauce (FOODON_00002548); chicken curry (FOODON_00003260); 10000586 - chutneys/relishes (frozen) (gs1 gpc) (FOODON_03401176),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+529,"Bife à cavalo, com contra filé","Bife à cavalo (steak with fried egg), striploin",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+311,"Pintado, assado","Pintado (spotted sorubim catfish), baked",Pescados e frutos do mar,relatedMatch,FOODON_02021822,catfish,A catfish which is dead or alive and has a relatively intact body. A whole catfish.,Pseudoplatystoma corruscans (NCBITaxon_309911); Pseudoplatystoma fasciatum (NCBITaxon_456366),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+416,"Hambúrguer, bovino, frito","Hamburger patty, beef, fried",Carnes e derivados,type,FOODON_00002737,beef hamburger (dish),"A hamburger (short: burger) is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, or flame broiled.","ground beef patty (FOODON_03317337); imitation hamburger patty (FOODON_03302716); hamburger patty (precooked, in a roll, frozen) (FOODON_03305567); hamburger patty (raw, with cheese spread on bun, frozen) (FOODON_03307844); 38570 - meat burger (no sandwich) (efsa foodex2) (FOODON_03543857)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+126,"Inhame, cru","Yam (inhame), raw","Verduras, hortaliças e derivados",type,FOODON_03307043,yam (raw),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* root, tuber or bulb FOODON:03420238",mountain yam (raw) (FOODON_03000150); fiveleaf yam (raw) (FOODON_03000152); elephants foot yam (raw) (FOODON_00004567); Puerto Rican yam (raw) (FOODON_03307928); red variety sweet potato (raw) (FOODON_03301450),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+260,"Azeite, de oliva, extra virgem","Oil, olive, extra virgin",Gorduras e óleos,type,FOODON_00002808,olive oil (extra-virgin),"Extra virgin olive oil is a virgin olive oil which has a free acidity, expressed as oleic acid, of not more than 0.8 grams per 100 grams.","30950 - olive oil, virgin or extra-virgin (efsa foodex2) (FOODON_03543095); mixtures of refined olive oil and refined olive oil residue (FOODON_03316686); olive oil (virgin) (FOODON_03306633); 30940 - olive oils (efsa foodex2) (FOODON_03543094); 30960 - olive oil, refined (efsa foodex2) (FOODON_03543096)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+592,"Farinha, de mesocarpo de babaçu, crua","Flour, babassu mesocarp, raw",Nozes e sementes,none,,,,"flour (FOODON_00004510); granulated flour (FOODON_03304488); cereal or cereal-like milling products and derivatives (eurofir) (FOODON_03400813); 00900 - graham flour (efsa foodex2) (FOODON_03540090); peanut (shell off, flour-coated) (FOODON_03310988)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+545,"Salada, de legumes, com maionese","Salad, vegetables, with mayonnaise",Alimentos preparados,relatedMatch,FOODON_03400866,prepared salad (eurofir),"A combination of one or more vegetable, fruit, herb, meat, poultry, seafood, egg, cereal or pasta, usually served with some kind of moist dressing; may be moulded with a jellying agent. Salad takes precedence over other product types. Examples are egg salad, tuna salad, mixed vegetable salad, jelled fruit salad, macaroni salad, potato salad, rice salad, mayonnaise salad.","40220 - mixed vegetable salad (efsa foodex2) (FOODON_03544022); vegetable salad (FOODON_03307695); vegetable salad food product (FOODON_00002334); vegetable salad mix (pre-cut, raw) (FOODON_03304718); salad vegetable (packaged, refrigerated) (FOODON_03307702)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+312,"Pintado, cru","Pintado (spotted sorubim catfish), raw",Pescados e frutos do mar,relatedMatch,FOODON_03303384,catfish (raw),"SIREN DB annotation:
+* solid FOODON:03430151
+* not heat-treated FOODON:03440003
+* skeletal meat part FOODON:03420175",Pseudoplatystoma corruscans (NCBITaxon_309911); Pseudoplatystoma fasciatum (NCBITaxon_456366),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+466,"Queijo, petit suisse, morango","Cheese, petit suisse, strawberry",Leite e derivados,none,,,,petite suisse cheese (FOODON_03303550); cheese (FOODON_03000287); cheese product analog (us cfr) (FOODON_03400128); 39520 - cheese-based canapé (efsa foodex2) (FOODON_03543952); macaroni and cheese (FOODON_00002960),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+569,"Feijão, rajado, cozido","Bean, rajado (speckled), cooked",Leguminosas e derivados,type,FOODON_00004375,pinto bean (cooked),A pinto bean which has been cooked.,bean (FOODON_00002753); winged bean (FOODON_03310299); dry bean food product (FOODON_00001201); winged bean plant (FOODON_03411726); cranberry bean material (FOODON_00002750),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+505,"Maria mole, coco queimado","Maria mole (coconut marshmallow), burnt coconut",Produtos açucarados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+588,"Castanha-de-caju, torrada, salgada","Cashew nut, roasted, salted",Nozes e sementes,type,FOODON_03311214,"cashew nut (shell off, roasted)","SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* fully heat-treated FOODON:03440014
+* seed (anatomical part) FOODON:03420155
+* water removal process FOODON:03460138
+* partial fat removal process FOODON:03460247
+* roasting seed process FOODON:03460391
+* artificial heat drying FOODON:03470144","cashew nut (shell off, oil roasted) (FOODON_03311212); cashew plant (FOODON_03411221); cashew nut (FOODON_00003615); cashew nut (raw) (FOODON_03301357); 11300 - cashew nuts and similar- (efsa foodex2) (FOODON_03541130)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+540,Feijoada,Feijoada (black bean and pork stew),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+561,"Feijão, carioca, cozido","Bean, carioca, cooked",Leguminosas e derivados,type,FOODON_00004375,pinto bean (cooked),A pinto bean which has been cooked.,bean (FOODON_00002753); winged bean (FOODON_03310299); dry bean food product (FOODON_00001201); winged bean plant (FOODON_03411726); cranberry bean material (FOODON_00002750),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+310,"Pescadinha, crua","Weakfish, small (pescadinha), raw",Pescados e frutos do mar,type,FOODON_03307997,weakfish (raw),"SIREN DB annotation:
+* solid FOODON:03430151
+* not heat-treated FOODON:03440003
+* skeletal meat part FOODON:03420175",weakfish (FOODON_03412375); king weakfish (FOODON_00002896); striped weakfish (FOODON_03412380); 23730 - weakfishes (efsa foodex2) (FOODON_03542373); weakfish group (FOODON_03412657),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+437,"Porco, rabo, salgado, cru","Pork, tail, salted, raw",Carnes e derivados,type,FOODON_02021801,pork tail (raw),A whole raw pork tail.,"pork tail (FOODON_02021711); pork petite tender (FOODON_02000338); pork steak (FOODON_02021757); 21280 - pastrami, pork (efsa foodex2) (FOODON_03542128); pork ear (dried) (FOODON_00003848)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+294,"Corvina grande, cozida","Croaker, large, cooked",Pescados e frutos do mar,closeMatch,FOODON_03411794,croaker,,23800 - large yellow croaker (efsa foodex2) (FOODON_03542380); croceine croaker (FOODON_03413914); Larimichthys crocea (NCBITaxon_215358); yellow croaker (FOODON_03412487); atlantic croaker (FOODON_03411795),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+461,"Queijo, minas, frescal","Cheese, minas, fresh (frescal)",Leite e derivados,type,FOODON_03000649,fresh cheese,A cheese which undergoes little or no cheese ripening.,minas cheese (FOODON_03601036); cheese (FOODON_03000287); cheese product analog (us cfr) (FOODON_03400128); 39520 - cheese-based canapé (efsa foodex2) (FOODON_03543952); macaroni and cheese (FOODON_00002960),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+511,"Café, pó, torrado","Coffee, ground, roasted",Miscelâneas,type,FOODON_03302659,"coffee bean (roasted, medium ground)","SIREN DB annotation:
+* medium ground FOODON:03430117
+* fully heat-treated FOODON:03440014
+* seed, skin removed, germ present FOODON:03420132
+* water removal process FOODON:03460138
+* roasting seed process FOODON:03460391","34140 - coffee ground, roasted and decaffeinated (efsa foodex2) (FOODON_03543414); 34130 - coffee ground, roasted (efsa foodex2) (FOODON_03543413); coffee (roasted, ground, spent) (FOODON_03303095); coffee bean (roasted, medium ground, freeze-dried) (FOODON_03302209); coffee with chicory (roasted, ground) (FOODON_03303094)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+515,"Gelatina, sabores variados, pó","Gelatin, assorted flavours, powder",Miscelâneas,relatedMatch,FOODON_03544158,41580 - gelatine (efsa foodex2),"The group includes any type of Gelatine, i.e. purified product obtained by partial hydrolysis of collagen. It has gelling properties. The part consumed/analysed is by default the whole or a portion of it representing the observed heterogeneity. ] and [https://en.wikipedia.org/wiki/Gelatin] and [https://www.google.co.uk/search?tbm=isch&q=gelatin powder and sheets]",gelatin (CHEBI_5291); gelatin-based capsule (FOODON_03316309); gelatin-type dessert substitute (FOODON_03316268); hard gelatin capsule (FOODON_03430160); gelatin dessert food product (FOODON_00001899),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+280,"Bacalhau, salgado, refogado","Cod, salted (bacalhau), sauteed",Pescados e frutos do mar,relatedMatch,FOODON_03411423,cod,,"26180 - salted cod (efsa foodex2) (FOODON_03542618); codfish (salted) (FOODON_03307021); salt substitute (codex) (FOODON_03400439); brown salt: nutrient, dietary supplement (codex) (FOODON_03400379); 01690 - pretzels (efsa foodex2) (FOODON_03540169)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+462,"Queijo, minas, meia cura","Cheese, minas, semi-cured (meia cura)",Leite e derivados,relatedMatch,FOODON_03316148,semihard cheese,"SIREN DB annotation:
+* solid FOODON:03430151
+* curd FOODON:03420245
+* lactic acid-other agent fermentation process FOODON:03460107
+* curing or aging process FOODON:03460253",minas cheese (FOODON_03601036); cheese (FOODON_03000287); cheese product analog (us cfr) (FOODON_03400128); 39520 - cheese-based canapé (efsa foodex2) (FOODON_03543952); macaroni and cheese (FOODON_00002960),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+347,"Carne, bovina, costela, assada","Beef, ribs (costela), roasted",Carnes e derivados,relatedMatch,FOODON_02000207,beef ribeye roast,A beef rib roast that has had the sixth through the twelfth rib bones removed leaving just the rib-eye muscle. “Ribeye” is an anatomical name meaning Eye of the Rib.,beef ribeye roast (raw) (FOODON_02000208); beef prime rib roast (raw) (FOODON_02000228); beef ribeye petite roast (raw) (FOODON_02000214); beef prime rib roast (FOODON_00002954); beef ribeye petite roast (FOODON_02000213),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+551,"Tapioca, com manteiga","Tapioca crepe, with butter",Alimentos preparados,relatedMatch,FOODON_03307663,tapioca,"SIREN DB annotation:
+* finely ground FOODON:03430106
+* starch FOODON:03420203 Tapioca is a starch extracted from the storage roots of the cassava plant (Manihot esculenta).",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+548,Sarapatel,Sarapatel (pork offal stew),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+450,"Iogurte, sabor abacaxi","Yogurt, pineapple flavoured",Leite e derivados,none,,,,"strained yogurt (FOODON_00003258); yogurt food product (FOODON_00001014); cow milk (sterilized, yogurt-flavored) (FOODON_03304465); soy yogurt (FOODON_00003193); frozen yogurt (us cfr) (FOODON_03400211)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+380,"Carne, bovina, picanha, com gordura, crua","Beef, picanha (top sirloin cap), with fat, raw",Carnes e derivados,none,,,,beef culotte roast (FOODON_02000159); beef culotte steak (FOODON_02000157); beef top sirloin steak (FOODON_02000149); beef (ground) (FOODON_00001282); beef chuck roast (FOODON_02000103),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+560,"Ervilha, enlatada, drenada","Pea, canned, drained",Leguminosas e derivados,none,,,,peanut candy food product (FOODON_00002097); peach (canned) (FOODON_03301271); clingstone peach (canned) (FOODON_03301273); freestone peach (canned) (FOODON_03301274); pear (canned) (FOODON_03301611),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+467,"Queijo, prato","Cheese, prato",Leite e derivados,relatedMatch,FOODON_03315868,cheese varietal semi-hard,"SIREN DB annotation:
+* solid FOODON:03430151
+* curd FOODON:03420245
+* lactic acid-other agent fermentation process FOODON:03460107
+* curing or aging process FOODON:03460253",cheese (FOODON_03000287); cheese product analog (us cfr) (FOODON_03400128); 39520 - cheese-based canapé (efsa foodex2) (FOODON_03543952); macaroni and cheese (FOODON_00002960); cheese or cheese product (us cfr) (FOODON_03400115),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+503,Glicose de milho,Corn syrup (glucose),Produtos açucarados,type,FOODON_03301061,corn syrup,"SIREN DB annotation:
+* liquid, high viscosity, with no visible particles FOODON:03430139
+* sugar syrup or syrup solids FOODON:03420271
+* acidified FOODON:03460200","30080 - corn syrup (efsa foodex2) (FOODON_03543008); infant formula with corn syrup (FOODON_00001841); corn syrup (high fructose) (FOODON_03315149); corn cob syrup (FOODON_03306048); sugar, honey or syrup (eurofir) (FOODON_03400836)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+26,"Cereal matinal, milho, açúcar","Breakfast cereal, corn, sugared",Cereais e derivados,relatedMatch,FOODON_03302904,corn flakes,"Corn flakes, or cornflakes, are a popular breakfast cereal made by toasting flakes of corn. SIREN DB annotation:
+* whole, shape achieved by forming, thickness <0.3 cm. FOODON:03430153
+* fully heat-treated FOODON:03440014
+* seed, skin removed, germ removed (endosperm) FOODON:03420208
+* water removal process FOODON:03460138
+* food flaking process FOODON:03460274
+* preservation by dehydration or drying FOODON:03470116
+* ingredient: flavoring or spice extract or concentrate added FOODON:03460100
+* ingredient: sucrose added FOODON:03460158","breakfast cereal (corn-based, ready-to-eat) (FOODON_03311318); breakfast cereal (eurofir) (FOODON_03400816); breakfast cereal (us cfr) (FOODON_03400258); Zia mays plant (FOODON_03411232); field corn plant (FOODON_03411379)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+410,"Frango, peito, sem pele, grelhado","Chicken, breast, skinless, grilled",Carnes e derivados,none,,,,chicken breast (FOODON_00002703); chicken breast (raw) (FOODON_03303012); piece(s) of chicken breast (FOODON_02020339); chicken breast (skinless) (FOODON_02020231); chicken breast (with skin) (FOODON_02020233),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+302,"Merluza, filé, cru","Hake, fillet, raw",Pescados e frutos do mar,type,FOODON_03309095,hake fillet (raw),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* skeletal meat part, without bone or shell FOODON:03420125",cape hake fillet (raw) (FOODON_03309077); hake fillet (breaded) (FOODON_03309066); hake fillet (frozen) (FOODON_03309332); hake fillet (quick-frozen) (FOODON_03316734); hake (FOODON_03413878),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+478,"Coco, água de",Coconut water,Bebidas (alcoólicas e não alcoólicas),type,FOODON_00005449,coconut water,"The naturally occurring liquid extracted from a young, green coconut.",32550 - coconut water (efsa foodex2) (FOODON_03543255); water extract of coconut meat (FOODON_03305632); nata de coco (FOODON_00002243); 32580 - coconut milk (cocos nucifera) liquid (efsa foodex2) (FOODON_03543258); coconut (desiccated) (FOODON_03317671),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+313,"Pintado, grelhado","Pintado (spotted sorubim catfish), grilled",Pescados e frutos do mar,relatedMatch,FOODON_02021822,catfish,A catfish which is dead or alive and has a relatively intact body. A whole catfish.,Pseudoplatystoma corruscans (NCBITaxon_309911); Pseudoplatystoma fasciatum (NCBITaxon_456366),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+389,"Empada de frango, pré-cozida, assada","Empada (chicken pie), precooked, baked",Carnes e derivados,type,FOODON_03307577,chicken pie,"SIREN DB annotation:
+* whole, shape achieved by forming, thickness 1.5-7 cm. FOODON:03430105
+* broth or stock FOODON:03420170
+* food filling process FOODON:03460207
+* ingredient: grain added FOODON:03460152
+* ingredient: flavoring, spice or herb added FOODON:03460227",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+587,"Amêndoa, torrada, salgada","Almond, roasted, salted",Nozes e sementes,type,FOODON_03311210,"almond (dry, roasted)","SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* fully heat-treated FOODON:03440014
+* seed (anatomical part) FOODON:03420155
+* water removal process FOODON:03460138
+* partial fat removal process FOODON:03460247
+* roasting seed process FOODON:03460391
+* preservation by dehydration or drying FOODON:03470116",roasted almond oil (FOODON_03311209); mille-feuille pastry (FOODON_00003254); almond preserves (FOODON_03307081); almond macaroon batter (FOODON_03306282); apricot and almond jam (FOODON_03305877),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+595,"Pinhão, cozido","Pinhão (Araucaria seed), cooked",Nozes e sementes,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+108,"Cebolinha, crua","Green onion (cebolinha), raw","Verduras, hortaliças e derivados",closeMatch,FOODON_03311340,scallion (raw),"A raw scallion is a scallion plant possibly with root removed and leaves trimmed SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* whole plant or most parts used FOODON:03420150",yellow onion (raw) (FOODON_03311276); scallion plant (FOODON_03411478); 05900 - green onions (efsa foodex2) (FOODON_03540590); scallion food product (FOODON_00002695); welsh onion (FOODON_00003172),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+15,"Bolo, pronto, aipim","Cake, ready to eat, cassava (aipim)",Cereais e derivados,relatedMatch,FOODON_00003409,cassava,A tuberous root tuber of a cassava plant (Manihot esculenta).,"convenience food (FOODON_00002429); 02550 - plain cakes (efsa foodex2) (FOODON_03540255); cake food product (FOODON_00001278); 02580 - cream cake (efsa foodex2) (FOODON_03540258); 02740 - cake marbled, with chocolate (efsa foodex2) (FOODON_03540274)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+535,"Cuxá, molho",Cuxá sauce (roselle leaf sauce),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+151,"Repolho, roxo, refogado","Cabbage, red, sauteed","Verduras, hortaliças e derivados",relatedMatch,FOODON_03304685,red cabbage head (raw),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* head (plant) FOODON:03420151",red cabbage head (FOODON_00002922); 10005997 - red cabbages (gs1 gpc) (FOODON_03401467); 04760 - red cabbages (efsa foodex2) (FOODON_03540476); red cabbage plant (FOODON_03412072); vegetable product (eurofir) (FOODON_03400827),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+250,"Tamarindo, cru","Tamarind, raw",Frutas e derivados,closeMatch,FOODON_03309932,tamarind pod (raw),"A whole raw tamarind pod. SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* fruit, peel present, core, pit or seed present FOODON:03420140",tamarind juice (raw) (FOODON_03311227); tamarind plant (FOODON_03411695); tamarind pod (FOODON_00003674); 14030 - tamarind (efsa foodex2) (FOODON_03541403); river tamarind seed (FOODON_00003833),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+331,"Carne, bovina, almôndegas, fritas","Beef, meatballs, fried",Carnes e derivados,none,,,,kofta (FOODON_00003882); beef (ground) (FOODON_00001282); beef chuck roast (FOODON_02000103); ground beef patty (FOODON_03317337); beef steak (raw) (FOODON_03311663),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+516,"Sal, dietético","Salt, low sodium",Miscelâneas,none,,,,"40540 - salt, low sodium (efsa foodex2) (FOODON_03544054); salt (low sodium) (FOODON_03309467); low salt or sodium claim (FOODON_03510038); very low salt or sodium claim (FOODON_03510036); 10000050 - extracts/salt/meat tenderisers (shelf stable) (gs1 gpc) (FOODON_03401167)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+281,"Cação, posta, com farinha de trigo, frita","Shark (cação), steak, with wheat flour, fried",Pescados e frutos do mar,none,,,,shark (FOODON_03411342); bramble shark (FOODON_03414123); tope shark (FOODON_03412525); hammerhead shark (FOODON_03412598); carribean reef shark (FOODON_03413530),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+381,"Carne, bovina, picanha, com gordura, grelhada","Beef, picanha (top sirloin cap), with fat, grilled",Carnes e derivados,none,,,,beef culotte roast (FOODON_02000159); beef culotte steak (FOODON_02000157); beef top sirloin steak (FOODON_02000149); beef (ground) (FOODON_00001282); beef chuck roast (FOODON_02000103),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+483,"Refrigerante, tipo limão","Soft drink, lemon",Bebidas (alcoólicas e não alcoólicas),relatedMatch,FOODON_03400843,soft drink (eurofir),"Includes carbonated soft drinks (e.g. soda water, carbonated lemonade, cola, tonic), non-dilution still drinks (e.g. still lemonade), dilution drinks (concentrates which are diluted with water prior to consumption , e.g. rosehip syrup, fruit squash, lime cordial).","33090 - soft drink, lemon flavour (efsa foodex2) (FOODON_03543309); 32800 - soft drink, with fruit juice (fruit content below the minimum for nectars) (efsa foodex2) (FOODON_03543280); soft drink (FOODON_03310815); 32960 - fruit soft drink, plum (efsa foodex2) (FOODON_03543296); 32970 - fruit soft drink, pomegranate (efsa foodex2) (FOODON_03543297)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+555,Virado à paulista,"Virado à paulista (beans with corn flour, pork and egg)",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+549,Tabule,Tabbouleh,Alimentos preparados,type,FOODON_00003242,tabbouleh,"A Levantine vegetarian salad made mostly of finely chopped parsley, with tomatoes, mint, onion, bulgur (soaked, not cooked), and seasoned with olive oil, lemon juice, salt and pepper. Some variations add garlic or lettuce, or use couscous instead of bulgur.",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+570,"Feijão, rajado, cru","Bean, rajado (speckled), raw",Leguminosas e derivados,type,FOODON_03000089,pinto bean (raw),A whole raw pinto bean.,bean (FOODON_00002753); winged bean (FOODON_03310299); dry bean food product (FOODON_00001201); winged bean plant (FOODON_03411726); cranberry bean material (FOODON_00002750),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+386,"Coxinha de frango, frita","Coxinha (chicken croquette), fried",Carnes e derivados,type,FOODON_03305354,chicken croquette,"SIREN DB annotation:
+* whole, shape achieved by forming FOODON:03430147
+* skeletal meat part, without bone, without skin FOODON:03420268
+* breaded or batter-coated FOODON:03460188
+* fat or oil coated FOODON:03460233",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+211,"Laranja, da terra, suco","Orange, sour (da terra), juice",Frutas e derivados,none,,,,australian sunrise lime plant (FOODON_03414306); sour orange plant (FOODON_03411193); 14400 - bitter oranges (efsa foodex2) (FOODON_03541440); seville orange (FOODON_00003747); 35860 - bitter orange infusion flowers (efsa foodex2) (FOODON_03543586),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+562,"Feijão, carioca, cru","Bean, carioca, raw",Leguminosas e derivados,type,FOODON_03000089,pinto bean (raw),A whole raw pinto bean.,bean (FOODON_00002753); winged bean (FOODON_03310299); dry bean food product (FOODON_00001201); winged bean plant (FOODON_03411726); cranberry bean material (FOODON_00002750),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+512,"Capuccino, pó","Cappuccino, powder",Miscelâneas,relatedMatch,FOODON_03303096,cappuccino,"SIREN DB annotation:
+* liquid, low viscosity, with no visible particles FOODON:03430123
+* fully heat-treated FOODON:03440014
+* seed, skin removed, germ present FOODON:03420132
+* roasting seed process FOODON:03460391
+* ingredient: sucrose added FOODON:03460158
+* ingredient: dairy product added FOODON:03460242","37090 - coffee drink, cappuccino (efsa foodex2) (FOODON_03543709); 42200 - cappuccino flavour (efsa foodex2) (FOODON_03544220)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+284,"Camarão, Rio Grande, grande, cozido","Shrimp, Rio Grande, large, cooked",Pescados e frutos do mar,none,,,,shrimp (FOODON_03411237); whiteleg shrimp (FOODON_03412234); pandalid shrimp family (FOODON_03411119); grass shrimp (FOODON_03412480); northern white shrimp (FOODON_03411149),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+167,"Açaí, polpa, com xarope de guaraná e glucose","Açaí, pulp, with guaraná syrup and glucose",Frutas e derivados,relatedMatch,FOODON_03401427,10006759 - acai berries (gs1 gpc),"Includes any product that can be described/observed as a fresh commercial variety of Acai berries, grown from Euterpe oleracea, to be supplied fresh. LanguaL curation note: Index geographical origin in facet R.",16430 - açaí berries (efsa foodex2) (FOODON_03541643); assai palm plant (FOODON_03414592); 05690 - cabbage palm heart (efsa foodex2) (FOODON_03540569); heart of palm (FOODON_00003141),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+251,"Tangerina, Poncã, crua","Tangerine, Ponkan, raw",Frutas e derivados,type,FOODON_03303080,tangerine (raw),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* fruit, peel present, core, pit or seed present FOODON:03420140",italian tangerine plant (FOODON_03414216); tangerine (FOODON_00003488); tangerine plant (FOODON_03414217); 14630 - tangerines (efsa foodex2) (FOODON_03541463); 10005888 - tangerines (gs1 gpc) (FOODON_03401512),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+546,"Salada, de legumes, cozida no vapor","Salad, vegetables, steamed",Alimentos preparados,type,FOODON_03307615,vegetable (steamed),"SIREN DB annotation:
+* solid FOODON:03430151
+* fully heat-treated FOODON:03440014
+* part of plant FOODON:03420174
+* cooking in steam FOODON:03450021","40220 - mixed vegetable salad (efsa foodex2) (FOODON_03544022); vegetable salad (FOODON_03307695); vegetable salad food product (FOODON_00002334); vegetable salad mix (pre-cut, raw) (FOODON_03304718); salad vegetable (packaged, refrigerated) (FOODON_03307702)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+486,"Ovo, de galinha, clara, cozida/10minutos","Egg, chicken, white, boiled 10 minutes",Ovos e derivados,none,,,,chicken egg (cooked) (FOODON_00005341); chicken egg (FOODON_03316061); chicken egg white (FOODON_02020155); chicken egg food product (FOODON_00001275); chicken egg yolk (FOODON_02020157),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+541,"Frango, com açafrão",Chicken with turmeric (frango com açafrão),Alimentos preparados,none,,,,chicken curry (FOODON_00003260),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+571,"Feijão, rosinha, cozido","Bean, rosinha (pink), cooked",Leguminosas e derivados,relatedMatch,FOODON_03311570,"pink bean (cooked, canned)","SIREN DB annotation:
+* surrounded by 'can, bottle or jar' FOODON:03490194
+* whole, natural shape FOODON:03430150
+* fully heat-treated FOODON:03440014
+* seed, skin present, germ present FOODON:03420133
+* sterilization by heating FOODON:03470123","pink bean (FOODON_03310060); pink bean (mature) (FOODON_00005266); pink bean (raw) (FOODON_03000090); pink bean (raw, mature) (FOODON_03000192); pink bean food product (FOODON_00002768)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+502,"Geléia, mocotó, natural","Jelly, mocotó (calf's foot), plain",Produtos açucarados,relatedMatch,FOODON_03305342,gelatin dessert,"SIREN DB annotation:
+* fully heat-treated FOODON:03440014
+* sugar FOODON:03420108
+* acidified FOODON:03460200
+* ingredient: flavoring or taste ingredient added FOODON:03460117
+* ingredient: gelatin added FOODON:03460165",fruit jelly (us cfr) (FOODON_03400209); food (jellied) (FOODON_03000701); mint jelly (FOODON_03305875); fruit jelly (artificially sweetened) (FOODON_03316781); 18280 - fruit jelly (efsa foodex2) (FOODON_03541828),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+513,"Fermento em pó, químico",Baking powder,Miscelâneas,type,FOODON_03301940,baking powder,"SIREN DB annotation:
+* finely ground FOODON:03430106",chemical leavening agent addition (FOODON_03460351); 44460 - preparations for raising and flavouring home-made bakery (efsa foodex2) (FOODON_03544446); biscuit (quick bread) (FOODON_03301884); scone (FOODON_00002465); 02080 - waffle dough/mixture (efsa foodex2) (FOODON_03540208),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+162,"Vagem, crua","Green beans (vagem), raw","Verduras, hortaliças e derivados",closeMatch,FOODON_00004236,green bean pod (raw),A whole raw green bean pod.,"green bean pod (raw, mature) (FOODON_03000212); green bean (cut, raw) (FOODON_03302065); green bean (whole pod or pieces) (FOODON_00002766); green bean pod (FOODON_03305806); green bean puree (FOODON_00005443)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+454,"Leite, de cabra","Milk, goat",Leite e derivados,type,FOODON_02021057,goat milk,Milk which is produced by goat lactation.,"27000 - yoghurt, goat milk (efsa foodex2) (FOODON_03542700); 27020 - yoghurt, goat milk, flavoured (efsa foodex2) (FOODON_03542702); 27010 - yoghurt, goat milk, plain (efsa foodex2) (FOODON_03542701); ice milk made from goat milk (FOODON_03305793); goat milk curd (FOODON_00004495)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+531,Camarão à baiana,Camarão à baiana (Bahian shrimp stew),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+390,"Empada, de frango, pré-cozida","Empada (chicken pie), precooked",Carnes e derivados,type,FOODON_03307577,chicken pie,"SIREN DB annotation:
+* whole, shape achieved by forming, thickness 1.5-7 cm. FOODON:03430105
+* broth or stock FOODON:03420170
+* food filling process FOODON:03460207
+* ingredient: grain added FOODON:03460152
+* ingredient: flavoring, spice or herb added FOODON:03460227",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+552,"Tucupi, com pimenta-de-cheiro","Tucupi (cassava broth), with pimenta-de-cheiro",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+471,"Café, infusão 10%","Coffee, infusion 10%",Bebidas (alcoólicas e não alcoólicas),type,FOODON_00001244,coffee beverage,"A brewed drink prepared from roasted seeds, commonly called coffee beans, of the coffee plant.","arabica coffee plant (FOODON_03411305); 34060 - coffee beans, green (efsa foodex2) (FOODON_03543406); 34090 - robusta coffee beans (efsa foodex2) (FOODON_03543409); 37070 - coffee beverage decaffeinated (efsa foodex2) (FOODON_03543707); coffee-type beverage base (caffeine-free) (FOODON_03302662)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+550,Tacacá,Tacacá (tucupi soup with shrimp and jambu),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+240,"Nêspera, crua","Loquat, raw",Frutas e derivados,type,FOODON_00003181,loquat (raw),"SIREN DB annotation:
+* solid FOODON:03430151
+* not heat-treated FOODON:03440003
+* fruit part FOODON:03420167",loquat (FOODON_00003672); loquat plant (FOODON_03411244); loquat food product (FOODON_03309756); 14870 - loquats and similar- (efsa foodex2) (FOODON_03541487); 14880 - loquats (efsa foodex2) (FOODON_03541488),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+530,Bolinho de arroz,Rice fritter (bolinho de arroz),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+171,"Ameixa, calda, enlatada","Plum, canned in syrup",Frutas e derivados,relatedMatch,FOODON_03306026,plum nectar (canned),"SIREN DB annotation:
+* surrounded by 'can, bottle or jar' FOODON:03490194
+* liquid, high viscosity, with small particles FOODON:03430121
+* fully heat-treated FOODON:03440014
+* fruit, peel present, core, pit or seed present FOODON:03420140
+* sterilization by heating FOODON:03470123
+* ingredient: sugar or sugar syrup added FOODON:03460136
+* ingredient: water addition process FOODON:03460148",greengage plum (candied) (FOODON_03309487); plum (FOODON_00003483); american plum plant (FOODON_03412670); governor's plum plant (FOODON_03412789); 16890 - hog plums (efsa foodex2) (FOODON_03541689),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+473,"Cana, caldo de",Sugarcane juice,Bebidas (alcoólicas e não alcoólicas),none,,,,fermenting sugar cane juice (FOODON_00001004),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+425,"Peru, congelado, assado","Turkey, frozen, roasted",Carnes e derivados,type,FOODON_03307670,turkey roast,"A retail cut of meat from a turkey that is of a size for slicing into more than one portion and is suitable for roasting. SIREN DB annotation:
+* whole, shape achieved by forming, thickness bigger than 7 cm. FOODON:03430146
+* meat color, mixture FOODON:03530054
+* skeletal meat part, without bone, with skin FOODON:03420267","turkey roast (boneless, seasoned, fresh frozen) (FOODON_02020636); turkey (frozen) (FOODON_03304545); piece(s) of turkey meat (frozen) (FOODON_02020583); turkey dinner (frozen) (FOODON_03303938); turkey (stuffed, frozen) (FOODON_03307078)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+102,"Cará, cozido","Yam (cará), cooked","Verduras, hortaliças e derivados",none,,,,long yam plant (FOODON_03414718); yam (FOODON_00003448); 09780 - yams (efsa foodex2) (FOODON_03540978); mountain yam (FOODON_00003082); jicama plant (FOODON_03411738),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+293,"Corvina grande, assada","Croaker, large, baked",Pescados e frutos do mar,closeMatch,FOODON_03411794,croaker,,23800 - large yellow croaker (efsa foodex2) (FOODON_03542380); croceine croaker (FOODON_03413914); Larimichthys crocea (NCBITaxon_215358); yellow croaker (FOODON_03412487); atlantic croaker (FOODON_03411795),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+426,"Peru, congelado, cru","Turkey, frozen, raw",Carnes e derivados,type,FOODON_03307208,turkey meat (raw),"Raw turkey is a general term for a whole raw turkey or any portion of meat (which may include bone) taken from a turkey. SIREN DB annotation:
+* solid FOODON:03430151
+* not heat-treated FOODON:03440003
+* meat color, mixture FOODON:03530054
+* skeletal meat part, with bone, with skin FOODON:03420265","turkey (frozen) (FOODON_03304545); piece(s) of turkey meat (frozen) (FOODON_02020583); turkey dinner (frozen) (FOODON_03303938); turkey (stuffed, frozen) (FOODON_03307078); turkey roast (boneless, seasoned, fresh frozen) (FOODON_02020636)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+472,"Cana, aguardente",Sugarcane spirit (cachaça),Bebidas (alcoólicas e não alcoólicas),relatedMatch,FOODON_03301614,rum,"SIREN DB annotation:
+* liquid, low viscosity, with no visible particles FOODON:03430123
+* fully heat-treated FOODON:03440014
+* molasses CHEBI:83163
+* alcohol fermentation process FOODON:03460232",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+526,Arroz carreteiro,Arroz carreteiro (rice with charque),Alimentos preparados,relatedMatch,FOODON_03307154,rice (flavored with beef extract),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* seed, skin removed, germ removed (endosperm) FOODON:03420208
+* ingredient: flavoring or spice extract or concentrate added FOODON:03460100",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+270,"Óleo, de milho","Oil, corn",Gorduras e óleos,type,FOODON_03301474,corn oil,"SIREN DB annotation:
+* liquid, high viscosity, with no visible particles FOODON:03430139
+* partially heat-treated FOODON:03440018
+* fat or oil FOODON:03420190","hydrogenated corn oil (FOODON_00002854); corn oil spread (reduced calorie) (FOODON_03303843); corn oil margarine (FOODON_03306261); potato peeling (cooked in corn oil) (FOODON_03307538); 31010 - maize oil, edible (efsa foodex2) (FOODON_03543101)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+532,"Charuto, de repolho",Cabbage roll (charuto de repolho),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+538,Estrogonofe de frango,Chicken stroganoff,Alimentos preparados,relatedMatch,FOODON_03302094,beef stroganoff with noodles,"SIREN DB annotation:
+* semisolid with solid pieces FOODON:03430134
+* fully heat-treated FOODON:03440014
+* seed, skin removed, germ removed (endosperm) FOODON:03420208
+* alcoholated FOODON:03460160
+* ingredient: flavoring, spice or herb added FOODON:03460227
+* ingredient: dairy product added FOODON:03460242
+* packed in gravy or sauce, dairy or egg component FOODON:03480033",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+525,Acarajé,Acarajé (black-eyed pea fritter),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+494,"Açúcar, refinado","Sugar, refined",Produtos açucarados,type,FOODON_03307345,sugar (refined),"SIREN DB annotation:
+* crystal FOODON:03430143
+* fully heat-treated FOODON:03440014
+* white sugar FOODON:03420157",29870 - refined cane sugar (efsa foodex2) (FOODON_03542987); 29860 - refined beet sugar (efsa foodex2) (FOODON_03542986); sugar cane refined or partially-refined food product (FOODON_00002290); sugar (not fully refined) (FOODON_03316409); white sugar (FOODON_03420157),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+586,"Tremoço, em conserva","Lupin (tremoço), pickled",Leguminosas e derivados,none,,,,white lupine bean (FOODON_00003757); 10580 - lupins (without pods) (efsa foodex2) (FOODON_03541058); 11040 - lupins (dry) (efsa foodex2) (FOODON_03541104); 11080 - andean lupin (dry) (efsa foodex2) (FOODON_03541108); 10620 - andean lupin (without pods) (efsa foodex2) (FOODON_03541062),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+553,Vaca atolada,Vaca atolada (beef ribs with cassava),Alimentos preparados,relatedMatch,FOODON_03304779,beef stew,"SIREN DB annotation:
+* semisolid with solid pieces FOODON:03430134
+* skeletal meat part, without bone, without skin FOODON:03420268
+* ingredient: flavoring, spice or herb added FOODON:03460227
+* packed in gravy or sauce, meat FOODON:03480036",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+417,"Hambúrguer, bovino, grelhado","Hamburger patty, beef, grilled",Carnes e derivados,relatedMatch,FOODON_00002737,beef hamburger (dish),"A hamburger (short: burger) is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, or flame broiled.","ground beef patty (FOODON_03317337); imitation hamburger patty (FOODON_03302716); hamburger patty (precooked, in a roll, frozen) (FOODON_03305567); hamburger patty (raw, with cheese spread on bun, frozen) (FOODON_03307844); 38570 - meat burger (no sandwich) (efsa foodex2) (FOODON_03543857)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+99,"Biscoito, polvilho doce","Biscuit, sweet cassava starch (polvilho doce)","Verduras, hortaliças e derivados",none,,,,"biscuit (hard) food product (FOODON_00002466); biscuit (quick bread) (FOODON_03301884); 02400 - biscuits, chocolate (efsa foodex2) (FOODON_03540240); dog biscuit (FOODON_03303582); cracker (FOODON_00002711)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+439,"Presunto, sem capa de gordura","Ham, without fat cap",Carnes e derivados,relatedMatch,FOODON_00003149,Canadian bacon,"The American name for a form of back bacon that is cured, smoked and fully cooked, trimmed into cylindrical medallions, and thickly sliced. ""Canadian"" bacon is made only from the lean eye of the loin and is ready to eat. Its flavor is described as more ham-like than other types because of its lean cut.","ham (FOODON_00005591); blackeyed peas with ham (ham fat, and ham broth) (FOODON_03307314); 22090 - luncheon spiced ham-type tinned meat (efsa foodex2) (FOODON_03542209); smalleye hammerhead (FOODON_03412596); witch-hazel plant (FOODON_03415086)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+575,"Grão-de-bico, cru","Chickpea, raw",Leguminosas e derivados,type,FOODON_03000123,chickpea (raw),A whole raw chickpea.,"chickpea (raw, mature) (FOODON_03000206); chickpea (FOODON_03306811); chickpea plant (FOODON_00002918); chickpea (mature) (FOODON_00005264); 10006271 - chickpeas (gs1 gpc) (FOODON_03401484)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+539,Feijão tropeiro mineiro,"Feijão tropeiro mineiro (red beans, cassava flour, egg and pork)",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+279,"Bacalhau, salgado, cru","Cod, salted (bacalhau), raw",Pescados e frutos do mar,none,,,,"26180 - salted cod (efsa foodex2) (FOODON_03542618); codfish (salted) (FOODON_03307021); salt substitute (codex) (FOODON_03400439); brown salt: nutrient, dietary supplement (codex) (FOODON_03400379); 01690 - pretzels (efsa foodex2) (FOODON_03540169)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+547,"Salpicão, de frango",Salpicão (chicken salad),Alimentos preparados,type,FOODON_03306092,chicken salad,"A salad with chicken meat as a defining ingredient. SIREN DB annotation:
+* semisolid with solid pieces FOODON:03430134
+* fully heat-treated FOODON:03440014
+* meat color, undesignated or unknown (deprecated) FOODON:03530003
+* skeletal meat part, without bone, without skin FOODON:03420268
+* ingredient: spice or herb added FOODON:03460151
+* ingredient: fat or oil added FOODON:03460221",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+285,"Camarão, Rio Grande, grande, cru","Shrimp, Rio Grande, large, raw",Pescados e frutos do mar,none,,,,shrimp (FOODON_03411237); whiteleg shrimp (FOODON_03412234); pandalid shrimp family (FOODON_03411119); grass shrimp (FOODON_03412480); northern white shrimp (FOODON_03411149),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+556,Yakisoba,Yakisoba,Alimentos preparados,relatedMatch,FOODON_00002953,chow mein,Chow mein is a dish containing Chinese stir-fried noodles with vegetables and sometimes meat or tofu; the name is a romanization of the Taishanese chāu-mèing.,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+378,"Carne, bovina, peito, sem gordura, cozido","Beef, brisket (peito), fat trimmed, cooked",Carnes e derivados,relatedMatch,FOODON_03303432,beef brisket (pit barbeque cooked),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* fully heat-treated FOODON:03440014
+* brisket FOODON:03530020
+* skeletal meat part, without bone, without skin FOODON:03420268
+* broiling or grilling FOODON:03450006",beef brisket (FOODON_02000189); beef brisket flat half (FOODON_02000191); beef brisket (raw) (FOODON_02000190); beef brisket flat half (raw) (FOODON_02000192); beef brisket flat half (boneless) (FOODON_02000193),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+432,"Porco, lombo, assado","Pork, loin, roasted",Carnes e derivados,type,FOODON_00005406,pork loin center roast,"A roast derived from the Loin Center Cut. The name originates from its anatomical location in the ""Center"" section of the loin. The cut location is between the Blade and Sirloin section of the Loin.
+Characteristics: Pork, Bone-In",pork loin blade roast (raw) (FOODON_02000293); pork loin blade roast (FOODON_02000292); New York roast (boneless) (FOODON_02000309); pork sirloin roast (FOODON_02000304); pork blade roast (FOODON_00005411),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+63,"Torrada, pão francês","Toast, French roll",Cereais e derivados,type,FOODON_03306255,toast,"A cut piece of bread which has been toasted. SIREN DB annotation:
+* sliced, thick, between 0.5 and 1.5 cm. FOODON:03430124
+* fully heat-treated FOODON:03440014
+* seed (anatomical part) FOODON:03420155
+* food toasting process FOODON:03450010
+* water removal process FOODON:03460138
+* carbohydrate fermentation process FOODON:03460256",food (toasted) (FOODON_00002659); toasted (FOODON_03000565); melba toast (unsalted) (FOODON_03304503); melba toast (FOODON_03305348); zwieback toast (FOODON_03307449),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+205,"Jambo, cru","Rose apple (jambo), raw",Frutas e derivados,type,FOODON_00005306,rose apple (raw),A raw rose apple.,roseapple plant (FOODON_03412020); 16740 - pommarosas (efsa foodex2) (FOODON_03541674); mountain apple plant (FOODON_03412831); Syzygium jambos (NCBITaxon_334483); rose apple (FOODON_00005305),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+554,Vatapá,"Vatapá (dried shrimp, nuts, coconut milk and palm oil)",Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+500,"Doce, de abóbora, cremoso","Pumpkin sweet, creamy (doce de abóbora)",Produtos açucarados,none,,,,butternut squash plant (FOODON_03412509); red kuri squash plant (FOODON_03412523); fuzzy melon plant (FOODON_03412518),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+522,"Chantilly, spray, com gordura vegetal","Whipped cream (chantilly), spray, with vegetable fat",Outros alimentos industrializados,relatedMatch,FOODON_03542683,26830 - cream sprayable (efsa foodex2),The group includes any type of Cream sprayable (it is usually marketed in rigid containers under pressure of a whipping gas). The ingredients added to make it ready-to-spray may be considered minor ingredients. The part consumed/analysed is by default the whole or a portion of it representing the observed heterogeneity.[https://en.wikipedia.org/wiki/Whipped_cream] and [https://www.google.co.uk/search?tbm=isch&q=spray cream],dinitrogen oxide (CHEBI_17045); whipped cream (FOODON_03302897); mammalian light whipping cream (30%-36%) (FOODON_03420154); light whipping cream (FOODON_03301796); table cream (whipped) (FOODON_03305256),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+520,"Azeitona, preta, conserva","Olive, black, preserved",Outros alimentos industrializados,type,FOODON_03303700,black olive (canned),"SIREN DB annotation:
+* surrounded by 'can, bottle or jar' FOODON:03490194
+* whole, natural shape FOODON:03430150
+* fully heat-treated FOODON:03440014
+* ripe or mature FOODON:03530052
+* fruit, peel present FOODON:03420137
+* lactic acid fermentation process FOODON:03460101
+* sterilization by heating FOODON:03470123","10000238 - olives (perishable) (gs1 gpc) (FOODON_03401179); black olive (raw) (FOODON_03301268); chinese black olive plant (FOODON_03415027); 16510 - chinese black olives (efsa foodex2) (FOODON_03541651); 16500 - chinese olives, black, white (efsa foodex2) (FOODON_03541650)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+544,Quibebe,Quibebe (squash with carne seca),Alimentos preparados,none,,,,,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+56,"Pastel, de carne, frito","Pastel (pastry turnover), beef filling, fried",Cereais e derivados,none,,,,Cribroheros alfari (NCBITaxon_84389),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+188,"Caju, suco concentrado, envasado","Cashew apple, juice concentrate, bottled",Frutas e derivados,none,,,,cashew plant (FOODON_03411221); 16660 - cashew apples (efsa foodex2) (FOODON_03541666); 11310 - cashew nuts (efsa foodex2) (FOODON_03541131),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+499,Cocada branca,"Cocada, white (coconut candy)",Produtos açucarados,relatedMatch,FOODON_03304233,coconut haystacks candy,"SIREN DB annotation:
+* whole, shape achieved by forming FOODON:03430147
+* seed, skin removed, germ present FOODON:03420132
+* water removal process FOODON:03460138
+* ingredient: sugar or sugar syrup added FOODON:03460136
+* ingredient: vegetable fat or oil added FOODON:03460263",,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+303,"Merluza, filé, frito","Hake, fillet, fried",Pescados e frutos do mar,relatedMatch,FOODON_03413878,hake,,hake fillet (breaded) (FOODON_03309066); cape hake fillet (raw) (FOODON_03309077); hake fillet (raw) (FOODON_03309095); hake fillet (frozen) (FOODON_03309332); hake fillet (quick-frozen) (FOODON_03316734),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+407,"Frango, peito, com pele, cru","Chicken, breast, with skin, raw",Carnes e derivados,type,FOODON_03303012,chicken breast (raw),"A whole raw chicken breast. SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* light meat FOODON:03530004
+* breast (poultry meat cut) FOODON:03530158
+* skeletal meat part FOODON:03420175","chicken breast (skinless, raw) (FOODON_02020232); piece of chicken breast (skinless, raw) (FOODON_02020276); piece(s) of chicken breast (skinless, raw) (FOODON_02020358); chicken breast (with skin, raw) (FOODON_02020234); piece of chicken breast (with skin, raw) (FOODON_02020278)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+489,"Ovo, de galinha, inteiro, cru","Egg, chicken, whole, raw",Ovos e derivados,type,FOODON_03301075,"chicken egg (shell off, raw)","A whole raw shell-off hen egg is the egg yolk and egg white obtained from a cracked egg. SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* whole egg FOODON:03420274","brown chicken egg (shell on, raw) (FOODON_03304624); shelled egg (UBERON_0007379); chicken egg (cooked) (FOODON_00005341); chicken egg (FOODON_03316061); chicken egg white (FOODON_02020155)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+41,"Macarrão, trigo, cru, com ovos","Pasta, wheat, raw, with eggs",Cereais e derivados,type,FOODON_03540179,01790 - fresh egg pasta (efsa foodex2),"The group includes any type of fresh egg pasta (i.e. pasta including eggs, not dried, normally needing refrigeration). By default it is not defined if the food items belonging to this group are cooked or not; therefore in case of cooked products (e.g. boiled pasta), the cooking method should be reported with additional facet descriptors. The part consumed/analysed is by default the whole or a portion of it representing the observed heterogeneity.[https://en.wikipedia.org/wiki/Pasta] and [https://www.google.co.uk/search?tbm=isch&q=Fresh+egg+pasta]",wheat pasta (FOODON_00002354); durum wheat pasta (FOODON_00001824); durum wheat plant (FOODON_03411079); whole wheat pasta (FOODON_00005528); multi-component wheat pasta dish (FOODON_00002829),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+3,"Arroz, tipo 1, cozido","Rice, white, type 1, cooked",Cereais e derivados,type,FOODON_00004677,white rice (cooked),A cooked endosperm of a white rice plant.,white rice (FOODON_00003787); medium-grain white rice (FOODON_00005309); short-grain white rice (FOODON_03000263); long-grain white rice (uncooked) (FOODON_03000273); long-grain white rice (cooked) (FOODON_00004372),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+475,"Chá, erva-doce, infusão 5%","Tea, fennel, infusion 5%",Bebidas (alcoólicas e não alcoólicas),none,,,,"34400 - tea leaves derivatives and tea ingredients (efsa foodex2) (FOODON_03543440); 34450 - non-fermented tea leaves (green or white tea) (efsa foodex2) (FOODON_03543445); Hohoysi tea (FOODON_00002858); rooibos tea (steeped) (FOODON_00003277); 37270 - non-fermented tea, infusion (efsa foodex2) (FOODON_03543727)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+537,Estrogonofe de carne,Beef stroganoff,Alimentos preparados,type,FOODON_03302094,beef stroganoff with noodles,"SIREN DB annotation:
+* semisolid with solid pieces FOODON:03430134
+* fully heat-treated FOODON:03440014
+* seed, skin removed, germ removed (endosperm) FOODON:03420208
+* alcoholated FOODON:03460160
+* ingredient: flavoring, spice or herb added FOODON:03460227
+* ingredient: dairy product added FOODON:03460242
+* packed in gravy or sauce, dairy or egg component FOODON:03480033",pasta dish (us cfr) (FOODON_03400220),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+542,"Macarrão, molho bolognesa","Pasta, bolognese sauce",Alimentos preparados,none,,,,"10000055 - sauces - cooking (perishable) (gs1 gpc) (FOODON_03401192); 10000056 - sauces - cooking (frozen) (gs1 gpc) (FOODON_03401191); 10000057 - sauces - cooking (shelf stable) (gs1 gpc) (FOODON_03401193); pasta (FOODON_03306347); 39590 - pasta-based dishes, uncooked (efsa foodex2) (FOODON_03543959)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+589,"Castanha-do-Brasil, crua","Brazil nut, raw",Nozes e sementes,type,FOODON_03301821,brazilnut (raw),"SIREN DB annotation:
+* whole, natural shape FOODON:03430150
+* not heat-treated FOODON:03440003
+* seed, skin present, germ present FOODON:03420133",brazil nut plant (FOODON_03411463); 11280 - brazil nuts and similar- (efsa foodex2) (FOODON_03541128); 11290 - brazil nuts (efsa foodex2) (FOODON_03541129); brazil nut food product (FOODON_00001663); food allergen labelling about nuts and products thereof (FOODON_03510221),http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,
+7,"Aveia, flocos, crua","Oats, rolled, raw",Cereais e derivados,type,FOODON_03307110,rolled oats,"A type of lightly processed whole-grain food. Traditionally, they are made from oat groats (hulled grains) that have been dehusked and steamed, before being rolled into flat flakes under heavy rollers and then (optionally) stabilized by being lightly toasted. SIREN DB annotation:
+* whole, shape achieved by forming, thickness <0.3 cm. FOODON:03430153
+* partially heat-treated FOODON:03440018
+* seed, skin removed, germ removed (endosperm) FOODON:03420208
+* water removal process FOODON:03460138
+* food rolling process FOODON:03460239
+* preservation by dehydration or drying FOODON:03470116","03160 - oat rolled grains, wholemeal (efsa foodex2) (FOODON_03540316); 03140 - oat rolled grains (efsa foodex2) (FOODON_03540314); 03150 - oat rolled grains, instant (efsa foodex2) (FOODON_03540315); rolled oats (cooked) (FOODON_00004362); rice or other grain (eurofir) (FOODON_03400814)",http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl,,,,,,,,

@@ -1,0 +1,29 @@
+class,label,legume_food_product,ancestors,retrieved,foodon_release
+FOODON_00001235,soy sauce food product,yes,27,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00002576,bean sprout,yes,27,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00004236,green bean pod (raw),yes,38,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00004375,pinto bean (cooked),yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00004376,black turtle bean (cooked),yes,24,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00004377,yellow bean (cooked),yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00004634,brown lentil (cooked),yes,21,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00004697,tofu,yes,18,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00005277,"black turtle bean (raw, mature)",yes,24,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00005279,"kidney bean (raw, mature)",yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_00005619,kidney bean (cooked),yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03000089,pinto bean (raw),yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03000090,pink bean (raw),yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03000094,yellow bean (raw),yes,25,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03000103,lentil (raw),yes,20,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03000123,chickpea (raw),yes,24,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03301299,peanut (raw),yes,21,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03302000,peanut brittle,no,7,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03302080,lupine bean (raw),yes,23,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03302142,soybean flour,no,9,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03302776,soybean oil,no,23,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03305289,soybean milk,no,10,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03306815,pigeon pea (raw),yes,22,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03309827,"peanut (skin off, salted, roasted)",yes,13,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03309834,cowpea (raw),yes,20,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03310296,peanut candy,yes,19,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03311570,"pink bean (cooked, canned)",yes,16,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl
+FOODON_03540620,06200 - garden peas (with pods) (efsa foodex2),no,8,2026-09-24,http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl

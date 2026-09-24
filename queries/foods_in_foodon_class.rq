@@ -1,0 +1,16 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?food_number ?food ?foodon_type ?food_en
+WHERE {
+  ?f a taco:Food ;
+     a ?type ;
+     taco:foodNumber ?food_number ;
+     rdfs:label ?food .
+  FILTER (STRSTARTS(STR(?type), "http://purl.obolibrary.org/obo/FOODON_"))
+  ?type rdfs:subClassOf* ?class ;
+        rdfs:label ?foodon_type .
+  OPTIONAL { ?f skos:prefLabel ?food_en . FILTER (LANG(?food_en) = "en") }
+}
+ORDER BY ?food_number

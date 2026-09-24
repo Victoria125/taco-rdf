@@ -1,0 +1,15 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tacoid:  <https://w3id.org/taco-rdf/id/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+
+SELECT (STRAFTER(STR(?class), "#") AS ?resource) (COUNT(DISTINCT ?s) AS ?count)
+WHERE {
+  ?s a ?class .
+  FILTER (?class IN (taco:Food, taco:FoodGroup, taco:Nutrient, taco:NutrientMeasurement))
+}
+GROUP BY ?class
+ORDER BY DESC(?count)

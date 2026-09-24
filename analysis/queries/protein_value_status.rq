@@ -1,0 +1,13 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?food_number ?key ?status
+WHERE {
+  ?m taco:ofFood ?f ;
+     taco:ofNutrient ?n ;
+     taco:valueStatus ?s .
+  ?f taco:foodNumber ?food_number .
+  ?n skos:notation ?key .
+  FILTER (?key = "protein" || EXISTS { ?n skos:broader <https://w3id.org/taco-rdf/id/category/amino_acid> })
+  BIND (STRAFTER(STR(?s), "#") AS ?status)
+}
