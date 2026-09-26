@@ -6,13 +6,15 @@ SHEET_COMPOSITION = 0
 SHEET_FATTY_ACIDS = 1
 SHEET_AMINO_ACIDS = 2
 
+MCG = "(mcg)"
+
 UNIT_HEADER_TO_QUDT = {
     "(%)": "PERCENT",
     "(kcal)": "KiloCAL",
     "(kJ)": "KiloJ",
     "(g)": "GM",
     "(mg)": "MilliGM",
-    "(mcg)": "MicroGM",
+    MCG: "MicroGM",
 }
 
 CATEGORIES = {
@@ -66,9 +68,9 @@ NUTRIENTS: tuple[Nutrient, ...] = (
     _n("potassium", C, 18, "Potássio", "(mg)", "Potássio", "Potassium", "mineral"),
     _n("copper", C, 19, "Cobre", "(mg)", "Cobre", "Copper", "mineral"),
     _n("zinc", C, 20, "Zinco", "(mg)", "Zinco", "Zinc", "mineral"),
-    _n("retinol", C, 21, "Retinol", "(mcg)", "Retinol", "Retinol", "vitamin"),
-    _n("re", C, 22, "RE", "(mcg)", "Equivalente de retinol (RE)", "Retinol equivalents (RE)", "vitamin"),
-    _n("rae", C, 23, "RAE", "(mcg)", "Equivalente de atividade de retinol (RAE)",
+    _n("retinol", C, 21, "Retinol", MCG, "Retinol", "Retinol", "vitamin"),
+    _n("re", C, 22, "RE", MCG, "Equivalente de retinol (RE)", "Retinol equivalents (RE)", "vitamin"),
+    _n("rae", C, 23, "RAE", MCG, "Equivalente de atividade de retinol (RAE)",
        "Retinol activity equivalents (RAE)", "vitamin"),
     _n("thiamin", C, 24, "Tiamina", "(mg)", "Tiamina", "Thiamin", "vitamin"),
     _n("riboflavin", C, 25, "Riboflavina", "(mg)", "Riboflavina", "Riboflavin", "vitamin"),

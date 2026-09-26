@@ -41,7 +41,7 @@ def test_governance_rules_pass_on_the_real_graph(report):
     assert not any(f.shape in {"DatasetShape", "SourceShape", "PolicyShape"} for f in report.findings)
 
 
-@pytest.fixture()
+@pytest.fixture
 def mini():
     table = Table(groups=["Cereais e derivados"], foods={1: Food(1, "Alimento de teste", 1)})
     values = {

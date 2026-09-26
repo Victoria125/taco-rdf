@@ -34,6 +34,7 @@ from taco_rdf.namespaces import (
     CORRECTIONS_DIR,
     FOOD_NAMES_EN,
     FOODON_MODULE_TTL,
+    OBO,
     RAW_XLS,
     ROOT,
 )
@@ -58,7 +59,7 @@ def get(path: str, **params) -> dict:
 
 
 def definition(curie: str) -> str:
-    terms = get("ontologies/foodon/terms", iri="http://purl.obolibrary.org/obo/" + curie)
+    terms = get("ontologies/foodon/terms", iri=str(OBO) + curie)
     terms = terms.get("_embedded", {}).get("terms", [])
     return " ".join(terms[0].get("description") or []) if terms else ""
 
@@ -103,12 +104,12 @@ def main() -> int:
     rows = form_rows(items, table, alignments, names_en, release)
     if not args.offline:
         pinned = foodon_index()
-        lookup = {}
+        lookup: dict[int, tuple[str, str]] = {}
         for row in rows:
-            current = row["current_class"]
-            lookup[row["food_number"]] = (definition(current) if current else "",
-                                          candidates(row["name_en"], current, pinned))
-            print(f"{row['food_number']}: looked up", file=sys.stderr)
+            food, current = int(row["food_number"]), str(row["current_class"])
+            lookup[food] = (definition(current) if current else "",
+                            candidates(str(row["name_en"]), current, pinned))
+            print(f"{food}: looked up", file=sys.stderr)
         rows = form_rows(items, table, alignments, names_en, release, lookup)
 
     if input_hashes() != hashes:

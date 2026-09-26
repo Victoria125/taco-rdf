@@ -27,7 +27,8 @@ def test_every_query_file_parses_and_runs(graph):
     }
     for path in sorted(QUERIES_DIR.glob("*.rq")):
         header, rows = run_query(graph, path, binds.get(path.stem, {}))
-        assert header and rows, path.name
+        assert header, path.name
+        assert rows, path.name
 
 
 def test_graph_overview(graph):
@@ -57,14 +58,16 @@ def test_group_protein_summary(graph, table, value_of):
     row = next(r for r in rows if str(r[0]).startswith("Meats"))
     assert int(row[1]) == len(meats)
     assert float(row[2]) == pytest.approx(float(sum(meats) / len(meats)), abs=0.006)
-    assert Decimal(str(row[3])) == min(meats) and Decimal(str(row[4])) == max(meats)
+    assert Decimal(str(row[3])) == min(meats)
+    assert Decimal(str(row[4])) == max(meats)
 
 
 def test_high_protein_low_fat(graph, value_of):
     _, rows = q(graph, "high_protein_low_fat")
     protein, lipids = measured(value_of, "protein"), measured(value_of, "lipids")
     expected = {f for f in protein if f in lipids and protein[f] >= 20 and lipids[f] <= 5}
-    assert {int(r[0]) for r in rows} == expected and len(expected) == 32
+    assert {int(r[0]) for r in rows} == expected
+    assert len(expected) == 32
 
 
 def test_trace_counts_per_nutrient(graph, value_of):
@@ -77,7 +80,8 @@ def test_trace_counts_per_nutrient(graph, value_of):
 
 def test_alignment_query_lists_all_groups(graph):
     _, rows = q(graph, "food_group_alignments")
-    assert len(rows) == 20 and len({str(r[0]) for r in rows}) == 15
+    assert len(rows) == 20
+    assert len({str(r[0]) for r in rows}) == 15
 
 
 def test_food_alignment_query_lists_most_foods(graph):
@@ -100,7 +104,8 @@ def test_documented_corrections_query(graph):
 
 def test_provenance_query(graph):
     _, rows = q(graph, "provenance")
-    assert len(rows) == 1 and len(str(rows[0][4])) == 64
+    assert len(rows) == 1
+    assert len(str(rows[0][4])) == 64
 
 
 def test_amino_acid_profile_of_a_food(graph, value_of):
@@ -130,4 +135,5 @@ def test_cli_build_and_query_round_trip(tmp_path, capsys):
     capsys.readouterr()
     assert main(["stats", "--graph", str(out)]) == 0
     text = capsys.readouterr().out
-    assert "NutrientMeasurement" in text and "21150" in text
+    assert "NutrientMeasurement" in text
+    assert "21150" in text

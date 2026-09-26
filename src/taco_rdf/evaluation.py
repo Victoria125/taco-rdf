@@ -5,10 +5,13 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import math
 import re
 from collections import Counter, defaultdict
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
+from typing import TypedDict, TypeVar
 
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, PROV, RDF
@@ -34,12 +37,18 @@ ANSWER = ["decision", "relation", "class", "certainty", "justification", "eviden
           "reviewed_on"]
 FOODON_CURIE = re.compile(r"^FOODON_\d{8}$")
 DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
-PREDICATE_OF = {"type": "rdf:type", "exact": "skos:exactMatch", "close": "skos:closeMatch",
+CLOSE_MATCH = "skos:closeMatch"
+PREDICATE_OF = {"type": "rdf:type", "exact": "skos:exactMatch", "close": CLOSE_MATCH,
                 "narrow": "skos:narrowMatch", "broad": "skos:broadMatch", "related": "skos:relatedMatch",
-                "closeMatch": "skos:closeMatch", "exactMatch": "skos:exactMatch",
+                "closeMatch": CLOSE_MATCH, "exactMatch": "skos:exactMatch",
                 "narrowMatch": "skos:narrowMatch", "broadMatch": "skos:broadMatch",
                 "relatedMatch": "skos:relatedMatch"}
 MODULE_IRI = URIRef("https://w3id.org/taco-rdf/imports/foodon-module")
+
+Cell = str | int | float
+Row = dict[str, str]
+"""A row read back from CSV, where every value is text."""
+RowT = TypeVar("RowT", bound=Mapping[str, Cell])
 
 
 @dataclass(frozen=True)
@@ -59,7 +68,8 @@ class FoodOnIndex:
 
 def read_class_index(path: Path = FOODON_CLASSES) -> tuple[dict[str, str], dict[str, str]]:
     """The header (release, source, sha256) and the labels of the class index written with the module."""
-    header, lines = {}, []
+    header: dict[str, str] = {}
+    lines: list[str] = []
     with open(path, newline="", encoding="utf-8") as fh:
         for line in fh:
             if line.startswith("# "):
@@ -79,7 +89,8 @@ def foodon_index() -> FoodOnIndex:
     header, labels = read_class_index()
     if header.get("release") != str(releases[0]):
         raise ValueError(f"{FOODON_CLASSES.name} and {FOODON_MODULE_TTL.name} name different FoodOn releases")
-    module = {str(c).removeprefix("http://purl.obolibrary.org/obo/") for c in graph.subjects(RDF.type, OWL.Class)}
+    module = {str(c).removeprefix("http://purl.obolibrary.org/obo/")
+              for c in graph.subjects(RDF.type, OWL.Class)}
     missing = sorted(c for c in module if FOODON_CURIE.fullmatch(c) and c not in labels)
     if missing:
         raise ValueError(f"module classes absent from {FOODON_CLASSES.name}: {missing[:10]}")
@@ -144,7 +155,7 @@ def _rank(seed: str, food: int) -> str:
 
 
 def links_by_food(table: Table, alignments: list[Alignment]) -> dict[int, Alignment]:
-    by_food = {}
+    by_food: dict[int, Alignment] = {}
     for a in alignments:
         if a.source_type == "food":
             food = int(a.source_key)
@@ -168,7 +179,7 @@ def review_items(table: Table, alignments: list[Alignment], problem_cases: dict[
     if unknown:
         raise ValueError(f"problem cases name unknown foods: {unknown}")
     by_food = links_by_food(table, alignments)
-    strata = defaultdict(list)
+    strata: dict[tuple[int, str], list[int]] = defaultdict(list)
     for food in table.foods.values():
         relation = by_food[food.id].predicate if food.id in by_food else "none"
         strata[(food.group_id, relation)].append(food.id)
@@ -186,8 +197,8 @@ def review_items(table: Table, alignments: list[Alignment], problem_cases: dict[
     return sorted(items.values(), key=lambda i: _rank(seed + ":order", i.food_number))
 
 
-def item_rows(items: list[Item]) -> list[dict]:
-    rows = []
+def item_rows(items: list[Item]) -> list[dict[str, Cell]]:
+    rows: list[dict[str, Cell]] = []
     for i in items:
         probability = "" if i.inclusion_probability is None else round(i.inclusion_probability, 4)
         rows.append({"food_number": i.food_number, "part": i.part, "stratum": i.stratum,
@@ -197,10 +208,10 @@ def item_rows(items: list[Item]) -> list[dict]:
 
 
 def form_rows(items: list[Item], table: Table, alignments: list[Alignment], names_en: dict[int, FoodName],
-              release: str, lookup: dict[int, tuple[str, str]] | None = None) -> list[dict]:
+              release: str, lookup: dict[int, tuple[str, str]] | None = None) -> list[dict[str, Cell]]:
     """The blank form: what the reviewer needs to judge each food, and empty answer columns."""
     by_food = links_by_food(table, alignments)
-    rows = []
+    rows: list[dict[str, Cell]] = []
     for item in items:
         food = table.foods[item.food_number]
         link = by_food.get(food.id)
@@ -217,14 +228,14 @@ def form_rows(items: list[Item], table: Table, alignments: list[Alignment], name
     return rows
 
 
-def write_rows(path: Path, rows: list[dict], fields: list[str]) -> None:
+def write_rows(path: Path, rows: Iterable[Mapping[str, Cell]], fields: list[str]) -> None:
     with open(path, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=fields, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
 
-def read_rows(path: Path) -> list[dict]:
+def read_rows(path: Path) -> list[Row]:
     with open(path, newline="", encoding="utf-8") as fh:
         return list(csv.DictReader(fh))
 
@@ -247,8 +258,8 @@ def input_hashes() -> dict[str, str]:
     return {f"{name}_sha256": review_hash(path) for name, path in paths.items()}
 
 
-def indexed_rows(rows: list[dict], name: str) -> dict[int, dict]:
-    indexed = {}
+def indexed_rows(rows: Sequence[RowT], name: str) -> dict[int, RowT]:
+    indexed: dict[int, RowT] = {}
     for row in rows:
         try:
             food = int(row["food_number"])
@@ -260,7 +271,7 @@ def indexed_rows(rows: list[dict], name: str) -> dict[int, dict]:
     return indexed
 
 
-def check_context(rows: list[dict], expected: list[dict], name: str) -> None:
+def check_context(rows: list[Row], expected: Sequence[Mapping[str, Cell]], name: str) -> None:
     actual, reference = indexed_rows(rows, name), indexed_rows(expected, "reference context")
     if set(actual) != set(reference):
         raise ValueError(f"{name}: foods differ from the reference context: "
@@ -272,7 +283,7 @@ def check_context(rows: list[dict], expected: list[dict], name: str) -> None:
             raise ValueError(f"{name}: food {food} differs from the reference context: {', '.join(changed)}")
 
 
-def validate_round(folder: Path, manifest: dict) -> list[dict]:
+def validate_round(folder: Path, manifest: Mapping[str, object]) -> list[Row]:
     if manifest.get("hash_format") != "sha256-lf-v1":
         raise ValueError("unsupported review hash format; prepare a round with sha256-lf-v1 checksums")
     hashes = input_hashes()
@@ -285,7 +296,7 @@ def validate_round(folder: Path, manifest: dict) -> list[dict]:
     if changed:
         raise ValueError("review inputs differ from the manifest: " + ", ".join(changed)
                          + "; restore the recorded inputs or prepare a new round")
-    foodon_index().check(manifest["foodon_release"])
+    foodon_index().check(str(manifest["foodon_release"]))
     context = read_rows(folder / "context.csv")
     indexed = indexed_rows(context, "context.csv")
     items = indexed_rows(read_rows(folder / "items.csv"), "items.csv")
@@ -298,9 +309,9 @@ def validate_round(folder: Path, manifest: dict) -> list[dict]:
     return context
 
 
-def _problems(row: dict) -> list[str]:
+def _problems(row: Row) -> list[str]:
     decision, relation, target = row["decision"].strip(), row["relation"].strip(), row["class"].strip()
-    found = []
+    found: list[str] = []
     if decision not in DECISIONS:
         found.append(f"decision must be one of {', '.join(DECISIONS)}")
     if row["certainty"].strip() not in CERTAINTY:
@@ -324,24 +335,33 @@ def _problems(row: dict) -> list[str]:
     return found
 
 
-def read_answers(path: Path, expected: list[dict] | None = None) -> dict[int, Answer]:
+def _checked_class(row: Row) -> str:
+    """The class the answer settles on: the proposed one, the current one, or none."""
+    decision = row["decision"].strip()
+    if decision == "class":
+        return row["class"]
+    if decision in ("accept", "relation"):
+        return row["current_class"]
+    return ""
+
+
+def read_answers(path: Path, expected: Sequence[Mapping[str, Cell]] | None = None) -> dict[int, Answer]:
     """Read a filled form, refusing it while any row is incomplete or inconsistent."""
     rows = read_rows(path)
     indexed = indexed_rows(rows, Path(path).name)
     if expected is not None:
         check_context(rows, expected, Path(path).name)
     foodon = foodon_index()
-    answers, problems = {}, []
+    answers: dict[int, Answer] = {}
+    problems: list[str] = []
     for food, row in indexed.items():
         missing = [key for key in CONTEXT + ANSWER if row.get(key) is None]
         if missing:
             problems.append(f"food {food}: missing columns: {', '.join(missing)}")
             continue
         found = _problems(row)
-        target = row["class"] if row["decision"].strip() == "class" else (
-            row["current_class"] if row["decision"].strip() in ("accept", "relation") else "")
         try:
-            foodon.check(row["foodon_release"].strip(), target.strip())
+            foodon.check(row["foodon_release"].strip(), _checked_class(row).strip())
         except ValueError as exc:
             found.append(str(exc))
         if found:
@@ -403,10 +423,10 @@ def compare(a: dict[int, Answer], b: dict[int, Answer]) -> Agreement:
     return Agreement(agreed, disagreed, kappa)
 
 
-def adjudication_rows(form: list[dict], a: dict[int, Answer], b: dict[int, Answer],
-                      foods: list[int]) -> list[dict]:
+def adjudication_rows(form: Sequence[Mapping[str, Cell]], a: dict[int, Answer], b: dict[int, Answer],
+                      foods: list[int]) -> list[dict[str, Cell]]:
     context = {int(r["food_number"]): r for r in form}
-    rows = []
+    rows: list[dict[str, Cell]] = []
     for food in foods:
         row = {k: context[food][k] for k in CONTEXT}
         for who, answer in (("a", a[food]), ("b", b[food])):
@@ -431,7 +451,7 @@ def final_answers(a: dict[int, Answer], b: dict[int, Answer], agreement: Agreeme
     unexpected = sorted(set(adjudicated) - set(agreement.disagreed))
     if unexpected:
         raise ValueError(f"adjudicated decisions for foods without a disagreement: {unexpected}")
-    final = {}
+    final: dict[int, Answer] = {}
     for food in agreement.agreed:
         x, y = a[food], b[food]
         certainty = "uncertain" if "uncertain" in (x.certainty, y.certainty) else "certain"
@@ -456,15 +476,21 @@ def outcome(answer: Answer) -> str:
     return "class missed" if answer.decision == "class" else "correctly unmapped"
 
 
-def coverage(table: Table, alignments: list[Alignment]) -> Counter:
+def coverage(table: Table, alignments: list[Alignment]) -> Counter[str]:
     by_food = links_by_food(table, alignments)
     return Counter(by_food[f].predicate if f in by_food else "none" for f in table.foods)
 
 
-def summarise(items: list[Item], final: dict[int, Answer]) -> dict:
+class Summary(TypedDict):
+    parts: dict[str, Counter[str]]
+    strata: dict[str, Counter[str]]
+    errors: list[Answer]
+
+
+def summarise(items: list[Item], final: dict[int, Answer]) -> Summary:
     """Outcomes per part of the review, and the errors found; no estimate for the whole alignment."""
-    parts: dict[str, Counter] = defaultdict(Counter)
-    strata: dict[str, Counter] = defaultdict(Counter)
+    parts: dict[str, Counter[str]] = defaultdict(Counter)
+    strata: dict[str, Counter[str]] = defaultdict(Counter)
     for item in items:
         result = outcome(final[item.food_number])
         parts[item.part][result] += 1
@@ -495,7 +521,7 @@ class Estimate:
 
 def wilson(share: float, n: float, z: float = 1.96) -> tuple[float, float]:
     centre = (share + z * z / (2 * n)) / (1 + z * z / n)
-    half = z * (share * (1 - share) / n + z * z / (4 * n * n)) ** 0.5 / (1 + z * z / n)
+    half = z * math.sqrt(share * (1 - share) / n + z * z / (4 * n * n)) / (1 + z * z / n)
     return max(0.0, centre - half), min(1.0, centre + half)
 
 
@@ -538,11 +564,24 @@ SSSOM_FIELDS = ["subject_id", "subject_label", "predicate_id", "object_id", "obj
                 "mapping_justification", "author_label", "mapping_date", "object_source_version", "comment"]
 
 
-def sssom_rows(final: dict[int, Answer], table: Table, alignments: list[Alignment]) -> list[dict]:
+def _reviewed_mapping(food: int, answer: Answer, link: Alignment | None) -> tuple[str, str, str]:
+    """The predicate, target class and label that the answer gives the food."""
+    if answer.decision == "class":
+        return PREDICATE_OF[answer.relation], answer.target, ""
+    if answer.decision == "relation":
+        if link is None:
+            raise ValueError(f"food {food}: an unmapped food has no relation to change")
+        return PREDICATE_OF[answer.relation], answer.current_class, link.target_label
+    if answer.decision == "accept" and link:
+        return PREDICATE_OF[link.predicate], answer.current_class, link.target_label
+    return CLOSE_MATCH, "", ""
+
+
+def sssom_rows(final: dict[int, Answer], table: Table, alignments: list[Alignment]) -> list[Row]:
     """The reviewed mappings in SSSOM, with sssom:NoTermFound where no FoodOn class fits."""
     by_food = links_by_food(table, alignments)
     foodon = foodon_index()
-    rows = []
+    rows: list[Row] = []
     for food, answer in sorted(final.items()):
         if answer.decision == "unsure":
             continue
@@ -551,14 +590,7 @@ def sssom_rows(final: dict[int, Answer], table: Table, alignments: list[Alignmen
         current_relation = link.predicate if link else "none"
         if (answer.current_class, answer.current_relation) != (current_class, current_relation):
             raise ValueError(f"food {food}: the alignment differs from the reviewed context")
-        if answer.decision == "class":
-            predicate, target, label = PREDICATE_OF[answer.relation], answer.target, ""
-        elif answer.decision == "relation":
-            predicate, target, label = PREDICATE_OF[answer.relation], answer.current_class, link.target_label
-        elif answer.decision == "accept" and link:
-            predicate, target, label = PREDICATE_OF[link.predicate], answer.current_class, link.target_label
-        else:
-            predicate, target, label = "skos:closeMatch", "", ""
+        predicate, target, label = _reviewed_mapping(food, answer, link)
         foodon.check(answer.foodon_release, target)
         if target:
             label = foodon.labels[target]
@@ -588,7 +620,7 @@ SSSOM_HEADER = """# curie_map:
 """
 
 
-def write_sssom(path: Path, rows: list[dict], round_name: str) -> None:
+def write_sssom(path: Path, rows: Iterable[Mapping[str, Cell]], round_name: str) -> None:
     with open(path, "w", newline="", encoding="utf-8") as fh:
         fh.write(SSSOM_HEADER.format(round=round_name))
         writer = csv.DictWriter(fh, fieldnames=SSSOM_FIELDS, delimiter="\t", lineterminator="\n")

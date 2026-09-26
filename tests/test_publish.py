@@ -9,13 +9,15 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from http.server import ThreadingHTTPServer
+from pathlib import Path
 
 import pytest
 from rdflib import Graph, Literal, URIRef
+from rdflib.compare import isomorphic
 
 from taco_rdf import metadata as meta
 from taco_rdf.namespaces import DCAT, DCTERMS, ID, RDFS, TACO
-from taco_rdf.publish import publish
+from taco_rdf.publish import canonical_ntriples, publish
 from taco_rdf.serve import make_handler
 
 
@@ -52,7 +54,8 @@ def test_food_document_carries_the_food_and_its_measurements(site, graph):
     food = ID["food/1"]
     assert (food, RDFS.label, Literal("Arroz, integral, cozido", lang="pt")) in doc
     measurements = set(graph.subjects(TACO.ofFood, food))
-    assert measurements and measurements <= set(doc.subjects())
+    assert measurements
+    assert measurements <= set(doc.subjects())
     jsonld = Graph().parse(out / "id" / "food" / "1.jsonld", format="json-ld")
     assert len(jsonld) == len(doc)
 
@@ -64,6 +67,24 @@ def test_vocabulary_and_dumps_are_published(site, graph):
     assert 'id="Food"' in (out / "vocab.html").read_text(encoding="utf-8")
     for name in meta.DUMPS:
         assert (out / name).stat().st_size > 1_000_000
+
+
+def test_ntriples_dump_is_the_graph_in_canonical_order(site: tuple[Path, int], graph: Graph) -> None:
+    out, _ = site
+    data = (out / "taco.nt").read_bytes()
+    lines = data.split(b"\n")
+    assert lines[-1] == b""
+    assert b"\r" not in data
+    assert lines[:-1] == sorted(lines[:-1])
+    assert isomorphic(Graph().parse(data=data, format="nt"), graph)
+
+
+def test_ntriples_bytes_do_not_depend_on_blank_node_labels() -> None:
+    text = """@prefix ex: <http://example.org/> .
+        ex:a ex:p [ ex:q "x" ; ex:r [ ex:s "y\\nz" ] ] ; ex:t [ ex:q "x" ] ."""
+    first, second = (Graph().parse(data=text, format="turtle") for _ in range(2))
+    assert set(first) != set(second)  # each parse labels the blank nodes afresh
+    assert canonical_ntriples(first) == canonical_ntriples(second)
 
 
 def test_landing_page_has_schema_org_dataset_markup(site):

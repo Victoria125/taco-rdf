@@ -46,8 +46,14 @@ def test_agreement_refuses_different_contexts(tmp_path, context, field, value):
     ev.write_rows(a, completed(context, "A"), ev.CONTEXT + ev.ANSWER)
     altered = [context[0] | {field: value}]
     ev.write_rows(b, completed(altered, "B"), ev.CONTEXT + ev.ANSWER)
-    with pytest.raises(ValueError, match=r"different contexts|foodon_release differs"):
-        ev.compare(ev.read_answers(a), ev.read_answers(b))
+    answers_a = ev.read_answers(a)
+    if field == "foodon_release":
+        with pytest.raises(ValueError, match="foodon_release differs"):
+            ev.read_answers(b)
+    else:
+        answers_b = ev.read_answers(b)
+        with pytest.raises(ValueError, match="different contexts"):
+            ev.compare(answers_a, answers_b)
     with pytest.raises(ValueError, match="reference context"):
         ev.read_answers(b, context)
 
@@ -65,8 +71,9 @@ def test_export_refuses_an_alignment_changed_after_review(tmp_path, context, tab
     ev.write_rows(path, completed(context, "A"), ev.CONTEXT + ev.ANSWER)
     changed = [replace(link, predicate="relatedMatch") if link.source_type == "food"
                and link.source_key == "1" else link for link in alignments]
+    answers = ev.read_answers(path)
     with pytest.raises(ValueError, match="alignment differs"):
-        ev.sssom_rows(ev.read_answers(path), table, changed)
+        ev.sssom_rows(answers, table, changed)
 
 
 @pytest.mark.parametrize("key", [
@@ -160,7 +167,10 @@ OPEN_ROUNDS = [f for f in sorted((ROOT / "data/alignment/review").glob("round-*"
 
 @pytest.mark.parametrize("folder", OPEN_ROUNDS, ids=[f.name for f in OPEN_ROUNDS])
 def test_an_open_checked_in_round_matches_the_current_inputs(folder):
-    """A round still under review must validate; a scored round is closed, and applying it changes its inputs."""
+    """A round still under review must validate.
+
+    A scored round is closed, and applying it changes its inputs.
+    """
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
     context = ev.validate_round(folder, manifest)
     names = ev.indexed_rows(ev.read_rows(FOOD_NAMES_EN), "English names")

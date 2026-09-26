@@ -130,7 +130,40 @@ def draw_edge(ax, a: Box, b: Box, text: str) -> None:
                                  lw=1.3, color="#555555", zorder=1))
     ax.text((start[0] + end[0]) / 2, (start[1] + end[1]) / 2, text, ha="center", va="center",
             fontsize=8, color="#222222",
-            bbox=dict(boxstyle="round,pad=0.15", fc="white", ec="none"), zorder=4)
+            bbox={"boxstyle": "round,pad=0.15", "fc": "white", "ec": "none"}, zorder=4)
+
+
+def group_boxes(g: Graph, food, food_box: Box, lang: str) -> tuple[list[Box], list[tuple[Box, Box, str]]]:
+    group = next(g.objects(food, TACO.inGroup), None)
+    if group is None:
+        return [], []
+    group_box = Box(COL_FOOD, 3.2, 3.2, 1.05, label(g, group, lang), short(group), FILL["group"])
+    boxes = [group_box]
+    edges = [(food_box, group_box, predicate_name(g, TACO.inGroup))]
+    match = external_match(g, group, "FOODON_")
+    if match:
+        pred, target = match
+        ext = Box(COL_FOOD, 6.0, 3.6, 1.05, "FoodOn", short(target), FILL["external"], dashed=True)
+        boxes.append(ext)
+        edges.append((group_box, ext, predicate_name(g, pred)))
+    return boxes, edges
+
+
+def nearest_slot(slots: list[float], mean: float) -> float:
+    return min(slots, key=lambda s: (abs(s - mean), -s))
+
+
+def category_boxes(g: Graph, categories: dict, slots: list[float],
+                   lang: str) -> tuple[list[Box], list[tuple[Box, Box, str]]]:
+    boxes: list[Box] = []
+    edges: list[tuple[Box, Box, str]] = []
+    for cat, members in sorted(categories.items(), key=lambda kv: -sum(b.y for b in kv[1]) / len(kv[1])):
+        y = nearest_slot(slots, sum(b.y for b in members) / len(members))
+        slots.remove(y)
+        c_box = Box(COL_CATEGORY, y, 3.0, 1.05, label(g, cat, lang), short(cat), FILL["category"])
+        boxes.append(c_box)
+        edges.extend((n_box, c_box, predicate_name(g, SKOS.broader)) for n_box in members)
+    return boxes, edges
 
 
 def build(g: Graph, food_number: int, keys: list[str], lang: str):
@@ -142,18 +175,9 @@ def build(g: Graph, food_number: int, keys: list[str], lang: str):
     edges: list[tuple[Box, Box, str]] = []
     food_box = Box(COL_FOOD, 0.0, 3.2, 1.05, label(g, food, lang), short(food), FILL["food"])
     boxes.append(food_box)
-
-    group = next(g.objects(food, TACO.inGroup), None)
-    if group is not None:
-        group_box = Box(COL_FOOD, 3.2, 3.2, 1.05, label(g, group, lang), short(group), FILL["group"])
-        boxes.append(group_box)
-        edges.append((food_box, group_box, predicate_name(g, TACO.inGroup)))
-        match = external_match(g, group, "FOODON_")
-        if match:
-            pred, target = match
-            ext = Box(COL_FOOD, 6.0, 3.6, 1.05, "FoodOn", short(target), FILL["external"], dashed=True)
-            boxes.append(ext)
-            edges.append((group_box, ext, predicate_name(g, pred)))
+    more_boxes, more_edges = group_boxes(g, food, food_box, lang)
+    boxes += more_boxes
+    edges += more_edges
 
     present = [k for k in keys if (ID[f"measurement/{food_number}/{k}"], TACO.ofFood, food) in g]
     for k in keys:
@@ -185,15 +209,9 @@ def build(g: Graph, food_number: int, keys: list[str], lang: str):
             boxes.append(ext)
             edges.append((n_box, ext, predicate_name(g, pred)))
 
-    for cat, members in sorted(categories.items(), key=lambda kv: -sum(b.y for b in kv[1]) / len(kv[1])):
-        mean = sum(b.y for b in members) / len(members)
-        y = min(slots, key=lambda s: (abs(s - mean), -s))
-        slots.remove(y)
-        c_box = Box(COL_CATEGORY, y, 3.0, 1.05, label(g, cat, lang), short(cat), FILL["category"])
-        boxes.append(c_box)
-        for n_box in members:
-            edges.append((n_box, c_box, predicate_name(g, SKOS.broader)))
-
+    more_boxes, more_edges = category_boxes(g, categories, slots, lang)
+    boxes += more_boxes
+    edges += more_edges
     return food, boxes, edges
 
 

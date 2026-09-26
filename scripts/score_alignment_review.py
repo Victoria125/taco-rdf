@@ -29,9 +29,10 @@ from taco_rdf.graph import load_alignments
 from taco_rdf.namespaces import ALIGNMENTS_CSV, CORRECTIONS_DIR, RAW_XLS
 from taco_rdf.parse import load_corrections, parse_workbook
 
-OUTCOMES = ["correct", "wrong relation", "wrong class", "should not be mapped", "class missed",
+WRONG_RELATION = "wrong relation"
+OUTCOMES = ["correct", WRONG_RELATION, "wrong class", "should not be mapped", "class missed",
             "correctly unmapped", "unsure"]
-JUDGED = ("correct", "wrong relation", "wrong class", "should not be mapped")
+JUDGED = ("correct", WRONG_RELATION, "wrong class", "should not be mapped")
 PARTS = ["sample", "problem case", "prepared dish"]
 RESULT_FIELDS = ["food_number", "part", "outcome", "decision", "relation", "class", "certainty",
                  "justification", "evidence", "a_evidence", "b_evidence", "reviewer", "reviewed_on",
@@ -90,16 +91,17 @@ def report(name: str, manifest: dict, table, alignments, items: list[Item], a: d
         f"({sample.get('unsure', 0)} unsure). The sample has {sum(sample.values())} foods, "
         f"{manifest['per_stratum']} per group and link, drawn at random within each stratum.", "",
         "## Estimated precision", "",
-        f"Each sampled food is weighted by the size of its stratum, so the estimates are for all {linked} links, "
-        "not for the sample. *Strict* counts a link as right only when both the class and the relation "
-        "were accepted; *right class* also counts a link whose class was kept with another relation. "
+        "Each sampled food is weighted by the size of its stratum, "
+        f"so the estimates are for all {linked} links, not for the sample. "
+        "*Strict* counts a link as right only when both the class and the relation were accepted; "
+        "*right class* also counts a link whose class was kept with another relation. "
         "The 95% intervals are Wilson intervals on the effective sample size of the stratified design; "
         f"with {manifest['per_stratum']} foods per stratum they are wide, and they are approximate.", "",
     ]
     estimate_rows = []
     for relation in ["", *sorted({i.stratum.split("/")[-1] for i in items if i.part == "sample"} - {"none"})]:
         strict = precision_estimate(items, final, relation=relation)
-        loose = precision_estimate(items, final, relation=relation, right=("correct", "wrong relation"))
+        loose = precision_estimate(items, final, relation=relation, right=("correct", WRONG_RELATION))
         estimate_rows.append([relation or "all links", strict.links, strict.judged,
                               strict.text(), loose.text(),
                               "all" if strict.covered == strict.links else f"{strict.covered} links"])

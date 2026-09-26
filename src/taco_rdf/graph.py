@@ -142,7 +142,10 @@ def _round_number(folder: Path) -> int:
 
 
 def load_reviewed_mappings(review_dir: Path = REVIEW_DIR) -> dict[int, ReviewedMapping]:
-    """The latest reviewed mapping of each food, over every scored round; later rounds supersede earlier ones."""
+    """The latest reviewed mapping of each food, over every scored round.
+
+    Later rounds supersede earlier ones.
+    """
     reviewed: dict[int, ReviewedMapping] = {}
     folders = [f for f in Path(review_dir).glob("round-*") if (f / "reviewed.sssom.tsv").is_file()]
     for folder in sorted(folders, key=_round_number):
@@ -223,7 +226,7 @@ def build_graph(
     if missing:
         raise ValueError(f"no English label for groups: {missing}")
 
-    _add_dataset_metadata(g, source_file, table)
+    _add_dataset_metadata(g, source_file)
     _add_categories_and_nutrients(g)
     _add_groups(g, table)
     _add_foods(g, table, food_names_en or {})
@@ -232,7 +235,7 @@ def build_graph(
     return g
 
 
-def _add_dataset_metadata(g: Graph, source_file: Path, table: Table) -> None:
+def _add_dataset_metadata(g: Graph, source_file: Path) -> None:
     dataset, source = ID["dataset"], ID["source"]
     nepa, software, activity = ID["agent/nepa-unicamp"], ID["agent/taco-rdf"], ID["conversion"]
     creator = ID["agent/vitoria-maia"]
@@ -369,6 +372,16 @@ def _add_foods(g: Graph, table: Table, names_en: dict[int, FoodName]) -> None:
             g.add((iri, TACO.footnoteMarker, Literal(food.footnote)))
 
 
+def _decimal_literal(value: Decimal) -> Literal:
+    """An xsd:decimal whose lexical form has a decimal point, as Turtle writes it.
+
+    rdflib writes an integral decimal such as "953" as 953.0 in Turtle, which parses back as a different
+    literal; with the point already there, the graph, taco.ttl and taco.nt carry the same terms.
+    """
+    text = format(value, "f")
+    return Literal(text if "." in text else text + ".0", datatype=XSD.decimal)
+
+
 def _add_measurements(g: Graph, table: Table) -> None:
     basis = ID["reference/edible-portion-100g"]
     g.add((basis, RDF.type, TACO.ReferenceBasis))
@@ -386,7 +399,9 @@ def _add_measurements(g: Graph, table: Table) -> None:
         g.add((m, TACO.valueStatus, TACO[obs.status.value]))
         g.add((m, TACO.referenceBasis, basis))
         if obs.status is Status.MEASURED:
-            g.add((m, QUDT.numericValue, Literal(obs.value, datatype=XSD.decimal)))
+            if obs.value is None:
+                raise ValueError(f"food {obs.food_id} {obs.nutrient}: measured, but no value")
+            g.add((m, QUDT.numericValue, _decimal_literal(obs.value)))
             g.add((m, QUDT.unit, UNIT[nutrient.qudt_unit]))
         origin = _ORIGIN.get(obs.origin)
         if origin is not None:
@@ -429,10 +444,9 @@ def _add_review_rounds(g: Graph, reviewed: dict[int, ReviewedMapping]) -> dict[s
     return rounds
 
 
-def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
-                    reviewed: dict[int, ReviewedMapping]) -> None:
-    _check_reviews(alignments, reviewed, table)
-    rounds = _add_review_rounds(g, reviewed)
+def _add_alignment_set(g: Graph, alignments: list[Alignment],
+                       reviewed: dict[int, ReviewedMapping]) -> URIRef:
+    """The provenance node of the alignments supplied to this build, with the checksum of their rows."""
     rows = sorted(json.dumps(asdict(a), sort_keys=True, ensure_ascii=False) for a in alignments)
     confirmed = sum(1 for a in alignments if a.source_type == "food" and int(a.source_key) in reviewed)
     source = ID["alignment-set"]
@@ -446,22 +460,49 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
         "reviewed (taco:Reviewed); independent semantic review of the others is pending.", lang="en")))
     g.add((source, DCTERMS.publisher, ID["agent/vitoria-maia"]))
     g.add((ID["conversion"], PROV.used, source))
+    return source
+
+
+def _alignment_subject(a: Alignment, table: Table) -> URIRef:
+    """The group, nutrient or food an alignment is about; one the workbook does not have is refused."""
+    if a.source_type == "group":
+        if not 1 <= int(a.source_key) <= len(table.groups):
+            raise ValueError(f"alignment refers to unknown group {a.source_key}")
+        return group_iri(int(a.source_key))
+    if a.source_type == "nutrient":
+        if a.source_key not in BY_KEY:
+            raise ValueError(f"alignment refers to unknown nutrient {a.source_key}")
+        return nutrient_iri(a.source_key)
+    if a.source_type == "food":
+        if int(a.source_key) not in table.foods:
+            raise ValueError(f"alignment refers to unknown food {a.source_key}")
+        return food_iri(int(a.source_key))
+    raise ValueError(f"unknown alignment source_type {a.source_type!r}")
+
+
+def _add_review_status(g: Graph, record: URIRef, review: ReviewedMapping | None,
+                       rounds: dict[str, URIRef]) -> None:
+    if review is None:
+        g.add((record, TACO.reviewStatus, TACO.Unreviewed))
+        g.add((record, TACO.ontologyVersionStatus, TACO.NotRecorded))
+    else:
+        g.add((record, TACO.reviewStatus, TACO.Reviewed))
+        g.add((record, TACO.ontologyVersionStatus, TACO.Recorded))
+        g.add((record, TACO.ontologyVersion, URIRef(review.round.foodon_release)))
+        g.add((record, PROV.wasDerivedFrom, rounds[review.round.name]))
+        g.add((record, DCTERMS.date, Literal(review.reviewed_on, datatype=XSD.date)))
+        for name in review.reviewers:
+            g.add((record, TACO.reviewer, Literal(name)))
+
+
+def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
+                    reviewed: dict[int, ReviewedMapping]) -> None:
+    _check_reviews(alignments, reviewed, table)
+    rounds = _add_review_rounds(g, reviewed)
+    source = _add_alignment_set(g, alignments, reviewed)
     foodon = None
     for a in alignments:
-        if a.source_type == "group":
-            if not 1 <= int(a.source_key) <= len(table.groups):
-                raise ValueError(f"alignment refers to unknown group {a.source_key}")
-            subject = group_iri(int(a.source_key))
-        elif a.source_type == "nutrient":
-            if a.source_key not in BY_KEY:
-                raise ValueError(f"alignment refers to unknown nutrient {a.source_key}")
-            subject = nutrient_iri(a.source_key)
-        elif a.source_type == "food":
-            if int(a.source_key) not in table.foods:
-                raise ValueError(f"alignment refers to unknown food {a.source_key}")
-            subject = food_iri(int(a.source_key))
-        else:
-            raise ValueError(f"unknown alignment source_type {a.source_type!r}")
+        subject = _alignment_subject(a, table)
         target = URIRef(a.target_iri)
         if a.predicate == "type":
             foodon = foodon if foodon is not None else Graph().parse(FOODON_MODULE_TTL, format="turtle")
@@ -480,17 +521,7 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
         g.add((record, PROV.wasDerivedFrom, source))
         g.add((record, TACO.targetOntology, Literal(a.target_ontology)))
         review = reviewed.get(int(a.source_key)) if a.source_type == "food" else None
-        if review is None:
-            g.add((record, TACO.reviewStatus, TACO.Unreviewed))
-            g.add((record, TACO.ontologyVersionStatus, TACO.NotRecorded))
-        else:
-            g.add((record, TACO.reviewStatus, TACO.Reviewed))
-            g.add((record, TACO.ontologyVersionStatus, TACO.Recorded))
-            g.add((record, TACO.ontologyVersion, URIRef(review.round.foodon_release)))
-            g.add((record, PROV.wasDerivedFrom, rounds[review.round.name]))
-            g.add((record, DCTERMS.date, Literal(review.reviewed_on, datatype=XSD.date)))
-            for name in review.reviewers:
-                g.add((record, TACO.reviewer, Literal(name)))
+        _add_review_status(g, record, review, rounds)
         if a.note:
             g.add((record, SKOS.editorialNote, Literal(a.note, lang="en")))
 

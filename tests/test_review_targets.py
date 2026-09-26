@@ -48,7 +48,8 @@ def test_review_index_covers_the_whole_pinned_release_and_agrees_with_the_module
     assert index.release in {str(version) for version in graph.objects(None, OWL.versionIRI)}
     header, _ = ev.read_class_index()
     assert header["release"] == index.release
-    assert header["source"].endswith("/foodon.owl") and len(header["sha256"]) == 64
+    assert header["source"].endswith("/foodon.owl")
+    assert len(header["sha256"]) == 64
     assert "FOODON_99999999" not in index.labels
 
 

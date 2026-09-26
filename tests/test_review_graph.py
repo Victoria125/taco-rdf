@@ -32,11 +32,12 @@ def scored_round(folder, mappings, reviewers="Reviewer One; Reviewer Two"):
     """A round folder as score_alignment_review.py leaves it, as far as the build reads it."""
     release = ev.foodon_index().release
     folder.mkdir(parents=True)
-    (folder / "manifest.json").write_text(json.dumps({"protocol_sha256": "0" * 64, "foodon_release": release}),
-                                          encoding="utf-8")
+    manifest = {"protocol_sha256": "0" * 64, "foodon_release": release}
+    (folder / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
     rows = [{"subject_id": f"tacoid:food/{food}", "subject_label": "", "predicate_id": predicate,
              "object_id": target, "object_label": "", "mapping_justification": "semapv:ManualMappingCuration",
-             "author_label": reviewers, "mapping_date": DAY, "object_source_version": release, "comment": "{}"}
+             "author_label": reviewers, "mapping_date": DAY, "object_source_version": release,
+             "comment": "{}"}
             for food, predicate, target in mappings]
     ev.write_sssom(folder / "reviewed.sssom.tsv", rows, folder.name)
     return folder
@@ -66,7 +67,8 @@ def test_a_confirmed_mapping_is_recorded_as_reviewed_and_conforms(tmp_path, tabl
         assert (record, PROV.wasDerivedFrom, ID["review/round-1"]) in graph
         assert (record, PROV.wasDerivedFrom, ID["alignment-set"]) in graph
     assert graph.value(assertion(graph, 273), TACO.reviewStatus) == TACO.Unreviewed
-    assert str(graph.value(ID["review/round-1"], TACO.sha256)) == graphmod.sha256_of(folder / "reviewed.sssom.tsv")
+    digest = graphmod.sha256_of(folder / "reviewed.sssom.tsv")
+    assert str(graph.value(ID["review/round-1"], TACO.sha256)) == digest
     note = str(graph.value(ID["alignment-set"], SKOS.editorialNote))
     assert f"2 of the {len(alignments)} assertions have since been independently reviewed" in note
     report = validate(graph, SHAPES_DIR)
@@ -81,14 +83,15 @@ def test_a_confirmed_mapping_is_recorded_as_reviewed_and_conforms(tmp_path, tabl
 ])
 def test_the_build_refuses_a_mapping_its_review_changed(tmp_path, table, alignments, mapping):
     scored_round(tmp_path / "round-1", [mapping])
+    reviewed = graphmod.load_reviewed_mappings(tmp_path)
     with pytest.raises(ValueError, match=rf"reviewed mapping of foods {mapping[0]} \(round-1\)"):
-        graphmod.build_graph(table, alignments, source_file=RAW_XLS,
-                             reviewed=graphmod.load_reviewed_mappings(tmp_path))
+        graphmod.build_graph(table, alignments, source_file=RAW_XLS, reviewed=reviewed)
 
 
 def test_a_later_round_supersedes_an_earlier_one(tmp_path):
     scored_round(tmp_path / "round-1", [(1, "rdf:type", "FOODON:00004678")])
-    scored_round(tmp_path / "round-2", [(1, "skos:closeMatch", "FOODON:00004677")], reviewers="Reviewer Three")
+    scored_round(tmp_path / "round-2", [(1, "skos:closeMatch", "FOODON:00004677")],
+                 reviewers="Reviewer Three")
     scored_round(tmp_path / "round-10", [(2, "skos:closeMatch", "sssom:NoTermFound")])
     reviewed = graphmod.load_reviewed_mappings(tmp_path)
     assert (reviewed[1].round.name, reviewed[1].predicate) == ("round-2", "closeMatch")

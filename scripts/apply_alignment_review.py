@@ -25,9 +25,9 @@ FIELDS = [
 Row = dict[str, str]
 
 
-def _row_for_food(rows: list[Row], index: dict[int, int], food: int) -> tuple[int | None, Row | None]:
+def _row_for_food(rows: list[Row], index: dict[int, int], food: int) -> tuple[int, Row] | None:
     at = index.get(food)
-    return at, rows[at] if at is not None else None
+    return (at, rows[at]) if at is not None else None
 
 
 def _revised_row(mapping: ReviewedMapping, labels: dict[str, str]) -> Row:
@@ -43,33 +43,35 @@ def _revised_row(mapping: ReviewedMapping, labels: dict[str, str]) -> Row:
     }
 
 
-def apply(rows: list[Row], mappings: list[ReviewedMapping], labels: dict[str, str]) -> tuple[list[Row], Counter[str]]:
+def _change(row: Row | None, mapping: ReviewedMapping) -> str:
+    """What the reviewed mapping does to the food's row in alignments.csv, if the food has one."""
+    if row is None:
+        return "added" if mapping.target_iri else "unchanged"
+    if not mapping.target_iri:
+        return "removed"
+    if (row["predicate"], row["target_iri"]) == (mapping.predicate, mapping.target_iri):
+        return "unchanged"
+    return "relation changed" if row["target_iri"] == mapping.target_iri else "class changed"
+
+
+def apply(rows: list[Row], mappings: list[ReviewedMapping],
+          labels: dict[str, str]) -> tuple[list[Row], Counter[str]]:
     index = {int(r["source_key"]): i for i, r in enumerate(rows) if r["source_type"] == "food"}
     rows = list(rows)
     changes: Counter[str] = Counter()
     removed: set[int] = set()
 
     for mapping in mappings:
-        at, row = _row_for_food(rows, index, mapping.food)
-
-        if not mapping.target_iri:
-            changes["removed" if row else "unchanged"] += 1
-            if row:
-                removed.add(at)
-            continue
-
-        if row and (row["predicate"], row["target_iri"]) == (mapping.predicate, mapping.target_iri):
-            changes["unchanged"] += 1
-            continue
-
-        if row is None:
-            changes["added"] += 1
-            rows.append(_revised_row(mapping, labels))
-            continue
-
-        change = "relation changed" if row["target_iri"] == mapping.target_iri else "class changed"
+        found = _row_for_food(rows, index, mapping.food)
+        change = _change(None if found is None else found[1], mapping)
         changes[change] += 1
-        rows[at] = _revised_row(mapping, labels)
+        if found is None:
+            if change == "added":
+                rows.append(_revised_row(mapping, labels))
+        elif change == "removed":
+            removed.add(found[0])
+        elif change != "unchanged":
+            rows[found[0]] = _revised_row(mapping, labels)
 
     return [r for i, r in enumerate(rows) if i not in removed], changes
 
@@ -78,24 +80,25 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("review", type=Path, help="a scored round, e.g. data/alignment/review/round-1")
     p.add_argument("--alignments", type=Path, default=ALIGNMENTS_CSV)
-    args = p.parse_args()
-    if not (args.review / "reviewed.sssom.tsv").is_file():
-        p.error(f"{args.review} has no reviewed.sssom.tsv; score the round first")
-    mappings = read_review_round(args.review)
+    options: dict[str, Path] = vars(p.parse_args())
+    review, alignments = options["review"], options["alignments"]
+    if not (review / "reviewed.sssom.tsv").is_file():
+        p.error(f"{review} has no reviewed.sssom.tsv; score the round first")
+    mappings = read_review_round(review)
     pinned = foodon_index()
     if mappings and mappings[0].round.foodon_release != pinned.release:
         p.error(f"the round was reviewed against {mappings[0].round.foodon_release}, "
                 f"not the pinned release {pinned.release}")
 
-    raw = args.alignments.read_bytes()
-    with open(args.alignments, newline="", encoding="utf-8") as fh:
+    raw = alignments.read_bytes()
+    with open(alignments, newline="", encoding="utf-8") as fh:
         rows = list(csv.DictReader(fh))
     rows, changes = apply(rows, mappings, pinned.labels)
-    with open(args.alignments, "w", newline="", encoding="utf-8") as fh:
+    with open(alignments, "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\r\n" if b"\r\n" in raw else "\n")
         writer.writeheader()
         writer.writerows(rows)
-    print(f"{args.review.name}: " + ", ".join(f"{n} {what}" for what, n in sorted(changes.items())))
+    print(f"{review.name}: " + ", ".join(f"{n} {what}" for what, n in sorted(changes.items())))
 
     module = {str(c) for c in Graph().parse(FOODON_MODULE_TTL).subjects(RDF.type, OWL.Class)}
     absent = sorted({m.target_iri for m in mappings if m.target_iri and m.target_iri not in module})

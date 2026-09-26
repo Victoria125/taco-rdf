@@ -76,9 +76,11 @@ def test_only_measured_observations_carry_a_value(table):
 
 def test_trace_is_not_zero(value_of):
     o = value_of[(1, "fa_14_0")]
-    assert o.status is Status.TRACE and o.value is None
+    assert o.status is Status.TRACE
+    assert o.value is None
     traces = [o for o in value_of.values() if o.status is Status.TRACE]
-    assert traces and all(o.value is None for o in traces)
+    assert traces
+    assert all(o.value is None for o in traces)
 
 
 def test_cell_correction_is_applied_and_flagged(value_of):
@@ -91,7 +93,8 @@ def test_cell_correction_is_applied_and_flagged(value_of):
 def test_id_correction_moves_amino_acids_to_maria_mole(table, value_of):
     assert table.foods[504].name == "Maria mole"
     assert table.foods[468].name == "Queijo, requeijão, cremoso"
-    assert (504, "tryptophan") in value_of and (468, "tryptophan") not in value_of
+    assert (504, "tryptophan") in value_of
+    assert (468, "tryptophan") not in value_of
     assert value_of[(504, "tryptophan")].origin == "id_corrected"
     assert "468" in value_of[(504, "tryptophan")].note
     assert sum(1 for k in value_of if k[1] == "tryptophan") == 26
@@ -115,8 +118,10 @@ def test_a_correction_cannot_mask_a_different_value():
 
 
 def test_legend_footnotes_become_data(table, value_of):
-    assert table.foods[472].name == "Cana, aguardente" and table.foods[472].footnote == 1
-    assert table.foods[474].name == "Cerveja, pilsen" and table.foods[474].footnote == 2
+    assert table.foods[472].name == "Cana, aguardente"
+    assert table.foods[472].footnote == 1
+    assert table.foods[474].name == "Cerveja, pilsen"
+    assert table.foods[474].footnote == 2
     assert value_of[(472, "alcohol")].value == Decimal("31.1")
     assert value_of[(474, "alcohol")].value == Decimal("3.6")
     assert value_of[(472, "alcohol")].origin == "footnote"
@@ -177,5 +182,6 @@ def test_header_check_fails_loudly_on_layout_change():
             row2 = [""] * 40
             return {1: row1, 2: row2}[i]
 
+    sheet = FakeSheet()
     with pytest.raises(TacoParseError, match="expected header"):
-        _check_headers(FakeSheet(), [NUTRIENTS[0]])
+        _check_headers(sheet, [NUTRIENTS[0]])

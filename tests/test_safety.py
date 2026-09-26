@@ -52,8 +52,9 @@ def tiny_renderer(monkeypatch):
 def test_publication_refuses_unowned_nonempty_directory(tmp_path, tiny_renderer):
     important = tmp_path / "notes.txt"
     important.write_text("keep me", encoding="utf-8")
+    empty = Graph()
     with pytest.raises(ValueError, match="non-empty"):
-        publisher.publish(Graph(), tmp_path)
+        publisher.publish(empty, tmp_path)
     assert important.read_text() == "keep me"
     assert list(tmp_path.iterdir()) == [important]
 
@@ -78,8 +79,9 @@ def test_publication_preserves_user_changes(tmp_path, tiny_renderer, change):
     else:
         (out / "index.html").unlink()
     before = {p.name: p.read_bytes() for p in out.iterdir()}
+    empty = Graph()
     with pytest.raises(ValueError, match="added, removed or edited"):
-        publisher.publish(Graph(), out)
+        publisher.publish(empty, out)
     assert {p.name: p.read_bytes() for p in out.iterdir()} == before
 
 
@@ -91,8 +93,9 @@ def test_render_failure_keeps_previous_site(tmp_path, tiny_renderer, monkeypatch
         (stage / "partial").write_text("partial")
         raise RuntimeError("render failed")
     monkeypatch.setattr(publisher, "_render_site", fail)
+    empty = Graph()
     with pytest.raises(RuntimeError, match="render failed"):
-        publisher.publish(Graph(), out)
+        publisher.publish(empty, out)
     assert {p.name: p.read_bytes() for p in out.iterdir()} == before
 
 
@@ -110,6 +113,7 @@ def test_publication_rejects_symlink_destination(tmp_path, tiny_renderer):
         linked.symlink_to(real, target_is_directory=True)
     except OSError:
         pytest.skip("symlink creation is not permitted by this OS account")
+    empty = Graph()
     with pytest.raises(ValueError, match="links/junctions"):
-        publisher.publish(Graph(), linked)
+        publisher.publish(empty, linked)
     assert not list(real.iterdir())

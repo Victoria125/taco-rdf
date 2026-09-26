@@ -19,6 +19,7 @@ _GRAPHS = {
     "application/ld+json": "json-ld",
     "application/n-triples": "nt",
 }
+_TEXT = "text/plain"
 
 
 def _pick(accept: str, table: dict[str, str], default: str) -> tuple[str, str]:
@@ -29,60 +30,66 @@ def _pick(accept: str, table: dict[str, str], default: str) -> tuple[str, str]:
     return default, table[default]
 
 
+class _SparqlHandler(BaseHTTPRequestHandler):
+    graph: Graph
+
+    def do_GET(self) -> None:
+        url = urlparse(self.path)
+        if url.path != "/sparql":
+            return self._send(404, _TEXT, b"SPARQL endpoint is at /sparql\n")
+        query = parse_qs(url.query).get("query", [None])[0]
+        if query is None:
+            return self._send(400, _TEXT, b"missing 'query' parameter\n")
+        self._answer(query)
+
+    def do_POST(self) -> None:
+        if urlparse(self.path).path != "/sparql":
+            return self._send(404, _TEXT, b"SPARQL endpoint is at /sparql\n")
+        body = self.rfile.read(int(self.headers.get("Content-Length") or 0)).decode("utf-8")
+        ctype = (self.headers.get("Content-Type") or "").split(";")[0].strip()
+        if ctype == "application/sparql-query":
+            query = body
+        elif ctype == "application/x-www-form-urlencoded":
+            form = parse_qs(body)
+            if "update" in form:
+                return self._send(403, _TEXT, b"read-only endpoint: updates are refused\n")
+            query = form.get("query", [None])[0]
+        else:
+            return self._send(415, _TEXT, b"use application/sparql-query or a form\n")
+        if query is None:
+            return self._send(400, _TEXT, b"missing 'query'\n")
+        self._answer(query)
+
+    def do_OPTIONS(self) -> None:
+        self._send(204, _TEXT, b"")
+
+    def _answer(self, query: str) -> None:
+        try:
+            result = self.graph.query(query)
+        except Exception as exc:
+            return self._send(400, _TEXT, f"query error: {exc}\n".encode())
+        accept = self.headers.get("Accept") or ""
+        if result.type in ("SELECT", "ASK"):
+            table = _RESULTS if result.type == "SELECT" else {
+                m: f for m, f in _RESULTS.items() if f in ("json", "xml")}
+            media, fmt = _pick(accept, table, "application/sparql-results+json")
+        else:
+            media, fmt = _pick(accept, _GRAPHS, "text/turtle")
+        self._send(200, media, result.serialize(format=fmt, encoding="utf-8"))
+
+    def _send(self, status: int, media: str, payload: bytes) -> None:
+        self.send_response(status)
+        self.send_header("Content-Type", f"{media}; charset=utf-8")
+        self.send_header("Content-Length", str(len(payload)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, Accept")
+        self.end_headers()
+        self.wfile.write(payload)
+
+
 def make_handler(g: Graph) -> type[BaseHTTPRequestHandler]:
-    class Handler(BaseHTTPRequestHandler):
-        def do_GET(self) -> None:
-            url = urlparse(self.path)
-            if url.path != "/sparql":
-                return self._send(404, "text/plain", b"SPARQL endpoint is at /sparql\n")
-            query = parse_qs(url.query).get("query", [None])[0]
-            if query is None:
-                return self._send(400, "text/plain", b"missing 'query' parameter\n")
-            self._answer(query)
-
-        def do_POST(self) -> None:
-            if urlparse(self.path).path != "/sparql":
-                return self._send(404, "text/plain", b"SPARQL endpoint is at /sparql\n")
-            body = self.rfile.read(int(self.headers.get("Content-Length") or 0)).decode("utf-8")
-            ctype = (self.headers.get("Content-Type") or "").split(";")[0].strip()
-            if ctype == "application/sparql-query":
-                query = body
-            elif ctype == "application/x-www-form-urlencoded":
-                form = parse_qs(body)
-                if "update" in form:
-                    return self._send(403, "text/plain", b"read-only endpoint: updates are refused\n")
-                query = form.get("query", [None])[0]
-            else:
-                return self._send(415, "text/plain", b"use application/sparql-query or a form\n")
-            if query is None:
-                return self._send(400, "text/plain", b"missing 'query'\n")
-            self._answer(query)
-
-        def do_OPTIONS(self) -> None:
-            self._send(204, "text/plain", b"")
-
-        def _answer(self, query: str) -> None:
-            try:
-                result = g.query(query)
-            except Exception as exc:
-                return self._send(400, "text/plain", f"query error: {exc}\n".encode())
-            accept = self.headers.get("Accept") or ""
-            if result.type in ("SELECT", "ASK"):
-                table = _RESULTS if result.type == "SELECT" else {
-                    m: f for m, f in _RESULTS.items() if f in ("json", "xml")}
-                media, fmt = _pick(accept, table, "application/sparql-results+json")
-            else:
-                media, fmt = _pick(accept, _GRAPHS, "text/turtle")
-            self._send(200, media, result.serialize(format=fmt, encoding="utf-8"))
-
-        def _send(self, status: int, media: str, payload: bytes) -> None:
-            self.send_response(status)
-            self.send_header("Content-Type", f"{media}; charset=utf-8")
-            self.send_header("Content-Length", str(len(payload)))
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("Access-Control-Allow-Headers", "Content-Type, Accept")
-            self.end_headers()
-            self.wfile.write(payload)
+    class Handler(_SparqlHandler):
+        graph = g
 
     return Handler
 

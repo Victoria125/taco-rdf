@@ -63,7 +63,8 @@ def test_no_food_is_typed_with_a_class_of_whole_organisms(graph):
     for food in graph.subjects(RDF.type, TACO.Food):
         for cls in foodon_types(graph, food):
             ancestors = set(module.transitive_objects(cls, RDFS.subClassOf))
-            assert OBO.COB_0000022 not in ancestors and OBO.PO_0000003 not in ancestors, (food, cls)
+            assert OBO.COB_0000022 not in ancestors, (food, cls)
+            assert OBO.PO_0000003 not in ancestors, (food, cls)
 
 
 def test_recorded_foodon_labels_are_the_pinned_release_labels(alignments):
@@ -119,7 +120,8 @@ def test_group_and_food_alignments_coherence(graph, table, alignments):
         typed, under = expected.get(label, (0, 0))
         expected[label] = (typed + 1, under + inside)
     assert got == expected
-    assert sum(t for t, _ in got.values()) == 311 and sum(u for _, u in got.values()) == 140
+    assert sum(t for t, _ in got.values()) == 311
+    assert sum(u for _, u in got.values()) == 140
 
 
 NICE_FOOD_SELECTION = """
@@ -139,7 +141,8 @@ def test_nice_food_food_selection_finds_taco_foods(graph):
     found = {row[0] for row in graph.query(NICE_FOOD_SELECTION)}
     _, rows = run_query(graph, QUERIES_DIR / "foods_in_foodon_class.rq",
                         {"class": "<http://purl.obolibrary.org/obo/FOODON_00001264>"})
-    assert found == {graphmod.food_iri(int(r[0])) for r in rows} and len(found) == 21
+    assert found == {graphmod.food_iri(int(r[0])) for r in rows}
+    assert len(found) == 21
 
 
 def test_composition_is_aligned_to_fio_by_axioms_only(graph):

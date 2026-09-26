@@ -53,3 +53,7 @@ known-first-party = ["taco_rdf"]
 
 [tool.ruff.lint.pycodestyle]
 max-line-length = 110
+
+[tool.basedpyright]
+reportImplicitStringConcatenation = false
+reportUnusedCallResult = false

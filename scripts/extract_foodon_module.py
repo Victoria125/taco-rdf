@@ -18,6 +18,7 @@ from pathlib import Path
 
 from rdflib import OWL, RDF, RDFS, Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, PROV
+from rdflib.term import Node
 
 ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "data" / "alignment" / "alignments.csv"
@@ -84,33 +85,29 @@ def write_class_index(
     return len(rows)
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--foodon", type=Path, help="local copy of the pinned FoodOn release")
-    ap.add_argument("-o", "--output", type=Path, default=OUT_PATH)
-    ap.add_argument("--classes", type=Path, default=CLASSES_PATH, help="where to write the class index")
-    args = ap.parse_args()
-
-    logging.getLogger("rdflib").setLevel(logging.ERROR)
-    foodon = load_release(args.foodon)
-    version = foodon.value(URIRef(str(OBO) + "foodon.owl"), OWL.versionIRI)
-    if str(version) != RELEASE:
-        print(f"expected release {RELEASE}, got {version}", file=sys.stderr)
-        return 1
-
+def subclass_parents(foodon: Graph) -> defaultdict[URIRef, set[URIRef]]:
     parents: defaultdict[URIRef, set[URIRef]] = defaultdict(set)
     for s, o in foodon.subject_objects(RDFS.subClassOf):
         if isinstance(s, URIRef) and isinstance(o, URIRef):
             parents[s].add(o)
-    deprecated = set(foodon.subjects(OWL.deprecated, Literal(True)))
+    return parents
 
+
+def labeller(foodon: Graph) -> Callable[[URIRef], str | None]:
     def label(c: URIRef) -> str | None:
         labels = sorted(str(v) for v in foodon.objects(c, RDFS.label))
         return labels[0] if labels else None
 
-    with open(CSV_PATH, newline="", encoding="utf-8") as fh:
-        rows = [r for r in csv.DictReader(fh) if r["target_ontology"] == "FoodOn"]
+    return label
 
+
+def check_targets(
+    rows: list[dict[str, str]],
+    parents: dict[URIRef, set[URIRef]],
+    deprecated: set[Node],
+    label: Callable[[URIRef], str | None],
+) -> tuple[list[str], list[str], set[URIRef]]:
+    """The fatal problems and label drift of the alignment targets, and the targets themselves."""
     fatal, drift, targets = [], [], set()
     for r in rows:
         target = URIRef(r["target_iri"])
@@ -123,7 +120,12 @@ def main() -> int:
             drift.append(f"label {where}: recorded {r['target_label']!r}, release {label(target)!r}")
         if r["predicate"] == "type" and ancestors(parents, target) & set(ORGANISM_ROOTS):
             fatal.append(f"rdf:type to a class of whole organisms: {where} ({label(target)})")
+    return fatal, drift, targets
 
+
+def build_module(
+    keep: set[URIRef], parents: dict[URIRef, set[URIRef]], label: Callable[[URIRef], str | None]
+) -> Graph:
     module = Graph()
     module.bind("obo", OBO)
     module.bind("owl", OWL)
@@ -142,16 +144,41 @@ def main() -> int:
     module.add((URIRef(RELEASE), DCTERMS.description, Literal(
         f"This versioned PURL does not resolve: FoodOn created no v2026-09-20 tag. The file declaring this "
         f"versionIRI is FoodOn commit {SOURCE_COMMIT}, SHA-256 {SOURCE_SHA256}.", lang="en")))
-
-    keep = set(targets)
-    for t in targets:
-        keep |= ancestors(parents, t)
     for c in keep:
         module.add((c, RDF.type, OWL.Class))
         if label(c) is not None:
             module.add((c, RDFS.label, Literal(label(c), lang="en")))
         for p in parents.get(c, ()):
             module.add((c, RDFS.subClassOf, p))
+    return module
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--foodon", type=Path, help="local copy of the pinned FoodOn release")
+    ap.add_argument("-o", "--output", type=Path, default=OUT_PATH)
+    ap.add_argument("--classes", type=Path, default=CLASSES_PATH, help="where to write the class index")
+    args = ap.parse_args()
+
+    logging.getLogger("rdflib").setLevel(logging.ERROR)
+    foodon = load_release(args.foodon)
+    version = foodon.value(URIRef(str(OBO) + "foodon.owl"), OWL.versionIRI)
+    if str(version) != RELEASE:
+        print(f"expected release {RELEASE}, got {version}", file=sys.stderr)
+        return 1
+
+    parents = subclass_parents(foodon)
+    deprecated = set(foodon.subjects(OWL.deprecated, Literal(True)))
+    label = labeller(foodon)
+
+    with open(CSV_PATH, newline="", encoding="utf-8") as fh:
+        rows = [r for r in csv.DictReader(fh) if r["target_ontology"] == "FoodOn"]
+
+    fatal, drift, targets = check_targets(rows, parents, deprecated, label)
+    keep = set(targets)
+    for t in targets:
+        keep |= ancestors(parents, t)
+    module = build_module(keep, parents, label)
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     module.serialize(destination=str(args.output), format="turtle")

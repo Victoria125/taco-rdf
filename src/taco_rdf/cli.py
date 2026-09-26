@@ -28,6 +28,7 @@ from .namespaces import (
 from .parse import load_corrections, parse_workbook
 
 _FORMATS = {"turtle": ".ttl", "nt": ".nt", "xml": ".rdf", "json-ld": ".jsonld"}
+_SNAPSHOT_HELP = "load this Turtle snapshot; otherwise rebuild current inputs"
 
 
 def build_graph(xls: Path = RAW_XLS) -> Graph:
@@ -90,7 +91,8 @@ def _cmd_query(args: argparse.Namespace) -> int:
     path = Path(args.query)
     if not path.exists():
         path = QUERIES_DIR / (args.query if args.query.endswith(".rq") else args.query + ".rq")
-    bindings = dict(b.split("=", 1) for b in args.bind or [])
+    pairs = [b.split("=", 1) for b in args.bind or []]
+    bindings = dict(pairs)
     header, rows = run_query(g, path, bindings)
     print("\t".join(header))
     for row in rows:
@@ -144,13 +146,13 @@ def main(argv: list[str] | None = None) -> int:
 
     q = sub.add_parser("query", help="run a SPARQL query (file path or name in queries/)")
     q.add_argument("query")
-    q.add_argument("--graph", help="load this Turtle snapshot; otherwise rebuild current inputs")
+    q.add_argument("--graph", help=_SNAPSHOT_HELP)
     q.add_argument("--bind", action="append", metavar="VAR=VALUE",
                    help="pre-bind a query variable (IRIs as <...>, numbers/strings as-is)")
     q.set_defaults(func=_cmd_query)
 
     s = sub.add_parser("stats", help="counts of the main resources in the graph")
-    s.add_argument("--graph", help="load this Turtle snapshot; otherwise rebuild current inputs")
+    s.add_argument("--graph", help=_SNAPSHOT_HELP)
     s.set_defaults(func=_cmd_stats)
 
     pub = sub.add_parser("publish", help="write the static site that the w3id IRIs redirect to")
@@ -159,7 +161,7 @@ def main(argv: list[str] | None = None) -> int:
     pub.set_defaults(func=_cmd_publish)
 
     sv = sub.add_parser("serve", help="run a read-only SPARQL endpoint at /sparql")
-    sv.add_argument("--graph", help="load this Turtle snapshot; otherwise rebuild current inputs")
+    sv.add_argument("--graph", help=_SNAPSHOT_HELP)
     sv.add_argument("--host", default="127.0.0.1")
     sv.add_argument("--port", type=int, default=8000)
     sv.set_defaults(func=_cmd_serve)

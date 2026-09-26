@@ -107,7 +107,8 @@ def test_a_round_from_forms_to_results(tmp_path, table, alignments, food_names_e
         ev.write_rows(tmp_path / f"{name}.csv", filled, ev.CONTEXT + ev.ANSWER)
     answers_a, answers_b = ev.read_answers(tmp_path / "a.csv"), ev.read_answers(tmp_path / "b.csv")
     agreement = ev.compare(answers_a, answers_b)
-    assert agreement.disagreed == [1] and agreement.agreed == [279, 540, 562]
+    assert agreement.disagreed == [1]
+    assert agreement.agreed == [279, 540, 562]
     with pytest.raises(ValueError, match="without an adjudicated decision"):
         ev.final_answers(answers_a, answers_b, agreement, {})
 
@@ -162,7 +163,8 @@ def test_the_scripts_prepare_a_round_and_report_it(tmp_path):
     assert "2026-09-20" in manifest["foodon_release"]
     with open(folder / "reviewer-a.csv", newline="", encoding="utf-8") as fh:
         rows = list(csv.DictReader(fh))
-    assert "part" not in rows[0] and "flag" not in rows[0]
+    assert "part" not in rows[0]
+    assert "flag" not in rows[0]
     accept = {int(r["food_number"]): {"decision": "accept"} for r in rows}
     for who in ("a", "b"):
         ev.write_rows(folder / f"reviewer-{who}.csv", fill(rows, accept, f"reviewer {who}"),
@@ -184,8 +186,8 @@ def test_the_scripts_prepare_a_round_and_report_it(tmp_path):
 
 
 def judged(food, decision, mapped=True):
-    return ev.Answer(food, "FOODON_00004678" if mapped else "", "type" if mapped else "none", decision, "", "",
-                     "certain", "checked", "", "reviewer", DAY, "release", ())
+    return ev.Answer(food, "FOODON_00004678" if mapped else "", "type" if mapped else "none", decision,
+                     "", "", "certain", "checked", "", "reviewer", DAY, "release", ())
 
 
 def test_precision_is_estimated_by_weighting_each_stratum_by_its_size():

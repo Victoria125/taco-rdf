@@ -12,6 +12,7 @@ from collections import defaultdict
 from pathlib import Path
 
 from rdflib import BNode, Graph, Literal, URIRef
+from rdflib.compare import to_canonical_graph
 
 from . import __version__
 from . import metadata as meta
@@ -21,6 +22,7 @@ from .namespaces import BASE, DCTERMS, ID, ONTOLOGY_TTL, PREFIXES, RDFS, SKOS, T
 _MEASUREMENT = str(ID) + "measurement/"
 _LABELS = (SKOS.prefLabel, RDFS.label, DCTERMS.title)
 _MANIFEST = ".taco-rdf-site.json"
+_TYPE = "@type"
 
 
 def _reject_link(path: Path) -> None:
@@ -103,11 +105,21 @@ def _resource_path(iri: str) -> str:
     return path
 
 
+def canonical_ntriples(g: Graph) -> bytes:
+    """N-Triples whose bytes depend only on the graph: canonical blank-node labels, sorted lines, LF endings.
+
+    The labels come from rdflib's own canonicalisation, not from RDFC-1.0, so the bytes are stable for this
+    toolchain; another RDF library may label the blank nodes differently and so hash the same graph apart.
+    """
+    lines = to_canonical_graph(g).serialize(format="nt", encoding="utf-8").split(b"\n")
+    return b"".join(line + b"\n" for line in sorted(lines) if line)
+
+
 def _render_site(g: Graph, out: Path) -> int:
     (out / ".nojekyll").write_text("", encoding="utf-8")
 
     g.serialize(destination=str(out / "taco.ttl"), format="turtle")
-    g.serialize(destination=str(out / "taco.nt"), format="nt", encoding="utf-8")
+    (out / "taco.nt").write_bytes(canonical_ntriples(g))
 
     vocab = Graph().parse(ONTOLOGY_TTL, format="turtle")
     _bind(vocab)
@@ -233,7 +245,7 @@ def _landing_page(g: Graph, resources: int) -> str:
     doi = f"https://doi.org/{meta.DOI}" if meta.DOI else None
     schema = {
         "@context": "https://schema.org/",
-        "@type": "Dataset",
+        _TYPE: "Dataset",
         "@id": str(ID["dataset"]),
         "name": meta.TITLE,
         "description": str(g.value(ID["dataset"], DCTERMS.description)),
@@ -245,11 +257,11 @@ def _landing_page(g: Graph, resources: int) -> str:
         "keywords": list(meta.KEYWORDS),
         "inLanguage": ["pt", "en"],
         "isAccessibleForFree": True,
-        "creator": {"@type": "Person", "name": meta.CREATOR},
-        "isBasedOn": {"@type": "Dataset",
+        "creator": {_TYPE: "Person", "name": meta.CREATOR},
+        "isBasedOn": {_TYPE: "Dataset",
                       "name": "Tabela Brasileira de Composição de Alimentos (TACO), 4ª edição",
                       "citation": CITATION, "url": meta.SOURCE_LANDING_PAGE},
-        "distribution": [{"@type": "DataDownload", "encodingFormat": media, "contentUrl": meta.SITE_URL + f}
+        "distribution": [{_TYPE: "DataDownload", "encodingFormat": media, "contentUrl": meta.SITE_URL + f}
                          for f, (media, _) in meta.DUMPS.items()],
     }
     doi_line = f'<p>DOI: <a href="{doi}">{doi}</a></p>' if doi else ""
