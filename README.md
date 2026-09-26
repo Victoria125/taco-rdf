@@ -1463,10 +1463,3 @@ Research interests:
 
 GitHub: [Victoria125](https://github.com/Victoria125)
 
----
-
-# Acknowledgements
-
-This project uses and builds upon open standards and community-maintained semantic resources including RDF, OWL, SKOS, SHACL, SPARQL, QUDT, PROV-O, DCAT, FoodOn, ChEBI, CDNO and SSSOM.
-
-TACO-RDF also acknowledges the work of **NEPA-UNICAMP**, whose Brazilian Food Composition Table provides the scientific source data represented by this project.
