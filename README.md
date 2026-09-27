@@ -30,6 +30,8 @@ The project combines:
 
 The [alignment baseline](analysis/alignment_baseline.md) measures current FoodOn coverage by TACO food group and lists preparation-label discrepancies for review. Run `python scripts/audit_alignment_baseline.py` to reproduce it. These screening results do not establish mapping accuracy; the independent review remains pending.
 
+An [exploratory assessment of 25 sampled foods](analysis/exploratory_alignment_review.md) records specific candidate links and unresolved semantic questions. It is an AI-assisted desk assessment, not a completed human review or an accuracy estimate.
+
 ---
 
 # Motivation
