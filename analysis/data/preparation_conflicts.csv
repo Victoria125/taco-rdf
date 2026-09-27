@@ -1,0 +1,23 @@
+food_number,name_pt,group,predicate,target_iri,target_label,screening_flag
+85,"Almeirão, refogado","Verduras, hortaliças e derivados",relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),prepared TACO name / raw FoodOn label
+112,"Chuchu, cozido","Verduras, hortaliças e derivados",relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311502,chayote (raw),prepared TACO name / raw FoodOn label
+120,"Espinafre, Nova Zelândia, refogado","Verduras, hortaliças e derivados",relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000085,New Zealand spinach leaf (raw),prepared TACO name / raw FoodOn label
+136,"Nhoque, batata, cozido","Verduras, hortaliças e derivados",type,http://purl.obolibrary.org/obo/FOODON_03540193,01930 - gnocchi (efsa foodex2),preparation not explicit in FoodOn label
+151,"Repolho, roxo, refogado","Verduras, hortaliças e derivados",relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304685,red cabbage head (raw),prepared TACO name / raw FoodOn label
+273,"Abadejo, filé, congelado, assado",Pescados e frutos do mar,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,preparation not explicit in FoodOn label
+274,"Abadejo, filé, congelado,cozido",Pescados e frutos do mar,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,preparation not explicit in FoodOn label
+276,"Abadejo, filé, congelado, grelhado",Pescados e frutos do mar,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,preparation not explicit in FoodOn label
+280,"Bacalhau, salgado, refogado",Pescados e frutos do mar,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411423,cod,preparation not explicit in FoodOn label
+301,"Merluza, filé, assado",Pescados e frutos do mar,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413878,hake,preparation not explicit in FoodOn label
+303,"Merluza, filé, frito",Pescados e frutos do mar,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03413878,hake,preparation not explicit in FoodOn label
+306,"Pescada, filé, com farinha de trigo, frito",Pescados e frutos do mar,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,preparation not explicit in FoodOn label
+308,"Pescada, filé, frito",Pescados e frutos do mar,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,preparation not explicit in FoodOn label
+311,"Pintado, assado",Pescados e frutos do mar,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02021822,catfish,preparation not explicit in FoodOn label
+313,"Pintado, grelhado",Pescados e frutos do mar,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02021822,catfish,preparation not explicit in FoodOn label
+344,"Carne, bovina, contra-filé, com gordura, grelhado",Carnes e derivados,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,preparation not explicit in FoodOn label
+346,"Carne, bovina, contra-filé, sem gordura, grelhado",Carnes e derivados,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,preparation not explicit in FoodOn label
+356,"Carne, bovina, fígado, grelhado",Carnes e derivados,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02020913,beef liver,preparation not explicit in FoodOn label
+358,"Carne, bovina, filé mingnon, sem gordura, grelhado",Carnes e derivados,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,preparation not explicit in FoodOn label
+395,"Frango, coração, grelhado",Carnes e derivados,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02020178,chicken heart,preparation not explicit in FoodOn label
+416,"Hambúrguer, bovino, frito",Carnes e derivados,type,http://purl.obolibrary.org/obo/FOODON_00002737,beef hamburger (dish),preparation not explicit in FoodOn label
+417,"Hambúrguer, bovino, grelhado",Carnes e derivados,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00002737,beef hamburger (dish),preparation not explicit in FoodOn label

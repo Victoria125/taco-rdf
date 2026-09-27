@@ -28,6 +28,8 @@ The project combines:
 >
 > Mapping review status: the first review round (`data/alignment/review/round-1`) is prepared and awaiting its two reviewers. Until it is scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
 
+The [alignment baseline](analysis/alignment_baseline.md) measures current FoodOn coverage by TACO food group and lists preparation-label discrepancies for review. Run `python scripts/audit_alignment_baseline.py` to reproduce it. These screening results do not establish mapping accuracy; the independent review remains pending.
+
 ---
 
 # Motivation
@@ -1462,4 +1464,3 @@ Research interests:
 * Semantic Interoperability
 
 GitHub: [Victoria125](https://github.com/Victoria125)
-
