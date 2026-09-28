@@ -182,6 +182,18 @@ def _register_food(table: Table, sheet_idx: int, fid: int, fname: str, group: in
         raise TacoParseError(f"sheet {sheet_idx}: food {fid} is {fname!r}, sheet 0 says {known!r}")
 
 
+def _corrected(fid: int, key: str, cell, fix: tuple[str, Decimal]) -> Observation:
+    raw, value = fix
+    # Exact comparison, no normalization: a float cell never equals the recorded text.
+    if cell != raw:
+        raise TacoParseError(
+            f"food {fid} {key}: correction expects source cell {raw!r}, found {cell!r} "
+            "(data/corrections/cells.csv)"
+        )
+    note = f"source cell text {raw!r} corrected to {value} (data/corrections/cells.csv)"
+    return Observation(fid, key, Status.MEASURED, value, "cell_corrected", note)
+
+
 def _row_observations(
     row: list, fid: int, nutrients: list[Nutrient], corrections: Corrections, id_note: str | None
 ) -> list[Observation]:
@@ -190,9 +202,8 @@ def _row_observations(
     for n in nutrients:
         cell = row[n.col]
         fix = corrections.cells.get((fid, n.key))
-        if fix is not None and isinstance(cell, str) and cell == fix[0]:
-            note = f"source cell text {cell!r} corrected to {fix[1]} (data/corrections/cells.csv)"
-            found.append(Observation(fid, n.key, Status.MEASURED, fix[1], "cell_corrected", note))
+        if fix is not None:
+            found.append(_corrected(fid, n.key, cell, fix))
             continue
         try:
             cls = _classify(cell)
@@ -205,9 +216,11 @@ def _row_observations(
 
 def _parse_sheet(
     table: Table, sheet: xlrd.sheet.Sheet, sheet_idx: int, nutrients: list[Nutrient], corrections: Corrections
-) -> None:
+) -> set[tuple[int, int, str]]:
+    """Parse one sheet into ``table``; return the id corrections that matched a row."""
     _check_headers(sheet, nutrients)
     current_group: int | None = None
+    ids_used: set[tuple[int, int, str]] = set()
     for r in range(3, sheet.nrows):
         row = sheet.row_values(r)
         if _norm(row[0]) == "Legenda":
@@ -221,10 +234,24 @@ def _parse_sheet(
         if not _is_food_row(row):
             continue
         listed_id, fname = int(row[0]), _norm(row[1])
-        fid = corrections.ids.get((sheet_idx, listed_id, fname), listed_id)
+        key = (sheet_idx, listed_id, fname)
+        fid = corrections.ids.get(key, listed_id)
+        if key in corrections.ids:
+            ids_used.add(key)
         id_note = _id_note(sheet, listed_id, fid)
         _register_food(table, sheet_idx, fid, fname, current_group)
         table.observations.extend(_row_observations(row, fid, nutrients, corrections, id_note))
+    return ids_used
+
+
+def _check_corrections_used(
+    table: Table, corrections: Corrections, ids_used: set[tuple[int, int, str]]
+) -> None:
+    """A correction that matched nothing is stale: its target is no longer in the source."""
+    cells_used = {(o.food_id, o.nutrient) for o in table.observations if o.origin == "cell_corrected"}
+    stale = [*sorted(corrections.cells.keys() - cells_used), *sorted(corrections.ids.keys() - ids_used)]
+    if stale:
+        raise TacoParseError(f"corrections that match no source cell or row: {stale}")
 
 
 def _add_alcohol(table: Table) -> None:
@@ -252,7 +279,10 @@ def parse_workbook(path: str | Path, corrections: Corrections | None = None) -> 
     for n in NUTRIENTS:
         by_sheet[n.sheet].append(n)
 
+    ids_used: set[tuple[int, int, str]] = set()
     for sheet_idx in (0, 1, 2):
-        _parse_sheet(table, book.sheet_by_index(sheet_idx), sheet_idx, by_sheet[sheet_idx], corrections)
+        sheet = book.sheet_by_index(sheet_idx)
+        ids_used |= _parse_sheet(table, sheet, sheet_idx, by_sheet[sheet_idx], corrections)
+    _check_corrections_used(table, corrections, ids_used)
     _add_alcohol(table)
     return table

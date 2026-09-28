@@ -113,7 +113,27 @@ def test_defects_are_never_absorbed_silently():
 def test_a_correction_cannot_mask_a_different_value():
     corrections = load_corrections(CORRECTIONS_DIR)
     corrections.cells[(373, "pyridoxine")] = ("something else", Decimal("9"))
-    with pytest.raises(TacoParseError, match="unexpected cell content"):
+    with pytest.raises(TacoParseError, match="food 373 pyridoxine: correction expects source cell 'something else'"):
+        parse_workbook(RAW_XLS, corrections)
+
+
+def test_a_correction_over_a_valid_cell_is_not_skipped():
+    # Food 1 moisture is a valid number (70.138...), so falling through to _classify would pass.
+    corrections = load_corrections(CORRECTIONS_DIR)
+    corrections.cells[(1, "moisture")] = ("70,1", Decimal("70.1"))
+    with pytest.raises(TacoParseError, match=r"correction expects source cell '70,1', found 70\.13"):
+        parse_workbook(RAW_XLS, corrections)
+
+
+@pytest.mark.parametrize("table_name, key, value", [
+    ("cells", (1, "no_such_nutrient"), ("x", Decimal("1"))),
+    ("cells", (1, "tryptophan"), ("x", Decimal("1"))),  # food 1 is not on the amino-acid sheet
+    ("ids", (2, 999, "Nada"), 1),
+])
+def test_a_correction_that_matches_nothing_is_an_error(table_name, key, value):
+    corrections = load_corrections(CORRECTIONS_DIR)
+    getattr(corrections, table_name)[key] = value
+    with pytest.raises(TacoParseError, match="corrections that match no source cell or row"):
         parse_workbook(RAW_XLS, corrections)
 
 
