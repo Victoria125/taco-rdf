@@ -113,7 +113,8 @@ def test_defects_are_never_absorbed_silently():
 def test_a_correction_cannot_mask_a_different_value():
     corrections = load_corrections(CORRECTIONS_DIR)
     corrections.cells[(373, "pyridoxine")] = ("something else", Decimal("9"))
-    with pytest.raises(TacoParseError, match="food 373 pyridoxine: correction expects source cell 'something else'"):
+    expected = "food 373 pyridoxine: correction expects source cell 'something else'"
+    with pytest.raises(TacoParseError, match=expected):
         parse_workbook(RAW_XLS, corrections)
 
 

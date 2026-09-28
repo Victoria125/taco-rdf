@@ -10,7 +10,6 @@ import time
 import urllib.parse
 import urllib.request
 from pathlib import Path
-from typing import Any
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
