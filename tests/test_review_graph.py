@@ -57,7 +57,7 @@ def test_a_confirmed_mapping_is_recorded_as_reviewed_and_conforms(tmp_path, tabl
     graph = graphmod.build_graph(table, alignments, source_file=RAW_XLS, food_names_en=food_names_en,
                                  reviewed=reviewed)
     release = ev.foodon_index().release
-    for food in (1, 280):
+    for food in (1,):
         record = assertion(graph, food)
         assert graph.value(record, TACO.reviewStatus) == TACO.Reviewed
         assert graph.value(record, TACO.ontologyVersionStatus) == TACO.Recorded
@@ -66,11 +66,16 @@ def test_a_confirmed_mapping_is_recorded_as_reviewed_and_conforms(tmp_path, tabl
         assert str(graph.value(record, DCTERMS.date)) == DAY
         assert (record, PROV.wasDerivedFrom, ID["review/round-1"]) in graph
         assert (record, PROV.wasDerivedFrom, ID["alignment-set"]) in graph
-    assert graph.value(assertion(graph, 273), TACO.reviewStatus) == TACO.Unreviewed
+    assert graph.value(assertion(graph, 2), TACO.reviewStatus) == TACO.Unreviewed
+    # Historical review agreement does not turn a SKOS candidate into an official mapping.
+    assert not list(graph.objects(ID["food/280"], TACO.alignment))
+    assert (ID["food/280"], SKOS.relatedMatch, OBO.FOODON_03411423) not in graph
     digest = graphmod.sha256_of(folder / "reviewed.sssom.tsv")
     assert str(graph.value(ID["review/round-1"], TACO.sha256)) == digest
     note = str(graph.value(ID["alignment-set"], SKOS.editorialNote))
-    assert f"2 of the {len(alignments)} assertions have since been independently reviewed" in note
+    published = sum(graphmod.is_published_alignment(a) for a in alignments)
+    assert f"1 of the {published} assertions have since been independently reviewed" in note
+    assert "125 historical food-to-FoodOn SKOS candidates are withheld" in note
     report = validate(graph, SHAPES_DIR)
     assert report.conforms_strict, report.details()
 
@@ -124,9 +129,10 @@ def test_applying_a_round_brings_the_alignments_into_line_with_it(tmp_path, tabl
     applied = graphmod.load_alignments(target)
     graph = graphmod.build_graph(table, applied, source_file=RAW_XLS, food_names_en=food_names_en,
                                  reviewed=graphmod.load_reviewed_mappings(tmp_path / "review"))
-    for food in (1, 280, 562, 540):
-        assert graph.value(assertion(graph, food), TACO.reviewStatus) == TACO.Reviewed
-    assert (ID["food/540"], SKOS.relatedMatch, OBO.FOODON_03000089) in graph
+    assert graph.value(assertion(graph, 1), TACO.reviewStatus) == TACO.Reviewed
+    for food in (280, 562, 540):
+        assert not list(graph.objects(ID[f"food/{food}"], TACO.alignment))
+    assert (ID["food/540"], SKOS.relatedMatch, OBO.FOODON_03000089) not in graph
     assert not list(graph.objects(ID["food/273"], TACO.alignment))
 
     again = subprocess.run(run, check=True, capture_output=True, text=True)

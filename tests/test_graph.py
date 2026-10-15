@@ -131,7 +131,8 @@ def test_nutrient_alignments_to_chebi_and_cdno_and_the_documented_gaps(graph):
 
 def test_external_targets_carry_a_label(graph, alignments):
     for a in alignments:
-        assert (URIRef(a.target_iri), RDFS.label, Literal(a.target_label, lang="en")) in graph
+        if graphmod.is_published_alignment(a):
+            assert (URIRef(a.target_iri), RDFS.label, Literal(a.target_label, lang="en")) in graph
 
 
 def test_provenance_is_complete(graph):
@@ -170,8 +171,9 @@ def test_all_measurements_have_an_explicit_edible_portion_basis(graph):
 
 
 def test_alignment_rationales_are_exported_without_claiming_review(graph, alignments, reviewed):
+    published = [a for a in alignments if graphmod.is_published_alignment(a)]
     records = list(graph.subjects(RDF.type, TACO.AlignmentAssertion))
-    assert len(records) == len(alignments)
+    assert len(records) == len(published)
     reviewed_foods = {ID[f"food/{food}"] for food in reviewed}
     for record in records:
         subject = graph.value(record, RDF.subject)
@@ -187,4 +189,4 @@ def test_alignment_rationales_are_exported_without_claiming_review(graph, alignm
         assert graph.value(record, TACO.ontologyVersionStatus) == TACO.NotRecorded
         assert graph.value(record, PROV.wasDerivedFrom) == ID["alignment-set"]
     notes = {str(n) for r in records for n in graph.objects(r, SKOS.editorialNote)}
-    assert {a.note for a in alignments if a.note} == notes
+    assert {a.note for a in published if a.note} == notes

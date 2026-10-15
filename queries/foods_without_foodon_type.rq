@@ -1,0 +1,19 @@
+PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Foods awaiting a defensible FoodOn class; absence alone does not prove an ontology gap.
+SELECT ?food_number ?food ?food_en
+WHERE {
+  ?f a taco:Food ;
+     taco:foodNumber ?food_number ;
+     rdfs:label ?food .
+  FILTER (LANG(?food) = "pt")
+  FILTER NOT EXISTS {
+    ?f rdf:type ?class .
+    FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/FOODON_"))
+  }
+  OPTIONAL { ?f skos:prefLabel ?food_en . FILTER (LANG(?food_en) = "en") }
+}
+ORDER BY ?food_number

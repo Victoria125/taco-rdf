@@ -6,6 +6,20 @@
 @prefix taco: <https://w3id.org/taco-rdf/vocab#> .
 @prefix shp: <https://w3id.org/taco-rdf/shapes#> .
 
+shp:FoodMappingShape a sh:NodeShape ;
+    sh:targetClass taco:Food ;
+    sh:sparql [
+        sh:message "A TACO food is linked to a FoodOn class only by rdf:type, as NICE-Food types its food items; an unresolved food may remain untyped. SKOS links to items of other datasets remain allowed." ;
+        sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            SELECT $this ?path ?value WHERE {
+                $this ?path ?value .
+                FILTER (?path IN (skos:mappingRelation, skos:exactMatch, skos:closeMatch,
+                                  skos:broadMatch, skos:narrowMatch, skos:relatedMatch)
+                        && STRSTARTS(STR(?value), "http://purl.obolibrary.org/obo/FOODON_"))
+            }"""
+    ] .
+
 shp:AlignmentAssertionShape a sh:NodeShape ;
     sh:targetClass taco:AlignmentAssertion ;
     sh:property [ sh:path rdf:subject ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
@@ -19,6 +33,18 @@ shp:AlignmentAssertionShape a sh:NodeShape ;
     sh:property [ sh:path taco:reviewStatus ; sh:minCount 1 ; sh:maxCount 1 ;
         sh:in ( taco:Unreviewed taco:Reviewed ) ] ;
     sh:property [ sh:path taco:ontologyVersion ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:sparql [
+        sh:message "An alignment assertion linking a taco:Food to a FoodOn class must use rdf:type; candidate SKOS links to FoodOn are not published assertions." ;
+        sh:select """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            SELECT $this WHERE {
+                $this rdf:subject ?food ; rdf:predicate ?relation ; rdf:object ?target .
+                ?food a taco:Food .
+                FILTER (?relation != rdf:type
+                        && STRSTARTS(STR(?target), "http://purl.obolibrary.org/obo/FOODON_"))
+            }"""
+    ] ;
     sh:sparql [
         sh:message "The ontology version is given exactly when its status says it is recorded." ;
         sh:select """
@@ -66,6 +92,33 @@ shp:TypeAssertionShape a sh:NodeShape ;
                 $this rdf:predicate rdf:type ; rdf:subject ?s ; rdf:object ?o .
                 FILTER (NOT EXISTS { ?s a taco:Food }
                         || !STRSTARTS(STR(?o), "http://purl.obolibrary.org/obo/FOODON_"))
+            }"""
+    ] .
+
+# Checked per nutrient (67 focus nodes) rather than per measurement (over 21,000).
+shp:MeasurementCdnoTypeShape a sh:NodeShape ;
+    sh:targetClass taco:Nutrient ;
+    sh:sparql [
+        sh:message "A measurement of this nutrient is typed with a CDNO class that the nutrient does not closeMatch or exactMatch." ;
+        sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            SELECT $this ?value WHERE {
+                ?value taco:ofNutrient $this ; a ?class .
+                FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/CDNO_"))
+                FILTER NOT EXISTS { $this skos:closeMatch|skos:exactMatch ?class }
+            }"""
+    ] ;
+    sh:sparql [
+        sh:message "A measurement of this nutrient lacks the CDNO class the nutrient closeMatch or exactMatch maps to; NICE-Food types each nutritional value with its CDNO class." ;
+        sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+            PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
+            SELECT $this ?value WHERE {
+                $this skos:closeMatch|skos:exactMatch ?class .
+                FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/CDNO_"))
+                ?value taco:ofNutrient $this .
+                FILTER NOT EXISTS { ?value a ?class }
             }"""
     ] .
 

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import pytest
-from rdflib import Graph, URIRef
+from rdflib import Graph, Literal, URIRef
 from rdflib.namespace import OWL
 
 from taco_rdf import graph as graphmod
@@ -48,14 +48,71 @@ def test_close_food_alignments_are_foodon_types_not_skos_links(graph, alignments
         assert (food, SKOS.closeMatch, cls) not in graph
 
 
-def test_untyped_food_alignments_stay_skos_mappings(graph, alignments):
+def test_untyped_food_candidates_are_withheld_from_published_mappings(graph, alignments):
     kept = rows_of(alignments, "food", "closeMatch") + rows_of(alignments, "food", "relatedMatch")
     assert len(kept) == 11 + 114
     for a in kept:
         food = graphmod.food_iri(int(a.source_key))
         assert foodon_types(graph, food) == set()
-        assert (food, SKOS[a.predicate], URIRef(a.target_iri)) in graph
+        assert (food, SKOS[a.predicate], URIRef(a.target_iri)) not in graph
+        assert not list(graph.objects(food, TACO.alignment))
     assert all("not asserted as rdf:type" in a.note for a in rows_of(alignments, "food", "closeMatch"))
+
+
+@pytest.mark.parametrize("predicate", [
+    "exactMatch", "closeMatch", "relatedMatch", "narrowMatch", "broadMatch",
+])
+def test_food_skos_candidates_are_never_asserted_or_promoted(table, predicate):
+    # Even a valid food class is not a type merely because it was a SKOS candidate.
+    candidate = graphmod.Alignment("food", "1", predicate, str(OBO.FOODON_00004678),
+                                   "rice (cooked)", "FoodOn", "Candidate only")
+    graph = graphmod.build_graph(table, [candidate], source_file=RAW_XLS, include_ontology=False)
+    food = graphmod.food_iri(1)
+    assert not foodon_types(graph, food)
+    assert (food, SKOS[predicate], None) not in graph
+    assert not list(graph.objects(food, TACO.alignment))
+    assert not list(graph.subjects(RDF.type, TACO.AlignmentAssertion))
+    assert (food, RDF.type, TACO.Food) in graph
+    assert (food, RDF.type, FIO.FoodItem) in graph
+
+
+def test_foods_without_a_candidate_keep_their_food_identity(graph, table, alignments):
+    # Chosen from the inputs, not by number, so applying a review round cannot invalidate it.
+    with_rows = {int(a.source_key) for a in rows_of(alignments, "food")}
+    without = sorted(set(table.foods) - with_rows)
+    assert without
+    for number in without:
+        food = graphmod.food_iri(number)
+        assert (food, RDF.type, FIO.FoodItem) in graph
+        assert not foodon_types(graph, food)
+
+
+@pytest.mark.parametrize("predicate", ["closeMatch", "exactMatch"])
+def test_food_skos_link_to_another_dataset_is_published(table, predicate):
+    # NICE-Food links LCA items to NEVO codes with skos:closeMatch; only FoodOn links must be types.
+    nevo = URIRef("https://data.rivm.nl/data/nvip/bigfood/nevo23/nevocode#1")
+    link = graphmod.Alignment("food", "1", predicate, str(nevo), "Potatoes raw", "NEVO", "")
+    graph = graphmod.build_graph(table, [link], source_file=RAW_XLS, include_ontology=False)
+    food = graphmod.food_iri(1)
+    assert (food, SKOS[predicate], nevo) in graph
+    assert len(list(graph.objects(food, TACO.alignment))) == 1
+    assert not foodon_types(graph, food)
+
+
+@pytest.mark.parametrize(("target", "obstacle"), [
+    ("FOODON_03311340", "foodon_axiom_conflict"),  # scallion (raw), food 108
+    ("FOODON_00002576", "foodon_axiom_conflict"),  # bean sprout, food 125
+    ("FOODON_00004236", "foodon_axiom_conflict"),  # green bean pod (raw), food 162
+    ("FOODON_03309932", "foodon_axiom_conflict"),  # tamarind pod (raw), food 250
+    ("FOODON_03413876", "organism_class"),         # pollock
+    ("FOODON_02021822", "organism_class"),         # catfish
+    ("FOODON_03412059", "organism_class"),         # mate plant
+    ("FOODON_03301449", ""),                       # potato (raw), food 92
+    ("FOODON_99999999", "missing_class"),
+])
+def test_typing_obstacles_separate_foodon_axiom_conflicts_from_organisms(target, obstacle):
+    module = Graph().parse(FOODON_MODULE_TTL)
+    assert graphmod.foodon_typing_obstacle(module, OBO[target]) == obstacle
 
 
 def test_no_food_is_typed_with_a_class_of_whole_organisms(graph):
@@ -76,6 +133,7 @@ def test_recorded_foodon_labels_are_the_pinned_release_labels(alignments):
 
 @pytest.mark.parametrize(("key", "target", "reason"), [
     ("273", "FOODON_03413876", "whole organisms"),
+    ("108", "FOODON_03311340", "under whole organisms or plants"),
     ("1", "FOODON_99999999", "missing from"),
 ])
 def test_build_refuses_unsupported_food_types(table, key, target, reason):
@@ -88,6 +146,19 @@ def test_build_refuses_typing_a_nutrient(table):
     bad = graphmod.Alignment("nutrient", "protein", "type", OBO.FOODON_00004678, "x", "FoodOn", "")
     with pytest.raises(ValueError, match="only foods"):
         graphmod.build_graph(table, [bad], source_file=RAW_XLS)
+
+
+def test_a_foodon_label_alone_does_not_establish_a_valid_class():
+    target = OBO.FOODON_00004678
+    candidate = graphmod.Alignment("food", "1", "type", str(target), "rice", "FoodOn", "")
+    module = Graph()
+    module.add((target, RDFS.label, Literal("rice", lang="en")))
+    with pytest.raises(ValueError, match="missing from"):
+        graphmod._check_food_typing(module, candidate, target)
+    module.add((target, RDF.type, OWL.Class))
+    module.add((target, OWL.deprecated, Literal(True)))
+    with pytest.raises(ValueError, match="deprecated"):
+        graphmod._check_food_typing(module, candidate, target)
 
 
 def test_the_foodon_hierarchy_classifies_taco_foods(graph, table):

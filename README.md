@@ -11,8 +11,8 @@ Unlike a direct spreadsheet-to-RDF conversion, TACO-RDF explicitly represents no
 The project combines:
 
 * RDF and OWL for semantic representation;
-* SKOS for controlled concepts and ontology mappings;
-* FoodOn for food-related semantic alignment;
+* SKOS for controlled concepts and for mappings other than food-to-FoodOn;
+* FoodOn classes assigned to foods with `rdf:type`;
 * ChEBI and CDNO for nutrient-related concepts;
 * QUDT for quantities and measurement units;
 * PROV-O for provenance;
@@ -26,9 +26,11 @@ The project combines:
 >
 > TACO-RDF is an active research project. The transformation and structural validation of the original TACO data are extensively tested. External ontology mappings are being progressively evaluated and should not be interpreted as a manually validated gold standard unless explicitly marked as reviewed.
 >
-> Mapping review status: the first review round (`data/alignment/review/round-1`) is prepared and awaiting its two reviewers. Until it is scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
+> Mapping review status: the first review round (`data/alignment/review/round-1`) contains Reviewer A's answers; Reviewer B and adjudication remain pending. Until it is scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
 
-The [alignment baseline](analysis/alignment_baseline.md) measures current FoodOn coverage by TACO food group and lists preparation-label discrepancies for review. Run `python scripts/audit_alignment_baseline.py` to reproduce it. These screening results do not establish mapping accuracy; the independent review remains pending.
+The [FoodOn typing policy](docs/foodon-typing.md) uses `rdf:type` for published food-to-FoodOn links. Historical SKOS candidates remain in the review inputs, but are not published as food mappings. Run `python scripts/audit_foodon_typing.py` to reproduce the [published-type coverage and unresolved foods](analysis/foodon_typing.md).
+
+The [alignment baseline](analysis/alignment_baseline.md) measures the historical CSV inputs, including SKOS candidates, by TACO food group and lists preparation-label discrepancies for review. Run `python scripts/audit_alignment_baseline.py` to reproduce it. Its coverage is not published FoodOn typing coverage, and these screening results do not establish mapping accuracy.
 
 An [exploratory assessment of 25 sampled foods](analysis/exploratory_alignment_review.md) records specific candidate links and unresolved semantic questions. It is an AI-assisted desk assessment, not a completed human review or an accuracy estimate.
 
@@ -99,9 +101,9 @@ TACO-RDF therefore represents them differently.
 
 A TACO food is not assigned to an external ontology class simply because a vaguely similar concept exists.
 
-Weak relationships remain weak relationships.
+Food-to-FoodOn links use `rdf:type` only when the food is a member of the target class. A more general food-product class can be suitable when all of its characteristics hold.
 
-When no defensible external concept is available, the food may remain intentionally unmapped.
+When no defensible FoodOn class is available, the food remains without a FoodOn type. Associated organisms, ingredients or preparations are search evidence; their association does not establish class membership.
 
 ---
 
@@ -577,7 +579,7 @@ SKOS is used for two main purposes.
 
 First, it represents controlled conceptual structures such as nutrient categories.
 
-Second, it allows mappings whose semantic strength differs.
+Second, it allows group and nutrient mappings whose semantic strength differs.
 
 Examples include:
 
@@ -588,11 +590,7 @@ skos:broadMatch
 skos:narrowMatch
 ```
 
-This is important because external ontology alignment is rarely binary.
-
-For example, a Brazilian preparation may be related to an international food concept without being identical to it.
-
-Using `owl:sameAs` in such cases would overstate the relationship.
+Food-to-FoodOn mapping follows the [typing policy](docs/foodon-typing.md): a valid class is asserted with `rdf:type`. A preparation's association with an organism or ingredient does not justify publishing a SKOS food mapping or assigning that organism or ingredient as its type.
 
 ---
 
@@ -664,6 +662,16 @@ nutritional measurement concept
 are related but not always identical concepts.
 
 Using more than one semantic resource allows the project to avoid forcing all nutrient semantics into a purely chemical interpretation.
+
+CDNO classes such as `concentration of protein in material entity` describe what a measurement is about. As NICE-Food types each NEVO nutritional value with its CDNO class, every TACO measurement of a nutrient that has a `skos:closeMatch` or `skos:exactMatch` to a CDNO class is also typed with that class, whatever its value status:
+
+```turtle
+tacoid:measurement/1/protein a taco:NutrientMeasurement, obo:CDNO_0200040 ;
+    taco:ofFood tacoid:food/1 ;
+    taco:ofNutrient tacoid:nutrient/protein .
+```
+
+The nutrient keeps its SKOS mapping and alignment assertion, which record where the class comes from. A `skos:relatedMatch` to CDNO (one isomer where TACO does not give the double-bond position, vitamin A for retinol equivalents, cysteine for cystine) types no measurement, and SHACL checks that measurement types and nutrient mappings agree.
 
 ---
 
@@ -843,17 +851,22 @@ semantic interpretation
 
 must be independently inspectable.
 
-Mappings may include:
+Published food-to-FoodOn mappings use `rdf:type`, as NICE-Food does for NEVO items:
 
 ```text
 rdf:type
+```
+
+Group and nutrient mappings, and links from a food to an item of another dataset, may use:
+
+```text
 skos:closeMatch
 skos:relatedMatch
 skos:broadMatch
 skos:narrowMatch
 ```
 
-depending on the relationship being expressed.
+depending on the relationship being expressed. The retained SKOS food-to-FoodOn rows in `data/alignment/alignments.csv` are historical review candidates; the build excludes them from direct food links and alignment assertions. See [FoodOn typing policy](docs/foodon-typing.md) for coverage, unresolved foods and review compatibility.
 
 ---
 
@@ -862,7 +875,7 @@ depending on the relationship being expressed.
 A plain triple such as:
 
 ```turtle
-tacoid:food/123 skos:closeMatch foodon:XXXX .
+tacoid:food/1 rdf:type <http://purl.obolibrary.org/obo/FOODON_00004678> .
 ```
 
 does not answer questions such as:
@@ -890,11 +903,13 @@ A target IRI existing in an ontology does **not** prove that the mapping is sema
 
 The project therefore includes infrastructure for human review.
 
-The review protocol is documented under:
+The historical mixed-relation review protocol used by round 1 is documented under:
 
 ```text
 docs/alignment-review.md
 ```
+
+Its text and the round's inputs remain fixed by the manifest checksums. The [FoodOn typing policy](docs/foodon-typing.md) governs publication: only `type` food-to-FoodOn mappings enter the graph. Round 1 can still evaluate its original SKOS candidates, and its scores describe that historical baseline. A SKOS outcome is retained as review evidence and is not promoted to `rdf:type` or published as a food mapping.
 
 A review round can record:
 
@@ -915,7 +930,7 @@ ontology version
 
 Two reviewers can evaluate the same sample independently, followed by adjudication of disagreements.
 
-A round goes from preparation to the published graph in five steps:
+A round is prepared, scored and applied with the following commands. The build then applies the publication policy:
 
 ```bash
 python scripts/prepare_alignment_review.py                        # items, context and two blank forms
@@ -931,11 +946,11 @@ python -m taco_rdf build && python -m taco_rdf validate
 error found, and the precision of all links estimated from the random sample: each sampled food is weighted
 by the size of its stratum, with 95% intervals.
 
-In the graph, an assertion whose food has been reviewed is `taco:Reviewed`, with `taco:reviewer`,
+In the graph, a published assertion whose food has been reviewed is `taco:Reviewed`, with `taco:reviewer`,
 `dcterms:date`, `taco:ontologyVersion` and a `prov:wasDerivedFrom` link to its `taco:ReviewRound`. SHACL
 requires all four. Every other assertion stays `taco:Unreviewed` with `taco:NotRecorded`. The build refuses
 a mapping in `alignments.csv` that differs from its latest review, so a scored round must be applied before
-the graph can be built again.
+the graph can be built again. This consistency check also covers retained historical candidates; it does not make them publishable. Reviewer A's answers alone do not confer reviewed status.
 
 ---
 

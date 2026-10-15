@@ -3,9 +3,10 @@ from __future__ import annotations
 from decimal import Decimal
 
 import pytest
+from rdflib import Graph, Literal
 
 from taco_rdf.cli import main
-from taco_rdf.namespaces import QUERIES_DIR
+from taco_rdf.namespaces import ID, OBO, QUERIES_DIR, RDF, RDFS, SKOS, TACO
 from taco_rdf.parse import Status
 from taco_rdf.queries import parse_binding, run_query
 
@@ -84,14 +85,41 @@ def test_alignment_query_lists_all_groups(graph):
     assert len({str(r[0]) for r in rows}) == 15
 
 
-def test_food_alignment_query_lists_most_foods(graph):
+def test_food_alignment_query_lists_only_official_foodon_types(graph):
     _, rows = q(graph, "food_alignments")
-    assert len(rows) == 436
-    assert len({int(r[0]) for r in rows}) == 436
-    relations = {}
-    for r in rows:
-        relations[str(r[2])] = relations.get(str(r[2]), 0) + 1
-    assert relations == {"type": 311, "closeMatch": 11, "relatedMatch": 114}
+    assert len(rows) == 311
+    assert len({int(r[0]) for r in rows}) == 311
+    assert {str(r[2]) for r in rows} == {"type"}
+
+
+def test_foods_without_foodon_type_query_includes_all_untyped_foods(graph):
+    _, typed = q(graph, "food_alignments")
+    _, untyped = q(graph, "foods_without_foodon_type")
+    typed_ids = {int(r[0]) for r in typed}
+    untyped_ids = {int(r[0]) for r in untyped}
+    assert len(untyped) == len(untyped_ids) == 286
+    assert typed_ids.isdisjoint(untyped_ids)
+    assert len(typed_ids | untyped_ids) == 597
+
+
+def test_food_queries_do_not_treat_candidate_skos_links_as_foodon_types():
+    candidate = Graph()
+    food = ID["food/1"]
+    candidate.add((food, RDF.type, TACO.Food))
+    candidate.add((food, TACO.foodNumber, Literal(1)))
+    candidate.add((food, RDFS.label, Literal("Alimento de teste", lang="pt")))
+    candidate.add((food, SKOS.closeMatch, OBO.FOODON_00004678))
+    candidate.add((OBO.FOODON_00004678, RDFS.label, Literal("food product")))
+    assert q(candidate, "food_alignments")[1] == []
+    assert [int(r[0]) for r in q(candidate, "foods_without_foodon_type")[1]] == [1]
+
+
+def test_alignment_evidence_query_has_no_candidate_food_assertions(graph):
+    _, rows = q(graph, "alignment_evidence")
+    food_rows = [row for row in rows if (row[0], RDF.type, TACO.Food) in graph]
+    assert len(rows) == 456
+    assert len(food_rows) == 311
+    assert {row[1] for row in food_rows} == {RDF.type}
 
 
 def test_documented_corrections_query(graph):

@@ -24,6 +24,7 @@ from .namespaces import (
     OBO,
     ODRL,
     ONTOLOGY_TTL,
+    OWL,
     POLICY_TTL,
     PREFIXES,
     PROV,
@@ -50,7 +51,9 @@ _MATCH = {
 }
 
 _FOODON = str(OBO) + "FOODON_"
+_CDNO = str(OBO) + "CDNO_"
 _ORGANISM_ROOTS = (OBO.COB_0000022, OBO.PO_0000003)
+_FOOD_MATERIAL = OBO.FOODON_00002403
 
 _ORIGIN = {
     "footnote": TACO.LegendFootnote,
@@ -76,8 +79,39 @@ class Alignment:
 
 
 def load_alignments(path: Path = ALIGNMENTS_CSV) -> list[Alignment]:
+    """Read curation inputs, including historical food SKOS candidates that are not published."""
     with open(path, newline="", encoding="utf-8") as fh:
         return [Alignment(**row) for row in csv.DictReader(fh)]
+
+
+def is_published_alignment(a: Alignment) -> bool:
+    """A food is linked to FoodOn only by class membership, as NICE-Food types its food items.
+
+    Keep legacy SKOS candidates to FoodOn in the input so ongoing review rounds retain their
+    original evidence. They are neither asserted nor promoted to rdf:type. SKOS links from a
+    food to another dataset's item (NICE-Food links LCA items to NEVO codes with
+    skos:closeMatch) and the group and nutrient SKOS mappings are published.
+    """
+    return a.source_type != "food" or a.predicate == "type" or not a.target_iri.startswith(_FOODON)
+
+
+def cdno_measurement_types(alignments: list[Alignment]) -> dict[str, URIRef]:
+    """The CDNO class that types every measurement of a nutrient, by nutrient key.
+
+    NICE-Food types each NEVO nutritional value with its annotated CDNO class. Here that class
+    comes from the nutrient's closeMatch or exactMatch to CDNO; a relatedMatch (one isomer for an
+    unspecified position, vitamin A for retinol equivalents, cysteine for cystine) types nothing.
+    """
+    types: dict[str, URIRef] = {}
+    for a in alignments:
+        if a.source_type != "nutrient" or a.predicate not in ("closeMatch", "exactMatch"):
+            continue
+        if not a.target_iri.startswith(_CDNO):
+            continue
+        if a.source_key in types:
+            raise ValueError(f"nutrient {a.source_key} has more than one close CDNO class")
+        types[a.source_key] = URIRef(a.target_iri)
+    return types
 
 
 @dataclass(frozen=True)
@@ -230,7 +264,7 @@ def build_graph(
     _add_categories_and_nutrients(g)
     _add_groups(g, table)
     _add_foods(g, table, food_names_en or {})
-    _add_measurements(g, table)
+    _add_measurements(g, table, cdno_measurement_types(alignments))
     _add_alignments(g, alignments, table, reviewed or {})
     return g
 
@@ -246,8 +280,10 @@ def _add_dataset_metadata(g: Graph, source_file: Path) -> None:
     g.add((dataset, DCTERMS.description, Literal(
         "The Brazilian Food Composition Table (TACO), 4th edition, converted to RDF: 597 foods in 15 "
         "groups, with proximate composition, minerals, vitamins, fatty acids and amino acids per 100 g "
-        "of edible portion. Foods are Food Item Ontology (FIO) food items typed with FoodOn classes; "
-        "nutrients are aligned to ChEBI and CDNO. Food names are TACO's Portuguese names, with English "
+        "of edible portion. Foods are Food Item Ontology (FIO) food items; FoodOn class membership, "
+        "where supported, is expressed only with rdf:type. "
+        "nutrients are aligned to ChEBI and CDNO, and their measurements are typed with the closely "
+        "matching CDNO class. Food names are TACO's Portuguese names, with English "
         "translations made for this project.", lang="en")))
     g.add((dataset, DCTERMS.language, Literal("pt")))
     g.add((dataset, DCTERMS.language, Literal("en")))
@@ -382,7 +418,12 @@ def _decimal_literal(value: Decimal) -> Literal:
     return Literal(text if "." in text else text + ".0", datatype=XSD.decimal)
 
 
-def _add_measurements(g: Graph, table: Table) -> None:
+def _add_measurements(g: Graph, table: Table, cdno_types: dict[str, URIRef]) -> None:
+    """Add every measurement, typed with its nutrient's CDNO class whatever its value status.
+
+    The CDNO class says which concentration the measurement is about; taco:valueStatus says
+    what TACO reports for it.
+    """
     basis = ID["reference/edible-portion-100g"]
     g.add((basis, RDF.type, TACO.ReferenceBasis))
     g.add((basis, RDF.type, QUDT.QuantityValue))
@@ -394,6 +435,8 @@ def _add_measurements(g: Graph, table: Table) -> None:
         nutrient = BY_KEY[obs.nutrient]
         m = measurement_iri(obs.food_id, obs.nutrient)
         g.add((m, RDF.type, TACO.NutrientMeasurement))
+        if obs.nutrient in cdno_types:
+            g.add((m, RDF.type, cdno_types[obs.nutrient]))
         g.add((m, TACO.ofFood, food_iri(obs.food_id)))
         g.add((m, TACO.ofNutrient, nutrient_iri(obs.nutrient)))
         g.add((m, TACO.valueStatus, TACO[obs.status.value]))
@@ -446,17 +489,22 @@ def _add_review_rounds(g: Graph, reviewed: dict[int, ReviewedMapping]) -> dict[s
 
 def _add_alignment_set(g: Graph, alignments: list[Alignment],
                        reviewed: dict[int, ReviewedMapping]) -> URIRef:
-    """The provenance node of the alignments supplied to this build, with the checksum of their rows."""
+    """Checksum every curation input, while counting only published assertions as mappings."""
     rows = sorted(json.dumps(asdict(a), sort_keys=True, ensure_ascii=False) for a in alignments)
-    confirmed = sum(1 for a in alignments if a.source_type == "food" and int(a.source_key) in reviewed)
+    published = [a for a in alignments if is_published_alignment(a)]
+    confirmed = sum(1 for a in published if a.source_type == "food" and int(a.source_key) in reviewed)
     source = ID["alignment-set"]
     g.add((source, RDF.type, PROV.Entity))
-    g.add((source, DCTERMS.title, Literal("TACO alignment assertions supplied to this build", lang="en")))
+    g.add((source, DCTERMS.title, Literal(
+        "TACO alignment curation inputs supplied to this build", lang="en")))
     g.add((source, TACO.sha256, Literal(hashlib.sha256("\n".join(rows).encode()).hexdigest())))
     g.add((source, SKOS.editorialNote, Literal(
         "Checksum of sorted, newline-joined JSON rows (UTF-8, sorted keys, ensure_ascii=False). "
+        f"The {len(alignments)} input rows yield {len(published)} published assertions; "
+        f"{len(alignments) - len(published)} historical food-to-FoodOn SKOS candidates are withheld. "
+        "Food-to-FoodOn mappings are published only as rdf:type; withheld candidates remain review evidence. "
         "Original annotation dates, individual annotator identities and target ontology releases "
-        f"were not recorded. {confirmed} of the {len(alignments)} assertions have since been independently "
+        f"were not recorded. {confirmed} of the {len(published)} assertions have since been independently "
         "reviewed (taco:Reviewed); independent semantic review of the others is pending.", lang="en")))
     g.add((source, DCTERMS.publisher, ID["agent/vitoria-maia"]))
     g.add((ID["conversion"], PROV.used, source))
@@ -503,6 +551,10 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
     foodon = None
     for a in alignments:
         subject = _alignment_subject(a, table)
+        if a.predicate not in _MATCH:
+            raise ValueError(f"unknown alignment predicate {a.predicate!r}")
+        if not is_published_alignment(a):
+            continue
         target = URIRef(a.target_iri)
         if a.predicate == "type":
             foodon = foodon if foodon is not None else Graph().parse(FOODON_MODULE_TTL, format="turtle")
@@ -526,14 +578,37 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
             g.add((record, SKOS.editorialNote, Literal(a.note, lang="en")))
 
 
+def foodon_typing_obstacle(foodon: Graph, target: URIRef) -> str:
+    """Why the FoodOn module cannot back rdf:type with this class; empty when it can.
+
+    ``organism_class`` is a class of whole organisms or plants. ``foodon_axiom_conflict`` is a
+    food material class that FoodOn also places under whole organisms or plants (bean pod is_a
+    bean sprout is_a bean plant): FoodOn has a class for the food, but typing with it would
+    entail that the food is an organism. NICE-Food's notebooks type food items without this check.
+    """
+    if (target, RDF.type, OWL.Class) not in foodon or (target, RDFS.label, None) not in foodon:
+        return "missing_class"
+    if any(value.toPython() is True for value in foodon.objects(target, OWL.deprecated)):
+        return "deprecated_class"
+    ancestors = set(foodon.transitive_objects(target, RDFS.subClassOf))
+    if not ancestors & set(_ORGANISM_ROOTS):
+        return ""
+    return "foodon_axiom_conflict" if _FOOD_MATERIAL in ancestors else "organism_class"
+
+
 def _check_food_typing(foodon: Graph, a: Alignment, target: URIRef) -> None:
-    """Refuse an rdf:type the FoodOn module cannot back: unknown class, or a class of whole organisms."""
+    """Refuse an rdf:type the FoodOn module cannot back: unknown class, or one under whole organisms."""
     where = f"{a.source_type} {a.source_key} rdf:type {target}"
     if a.source_type != "food" or not str(target).startswith(_FOODON):
         raise ValueError(f"only foods can be typed, and only with FoodOn classes: {where}")
-    if (target, RDFS.label, None) not in foodon:
+    obstacle = foodon_typing_obstacle(foodon, target)
+    if obstacle == "missing_class":
         raise ValueError(f"FoodOn class missing from {FOODON_MODULE_TTL.name}; re-run "
                          f"scripts/extract_foodon_module.py: {where}")
-    ancestors = set(foodon.transitive_objects(target, RDFS.subClassOf))
-    if ancestors & set(_ORGANISM_ROOTS):
+    if obstacle == "deprecated_class":
+        raise ValueError(f"FoodOn class is deprecated: {where}")
+    if obstacle == "organism_class":
         raise ValueError(f"FoodOn class is a class of whole organisms, not of food: {where}")
+    if obstacle == "foodon_axiom_conflict":
+        raise ValueError("FoodOn places this food class under whole organisms or plants, so rdf:type "
+                         f"would make the food an organism; report the axiom to FoodOn: {where}")
