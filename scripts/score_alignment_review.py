@@ -25,7 +25,7 @@ from taco_rdf.evaluation import (
     write_rows,
     write_sssom,
 )
-from taco_rdf.graph import load_alignments
+from taco_rdf.graph import is_foodon_food_link, load_alignments
 from taco_rdf.namespaces import ALIGNMENTS_CSV, CORRECTIONS_DIR, RAW_XLS
 from taco_rdf.parse import load_corrections, parse_workbook
 
@@ -116,7 +116,7 @@ def report(name: str, manifest: dict, table, alignments, items: list[Item], a: d
         stratum_rows.append([groups[int(group)], link, *[counts.get(o, 0) for o in OUTCOMES]])
     lines += table_md(["group", "link", *OUTCOMES], stratum_rows)
 
-    links = {int(x.source_key): x for x in alignments if x.source_type == "food"}
+    links = {int(x.source_key): x for x in alignments if is_foodon_food_link(x)}
     error_rows = []
     for e in summary["errors"]:
         link = links.get(e.food_number)

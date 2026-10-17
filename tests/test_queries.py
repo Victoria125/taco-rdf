@@ -25,6 +25,8 @@ def test_every_query_file_parses_and_runs(graph):
         "mineral_profile": {"food": "<https://w3id.org/taco-rdf/id/food/100>"},
         "richest_in": {"key": "iron"},
         "foods_in_foodon_class": {"class": "<http://purl.obolibrary.org/obo/FOODON_00001264>"},
+        "measurements_in_cdno_class": {"class": "<http://purl.obolibrary.org/obo/CDNO_0200465>",
+                                       "food_number": "1"},
     }
     for path in sorted(QUERIES_DIR.glob("*.rq")):
         header, rows = run_query(graph, path, binds.get(path.stem, {}))

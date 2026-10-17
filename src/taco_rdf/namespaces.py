@@ -43,6 +43,7 @@ FOOD_NAMES_EN = ROOT / "data" / "labels" / "food_names_en.csv"
 ONTOLOGY_TTL = ROOT / "ontology" / "taco.ttl"
 FOODON_MODULE_TTL = ROOT / "ontology" / "imports" / "foodon-module.ttl"
 FOODON_CLASSES = ROOT / "ontology" / "imports" / "foodon-classes.tsv"
+CDNO_MODULE_TTL = ROOT / "ontology" / "imports" / "cdno-module.ttl"
 REVIEW_DIR = ROOT / "data" / "alignment" / "review"
 SHAPES_DIR = ROOT / "shapes"
 POLICY_TTL = ROOT / "policies" / "taco-attribution-policy.ttl"
@@ -54,6 +55,7 @@ __all__ = [
     "ALIGNMENTS_CSV",
     "BASE",
     "BUILD_DIR",
+    "CDNO_MODULE_TTL",
     "CORRECTIONS_DIR",
     "DCAT",
     "DCTERMS",

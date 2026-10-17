@@ -1,0 +1,347 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+obo:CDNO_0200002 a owl:Class ;
+    rdfs:label "concentration of water in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200004 a owl:Class ;
+    rdfs:label "concentration of ash in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200005 a owl:Class ;
+    rdfs:label "concentration of carbohydrate in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200035 a owl:Class ;
+    rdfs:label "concentration of dietary fibre in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200040 a owl:Class ;
+    rdfs:label "concentration of protein in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200047 a owl:Class ;
+    rdfs:label "concentration of alanine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200048 a owl:Class ;
+    rdfs:label "concentration of arginine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200050 a owl:Class ;
+    rdfs:label "concentration of aspartic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200051 a owl:Class ;
+    rdfs:label "concentration of cysteine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464,
+        obo:CDNO_0200627 .
+
+obo:CDNO_0200052 a owl:Class ;
+    rdfs:label "concentration of glutamic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200054 a owl:Class ;
+    rdfs:label "concentration of glycine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200055 a owl:Class ;
+    rdfs:label "concentration of histidine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200057 a owl:Class ;
+    rdfs:label "concentration of isoleucine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200058 a owl:Class ;
+    rdfs:label "concentration of leucine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200059 a owl:Class ;
+    rdfs:label "concentration of lysine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200060 a owl:Class ;
+    rdfs:label "concentration of methionine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464,
+        obo:CDNO_0200627 .
+
+obo:CDNO_0200061 a owl:Class ;
+    rdfs:label "concentration of phenylalanine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200062 a owl:Class ;
+    rdfs:label "concentration of proline in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200063 a owl:Class ;
+    rdfs:label "concentration of serine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200064 a owl:Class ;
+    rdfs:label "concentration of threonine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200065 a owl:Class ;
+    rdfs:label "concentration of tryptophan in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200066 a owl:Class ;
+    rdfs:label "concentration of tyrosine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200067 a owl:Class ;
+    rdfs:label "concentration of valine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200464 .
+
+obo:CDNO_0200073 a owl:Class ;
+    rdfs:label "concentration of tetracosanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200074 a owl:Class ;
+    rdfs:label "concentration of dodecanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200075 a owl:Class ;
+    rdfs:label "concentration of tetradecanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200076 a owl:Class ;
+    rdfs:label "concentration of hexadecanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200078 a owl:Class ;
+    rdfs:label "concentration of octadecanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200079 a owl:Class ;
+    rdfs:label "concentration of icosanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200080 a owl:Class ;
+    rdfs:label "concentration of docosanoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200458 .
+
+obo:CDNO_0200083 a owl:Class ;
+    rdfs:label "concentration of myristoleic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200456 .
+
+obo:CDNO_0200084 a owl:Class ;
+    rdfs:label "concentration of palmitoleic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200456 .
+
+obo:CDNO_0200085 a owl:Class ;
+    rdfs:label "concentration of oleic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200456 .
+
+obo:CDNO_0200087 a owl:Class ;
+    rdfs:label "concentration of elaidic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200456 .
+
+obo:CDNO_0200097 a owl:Class ;
+    rdfs:label "concentration of α-linolenic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200092 .
+
+obo:CDNO_0200098 a owl:Class ;
+    rdfs:label "concentration of icosapentaenoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200092 .
+
+obo:CDNO_0200099 a owl:Class ;
+    rdfs:label "concentration of docosapentaenoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200092 .
+
+obo:CDNO_0200100 a owl:Class ;
+    rdfs:label "concentration of docosahexaenoic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200092 .
+
+obo:CDNO_0200104 a owl:Class ;
+    rdfs:label "concentration of linoleic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200103 .
+
+obo:CDNO_0200108 a owl:Class ;
+    rdfs:label "concentration of arachidonic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200103 .
+
+obo:CDNO_0200123 a owl:Class ;
+    rdfs:label "concentration of cholesterol in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200121 .
+
+obo:CDNO_0200184 a owl:Class ;
+    rdfs:label "concentration of vitamin B1 in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200182 .
+
+obo:CDNO_0200185 a owl:Class ;
+    rdfs:label "concentration of riboflavin in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200527 .
+
+obo:CDNO_0200186 a owl:Class ;
+    rdfs:label "concentration of nicotinic acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200528 .
+
+obo:CDNO_0200188 a owl:Class ;
+    rdfs:label "concentration of pyridoxine in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200530 .
+
+obo:CDNO_0200192 a owl:Class ;
+    rdfs:label "concentration of vitamin C in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200179 .
+
+obo:CDNO_0200195 a owl:Class ;
+    rdfs:label "concentration of vitamin A in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200179 .
+
+obo:CDNO_0200420 a owl:Class ;
+    rdfs:label "concentration of retinol in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200409 .
+
+obo:CDNO_0200544 a owl:Class ;
+    rdfs:label "concentration of dietary calcium in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200137 .
+
+obo:CDNO_0200570 a owl:Class ;
+    rdfs:label "concentration of dietary magnesium in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200137 .
+
+obo:CDNO_0200578 a owl:Class ;
+    rdfs:label "concentration of dietary phosphorus in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200137 .
+
+obo:CDNO_0200592 a owl:Class ;
+    rdfs:label "concentration of dietary potassium in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200137 .
+
+obo:CDNO_0200599 a owl:Class ;
+    rdfs:label "concentration of dietary sodium in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200137 .
+
+obo:CDNO_0200642 a owl:Class ;
+    rdfs:label "concentration of dietary copper in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200146 .
+
+obo:CDNO_0200651 a owl:Class ;
+    rdfs:label "concentration of dietary iron in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200146 .
+
+obo:CDNO_0200657 a owl:Class ;
+    rdfs:label "concentration of dietary manganese in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200146 .
+
+obo:CDNO_0200670 a owl:Class ;
+    rdfs:label "concentration of dietary zinc in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200146 .
+
+<https://w3id.org/taco-rdf/imports/cdno-module> a owl:Ontology ;
+    dcterms:description "The CDNO classes targeted by the TACO nutrient alignments and all their named superclasses (rdfs:subClassOf and labels only), extracted by scripts/extract_cdno_module.py."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:source <https://github.com/CompositionalDietaryNutritionOntology/cdno> ;
+    dcterms:title "CDNO module for taco-rdf"@en ;
+    rdfs:comment "Omits the release axiom http://purl.obolibrary.org/obo/CDNO_0200627 rdfs:subClassOf http://purl.obolibrary.org/obo/CDNO_0200619: concentration of organosulfur compound is_a concentration of dietary sulfur would place methionine and cysteine under mineral nutrient."@en ;
+    owl:versionIRI <http://purl.obolibrary.org/obo/cdno/releases/2026-06-10/cdno.owl> ;
+    prov:wasDerivedFrom <http://purl.obolibrary.org/obo/cdno/releases/2026-06-10/cdno.owl> .
+
+obo:CDNO_0200121 a owl:Class ;
+    rdfs:label "concentration of sterol in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200068 .
+
+obo:CDNO_0200215 a owl:Class ;
+    rdfs:label "concentration of plant secondary metabolite in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200268 a owl:Class ;
+    rdfs:label "concentration of flavonoids in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200215 .
+
+obo:CDNO_0200406 a owl:Class ;
+    rdfs:label "concentration of terpenoid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200268,
+        obo:CDNO_0200520 .
+
+obo:CDNO_0200409 a owl:Class ;
+    rdfs:label "concentration of diterpenoid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200406 .
+
+obo:CDNO_0200520 a owl:Class ;
+    rdfs:label "concentration of isoprenoid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200068 .
+
+obo:CDNO_0200527 a owl:Class ;
+    rdfs:label "concentration of vitamin B2 in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200182 .
+
+obo:CDNO_0200528 a owl:Class ;
+    rdfs:label "concentration of vitamin B3 in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200182 .
+
+obo:CDNO_0200530 a owl:Class ;
+    rdfs:label "concentration of vitamin B6 in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200182 .
+
+obo:PATO_0000033 a owl:Class ;
+    rdfs:label "concentration of"@en .
+
+obo:CDNO_0200103 a owl:Class ;
+    rdfs:label "concentration of ω−6 fatty acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200449 .
+
+obo:CDNO_0200136 a owl:Class ;
+    rdfs:label "concentration of mineral nutrient in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200449 a owl:Class ;
+    rdfs:label "concentration of polyunsaturated fatty acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200465 .
+
+obo:CDNO_0200627 a owl:Class ;
+    rdfs:label "concentration of organosulfur compound in material entity"@en .
+
+<http://purl.obolibrary.org/obo/cdno/releases/2026-06-10/cdno.owl> dcterms:description "This versioned PURL resolves to CDNO tag v2026-06-10, commit a0dec27552ad3920b7b6c16ee82b1936dcf9b368, SHA-256 16d40da53cc56bcadc41add2dbc27d98d2eb40f285c9e26e2c80f2da3fb4c8bb."@en ;
+    dcterms:source <https://raw.githubusercontent.com/CompositionalDietaryNutritionOntology/cdno/a0dec27552ad3920b7b6c16ee82b1936dcf9b368/cdno.owl> .
+
+obo:CDNO_0200068 a owl:Class ;
+    rdfs:label "concentration of lipid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200179 a owl:Class ;
+    rdfs:label "concentration of vitamin (molecular entity) in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+
+obo:CDNO_0200465 a owl:Class ;
+    rdfs:label "concentration of fatty acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200068 .
+
+obo:CDNO_0200092 a owl:Class ;
+    rdfs:label "concentration of ω−3 fatty acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200449 .
+
+obo:CDNO_0200146 a owl:Class ;
+    rdfs:label "concentration of trace element in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200136 .
+
+obo:CDNO_0200182 a owl:Class ;
+    rdfs:label "concentration of B vitamin in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200179 .
+
+obo:CDNO_0200456 a owl:Class ;
+    rdfs:label "concentration of monounsaturated fatty acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200465 .
+
+obo:CDNO_0200137 a owl:Class ;
+    rdfs:label "concentration of macro element in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200136 .
+
+obo:CDNO_0200458 a owl:Class ;
+    rdfs:label "concentration of saturated fatty acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200465 .
+
+obo:CDNO_0200001 a owl:Class ;
+    rdfs:label "concentration of dietary chemical component in material entity"@en ;
+    rdfs:subClassOf obo:PATO_0000033 .
+
+obo:CDNO_0200464 a owl:Class ;
+    rdfs:label "concentration of amino acid in material entity"@en ;
+    rdfs:subClassOf obo:CDNO_0200001 .
+

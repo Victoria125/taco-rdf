@@ -6,14 +6,18 @@
 - Formação/área de atuação informada: nutricionista e ciência de dados.
 - Participação prévia: declarou não ter participado da criação do projeto nem dos mapeamentos em revisão.
 - Relação com a autora: declarou conhecer Vitória Maia, autora do projeto e dos mapeamentos, e não ter trabalhado no projeto (2026-09-27).
-- Datas de trabalho: 2026-09-27 e 2026-09-28 — identificação, orientação inicial e registro dos pareceres no formulário A, na ordem do formulário; revisão em andamento.
-- Itens 591 e 72: as classes registradas (FOODON_03316908 e FOODON_00002448) foram sugeridas pelo assistente anterior, que também fez as buscas listadas nas evidências; a revisora concordou com elas e decidiu mantê-las (2026-09-27).
+- Datas de trabalho: 2026-09-27 e 2026-09-28 — identificação, orientação inicial e registro dos pareceres no formulário A, na ordem do formulário; 2026-09-29 — formulário completo (141 de 141 pareceres); 2026-10-17 — revisão de 33 pareceres antes da pontuação, sem acesso às respostas da revisão B, registrada item a item abaixo. Formulário A concluído.
 - A partir do item 435, mostra o que o formulário traz, as definições da classe atual e dos candidatos e as regras do protocolo, sem indicar resposta; as buscas no OLS são executadas pelo assistente a pedido da revisora, com os termos escolhidos por ela, e apresentadas sem filtro; o assistente confere as classes no índice fixado. A decisão, a relação, a certeza e o raciocínio da justificativa são da revisora.
-- Retomada com Codex em 2026-09-27, mantendo o formato neutro: a revisora confirmou a correspondência das características discutidas no item 216 e informou explicitamente `certain`, completando o campo pendente desse parecer.
+- O registro dos pareceres citados e das revisões de 2026-10-17 está em `notes-revisora-a.md`. Não abrir esse arquivo nem `reviewer-a.csv` durante a revisão B.
 
 ## Revisor(a) B
 
-Identificação, formação/experiência, participação na criação dos mapeamentos e datas de trabalho pendentes de informação.
+- Nome: Aline Silva.
+- Formação/área de atuação informada: área de nutrição.
+- Participação prévia: declarou não ter participado da criação do projeto nem dos mapeamentos em revisão (2026-10-17).
+- Relação com a autora: declarou ser amiga de Vitória Maia, autora do projeto e dos mapeamentos (2026-10-17).
+- Datas de trabalho: 2026-10-17 — identificação. Ao se identificar, numa sessão que continha as respostas da revisão A, com o `reviewer-a.csv` aberto na IDE, a revisora foi orientada a fechá-lo sem ler, a não ler essa sessão e a fazer a revisão B numa sessão nova. Na sessão nova, a revisora declarou ter lido o protocolo (`docs/alignment-review.md`) e iniciou o formulário B, na ordem do formulário. As buscas no OLS são executadas pelo assistente; os termos mínimos do protocolo (nome em inglês e espécie/ingrediente principal) e os que a revisora pedir são apresentados sem filtro. A decisão, a relação, a certeza e a justificativa são da revisora.
+- 2026-10-17 — a revisora entregou uma tabela própria com decisões para os 141 itens. O assistente conferiu os fatos que a tabela pedia (classes no índice fixado, espécies das classes, buscas extras com os termos escolhidos por ela) e mostrou os resultados; a revisora confirmou a versão final, com ajustes e com a regra de certeza "alta → certain; média e baixa → uncertain" e exceções indicadas por ela. 140 pareceres gravados no formulário B; o item 44 (alimento 462) foi decidido por ela depois de uma conferência adicional (minuta do MAPA e Portaria 146/1996) e gravado no mesmo dia. Formulário B completo (141 de 141), validado. Onde a tabela não trazia nota, a justificativa foi redigida pelo assistente a partir da decisão dela, e o `evidence` da linha diz isso.
 
 ## Adjudicação
 

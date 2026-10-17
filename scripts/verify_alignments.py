@@ -11,6 +11,7 @@ from pathlib import Path
 CSV_PATH = Path(__file__).resolve().parents[1] / "data" / "alignment" / "alignments.csv"
 MODULE_PATH = Path(__file__).resolve().parents[1] / "ontology" / "imports" / "foodon-module.ttl"
 OLS = "https://www.ebi.ac.uk/ols4/api/terms?"
+OLS_ONTOLOGIES = {"FoodOn", "ChEBI", "CDNO"}  # links to other datasets' items (NEVO codes) are not in OLS
 
 
 def ols_label(iri: str, ontology: str) -> str | None:
@@ -37,7 +38,7 @@ def pinned_foodon_labels() -> dict[str, str]:
 
 def main() -> int:
     with open(CSV_PATH, newline="", encoding="utf-8") as fh:
-        rows = list(csv.DictReader(fh))
+        rows = [r for r in csv.DictReader(fh) if r["target_ontology"] in OLS_ONTOLOGIES]
     pinned = pinned_foodon_labels()
     cache: dict[tuple[str, str], str | None] = {}
     bad = 0

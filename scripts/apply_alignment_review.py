@@ -8,7 +8,7 @@ from pathlib import Path
 from rdflib import OWL, RDF, Graph
 
 from taco_rdf.evaluation import foodon_index
-from taco_rdf.graph import ReviewedMapping, read_review_round
+from taco_rdf.graph import Alignment, ReviewedMapping, is_foodon_food_link, read_review_round
 from taco_rdf.namespaces import ALIGNMENTS_CSV, FOODON_MODULE_TTL
 
 FIELDS = [
@@ -56,7 +56,7 @@ def _change(row: Row | None, mapping: ReviewedMapping) -> str:
 
 def apply(rows: list[Row], mappings: list[ReviewedMapping],
           labels: dict[str, str]) -> tuple[list[Row], Counter[str]]:
-    index = {int(r["source_key"]): i for i, r in enumerate(rows) if r["source_type"] == "food"}
+    index = {int(r["source_key"]): i for i, r in enumerate(rows) if is_foodon_food_link(Alignment(**r))}
     rows = list(rows)
     changes: Counter[str] = Counter()
     removed: set[int] = set()

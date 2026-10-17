@@ -8,6 +8,7 @@ import subprocess
 import sys
 
 import pytest
+from rdflib import URIRef
 
 from taco_rdf import evaluation as ev
 from taco_rdf import graph as graphmod
@@ -26,6 +27,11 @@ from taco_rdf.namespaces import (
 from taco_rdf.validate import validate
 
 DAY = "2026-09-24"
+NEVO_ITEM = "https://data.rivm.nl/data/nvip/bigfood/nevo21/nevocode#1"  # an example item of another dataset
+
+
+def nevo_link(food):
+    return graphmod.Alignment("food", str(food), "closeMatch", NEVO_ITEM, "example NEVO item", "NEVO", "")
 
 
 def scored_round(folder, mappings, reviewers="Reviewer One; Reviewer Two"):
@@ -93,6 +99,29 @@ def test_the_build_refuses_a_mapping_its_review_changed(tmp_path, table, alignme
         graphmod.build_graph(table, alignments, source_file=RAW_XLS, reviewed=reviewed)
 
 
+def test_a_reviewed_food_can_also_link_to_another_dataset(tmp_path, table, alignments, food_names_en):
+    scored_round(tmp_path / "round-1", [(1, "rdf:type", "FOODON:00004678")])
+    reviewed = graphmod.load_reviewed_mappings(tmp_path)
+    graph = graphmod.build_graph(table, [*alignments, nevo_link(1)], source_file=RAW_XLS,
+                                 food_names_en=food_names_en, reviewed=reviewed)
+    food = ID["food/1"]
+    assert (food, SKOS.closeMatch, URIRef(NEVO_ITEM)) in graph
+    status = {graph.value(r, TACO.targetOntology).toPython(): graph.value(r, TACO.reviewStatus)
+              for r in graph.objects(food, TACO.alignment)}
+    assert status == {"FoodOn": TACO.Reviewed, "NEVO": TACO.Unreviewed}
+    report = validate(graph, SHAPES_DIR)
+    assert report.conforms_strict, report.details()
+
+
+def test_a_second_foodon_link_for_a_reviewed_food_is_refused(tmp_path, table, alignments):
+    scored_round(tmp_path / "round-1", [(1, "rdf:type", "FOODON:00004678")])
+    reviewed = graphmod.load_reviewed_mappings(tmp_path)
+    extra = graphmod.Alignment("food", "1", "closeMatch", str(OBO.FOODON_00004677), "white rice (cooked)",
+                               "FoodOn", "")
+    with pytest.raises(ValueError, match=r"reviewed mapping of foods 1 \(round-1\)"):
+        graphmod.build_graph(table, [*alignments, extra], source_file=RAW_XLS, reviewed=reviewed)
+
+
 def test_a_later_round_supersedes_an_earlier_one(tmp_path):
     scored_round(tmp_path / "round-1", [(1, "rdf:type", "FOODON:00004678")])
     scored_round(tmp_path / "round-2", [(1, "skos:closeMatch", "FOODON:00004677")],
@@ -137,3 +166,28 @@ def test_applying_a_round_brings_the_alignments_into_line_with_it(tmp_path, tabl
 
     again = subprocess.run(run, check=True, capture_output=True, text=True)
     assert again.stdout.strip() == "round-1: 5 unchanged"
+
+
+def test_applying_a_round_keeps_links_to_other_datasets(tmp_path):
+    folder = scored_round(tmp_path / "review" / "round-1", [
+        (1, "rdf:type", "FOODON:00004678"),
+        (273, "skos:closeMatch", "sssom:NoTermFound"),
+        (540, "skos:relatedMatch", "FOODON:03000089"),
+    ])
+    target = tmp_path / "alignments.csv"
+    rows = [*graphmod.load_alignments(ALIGNMENTS_CSV), nevo_link(273), nevo_link(540)]
+    with open(target, "w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(graphmod.Alignment.__dataclass_fields__))
+        writer.writeheader()
+        writer.writerows(row.__dict__ for row in rows)
+    run = [sys.executable, str(ROOT / "scripts" / "apply_alignment_review.py"), str(folder),
+           "--alignments", str(target)]
+    done = subprocess.run(run, check=True, capture_output=True, text=True)
+    assert done.stdout.strip() == "round-1: 1 added, 1 removed, 1 unchanged"
+
+    applied = graphmod.load_alignments(target)
+    by_food = {(a.source_key, a.target_ontology): a for a in applied if a.source_type == "food"}
+    assert ("273", "FoodOn") not in by_food
+    assert by_food[("540", "FoodOn")].target_iri == str(OBO.FOODON_03000089)
+    for food in ("273", "540"):
+        assert by_food[(food, "NEVO")].target_iri == NEVO_ITEM

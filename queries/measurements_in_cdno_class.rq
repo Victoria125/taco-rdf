@@ -1,0 +1,26 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+
+# Measurements whose CDNO type falls under ?class in the pinned CDNO module, e.g.
+# <http://purl.obolibrary.org/obo/CDNO_0200465> (concentration of fatty acid in material entity).
+# Bind ?food_number as well to list one food. The hierarchy is CDNO's, less one axiom the module omits
+# (organosulfur compound is_a dietary sulfur), so methionine counts as an amino acid, not a mineral nutrient.
+SELECT ?food_number ?nutrient ?cdno_type ?value ?unit ?status
+WHERE {
+  ?m a taco:NutrientMeasurement ;
+     a ?type ;
+     taco:ofFood ?f ;
+     taco:ofNutrient ?n ;
+     taco:valueStatus ?s .
+  FILTER (STRSTARTS(STR(?type), "http://purl.obolibrary.org/obo/CDNO_"))
+  ?type rdfs:subClassOf* ?class ;
+        rdfs:label ?cdno_type .
+  ?f taco:foodNumber ?food_number .
+  ?n skos:prefLabel ?nutrient .
+  FILTER (LANG(?nutrient) = "en")
+  OPTIONAL { ?m qudt:numericValue ?value ; qudt:unit ?u . BIND (STRAFTER(STR(?u), "unit/") AS ?unit) }
+  BIND (STRAFTER(STR(?s), "#") AS ?status)
+}
+ORDER BY ?food_number ?nutrient

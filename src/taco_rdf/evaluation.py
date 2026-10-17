@@ -16,7 +16,7 @@ from typing import TypedDict, TypeVar
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, PROV, RDF
 
-from .graph import Alignment, FoodName
+from .graph import Alignment, FoodName, is_foodon_food_link
 from .namespaces import (
     ALIGNMENTS_CSV,
     CORRECTIONS_DIR,
@@ -155,9 +155,10 @@ def _rank(seed: str, food: int) -> str:
 
 
 def links_by_food(table: Table, alignments: list[Alignment]) -> dict[int, Alignment]:
+    """Each food's FoodOn link; links to items of other datasets are outside the review."""
     by_food: dict[int, Alignment] = {}
     for a in alignments:
-        if a.source_type == "food":
+        if is_foodon_food_link(a):
             food = int(a.source_key)
             if food not in table.foods or food in by_food:
                 raise ValueError(f"the review needs at most one mapping per known food: {food}")

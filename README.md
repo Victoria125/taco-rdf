@@ -671,7 +671,7 @@ tacoid:measurement/1/protein a taco:NutrientMeasurement, obo:CDNO_0200040 ;
     taco:ofNutrient tacoid:nutrient/protein .
 ```
 
-The nutrient keeps its SKOS mapping and alignment assertion, which record where the class comes from. A `skos:relatedMatch` to CDNO (one isomer where TACO does not give the double-bond position, vitamin A for retinol equivalents, cysteine for cystine) types no measurement, and SHACL checks that measurement types and nutrient mappings agree.
+The nutrient keeps its SKOS mapping and alignment assertion, which record where the class comes from. Every CDNO target must be in the pinned CDNO module (see [Ontology versioning](#ontology-versioning)), or the build refuses it; the module's superclasses let [`queries/measurements_in_cdno_class.rq`](queries/measurements_in_cdno_class.rq) select, say, all fatty acid measurements of a food. The hierarchy is CDNO's, less one axiom: CDNO groups every sulfur compound under dietary sulfur, a macro element, which would make methionine a mineral nutrient. The module omits `concentration of organosulfur compound` is_a `concentration of dietary sulfur` and says so, so methionine and cysteine stay amino acids. A `skos:relatedMatch` to CDNO (one isomer where TACO does not give the double-bond position, vitamin A for retinol equivalents, cysteine for cystine) types no measurement, and SHACL checks that measurement types and nutrient mappings agree.
 
 ---
 
@@ -1025,6 +1025,16 @@ commit, and the checked-in module is reproduced exactly from it.
 The same script writes `ontology/imports/foodon-classes.tsv`, every class of the release that is not
 deprecated, with its label. Reviewers may propose any of these classes, not only those already in the
 module.
+
+CDNO is pinned the same way, because measurements are typed with CDNO classes. The release is CDNO
+`2026-06-10`; its versioned PURL, `http://purl.obolibrary.org/obo/cdno/releases/2026-06-10/cdno.owl`,
+resolves to tag `v2026-06-10`. `scripts/extract_cdno_module.py` downloads that file from commit
+`a0dec27552ad3920b7b6c16ee82b1936dcf9b368`, refuses it unless its SHA-256 is
+`16d40da53cc56bcadc41add2dbc27d98d2eb40f285c9e26e2c80f2da3fb4c8bb`, and writes
+`ontology/imports/cdno-module.ttl`: the 62 CDNO classes the nutrient alignments target and all their
+superclasses, with the release's labels. The script's `OMITTED_SUBCLASS_AXIOMS` lists the release axioms
+the module leaves out, with their reasons, and the module records each in an `rdfs:comment`; the script
+fails if a listed axiom is no longer in the release. ChEBI targets are not pinned.
 
 ---
 

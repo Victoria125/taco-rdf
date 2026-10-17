@@ -90,7 +90,8 @@ def _candidate_fields(graph: Graph, matches: list[Alignment]) -> Row:
         "candidate_iri": " | ".join(a.target_iri for a in matches),
         "candidate_label": " | ".join(a.target_label for a in matches),
         "candidate_note": " | ".join(a.note for a in matches),
-        "candidate_obstacle": " | ".join(foodon_typing_obstacle(graph, URIRef(a.target_iri)) for a in matches),
+        "candidate_obstacle": " | ".join(foodon_typing_obstacle(graph, URIRef(a.target_iri))
+                                         for a in matches),
     }
 
 
@@ -132,7 +133,8 @@ def report(table: Table, typed: list[Row], gaps: list[Row]) -> str:
         "- `data/foodon_typing_gaps.csv`: every food without a type, with historical candidate evidence.",
         "  Multiple candidates, if present, use ` | ` in corresponding candidate columns.",
         "  `candidate_obstacle` gives why the FoodOn module cannot back each candidate as a type",
-        "  (`foodon_axiom_conflict`, `organism_class`, `missing_class`, `deprecated_class`), or is empty.", "",
+        "  (`foodon_axiom_conflict`, `organism_class`, `missing_class`, `deprecated_class`), or is empty.",
+        "",
         "The build checks class availability, organism ancestry and consistency with scored reviews before",
         "the audit runs. Historical food SKOS candidates are not counted as published mappings and are",
         "not automatically converted to `rdf:type`. Group and nutrient mappings are outside this report.", "",

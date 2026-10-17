@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+from collections import defaultdict
 from dataclasses import asdict, dataclass
 from decimal import Decimal
 from pathlib import Path
@@ -14,6 +15,7 @@ from . import metadata as meta
 from .groups import GROUP_LABELS_EN
 from .namespaces import (
     ALIGNMENTS_CSV,
+    CDNO_MODULE_TTL,
     DCAT,
     DCTERMS,
     FIO,
@@ -84,6 +86,15 @@ def load_alignments(path: Path = ALIGNMENTS_CSV) -> list[Alignment]:
         return [Alignment(**row) for row in csv.DictReader(fh)]
 
 
+def is_foodon_food_link(a: Alignment) -> bool:
+    """A food's link to a FoodOn class: the mapping that review rounds judge.
+
+    A food may also link to items of other datasets (a NEVO code, say); those links are outside
+    the FoodOn review, so they neither take part in it nor carry its review status.
+    """
+    return a.source_type == "food" and a.target_iri.startswith(_FOODON)
+
+
 def is_published_alignment(a: Alignment) -> bool:
     """A food is linked to FoodOn only by class membership, as NICE-Food types its food items.
 
@@ -92,7 +103,7 @@ def is_published_alignment(a: Alignment) -> bool:
     food to another dataset's item (NICE-Food links LCA items to NEVO codes with
     skos:closeMatch) and the group and nutrient SKOS mappings are published.
     """
-    return a.source_type != "food" or a.predicate == "type" or not a.target_iri.startswith(_FOODON)
+    return not is_foodon_food_link(a) or a.predicate == "type"
 
 
 def cdno_measurement_types(alignments: list[Alignment]) -> dict[str, URIRef]:
@@ -253,6 +264,7 @@ def build_graph(
     if include_ontology:
         g.parse(ONTOLOGY_TTL, format="turtle")
         g.parse(FOODON_MODULE_TTL, format="turtle")
+        g.parse(CDNO_MODULE_TTL, format="turtle")
     if include_policy:
         g.parse(POLICY_TTL, format="turtle")
 
@@ -454,14 +466,20 @@ def _add_measurements(g: Graph, table: Table, cdno_types: dict[str, URIRef]) -> 
 
 
 def _check_reviews(alignments: list[Alignment], reviewed: dict[int, ReviewedMapping], table: Table) -> None:
-    """Refuse to build while a food's mapping differs from the one its latest review arrived at."""
-    current = {int(a.source_key): (a.predicate, a.target_iri) for a in alignments if a.source_type == "food"}
+    """Refuse to build while a food's FoodOn mapping differs from the one its latest review arrived at.
+
+    Only FoodOn links are compared; a food's links to other datasets' items are left alone.
+    """
+    current: dict[int, set[tuple[str, str]]] = defaultdict(set)
+    for a in alignments:
+        if is_foodon_food_link(a):
+            current[int(a.source_key)].add((a.predicate, a.target_iri))
     stale = []
     for food, review in sorted(reviewed.items()):
         if food not in table.foods:
             raise ValueError(f"{review.round.name} reviewed unknown food {food}")
-        expected = (review.predicate, review.target_iri) if review.target_iri else None
-        if current.get(food) != expected:
+        expected = {(review.predicate, review.target_iri)} if review.target_iri else set()
+        if current.get(food, set()) != expected:
             stale.append(f"{food} ({review.round.name})")
     if stale:
         raise ValueError("alignments.csv differs from the reviewed mapping of foods " + ", ".join(stale)
@@ -492,7 +510,7 @@ def _add_alignment_set(g: Graph, alignments: list[Alignment],
     """Checksum every curation input, while counting only published assertions as mappings."""
     rows = sorted(json.dumps(asdict(a), sort_keys=True, ensure_ascii=False) for a in alignments)
     published = [a for a in alignments if is_published_alignment(a)]
-    confirmed = sum(1 for a in published if a.source_type == "food" and int(a.source_key) in reviewed)
+    confirmed = sum(1 for a in published if is_foodon_food_link(a) and int(a.source_key) in reviewed)
     source = ID["alignment-set"]
     g.add((source, RDF.type, PROV.Entity))
     g.add((source, DCTERMS.title, Literal(
@@ -548,7 +566,7 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
     _check_reviews(alignments, reviewed, table)
     rounds = _add_review_rounds(g, reviewed)
     source = _add_alignment_set(g, alignments, reviewed)
-    foodon = None
+    modules: dict[Path, Graph] = {}
     for a in alignments:
         subject = _alignment_subject(a, table)
         if a.predicate not in _MATCH:
@@ -556,9 +574,7 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
         if not is_published_alignment(a):
             continue
         target = URIRef(a.target_iri)
-        if a.predicate == "type":
-            foodon = foodon if foodon is not None else Graph().parse(FOODON_MODULE_TTL, format="turtle")
-            _check_food_typing(foodon, a, target)
+        _check_target(a, target, modules)
         g.add((subject, _MATCH[a.predicate], target))
         g.add((target, RDFS.label, Literal(a.target_label, lang="en")))
         identity = "\n".join((str(subject), str(_MATCH[a.predicate]), str(target)))
@@ -572,10 +588,31 @@ def _add_alignments(g: Graph, alignments: list[Alignment], table: Table,
         g.add((record, RDF.object, target))
         g.add((record, PROV.wasDerivedFrom, source))
         g.add((record, TACO.targetOntology, Literal(a.target_ontology)))
-        review = reviewed.get(int(a.source_key)) if a.source_type == "food" else None
+        review = reviewed.get(int(a.source_key)) if is_foodon_food_link(a) else None
         _add_review_status(g, record, review, rounds)
         if a.note:
             g.add((record, SKOS.editorialNote, Literal(a.note, lang="en")))
+
+
+def _check_target(a: Alignment, target: URIRef, modules: dict[Path, Graph]) -> None:
+    """Check a published target against the pinned module it must come from, parsing each module once."""
+    def module(path: Path) -> Graph:
+        if path not in modules:
+            modules[path] = Graph().parse(path, format="turtle")
+        return modules[path]
+
+    if a.predicate == "type":
+        _check_food_typing(module(FOODON_MODULE_TTL), a, target)
+    if a.target_iri.startswith(_CDNO):
+        _check_cdno_class(module(CDNO_MODULE_TTL), a, target)
+
+
+def _check_cdno_class(cdno: Graph, a: Alignment, target: URIRef) -> None:
+    """Refuse a CDNO target the pinned module lacks: it would type measurements with an unchecked class."""
+    if (target, RDF.type, OWL.Class) not in cdno or (target, RDFS.label, None) not in cdno:
+        where = f"{a.source_type} {a.source_key} {a.predicate} {target}"
+        raise ValueError(f"CDNO class missing from {CDNO_MODULE_TTL.name}; re-run "
+                         f"scripts/extract_cdno_module.py: {where}")
 
 
 def foodon_typing_obstacle(foodon: Graph, target: URIRef) -> str:

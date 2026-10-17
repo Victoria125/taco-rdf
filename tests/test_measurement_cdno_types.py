@@ -48,7 +48,8 @@ def test_nice_food_style_query_reads_values_by_cdno_class(graph, table):
         PREFIX qudt: <http://qudt.org/schema/qudt/>
         PREFIX taco: <https://w3id.org/taco-rdf/vocab#>
         SELECT ?food ?value WHERE {
-            ?m a <http://purl.obolibrary.org/obo/CDNO_0200040> ; taco:ofFood ?food ; qudt:numericValue ?value .
+            ?m a <http://purl.obolibrary.org/obo/CDNO_0200040> ; taco:ofFood ?food ;
+               qudt:numericValue ?value .
         }""")
     measured = [o for o in table.observations if o.nutrient == "protein" and o.value is not None]
     assert len(rows) == len(measured)

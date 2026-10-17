@@ -9,6 +9,7 @@ from collections import Counter
 import pytest
 
 from taco_rdf import evaluation as ev
+from taco_rdf.graph import Alignment
 from taco_rdf.namespaces import ROOT
 
 PROBLEM_CASES = ROOT / "data" / "alignment" / "review" / "problem_cases.csv"
@@ -51,6 +52,16 @@ def test_the_sample_is_reproducible(table, alignments, items):
     other = ev.review_items(table, alignments, {}, seed="another seed", per_stratum=2)
     assert {i.food_number for i in other if i.part == "sample"} != {
         i.food_number for i in items if i.part == "sample"}
+
+
+def test_the_review_judges_only_foodon_links(table, alignments):
+    nevo = Alignment("food", "1", "closeMatch", "https://data.rivm.nl/data/nvip/bigfood/nevo21/nevocode#1",
+                     "example NEVO item", "NEVO", "")
+    assert ev.links_by_food(table, [*alignments, nevo]) == ev.links_by_food(table, alignments)
+    second = Alignment("food", "1", "closeMatch", "http://purl.obolibrary.org/obo/FOODON_00004677",
+                       "white rice (cooked)", "FoodOn", "")
+    with pytest.raises(ValueError, match="at most one mapping per known food: 1"):
+        ev.links_by_food(table, [*alignments, second])
 
 
 def test_cohen_kappa_on_a_small_example():
