@@ -26,7 +26,7 @@ The project combines:
 >
 > TACO-RDF is an active research project. The transformation and structural validation of the original TACO data are extensively tested. External ontology mappings are being progressively evaluated and should not be interpreted as a manually validated gold standard unless explicitly marked as reviewed.
 >
-> Mapping review status: the first review round (`data/alignment/review/round-1`) contains Reviewer A's answers; Reviewer B and adjudication remain pending. Until it is scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
+> Mapping review status: both forms of the first review round (`data/alignment/review/round-1`, 141 foods) are complete. Before adjudication the reviewers agreed on 30% of the foods (Cohen's kappa 0.18); the 98 disagreements in `adjudication.csv` await adjudication. Until the round is adjudicated, scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
 
 The [FoodOn typing policy](docs/foodon-typing.md) uses `rdf:type` for published food-to-FoodOn links. Historical SKOS candidates remain in the review inputs, but are not published as food mappings. Run `python scripts/audit_foodon_typing.py` to reproduce the [published-type coverage and unresolved foods](analysis/foodon_typing.md).
 
@@ -1261,6 +1261,34 @@ Available queries can be inspected under:
 ```text
 queries/
 ```
+
+## Comparing TACO with NEVO
+
+NICE-Food types each NEVO food with its FoodOn class and each nutritional value with its CDNO class, as this
+graph does for TACO foods and measurements. [`queries/nevo/taco_nevo_same_foodon_class.rq`](queries/nevo/taco_nevo_same_foodon_class.rq)
+lists TACO and NEVO foods typed with the same FoodOn class and compares their values for the same CDNO class
+in the same unit. It needs the NEVO subgraphs of NICE-Food, which are not in this repository:
+
+```bash
+python scripts/fetch_nice_food.py      # NICE-Food v3 from Zenodo, MD5-checked, into data/external/ (ignored by git)
+python scripts/compare_taco_nevo.py --bind "class=<http://purl.obolibrary.org/obo/CDNO_0200040>"   # protein, ~2 min
+python scripts/compare_taco_nevo.py   # every CDNO class TACO uses, one query per class, ~15 min
+```
+
+The script writes every matched value to `build/nevo/` and prints aggregates per nutrient: pairs, Spearman correlation, median TACO minus NEVO difference, the share within 20% and the share within the EU tolerance for declared nutrient values (European Commission guidance, December 2012), with TACO's value as the declared one: ±2 g, ±20% or ±8 g for protein, available carbohydrate and fibre by amount, −35% to +45% for minerals and −35% to +50% for vitamins. Water, ash, cholesterol and single fatty acids have none.
+
+A shared CDNO class makes two values comparable only if both datasets type them with the class of their own
+definition. Of the 34 TACO and NEVO nutrients that share a CDNO class, one pair does not: NICE-Food types NEVO's
+*available* carbohydrate with CDNO's general carbohydrate class (`CDNO_0200005`), the class of TACO's
+carbohydrate, which is total carbohydrate by difference and includes dietary fibre (TACO keeps it off
+`CDNO_0200033`, available carbohydrate, for that reason). The same-class query leaves NEVO's available
+carbohydrate out, and [`queries/nevo/taco_nevo_available_carbohydrate.rq`](queries/nevo/taco_nevo_available_carbohydrate.rq)
+compares it with TACO's carbohydrate minus dietary fibre, available carbohydrate by difference; NEVO's value is
+used unchanged. TACO's moisture, in percent of the food's mass, is compared with NEVO's water in g per 100 g.
+NEVO's monounsaturated fatty acids are the cis isomers only. NEVO's conditions of use
+allow its data only unchanged and with source and version (see [data/SOURCES.md](data/SOURCES.md)), so do not
+commit the matched values. Only identical FoodOn classes match, and the TACO graph is still unreviewed, so
+the pairs show where the two tables can be compared, not that the foods are the same.
 
 ---
 

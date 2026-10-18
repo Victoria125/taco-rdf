@@ -1,0 +1,62 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX nutrient: <https://w3id.org/taco-rdf/id/nutrient/>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX unit:    <http://qudt.org/vocab/unit/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+# Run over the TACO graph together with the NEVO subgraphs of NICE-Food (scripts/compare_taco_nevo.py).
+# Available carbohydrate of TACO and NEVO foods typed with the same FoodOn class. TACO reports total
+# carbohydrate by difference, which includes dietary fibre; NEVO reports available carbohydrate. TACO's
+# value here is its carbohydrate minus its dietary fibre, available carbohydrate by difference, so both
+# sides are available carbohydrate; NEVO's value is used unchanged. The methods still differ: NEVO's need
+# not be by difference. Foods without a measured value of both carbohydrate and fibre are left out.
+# Bind ?foodon to one FoodOn class. Blocks are separate groups for rdflib, as in taco_nevo_same_foodon_class.rq.
+SELECT DISTINCT ?foodon ?foodon_label ?taco_food ?taco_name ?taco_carbohydrate ?taco_fibre ?taco_value
+       ?nevo_food ?nevo_name ?nevo_value ?unit
+WHERE {
+  {
+    ?tf a taco:Food , ?foodon ;
+        taco:foodNumber ?taco_food ;
+        rdfs:label ?taco_name .
+    FILTER (STRSTARTS(STR(?foodon), "http://purl.obolibrary.org/obo/FOODON_") && LANG(?taco_name) = "pt")
+  }
+  {
+    ?nevo_food a ?foodon , fio:FoodItem ;
+        skos:prefLabel ?nevo_name .
+    FILTER (LANG(?nevo_name) = "en")
+    FILTER NOT EXISTS { ?nevo_food a taco:Food }
+  }
+  # Nutrients and units are bound through variables and FILTERs: given as constants, rdflib would start from
+  # them, that is from every TACO measurement in grams or every NEVO value in g per 100 g.
+  {
+    ?mc taco:ofFood ?tf ;
+        taco:ofNutrient ?cn ;
+        qudt:numericValue ?taco_carbohydrate ;
+        qudt:unit ?cu .
+    FILTER (?cn = nutrient:carbohydrate && ?cu = unit:GM)
+  }
+  {
+    ?mf taco:ofFood ?tf ;
+        taco:ofNutrient ?fn ;
+        qudt:numericValue ?taco_fibre ;
+        qudt:unit ?fu .
+    FILTER (?fn = nutrient:dietary_fiber && ?fu = unit:GM)
+  }
+  BIND (?taco_carbohydrate - ?taco_fibre AS ?taco_value)
+  {
+    ?nevo_food fio:hasNutritionalValue ?nv .
+    ?nv fio:hasNutrient ?nn ;
+        om:hasValue ?v .
+    FILTER (?nn = nevonut:CHO)
+    ?v om:hasNumericalValue ?nevo_value ;
+       om:hasUnit ?nu .
+    FILTER (?nu = om:gramPerHectogram)
+  }
+  BIND ("g" AS ?unit)
+  OPTIONAL { ?foodon rdfs:label ?foodon_label }
+}
+ORDER BY ?foodon ?taco_food ?nevo_food

@@ -1,0 +1,75 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX unit:    <http://qudt.org/vocab/unit/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+# Run over the TACO graph together with the NEVO subgraphs of NICE-Food (scripts/compare_taco_nevo.py).
+# TACO and NEVO foods typed with the same FoodOn class, with their values for measurements typed with the
+# same CDNO class in the same unit. TACO gives values per 100 g of edible portion, NEVO per 100 g.
+# Bind ?class to one CDNO class, e.g. <http://purl.obolibrary.org/obo/CDNO_0200040> (concentration of
+# protein in material entity), or ?foodon to one FoodOn class. Only identical FoodOn classes match: a TACO
+# food whose class is a subclass of a NEVO food's class is not listed.
+#
+# A shared CDNO class is not enough when NICE-Food types a value with a more general class than its
+# definition: NEVO's available carbohydrate (nevonut:CHO) has CDNO's carbohydrate class, as TACO's total
+# carbohydrate by difference does, and the two differ by dietary fibre. It is left out here and compared
+# with TACO's carbohydrate minus dietary fibre in taco_nevo_available_carbohydrate.rq.
+#
+# Each block is a separate group so that rdflib evaluates them in this order, binding the variables the
+# next block needs; in one block it would pair every measurement with every other of the same class.
+# DISTINCT: NICE-Food gives each NEVO food two nutritional values of total protein with the same value.
+SELECT DISTINCT ?foodon ?foodon_label ?class ?cdno_label ?taco_food ?taco_name ?taco_nutrient ?taco_value
+       ?nevo_food ?nevo_name ?nevo_nutrient ?nevo_value ?unit
+WHERE {
+  {
+    ?tf a taco:Food , ?foodon ;
+        taco:foodNumber ?taco_food ;
+        rdfs:label ?taco_name .
+    FILTER (STRSTARTS(STR(?foodon), "http://purl.obolibrary.org/obo/FOODON_") && LANG(?taco_name) = "pt")
+  }
+  {
+    ?nevo_food a ?foodon , fio:FoodItem ;
+        skos:prefLabel ?nevo_name .
+    FILTER (LANG(?nevo_name) = "en")
+    FILTER NOT EXISTS { ?nevo_food a taco:Food }
+  }
+  {
+    ?m taco:ofFood ?tf ;
+       a taco:NutrientMeasurement , ?class ;
+       taco:ofNutrient ?tn ;
+       qudt:numericValue ?taco_value ;
+       qudt:unit ?taco_unit .
+    FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/CDNO_"))
+    ?tn skos:prefLabel ?taco_nutrient .
+    FILTER (LANG(?taco_nutrient) = "en")
+  }
+  # TACO's moisture is in percent of the food's mass, that is g per 100 g. NEVO gives micrograms as a
+  # string only, with no OM unit.
+  VALUES (?taco_unit ?nevo_unit ?unit) {
+    (unit:GM      om:gramPerHectogram         "g")
+    (unit:PERCENT om:gramPerHectogram         "g")
+    (unit:MilliGM om:milligramPerHectogram    "mg")
+    (unit:MicroGM "µg"^^xsd:string            "µg")
+    (unit:KiloCAL om:kilocaloriePerHectogram  "kcal")
+    (unit:KiloJ   om:kilojoulePerHectogram    "kJ")
+  }
+  {
+    ?nevo_food fio:hasNutritionalValue ?nv .
+    ?nv a ?class ;
+        fio:hasNutrient ?nn ;
+        om:hasValue ?v .
+    FILTER (?nn != nevonut:CHO)
+    ?nn rdfs:label ?nevo_nutrient .
+    FILTER (LANG(?nevo_nutrient) = "en")
+    ?v om:hasNumericalValue ?nevo_value ;
+       om:hasUnit ?nevo_unit .
+  }
+  OPTIONAL { ?foodon rdfs:label ?foodon_label }
+  OPTIONAL { ?class rdfs:label ?cdno_label }
+}
+ORDER BY ?foodon ?class ?taco_food ?nevo_food
