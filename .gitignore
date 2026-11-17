@@ -5,3 +5,5 @@ __pycache__/
 build/
 .audit/
 data/external/
+.hypothesis/
+docs/taco-in-nice-food/files/knowledge-graph/

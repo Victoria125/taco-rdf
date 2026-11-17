@@ -1,5 +1,6 @@
 PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
 PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
 PREFIX nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#>
 PREFIX qudt:    <http://qudt.org/schema/qudt/>
@@ -23,6 +24,8 @@ PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
 # Each block is a separate group so that rdflib evaluates them in this order, binding the variables the
 # next block needs; in one block it would pair every measurement with every other of the same class.
 # DISTINCT: NICE-Food gives each NEVO food two nutritional values of total protein with the same value.
+# A NEVO food is a food item NICE-Food marks as a version of NEVO (dcterms:isVersionOf), so that the food
+# items of other tables in the same store, such as TBCA's, are not taken for NEVO's.
 SELECT DISTINCT ?foodon ?foodon_label ?class ?cdno_label ?taco_food ?taco_name ?taco_nutrient ?taco_value
        ?nevo_food ?nevo_name ?nevo_nutrient ?nevo_value ?unit
 WHERE {
@@ -36,7 +39,7 @@ WHERE {
     ?nevo_food a ?foodon , fio:FoodItem ;
         skos:prefLabel ?nevo_name .
     FILTER (LANG(?nevo_name) = "en")
-    FILTER NOT EXISTS { ?nevo_food a taco:Food }
+    ?nevo_food dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
   }
   {
     ?m taco:ofFood ?tf ;
@@ -69,7 +72,11 @@ WHERE {
     ?v om:hasNumericalValue ?nevo_value ;
        om:hasUnit ?nevo_unit .
   }
-  OPTIONAL { ?foodon rdfs:label ?foodon_label }
-  OPTIONAL { ?class rdfs:label ?cdno_label }
+  # Labels as plain strings: with the FoodOn release loaded, a class can have the same label twice, in
+  # English from TACO's ontology modules and without a language from the release.
+  OPTIONAL { ?foodon rdfs:label ?foodon_label_literal }
+  OPTIONAL { ?class rdfs:label ?cdno_label_literal }
+  BIND (STR(?foodon_label_literal) AS ?foodon_label)
+  BIND (STR(?cdno_label_literal) AS ?cdno_label)
 }
 ORDER BY ?foodon ?class ?taco_food ?nevo_food

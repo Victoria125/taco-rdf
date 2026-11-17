@@ -1,6 +1,7 @@
 PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
 PREFIX nutrient: <https://w3id.org/taco-rdf/id/nutrient/>
 PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
 PREFIX nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#>
 PREFIX qudt:    <http://qudt.org/schema/qudt/>
@@ -28,7 +29,7 @@ WHERE {
     ?nevo_food a ?foodon , fio:FoodItem ;
         skos:prefLabel ?nevo_name .
     FILTER (LANG(?nevo_name) = "en")
-    FILTER NOT EXISTS { ?nevo_food a taco:Food }
+    ?nevo_food dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
   }
   # Nutrients and units are bound through variables and FILTERs: given as constants, rdflib would start from
   # them, that is from every TACO measurement in grams or every NEVO value in g per 100 g.
@@ -57,6 +58,8 @@ WHERE {
     FILTER (?nu = om:gramPerHectogram)
   }
   BIND ("g" AS ?unit)
-  OPTIONAL { ?foodon rdfs:label ?foodon_label }
+  # The label as a plain string, as in taco_nevo_same_foodon_class.rq.
+  OPTIONAL { ?foodon rdfs:label ?foodon_label_literal }
+  BIND (STR(?foodon_label_literal) AS ?foodon_label)
 }
 ORDER BY ?foodon ?taco_food ?nevo_food

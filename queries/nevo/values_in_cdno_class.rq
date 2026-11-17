@@ -1,0 +1,36 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX unit:    <http://qudt.org/vocab/unit/>
+
+# Run over the TACO graph together with the NEVO subgraphs of NICE-Food, e.g. in Fuseki. Every TACO and NEVO
+# value typed with one CDNO class, in g per 100 g: TACO's grams and percent, NEVO's om:gramPerHectogram. Bind
+# ?class to the CDNO class. A TACO food is its food number, a NEVO food its IRI, as in the pair queries.
+# DISTINCT: NICE-Food gives each NEVO food two values of total protein with the same value.
+SELECT DISTINCT ?dataset ?food ?value
+WHERE {
+  {
+    ?f a taco:Food ;
+       taco:foodNumber ?food .
+    ?m taco:ofFood ?f ;
+       a ?class ;
+       qudt:numericValue ?value ;
+       qudt:unit ?unit .
+    FILTER (?unit IN (unit:GM, unit:PERCENT))
+    BIND ("TACO" AS ?dataset)
+  }
+  UNION
+  {
+    ?food a fio:FoodItem ;
+          fio:hasNutritionalValue ?nv .
+    ?food dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+    ?nv a ?class ;
+        om:hasValue ?v .
+    ?v om:hasNumericalValue ?value ;
+       om:hasUnit ?unit .
+    FILTER (?unit = om:gramPerHectogram)
+    BIND ("NEVO" AS ?dataset)
+  }
+}

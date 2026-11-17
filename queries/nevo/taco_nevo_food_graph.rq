@@ -1,0 +1,83 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+# Run over the TACO graph together with the NEVO subgraphs of NICE-Food, e.g. in Fuseki
+# (triplestore/README.md). The edges of the subgraph around one FoodOn class, for drawing it: the TACO and
+# NEVO foods typed with the class, the class's direct FoodOn superclasses, and the foods' values typed with
+# one CDNO class, which link to that class. Bind ?foodon to the FoodOn class and ?class to the CDNO class.
+# A value's node is a string of its food, CDNO class and number, so NEVO's repeated nutritional values of one
+# food (NICE-Food gives each NEVO food two values of total protein) become one node.
+SELECT DISTINCT ?s (COALESCE(?s_label, STR(?s_class_label), STR(?s)) AS ?source_label) ?s_kind ?p
+       ?o (COALESCE(?o_label, STR(?o_class_label), STR(?o)) AS ?target_label) ?o_kind
+WHERE {
+  {
+    ?s a taco:Food , ?foodon ;
+       taco:foodNumber ?number ;
+       rdfs:label ?name .
+    FILTER (LANG(?name) = "pt")
+    BIND (CONCAT("TACO ", STR(?number), ": ", ?name) AS ?s_label)
+    BIND ("TACO food" AS ?s_kind)
+    BIND ("rdf:type" AS ?p)
+    BIND (?foodon AS ?o)
+    BIND ("FoodOn class" AS ?o_kind)
+  }
+  UNION
+  {
+    ?s a ?foodon , fio:FoodItem ;
+       skos:prefLabel ?name .
+    FILTER (LANG(?name) = "en")
+    ?s dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+    BIND (CONCAT("NEVO: ", ?name) AS ?s_label)
+    BIND ("NEVO food" AS ?s_kind)
+    BIND ("rdf:type" AS ?p)
+    BIND (?foodon AS ?o)
+    BIND ("FoodOn class" AS ?o_kind)
+  }
+  UNION
+  {
+    ?foodon rdfs:subClassOf ?o .
+    FILTER (isIRI(?o) && STRSTARTS(STR(?o), "http://purl.obolibrary.org/obo/FOODON_"))
+    BIND (?foodon AS ?s)
+    BIND ("FoodOn class" AS ?s_kind)
+    BIND ("rdfs:subClassOf" AS ?p)
+    BIND ("FoodOn class" AS ?o_kind)
+  }
+  UNION
+  {
+    { ?s a taco:Food , ?foodon . ?m taco:ofFood ?s ; a ?class ; qudt:numericValue ?value . BIND ("TACO food" AS ?s_kind) }
+    UNION
+    {
+      ?s a ?foodon , fio:FoodItem ; fio:hasNutritionalValue ?nv .
+      ?s dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+      ?nv a ?class ; om:hasValue/om:hasNumericalValue ?value .
+      BIND ("NEVO food" AS ?s_kind)
+    }
+    BIND (CONCAT(STR(?s), " ", STR(?class), " ", STR(?value)) AS ?o)
+    BIND (STR(?value) AS ?o_label)
+    BIND ("value" AS ?o_kind)
+    BIND ("has value" AS ?p)
+  }
+  UNION
+  {
+    { ?f a taco:Food , ?foodon . ?m taco:ofFood ?f ; a ?class ; qudt:numericValue ?value . }
+    UNION
+    {
+      ?f a ?foodon , fio:FoodItem ; fio:hasNutritionalValue ?nv .
+      ?f dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+      ?nv a ?class ; om:hasValue/om:hasNumericalValue ?value .
+    }
+    BIND (CONCAT(STR(?f), " ", STR(?class), " ", STR(?value)) AS ?s)
+    BIND (STR(?value) AS ?s_label)
+    BIND ("value" AS ?s_kind)
+    BIND ("rdf:type" AS ?p)
+    BIND (?class AS ?o)
+    BIND ("CDNO class" AS ?o_kind)
+  }
+  OPTIONAL { ?s rdfs:label ?s_class_label . FILTER (?s_kind = "FoodOn class") }
+  OPTIONAL { ?o rdfs:label ?o_class_label . FILTER (?o_kind IN ("FoodOn class", "CDNO class")) }
+}

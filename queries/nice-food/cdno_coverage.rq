@@ -1,0 +1,22 @@
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX obo:     <http://purl.obolibrary.org/obo/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+
+# What a query that chooses values by CDNO class, as protein_groups_cdno.rq does, finds in each table: for
+# five CDNO classes, the foods of NEVO and of TACO with a value of that class, and the nutrient codes behind
+# them. Run over the nicefood dataset.
+SELECT ?cdno (SAMPLE(STR(?label)) AS ?cdno_label) ?table
+       (GROUP_CONCAT(DISTINCT ?nutrient; separator=", ") AS ?nutrients) (COUNT(DISTINCT ?food) AS ?foods)
+WHERE {
+  VALUES ?cdno { obo:CDNO_0200040 obo:CDNO_0200068 obo:CDNO_0200005 obo:CDNO_0200033 obo:CDNO_0200065 }
+  ?food dcterms:isVersionOf ?source ;
+      fio:hasNutritionalValue ?value .
+  ?value a ?cdno ;
+      fio:hasNutrient ?n .
+  OPTIONAL { ?cdno rdfs:label ?label }
+  BIND (IF(CONTAINS(STR(?source), "rivm"), "NEVO", "TACO") AS ?table)
+  BIND (REPLACE(STR(?n), "^.*[#/]", "") AS ?nutrient)
+}
+GROUP BY ?cdno ?table
+ORDER BY ?cdno ?table

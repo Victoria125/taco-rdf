@@ -1272,10 +1272,20 @@ in the same unit. It needs the NEVO subgraphs of NICE-Food, which are not in thi
 ```bash
 python scripts/fetch_nice_food.py      # NICE-Food v3 from Zenodo, MD5-checked, into data/external/ (ignored by git)
 python scripts/compare_taco_nevo.py --bind "class=<http://purl.obolibrary.org/obo/CDNO_0200040>"   # protein, ~2 min
-python scripts/compare_taco_nevo.py   # every CDNO class TACO uses, one query per class, ~15 min
+python scripts/compare_taco_nevo.py --report analysis/taco_nevo_comparison.md   # every CDNO class TACO uses, ~15 min
+python scripts/compare_taco_nevo.py --pairs build/nevo/taco_nevo_same_foodon_class.csv   # summarize an earlier run
 ```
 
-The script writes every matched value to `build/nevo/` and prints aggregates per nutrient: pairs, Spearman correlation, median TACO minus NEVO difference, the share within 20% and the share within the EU tolerance for declared nutrient values (European Commission guidance, December 2012), with TACO's value as the declared one: ±2 g, ±20% or ±8 g for protein, available carbohydrate and fibre by amount, −35% to +45% for minerals and −35% to +50% for vitamins. Water, ash, cholesterol and single fatty acids have none.
+The script writes every matched value to `build/nevo/` and prints aggregates by nutrient; `--report` writes
+them to [analysis/taco_nevo_comparison.md](analysis/taco_nevo_comparison.md), which is versioned and holds no
+NEVO value. Each TACO food counts once, against the median of the NEVO foods of its FoodOn class, because a
+broad class can pair one TACO food with many NEVO foods. The main readings are the number of foods, Spearman's
+rank correlation and the median and quartiles of the TACO/NEVO ratio. The shares within 20% and within the EU
+tolerance for nutrient values declared on a label (European Commission guidance, December 2012, with TACO's
+value as the declared one: ±2 g, ±20% or ±8 g for protein, available carbohydrate and fibre by amount, −35% to
++45% for minerals and −35% to +50% for vitamins) are exploratory only. Those tolerances were set to check a
+label against analyses of the same product, not to show that two food composition tables agree; they are wide
+for small amounts and do not exist for water, ash, cholesterol or single fatty acids.
 
 A shared CDNO class makes two values comparable only if both datasets type them with the class of their own
 definition. Of the 34 TACO and NEVO nutrients that share a CDNO class, one pair does not: NICE-Food types NEVO's
@@ -1289,6 +1299,40 @@ NEVO's monounsaturated fatty acids are the cis isomers only. NEVO's conditions o
 allow its data only unchanged and with source and version (see [data/SOURCES.md](data/SOURCES.md)), so do not
 commit the matched values. Only identical FoodOn classes match, and the TACO graph is still unreviewed, so
 the pairs show where the two tables can be compared, not that the foods are the same.
+
+The run of 2026-10-19 ([report](analysis/taco_nevo_comparison.md)) found 2294 value pairs between 87 TACO
+foods and 111 NEVO foods (115 food pairs) in 83 FoodOn classes and 33 CDNO classes. The pairs are uneven: one
+class, whole wheat bread, pairs one TACO food with 14 NEVO foods, hence the median per TACO food. Water
+(Spearman 0.97, median TACO/NEVO ratio 1.00), protein (0.94, 0.95), available carbohydrate (0.94, 0.97) and the
+fatty acid totals rank the foods alike and lie close, which suggests that the shared FoodOn and CDNO typing
+brings comparable foods and nutrients together. Several minerals are lower in TACO, with wide quartiles (iron
+0.70, sodium 0.68, calcium 0.75), and vitamins agree least: pyridoxine does not rank the foods alike (−0.10),
+riboflavin, vitamin C and niacin lie between 0.57 and 0.68. These are leads to check (the unreviewed FoodOn
+types, fortification, varieties, analytical methods), not evidence of which table is right. The EU tolerance
+shares show why they are exploratory only: 82% of the sodium values lie within the tolerance, but 17% lie
+within 20% of NEVO's.
+
+The same queries run in Apache Jena Fuseki, the triple store NICE-Food's analysis uses.
+[triplestore/README.md](triplestore/README.md) says how to start it and load the TACO graph and the NEVO
+subgraphs with `scripts/load_triplestore.py`; there the comparison of every CDNO class takes about 4 seconds
+instead of 15 minutes. [analysis/taco_nevo_triplestore.ipynb](analysis/taco_nevo_triplestore.ipynb) queries it
+through SPARQLWrapper, as NICE-Food's notebooks do: it draws the graph around a FoodOn class with networkx,
+and, with the pinned FoodOn release loaded, pairs foods whose classes are one step apart in FoodOn's
+hierarchy, which gives 54 more TACO foods a NEVO food (see the triplestore README for how well they compare).
+
+Two checks turn what the comparison found by hand into rules anyone can rerun. `scripts/check_food_pairs.py`
+flags the pairs of foods of one FoodOn class whose composition disagrees in three or more components (water,
+protein, available carbohydrate and fibre against the EU labelling tolerance, minerals by a factor of three):
+20 of the 115 food pairs, between 17 TACO foods, among them 5 of the 6 pairs judged by hand not to be the
+same food ([report](analysis/taco_nevo_food_pair_check.md)). `scripts/check_nice_food.py` validates NICE-Food's
+NEVO subgraph with Jena's SHACL engine against shapes for the NICE-Food pattern
+([shapes/nice-food/nevo-shapes.ttl](shapes/nice-food/nevo-shapes.ttl), which the TACO validation does not read)
+([report](analysis/nice_food_nevo_checks.md)): its 3,314 values of available carbohydrate have CDNO's general
+carbohydrate class; total fat, available carbohydrate, protein and fibre are given twice for every food;
+micrograms are a string without an OM unit; and NEVO's sodium code became `nan`. NICE-Food types 75 of NEVO's
+136 nutrients with a CDNO class. Most of the other 61 have no matching CDNO class (energy, animal and plant
+protein, haem iron, retinol and folate equivalents, minor and trans fatty acids), but total fat and tryptophan
+have one, the class TACO uses (`CDNO_0200068`, `CDNO_0200065`), so they never pair with TACO.
 
 ---
 

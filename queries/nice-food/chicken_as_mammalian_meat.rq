@@ -1,0 +1,14 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX obo:  <http://purl.obolibrary.org/obo/>
+
+# The path in FoodOn's hierarchy from chicken breast (cooked), TACO's class for its cooked chicken breast,
+# to mammalian meat food product, one of the groups of protein_groups.rq: each class and its superclass.
+SELECT ?class (STR(?class_label) AS ?label) ?superclass (STR(?superclass_label) AS ?superlabel)
+WHERE {
+  obo:FOODON_03311140 rdfs:subClassOf* ?class .
+  ?class rdfs:subClassOf ?superclass .
+  ?superclass rdfs:subClassOf* obo:FOODON_00001006 .
+  FILTER (isIRI(?superclass))
+  OPTIONAL { ?class rdfs:label ?class_label }
+  OPTIONAL { ?superclass rdfs:label ?superclass_label }
+}

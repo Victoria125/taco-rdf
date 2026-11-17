@@ -1,0 +1,42 @@
+component,unit,cdno,taco_nutrient,basis
+Umidade,g,CDNO_0200002,moisture,TACO's class for moisture
+Carboidrato total,g,CDNO_0200005,carbohydrate,"TACO's class for carbohydrate by difference, dietary fibre included"
+Carboidrato disponível,g,CDNO_0200033,,"CDNO's available carbohydrate; NEVO-online 2021 section 6.4 defines NEVO's carbohydrate the same way"
+Proteína,g,CDNO_0200040,protein,TACO's class for protein
+Lipídios,g,CDNO_0200068,lipids,TACO's class for total lipids
+Fibra alimentar,g,CDNO_0200035,dietary_fiber,TACO's class for dietary fibre
+Cinzas,g,CDNO_0200004,ash,TACO's class for ash
+Colesterol,mg,CDNO_0200123,cholesterol,TACO's class for cholesterol
+Ácidos graxos saturados,g,CDNO_0200458,sfa,TACO's class for saturated fatty acids
+Ácidos graxos monoinsaturados,g,CDNO_0200456,mufa,TACO's class for monounsaturated fatty acids
+Ácidos graxos poliinsaturados,g,CDNO_0200449,pufa,TACO's class for polyunsaturated fatty acids
+Cálcio,mg,CDNO_0200544,calcium,TACO's class for calcium
+Ferro,mg,CDNO_0200651,iron,TACO's class for iron
+Sódio,mg,CDNO_0200599,sodium,TACO's class for sodium
+Magnésio,mg,CDNO_0200570,magnesium,TACO's class for magnesium
+Fósforo,mg,CDNO_0200578,phosphorus,TACO's class for phosphorus
+Potássio,mg,CDNO_0200592,potassium,TACO's class for potassium
+Manganês,mg,CDNO_0200657,manganese,TACO's class for manganese
+Zinco,mg,CDNO_0200670,zinc,TACO's class for zinc
+Cobre,mg,CDNO_0200642,copper,TACO's class for copper
+Tiamina,mg,CDNO_0200184,thiamin,TACO's class for thiamin
+Riboflavina,mg,CDNO_0200185,riboflavin,TACO's class for riboflavin
+Niacina,mg,CDNO_0200186,niacin,"TACO's class for niacin (CDNO: nicotinic acid), as NICE-Food types NEVO's niacin"
+Vitamina B6,mg,CDNO_0200188,pyridoxine,"TACO's class for pyridoxine (CDNO: pyridoxine), as NICE-Food types NEVO's vitamin B6; TBCA's value may cover every vitamer"
+Vitamina C,mg,CDNO_0200192,vitamin_c,TACO's class for vitamin C
+Energia,kJ,,,no CDNO class for food energy is used in this project
+Energia,kcal,,,no CDNO class for food energy is used in this project
+Álcool,g,,,no CDNO class checked yet
+Ácidos graxos trans,g,,,"no CDNO class checked yet; TACO's trans fatty acid is one isomer, 18:1t"
+Selênio,mcg,,,no CDNO class checked yet
+Vitamina A (RE),mcg,,,TACO links retinol equivalents to CDNO only as relatedMatch
+Vitamina A (RAE),mcg,,,TACO links retinol activity equivalents to CDNO only as relatedMatch
+Vitamina D,mcg,,,no CDNO class checked yet
+Alfa-tocoferol (Vitamina E),mg,,,no CDNO class checked yet
+Vitamina B12,mcg,,,no CDNO class checked yet
+Equivalente de folato,mcg,,,no CDNO class checked yet
+Sal de adição,g,,,"TBCA's added salt, not a nutrient concentration"
+Açúcar de adição,g,,,"TBCA's added sugar, not a nutrient concentration"
+Gordura de adição,g,,,"TBCA's added fat, not a nutrient concentration"
+Proteína vegetal,g,,,no CDNO class checked yet
+Proteína animal,g,,,no CDNO class checked yet

@@ -1,0 +1,50 @@
+PREFIX nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#>
+PREFIX nevo: <http://www.foodvoc.org/resource/nevo#>
+PREFIX fobi: <http://purl.obolibrary.org/obo/FOBI>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX leda: <http://example.org/temporary_identifier/LEDA#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX fio: <http://www.foodvoc.org/resource/fio#>
+PREFIX om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX foodon: <http://purl.obolibrary.org/obo/FOODON>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT distinct ?grouplabel ?foodname ?nutrientclasslabel ?value ?unitlabel
+WHERE {
+     {
+        ?foodontype rdfs:subClassOf* foodon:_00001264 .
+        BIND("Legume food product" AS ?grouplabel)
+    }
+    UNION
+    {
+        ?foodontype rdfs:subClassOf* foodon:_00001248 .
+        BIND("Fish food product" AS ?grouplabel)
+    }
+    UNION
+    {
+        ?foodontype rdfs:subClassOf* foodon:_00001006 .
+        BIND("Mamallian meat food product" AS ?grouplabel)
+    }
+    UNION
+    {
+        ?foodontype rdfs:subClassOf* foodon:_00001057.
+        BIND("Plant fruit food product" AS ?grouplabel)
+    }
+    
+    ?food_item rdf:type fio:FoodItem . 
+    ?food_item rdf:type ?foodontype . 
+    ?food_item skos:prefLabel ?foodname . 
+    FILTER(LANG(?foodname) = "en") 
+    ?food_item fio:hasNutritionalValue ?nutvalue . 
+    ?nutvalue fio:hasNutrient nevonut:PROT .
+    ?nutvalue fio:hasNutrient ?nutclass . 
+    ?nutclass rdf:type ?nutclasstype  . 
+    ?nutclass rdfs:label ?nutrientclasslabel . 
+    FILTER(LANG(?nutrientclasslabel) = "en") 
+    ?nutvalue om:hasValue ?valuelink .    
+    ?valuelink om:hasNumericalValue ?value . 
+    ?valuelink om:hasUnit ?unitlabel . 
+    FILTER(isLiteral(?unitlabel))
+} ORDER BY DESC(?value)

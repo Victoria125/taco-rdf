@@ -1,0 +1,44 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+# Run in Fuseki over the TACO graph, the NEVO subgraphs of NICE-Food and the pinned FoodOn release
+# (scripts/load_triplestore.py --foodon). taco_nevo_same_foodon_class.rq pairs foods typed with the same
+# FoodOn class; this query pairs a TACO food and a NEVO food whose FoodOn classes are one step apart in
+# FoodOn's asserted hierarchy, so that one food is a more specific kind of the other:
+# - "NEVO more specific": the NEVO food's class is a direct subclass of the TACO food's class;
+# - "TACO more specific": the TACO food's class is a direct subclass of the NEVO food's class.
+# Foods that already share a class are left out. Classes that are siblings under a common superclass are not
+# paired: FoodOn's superclasses include facets such as food (raw), whose subclasses are unrelated foods.
+SELECT DISTINCT ?relation ?taco_food ?taco_name ?taco_class ?taco_class_label
+       ?nevo_food ?nevo_name ?nevo_class ?nevo_class_label
+WHERE {
+  {
+    ?tf a taco:Food , ?taco_class ;
+        taco:foodNumber ?taco_food ;
+        rdfs:label ?taco_name .
+    FILTER (STRSTARTS(STR(?taco_class), "http://purl.obolibrary.org/obo/FOODON_") && LANG(?taco_name) = "pt")
+  }
+  {
+    { ?nevo_class rdfs:subClassOf ?taco_class . BIND ("NEVO more specific" AS ?relation) }
+    UNION
+    { ?taco_class rdfs:subClassOf ?nevo_class . BIND ("TACO more specific" AS ?relation) }
+    FILTER (isIRI(?nevo_class) && STRSTARTS(STR(?nevo_class), "http://purl.obolibrary.org/obo/FOODON_"))
+  }
+  {
+    ?nevo_food a ?nevo_class , fio:FoodItem ;
+        skos:prefLabel ?nevo_name .
+    FILTER (LANG(?nevo_name) = "en")
+    ?nevo_food dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+  }
+  FILTER NOT EXISTS { ?tf a ?shared . ?nevo_food a ?shared .
+                      FILTER (STRSTARTS(STR(?shared), "http://purl.obolibrary.org/obo/FOODON_")) }
+  # Labels as plain strings: the release and TACO's FoodOn module can both label a class.
+  OPTIONAL { ?taco_class rdfs:label ?taco_class_label_literal }
+  OPTIONAL { ?nevo_class rdfs:label ?nevo_class_label_literal }
+  BIND (STR(?taco_class_label_literal) AS ?taco_class_label)
+  BIND (STR(?nevo_class_label_literal) AS ?nevo_class_label)
+}
+ORDER BY ?relation ?taco_food ?nevo_food

@@ -1,0 +1,16 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+# Run over the TACO graph together with the NEVO subgraphs of NICE-Food, e.g. in Fuseki. The pairs of a TACO
+# food and a NEVO food typed with the same FoodOn class, without their values, in the columns of
+# taco_nevo_related_foodon_class.rq so the two can be compared.
+SELECT DISTINCT ?relation ?taco_food ?nevo_food
+WHERE {
+  ?tf a taco:Food , ?foodon ;
+      taco:foodNumber ?taco_food .
+  FILTER (STRSTARTS(STR(?foodon), "http://purl.obolibrary.org/obo/FOODON_"))
+  ?nevo_food a ?foodon , fio:FoodItem .
+  ?nevo_food dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+  BIND ("same class" AS ?relation)
+}

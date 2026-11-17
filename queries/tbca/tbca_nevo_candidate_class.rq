@@ -1,0 +1,43 @@
+PREFIX tbca:    <https://w3id.org/taco-rdf/tbca#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+# Run in Fuseki over the NEVO subgraphs of NICE-Food and TBCA with its FoodOn candidates
+# (scripts/tbca_to_rdf.py --candidates, scripts/load_triplestore.py --tbca). Pairs a TBCA food and a NEVO food
+# whose FoodOn class is the TBCA food's unreviewed candidate and the NEVO food's type, and compares their values
+# typed with the same CDNO class in the same OM unit; both tables follow the NICE-Food pattern. The candidates
+# are not reviewed, so the pairs are provisional. NEVO's available carbohydrate (nevonut:CHO), which NICE-Food
+# types with CDNO's general carbohydrate class, is paired with TBCA's available carbohydrate (CDNO_0200033)
+# instead of TBCA's total carbohydrate. Bind ?class to one CDNO class for speed.
+SELECT DISTINCT ?foodon ?class ?tbca_food ?tbca_name ?tbca_value ?nevo_food ?nevo_name ?nevo_value ?unit
+WHERE {
+  ?tf tbca:foodOnCandidate ?foodon ;
+      dcterms:identifier ?tbca_food ;
+      skos:prefLabel ?tbca_name .
+  FILTER (LANG(?tbca_name) = "pt")
+  ?nevo_food a ?foodon , fio:FoodItem ;
+             dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> ;
+             skos:prefLabel ?nevo_name .
+  FILTER (LANG(?nevo_name) = "en")
+  ?tf fio:hasNutritionalValue ?tv .
+  ?tv a ?class ;
+      om:hasValue [ om:hasNumericalValue ?tbca_value ; om:hasUnit ?unit ] .
+  FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/CDNO_"))
+  ?nevo_food fio:hasNutritionalValue ?nv .
+  ?nv om:hasValue [ om:hasNumericalValue ?nevo_value ; om:hasUnit ?unit ] .
+  # Each branch binds the nutrient itself: a FILTER sees only the variables of its own group.
+  {
+    ?nv fio:hasNutrient ?nn ;
+        a ?class .
+    FILTER (?nn != nevonut:CHO && ?class != <http://purl.obolibrary.org/obo/CDNO_0200033>)
+  }
+  UNION
+  {
+    ?nv fio:hasNutrient ?nn .
+    FILTER (?nn = nevonut:CHO && ?class = <http://purl.obolibrary.org/obo/CDNO_0200033>)
+  }
+}
+ORDER BY ?foodon ?class ?tbca_food ?nevo_food

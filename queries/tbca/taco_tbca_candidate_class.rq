@@ -1,0 +1,42 @@
+PREFIX taco:    <https://w3id.org/taco-rdf/vocab#>
+PREFIX tbca:    <https://w3id.org/taco-rdf/tbca#>
+PREFIX fio:     <http://www.foodvoc.org/resource/fio#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX qudt:    <http://qudt.org/schema/qudt/>
+PREFIX unit:    <http://qudt.org/vocab/unit/>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+
+# Run in Fuseki over the TACO graph and TBCA with its FoodOn candidates (scripts/tbca_to_rdf.py --candidates,
+# scripts/load_triplestore.py --tbca). Pairs a TACO food typed with a FoodOn class and a TBCA food whose
+# unreviewed candidate is that class, and compares their values typed with the same CDNO class: two Brazilian
+# tables, one only analytical (TACO, 1999-2008), one compiled and updated (TBCA 7.3). TACO's values carry QUDT
+# units, TBCA's OM units, matched as in taco_nevo_same_foodon_class.rq. Both tables give total carbohydrate by
+# difference with CDNO's carbohydrate class. The TBCA candidates are not reviewed, so the pairs are provisional.
+# Bind ?class to one CDNO class for speed.
+SELECT DISTINCT ?foodon ?class ?taco_food ?taco_name ?taco_value ?tbca_food ?tbca_name ?tbca_value ?unit
+WHERE {
+  ?tf a taco:Food , ?foodon ;
+      taco:foodNumber ?taco_food ;
+      rdfs:label ?taco_name .
+  FILTER (STRSTARTS(STR(?foodon), "http://purl.obolibrary.org/obo/FOODON_") && LANG(?taco_name) = "pt")
+  ?bf tbca:foodOnCandidate ?foodon ;
+      dcterms:identifier ?tbca_food ;
+      skos:prefLabel ?tbca_name .
+  FILTER (LANG(?tbca_name) = "pt")
+  ?m taco:ofFood ?tf ;
+     a taco:NutrientMeasurement , ?class ;
+     qudt:numericValue ?taco_value ;
+     qudt:unit ?taco_unit .
+  FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/CDNO_"))
+  VALUES (?taco_unit ?tbca_unit ?unit) {
+    (unit:GM      om:gramPerHectogram       "g")
+    (unit:PERCENT om:gramPerHectogram       "g")
+    (unit:MilliGM om:milligramPerHectogram  "mg")
+  }
+  ?bf fio:hasNutritionalValue ?bv .
+  ?bv a ?class ;
+      om:hasValue [ om:hasNumericalValue ?tbca_value ; om:hasUnit ?tbca_unit ] .
+}
+ORDER BY ?foodon ?class ?taco_food ?tbca_food

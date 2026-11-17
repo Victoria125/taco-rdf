@@ -1,0 +1,68 @@
+taco_nutrient,nevo_code,note
+moisture,WATER,"NEVO: Water total; TACO's percent of the food's mass is g per 100 g"
+energy_kcal,ENERCC,"NEVO: Energy kcal; both tables calculate energy from the composition, and the conversion factors need not be the same"
+energy_kj,ENERCJ,"NEVO: Energy kJ; both tables calculate energy from the composition, and the conversion factors need not be the same"
+protein,PROT,NEVO: Protein total
+lipids,FAT,NEVO: Fat total
+cholesterol,CHORL,NEVO: Cholesterol
+carbohydrate,,"total carbohydrate by difference, dietary fibre included, which NEVO has no code for; the export also writes TACO's available carbohydrate, carbohydrate minus dietary fibre, as NEVO's CHO (Carbohydrate available)"
+dietary_fiber,FIBT,NEVO: Fibre dietary total
+ash,ASH,NEVO: Ash
+calcium,CA,NEVO: Calcium
+magnesium,MG,NEVO: Magnesium
+manganese,,NEVO has no manganese
+phosphorus,P,NEVO: Phosphorus
+iron,FE,NEVO: Iron total
+sodium,NA,"NEVO's code for sodium; NICE-Food v3 writes it as nevonut:nan, the code NA read as not-a-number"
+potassium,K,NEVO: Potassium
+copper,CU,NEVO: Copper
+zinc,ZN,NEVO: Zinc
+retinol,RETOL,NEVO: Retinol
+re,VITA_RE,NEVO: Retinol equivalents (RE)
+rae,VITA_RAE,NEVO: Retinol activity equivalents (RAE)
+thiamin,THIA,NEVO: Thiamin (Vit B1)
+riboflavin,RIBF,NEVO: Riboflavin (Vit B2)
+pyridoxine,VITB6,NEVO: Pyridoxin (Vit B6)
+niacin,NIA,NEVO: Niacin (Vit B3)
+vitamin_c,VITC,NEVO: Ascorbic acid (Vit C)
+sfa,FASAT,NEVO: Fatty acids saturated total
+mufa,,"TACO's are all monounsaturated fatty acids; NEVO's FAMSCIS are the cis ones only"
+pufa,FAPU,NEVO: Fatty acids total polyunsaturated total
+fa_12_0,F12:0,NEVO: C12:0
+fa_14_0,F14:0,NEVO: C14:0
+fa_14_1,,"TACO does not say whether its 14:1 is cis or trans; NEVO has C14:1 cis and C14:1 trans"
+fa_16_0,F16:0,NEVO: C16:0
+fa_16_1,,"TACO does not say whether its 16:1 is cis or trans; NEVO has C16:1 cis and C16:1 trans"
+fa_18_0,F18:0,NEVO: C18:0
+fa_18_1,,"TACO does not say whether its 18:1 is cis or trans; NEVO has C18:1 cis and C18:1 total trans"
+fa_18_1t,F18:1TRS,"NEVO: C18:1 total trans; TACO's 18:1 trans is every trans 18:1 isomer"
+fa_18_2_n6,F18:2CN6,NEVO: C18:2 n-6 (linoleic acid)
+fa_18_2t,,"TACO's are all trans 18:2 isomers; NEVO has C18:2 n-6 trans, cis trans and trans cis, but no total"
+fa_18_3_n3,F18:3CN3,NEVO: C18:3 n-3 cis (ALA)
+fa_20_0,F20:0,NEVO: C20:0
+fa_20_1,,"TACO does not say whether its 20:1 is cis or trans; NEVO has C20:1 cis and C20:1 trans"
+fa_20_4,,"TACO does not say the series of its 20:4; NEVO has C20:4 n-3 cis and C20:4 n-6 cis"
+fa_20_5,F20:5CN3,NEVO: C20:5 n-3 cis (EPA)
+fa_22_0,F22:0,NEVO: C22:0
+fa_22_5,,"TACO does not say the series of its 22:5; NEVO has C22:5 n-3 cis (DPA) and C22:5 n-6 cis"
+fa_22_6,F22:6CN3,NEVO: C22:6 n-3 cis (DHA)
+fa_24_0,F24:0,NEVO: C24:0
+alcohol,ALC,NEVO: Alcohol total
+tryptophan,TRP,"NEVO: Tryptophan; NEVO gives it in mg and TACO in g, and each measure states its unit"
+alanine,,NEVO has no alanine
+arginine,,NEVO has no arginine
+aspartic_acid,,NEVO has no aspartic acid
+cystine,,NEVO has no cystine
+glutamic_acid,,NEVO has no glutamic acid
+glycine,,NEVO has no glycine
+histidine,,NEVO has no histidine
+isoleucine,,NEVO has no isoleucine
+leucine,,NEVO has no leucine
+lysine,,NEVO has no lysine
+methionine,,NEVO has no methionine
+phenylalanine,,NEVO has no phenylalanine
+proline,,NEVO has no proline
+serine,,NEVO has no serine
+threonine,,NEVO has no threonine
+tyrosine,,NEVO has no tyrosine
+valine,,NEVO has no valine

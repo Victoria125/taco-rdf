@@ -1,0 +1,100 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix fio:     <http://www.foodvoc.org/resource/fio#> .
+@prefix om:      <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix obo:     <http://purl.obolibrary.org/obo/> .
+@prefix nevonut: <https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#> .
+@prefix nfqa:    <https://w3id.org/taco-rdf/shapes/nice-food#> .
+
+# Shapes for the NICE-Food pattern as NICE-Food's NEVO subgraph (Zenodo 10.5281/zenodo.18450818) uses it: a
+# food item typed with a FoodOn class, each nutritional value typed with a CDNO class, naming one nutrient and
+# one measure with a number and an OM unit. They turn what the TACO × NEVO comparison found by hand into
+# checks anyone can rerun (scripts/check_nice_food.py). They are not applied to the TACO graph:
+# src/taco_rdf/validate.py reads only the files directly in shapes/.
+
+nfqa: a owl:Ontology ;
+    rdfs:label "Checks of NICE-Food's NEVO subgraph" ;
+    sh:declare [ sh:prefix "fio" ; sh:namespace "http://www.foodvoc.org/resource/fio#"^^xsd:anyURI ] .
+
+nfqa:FoodItemShape a sh:NodeShape ;
+    sh:targetClass fio:FoodItem ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Info ;
+        sh:message "Food item without a FoodOn class" ;
+        sh:prefixes nfqa: ;
+        sh:select """
+            SELECT $this WHERE {
+              FILTER NOT EXISTS { $this a ?class . FILTER (STRSTARTS(STR(?class), "http://purl.obolibrary.org/obo/FOODON_")) }
+            }"""
+    ] ;
+    sh:sparql [
+        a sh:SPARQLConstraint ;
+        sh:severity sh:Warning ;
+        sh:message "Two nutritional values of one nutrient for one food item" ;
+        sh:prefixes nfqa: ;
+        sh:select """
+            SELECT DISTINCT $this ?value WHERE {
+              $this fio:hasNutritionalValue ?a , ?b .
+              ?a fio:hasNutrient ?nutrient .
+              ?b fio:hasNutrient ?nutrient .
+              FILTER (STR(?a) < STR(?b))
+              BIND (?nutrient AS ?value)
+            }"""
+    ] .
+
+nfqa:NutritionalValueShape a sh:NodeShape ;
+    sh:targetClass fio:NutritionalValue ;
+    sh:property [
+        sh:path fio:hasNutrient ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Nutritional value without exactly one nutrient"
+    ] ;
+    sh:property [
+        sh:path om:hasValue ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Nutritional value without exactly one measure"
+    ] ;
+    sh:property [
+        sh:path rdf:type ;
+        sh:qualifiedValueShape [ sh:pattern "^http://purl\\.obolibrary\\.org/obo/CDNO_" ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Nutritional value without a CDNO class"
+    ] .
+
+# NEVO's koolhydraten are available carbohydrate (NEVO-online 2021, section 6.4), for which CDNO has
+# concentration of available carbohydrate (CDNO_0200033); a value of NEVO's CHO typed only with CDNO's
+# general carbohydrate class (CDNO_0200005) reads as total carbohydrate, fibre included.
+nfqa:AvailableCarbohydrateShape a sh:NodeShape ;
+    sh:targetClass fio:NutritionalValue ;
+    sh:or (
+        [ sh:path fio:hasNutrient ; sh:not [ sh:hasValue nevonut:CHO ] ]
+        [ sh:path rdf:type ; sh:hasValue obo:CDNO_0200033 ]
+    ) ;
+    sh:message "NEVO's available carbohydrate (CHO) without CDNO's available carbohydrate class" .
+
+nfqa:MeasureShape a sh:NodeShape ;
+    sh:targetClass om:Measure ;
+    sh:property [
+        sh:path om:hasNumericalValue ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:message "Measure without exactly one number"
+    ] ;
+    sh:property [
+        sh:path om:hasUnit ;
+        sh:qualifiedValueShape [ sh:nodeKind sh:IRI ] ;
+        sh:qualifiedMinCount 1 ;
+        sh:message "Measure whose unit is only a string, not an OM unit"
+    ] .
+
+# NEVO's code for sodium is NA, which a data frame reads as not-a-number unless told otherwise.
+nfqa:NutrientShape a sh:NodeShape ;
+    sh:targetClass fio:Nutrient ;
+    sh:not [ sh:pattern "#nan$" ] ;
+    sh:message "Nutrient whose code is nan: NEVO's code NA (sodium) read as not-a-number" .

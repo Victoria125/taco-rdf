@@ -1,0 +1,27 @@
+PREFIX fio:  <http://www.foodvoc.org/resource/fio#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX om:   <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+
+# One TACO food in the nicefood dataset, as a walk through the graph: the food, its FoodOn class, and its
+# values with their CDNO classes, numbers and units. Change food/1 to another TACO food number.
+SELECT ?food ?foodon_class ?cdno_class ?value ?unit
+WHERE {
+  <https://w3id.org/taco-rdf/id/food/1> skos:prefLabel ?food_label ;
+      a ?foodon ;
+      fio:hasNutritionalValue ?nv .
+  FILTER (LANG(?food_label) = "pt" && STRSTARTS(STR(?foodon), "http://purl.obolibrary.org/obo/FOODON_"))
+  ?nv a ?cdno ;
+      om:hasValue ?measure .
+  FILTER (STRSTARTS(STR(?cdno), "http://purl.obolibrary.org/obo/CDNO_"))
+  ?measure om:hasNumericalValue ?value ;
+      om:hasUnit ?unit_literal .
+  FILTER (isLiteral(?unit_literal))
+  OPTIONAL { ?foodon rdfs:label ?foodon_label }
+  OPTIONAL { ?cdno rdfs:label ?cdno_label }
+  BIND (STR(?food_label) AS ?food)
+  BIND (STR(?foodon_label) AS ?foodon_class)
+  BIND (STR(?cdno_label) AS ?cdno_class)
+  BIND (STR(?unit_literal) AS ?unit)
+}
+ORDER BY ?cdno_class

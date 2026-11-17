@@ -3,7 +3,7 @@ from __future__ import annotations
 import importlib.util
 from decimal import Decimal
 
-from rdflib import RDFS, Graph, Literal, Namespace, URIRef
+from rdflib import DCTERMS, RDFS, Graph, Literal, Namespace, URIRef
 from rdflib.graph import ReadOnlyGraphAggregate
 
 from taco_rdf.namespaces import OBO, QUERIES_DIR, RDF, ROOT, SKOS
@@ -28,6 +28,7 @@ def nevo_food(g: Graph, code: str, foodon: URIRef,
     """A NEVO food as NICE-Food models it: typed with FoodOn, values typed with CDNO."""
     food = NEVO[code]
     g.add((food, RDF.type, FIO.FoodItem))
+    g.add((food, DCTERMS.isVersionOf, URIRef("https://www.rivm.nl/nederlands-voedingsstoffenbestand")))
     g.add((food, RDF.type, foodon))
     g.add((food, SKOS.prefLabel, Literal(f"NEVO food {code}", lang="en")))
     for i, (nutrient, cdno, number, unit) in enumerate(values):
@@ -110,3 +111,38 @@ def test_eu_tolerance_for_minerals_and_vitamins_is_minus_35_percent_plus_45_or_5
 
 def test_no_eu_tolerance_applies_to_water():
     assert compare.within_eu_tolerance(str(WATER), "g", 80.0, 80.0) is None
+
+
+def pair(taco_food: int, taco_value: float, nevo_food: str, nevo_value: float, foodon: str = "FOODON_1",
+         cdno: URIRef = PROTEIN) -> dict[str, str]:
+    """A row as compare_taco_nevo.py writes it."""
+    return {"comparison": "same CDNO class", "foodon": str(OBO[foodon]), "foodon_label": f"class {foodon}",
+            "class": str(cdno), "cdno_label": "concentration of protein in material entity",
+            "taco_food": str(taco_food), "taco_name": f"Alimento {taco_food}", "taco_nutrient": "Protein",
+            "taco_value": str(taco_value), "nevo_food": f"https://example.org/nevo/{nevo_food}",
+            "nevo_name": f"Stamppot {nevo_food}", "nevo_nutrient": "Protein total",
+            "nevo_value": str(nevo_value), "unit": "g"}
+
+
+def test_each_taco_food_counts_once_against_the_median_of_its_nevo_foods():
+    rows = [pair(52, 9.0, "a", 8.0), pair(52, 9.0, "b", 12.0), pair(52, 9.0, "c", 10.0),
+            pair(92, 2.0, "d", 2.5, foodon="FOODON_2")]
+    [(key, foods)] = compare.per_food(rows).items()
+    assert key[1:] == (str(PROTEIN), "Protein total", "g")
+    assert foods == [(9.0, 10.0), (2.0, 2.5)]
+
+
+def test_few_foods_get_counts_but_no_correlation_or_ratio():
+    rows = [pair(food, 1.0 + food, str(food), 2.0 + food, foodon=f"FOODON_{food}") for food in range(9)]
+    [row] = compare.agreement_table(rows)[2:]
+    assert row.split(" | ")[3:] == ["9", "9", "-", "-", "-", "0 |"]
+    rows.append(pair(9, 10.0, "9", 11.0, foodon="FOODON_9"))
+    assert compare.agreement_table(rows)[2].split(" | ")[5] == "1.00"
+
+
+def test_the_report_holds_no_nevo_name_or_value():
+    rows = [pair(food, 10.0 + food, f"n{food}", 1234.5 + food, foodon=f"FOODON_{food}") for food in range(12)]
+    text = compare.report(rows, "the test graph", "2026-10-19")
+    assert "12 value pairs between 12 TACO foods and 12 NEVO foods" in text
+    assert "Stamppot" not in text and "example.org/nevo" not in text and "1234" not in text
+    assert "## Exploratory: fixed thresholds" in text

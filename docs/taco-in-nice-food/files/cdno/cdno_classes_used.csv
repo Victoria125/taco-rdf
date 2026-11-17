@@ -1,0 +1,97 @@
+cdno_class,label,taco_foods,nevo_foods,taco_nutrient_codes,nevo_nutrient_codes
+CDNO_0200004,ash,587,656,ASH,ASH
+CDNO_0200005,carbohydrate,596,1673,carbohydrate,CHO
+CDNO_0200123,cholesterol,597,1650,CHORL,CHORL
+CDNO_0200544,dietary calcium,585,1651,CA,CA
+CDNO_0200642,dietary copper,585,1507,CU,CU
+CDNO_0200035,dietary fibre,591,1673,FIBT,FIBT
+CDNO_0200651,dietary iron,585,1669,FE,FE
+CDNO_0200570,dietary magnesium,585,1592,MG,MG
+CDNO_0200578,dietary phosphorus,585,1636,P,P
+CDNO_0200592,dietary potassium,586,1648,K,K
+CDNO_0200599,dietary sodium,589,1672,NA,nan
+CDNO_0200670,dietary zinc,584,1579,ZN,ZN
+CDNO_0200100,docosahexaenoic acid,66,1566,F22:6CN3,F22:6CN3
+CDNO_0200080,docosanoic acid,283,1469,F22:0,F22:0
+CDNO_0200074,dodecanoic acid,149,1476,F12:0,F12:0
+CDNO_0200076,hexadecanoic acid,422,1511,F16:0,F16:0
+CDNO_0200079,icosanoic acid,364,1481,F20:0,F20:0
+CDNO_0200098,icosapentaenoic acid,82,1565,F20:5CN3,F20:5CN3
+CDNO_0200104,linoleic acid,422,1600,F18:2CN6,F18:2CN6
+CDNO_0200456,monounsaturated fatty acid,423,1671,mufa,FAMSCIS
+CDNO_0200186,nicotinic acid,570,1584,NIA,NIA
+CDNO_0200078,octadecanoic acid,423,1511,F18:0,F18:0
+CDNO_0200449,polyunsaturated fatty acid,422,1671,FAPU,FAPU
+CDNO_0200040,protein,596,1673,PROT,PROT
+CDNO_0200188,pyridoxine,572,1582,VITB6,VITB6
+CDNO_0200420,retinol,597,1630,RETOL,RETOL
+CDNO_0200185,riboflavin,575,1631,RIBF,RIBF
+CDNO_0200458,saturated fatty acid,423,1673,FASAT,FASAT
+CDNO_0200073,tetracosanoic acid,215,1466,F24:0,F24:0
+CDNO_0200075,tetradecanoic acid,347,1497,F14:0,F14:0
+CDNO_0200192,vitamin C,373,1631,VITC,VITC
+CDNO_0200002,water,596,1673,WATER,WATER
+CDNO_0200097,α-linolenic acid,391,1575,F18:3CN3,F18:3CN3
+CDNO_0200110,"7,10,13,16-docosatetraenoic acid",0,1356,,F22:4CN6
+CDNO_0200047,alanine,26,0,alanine,
+CDNO_0200108,arachidonic acid,0,1428,,F20:4CN6
+CDNO_0200048,arginine,26,0,arginine,
+CDNO_0200050,aspartic acid,26,0,aspartic_acid,
+CDNO_0200033,available carbohydrate,570,0,CHO,
+CDNO_0200202,calcidiol,0,1438,,CHOCALOH
+CDNO_0200537,calciol,0,1505,,CHOCAL
+CDNO_0200648,dietary iodine,0,1353,,ID
+CDNO_0200657,dietary manganese,582,0,manganese,
+CDNO_0200665,dietary selenium,0,1447,,SE
+CDNO_0200099,docosapentaenoic acid,0,1363,,F22:5CN3
+CDNO_0200090,erucic acid,0,1408,,F22:1CIS
+CDNO_0200465,fatty acid,0,1672,,FACID
+CDNO_0200190,folic acid,0,1617,,FOLAC
+CDNO_0200034,free sugar,0,1672,,SUGAR
+CDNO_0200052,glutamic acid,26,0,glutamic_acid,
+CDNO_0200054,glycine,26,0,glycine,
+CDNO_0200077,heptadecanoic acid,0,1470,,F17:0
+CDNO_0200055,histidine,26,0,histidine,
+CDNO_0200057,isoleucine,26,0,isoleucine,
+CDNO_0200058,leucine,26,0,leucine,
+CDNO_0200068,lipid,596,0,FAT,
+CDNO_0200414,lutein,0,788,,LUTN
+CDNO_0200418,lycopene,0,744,,LYCPN
+CDNO_0200059,lysine,26,0,lysine,
+CDNO_0200542,menaquinone,0,316,,VITK2
+CDNO_0200060,methionine,26,0,methionine,
+CDNO_0200083,myristoleic acid,0,1444,,F14:1CIS
+CDNO_0200141,nitrogen atom,0,380,,NT
+CDNO_0200071,octanoic acid,0,1439,,F8:0
+CDNO_0200085,oleic acid,0,1505,,F18:1CIS
+CDNO_0200422,organic acid,0,310,,OA
+CDNO_0200086,palmitelaidic acid,0,1492,,F16:1CIS
+CDNO_0200072,pentadecanoic acid,0,1472,,F15:0
+CDNO_0200061,phenylalanine,26,0,phenylalanine,
+CDNO_0200543,phylloquinone,0,861,,VITK1
+CDNO_0200444,polyol,0,1672,,POLYL
+CDNO_0200062,proline,26,0,proline,
+CDNO_0200063,serine,26,0,serine,
+CDNO_0200007,starch,0,1672,,STARCH
+CDNO_0200526,thiamine hydrochloride,0,1629,,THIA
+CDNO_0200064,threonine,26,0,threonine,
+CDNO_0200111,trans-fatty acid,0,1662,,FATRS
+CDNO_0200065,tryptophan,26,0,TRP,
+CDNO_0200066,tyrosine,26,0,tyrosine,
+CDNO_0200067,valine,26,0,valine,
+CDNO_0200184,vitamin B1,575,0,THIA,
+CDNO_0200534,vitamin B12,0,1649,,VITB12
+CDNO_0200201,vitamin D,0,1626,,VITD
+CDNO_0200203,vitamin E,0,1456,,VITE
+CDNO_0200214,vitamin K,0,868,,VITK
+CDNO_0200411,zeaxanthin,0,693,,ZEA
+CDNO_0200197,α-carotene,0,938,,CARTA
+CDNO_0200205,α-tocopherol,0,978,,TOCPHA
+CDNO_0200198,β-carotene,0,1359,,CARTBTOT
+CDNO_0200413,β-cryptoxanthin,0,879,,CRYPXB
+CDNO_0200206,β-tocopherol,0,954,,TOCPHB
+CDNO_0200106,γ-linolenic acid,0,1407,,F18:3CN6
+CDNO_0200207,γ-tocopherol,0,949,,TOCPHG
+CDNO_0200208,δ-tocopherol,0,945,,TOCPHD
+CDNO_0200092,ω−3 fatty acid,0,1624,,FAPUN3
+CDNO_0200103,ω−6 fatty acid,0,1623,,FAPUN6
