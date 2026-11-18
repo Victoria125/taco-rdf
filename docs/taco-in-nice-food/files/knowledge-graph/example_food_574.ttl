@@ -17,7 +17,7 @@
         <https://w3id.org/taco-rdf/id/measurement/574/magnesium>,
         <https://w3id.org/taco-rdf/id/measurement/574/protein> ;
     skos:prefLabel "Bean, roxo (red), raw"@en,
-        "Feijão, roxo, cru"@pt .
+        "FeijÃ£o, roxo, cru"@pt .
 
 <https://w3id.org/taco-rdf/id/measurement/574/available_carbohydrate> a obo:CDNO_0200033,
         fio:NutritionalValue ;
@@ -30,7 +30,7 @@
 <https://w3id.org/taco-rdf/id/measurement/574/available_carbohydrate/measure> a om:Measure ;
     om:hasNumericalValue 26.143334 ;
     om:hasUnit om:gramPerHectogram,
-        "g"^^xsd:string .
+        "g" .
 
 <https://w3id.org/taco-rdf/id/measurement/574/energy_kcal> a fio:NutritionalValue ;
     fio:hasNutrient nevonut:ENERCC ;
@@ -39,7 +39,7 @@
 <https://w3id.org/taco-rdf/id/measurement/574/energy_kcal/measure> a om:Measure ;
     om:hasNumericalValue 331.414977 ;
     om:hasUnit om:kilocaloriePerHectogram,
-        "kcal"^^xsd:string .
+        "kcal" .
 
 <https://w3id.org/taco-rdf/id/measurement/574/lipids> a obo:CDNO_0200068,
         fio:NutritionalValue ;
@@ -49,7 +49,7 @@
 <https://w3id.org/taco-rdf/id/measurement/574/lipids/measure> a om:Measure ;
     om:hasNumericalValue 1.236667 ;
     om:hasUnit om:gramPerHectogram,
-        "g"^^xsd:string .
+        "g" .
 
 <https://w3id.org/taco-rdf/id/measurement/574/magnesium> a obo:CDNO_0200570,
         fio:NutritionalValue ;
@@ -59,7 +59,7 @@
 <https://w3id.org/taco-rdf/id/measurement/574/magnesium/measure> a om:Measure ;
     om:hasNumericalValue 161.935333 ;
     om:hasUnit om:milligramPerHectogram,
-        "mg"^^xsd:string .
+        "mg" .
 
 <https://w3id.org/taco-rdf/id/measurement/574/protein> a obo:CDNO_0200040,
         fio:NutritionalValue ;
@@ -69,5 +69,5 @@
 <https://w3id.org/taco-rdf/id/measurement/574/protein/measure> a om:Measure ;
     om:hasNumericalValue 22.166667 ;
     om:hasUnit om:gramPerHectogram,
-        "g"^^xsd:string .
+        "g" .
 
