@@ -161,8 +161,13 @@ def test_text_hashes_and_context_survive_checkout_line_endings(prepared_round):
     ev.check_context(ev.read_rows(prepared_round / "reviewer-a.csv"), baseline, "reviewer-a")
 
 
+def _protocol(folder):
+    return json.loads((folder / "manifest.json").read_text(encoding="utf-8")).get("protocol_version", 1)
+
+
+# Rounds under protocol version 2 (docs/alignment-review-v2.md) are checked in tests/test_type_review.py.
 OPEN_ROUNDS = [f for f in sorted((ROOT / "data/alignment/review").glob("round-*"))
-               if not (f / "reviewed.sssom.tsv").exists()]
+               if not (f / "reviewed.sssom.tsv").exists() and _protocol(f) == 1]
 
 
 @pytest.mark.parametrize("folder", OPEN_ROUNDS, ids=[f.name for f in OPEN_ROUNDS])

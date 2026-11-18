@@ -1,0 +1,197 @@
+food_number,group,in_sample
+8,Cereais e derivados,False
+9,Cereais e derivados,False
+10,Cereais e derivados,True
+11,Cereais e derivados,False
+12,Cereais e derivados,True
+17,Cereais e derivados,False
+18,Cereais e derivados,False
+23,Cereais e derivados,False
+28,Cereais e derivados,False
+29,Cereais e derivados,False
+30,Cereais e derivados,False
+46,Cereais e derivados,False
+47,Cereais e derivados,True
+54,Cereais e derivados,False
+55,Cereais e derivados,True
+57,Cereais e derivados,True
+58,Cereais e derivados,False
+64,"Verduras, hortaliças e derivados",False
+65,"Verduras, hortaliças e derivados",False
+66,"Verduras, hortaliças e derivados",True
+68,"Verduras, hortaliças e derivados",False
+70,"Verduras, hortaliças e derivados",True
+77,"Verduras, hortaliças e derivados",True
+81,"Verduras, hortaliças e derivados",False
+85,"Verduras, hortaliças e derivados",False
+86,"Verduras, hortaliças e derivados",False
+90,"Verduras, hortaliças e derivados",False
+94,"Verduras, hortaliças e derivados",False
+97,"Verduras, hortaliças e derivados",True
+104,"Verduras, hortaliças e derivados",False
+105,"Verduras, hortaliças e derivados",False
+106,"Verduras, hortaliças e derivados",False
+112,"Verduras, hortaliças e derivados",False
+114,"Verduras, hortaliças e derivados",False
+116,"Verduras, hortaliças e derivados",False
+118,"Verduras, hortaliças e derivados",True
+120,"Verduras, hortaliças e derivados",True
+123,"Verduras, hortaliças e derivados",True
+125,"Verduras, hortaliças e derivados",True
+127,"Verduras, hortaliças e derivados",False
+128,"Verduras, hortaliças e derivados",False
+129,"Verduras, hortaliças e derivados",False
+131,"Verduras, hortaliças e derivados",False
+132,"Verduras, hortaliças e derivados",True
+134,"Verduras, hortaliças e derivados",True
+139,"Verduras, hortaliças e derivados",False
+140,"Verduras, hortaliças e derivados",False
+141,"Verduras, hortaliças e derivados",False
+156,"Verduras, hortaliças e derivados",False
+157,"Verduras, hortaliças e derivados",False
+161,"Verduras, hortaliças e derivados",False
+165,Frutas e derivados,False
+166,Frutas e derivados,False
+168,Frutas e derivados,False
+170,Frutas e derivados,False
+173,Frutas e derivados,True
+174,Frutas e derivados,False
+176,Frutas e derivados,True
+177,Frutas e derivados,False
+178,Frutas e derivados,True
+180,Frutas e derivados,False
+181,Frutas e derivados,True
+182,Frutas e derivados,False
+183,Frutas e derivados,True
+184,Frutas e derivados,False
+185,Frutas e derivados,False
+186,Frutas e derivados,True
+187,Frutas e derivados,False
+191,Frutas e derivados,False
+193,Frutas e derivados,False
+199,Frutas e derivados,True
+200,Frutas e derivados,False
+202,Frutas e derivados,False
+203,Frutas e derivados,False
+209,Frutas e derivados,False
+210,Frutas e derivados,False
+212,Frutas e derivados,False
+213,Frutas e derivados,False
+217,Frutas e derivados,False
+218,Frutas e derivados,False
+219,Frutas e derivados,False
+221,Frutas e derivados,False
+223,Frutas e derivados,False
+224,Frutas e derivados,False
+227,Frutas e derivados,False
+230,Frutas e derivados,True
+234,Frutas e derivados,True
+241,Frutas e derivados,False
+245,Frutas e derivados,True
+246,Frutas e derivados,True
+248,Frutas e derivados,False
+253,Frutas e derivados,False
+254,Frutas e derivados,True
+255,Frutas e derivados,True
+273,Pescados e frutos do mar,False
+274,Pescados e frutos do mar,False
+275,Pescados e frutos do mar,False
+276,Pescados e frutos do mar,True
+282,Pescados e frutos do mar,True
+288,Pescados e frutos do mar,True
+289,Pescados e frutos do mar,False
+290,Pescados e frutos do mar,False
+291,Pescados e frutos do mar,False
+295,Pescados e frutos do mar,True
+296,Pescados e frutos do mar,False
+297,Pescados e frutos do mar,False
+298,Pescados e frutos do mar,False
+299,Pescados e frutos do mar,False
+300,Pescados e frutos do mar,False
+301,Pescados e frutos do mar,False
+305,Pescados e frutos do mar,True
+306,Pescados e frutos do mar,True
+308,Pescados e frutos do mar,True
+309,Pescados e frutos do mar,False
+314,Pescados e frutos do mar,False
+315,Pescados e frutos do mar,False
+317,Pescados e frutos do mar,False
+318,Pescados e frutos do mar,False
+320,Pescados e frutos do mar,False
+322,Pescados e frutos do mar,True
+323,Carnes e derivados,True
+328,Carnes e derivados,True
+332,Carnes e derivados,False
+334,Carnes e derivados,True
+335,Carnes e derivados,False
+336,Carnes e derivados,False
+337,Carnes e derivados,False
+338,Carnes e derivados,True
+339,Carnes e derivados,False
+340,Carnes e derivados,False
+342,Carnes e derivados,False
+344,Carnes e derivados,False
+346,Carnes e derivados,True
+349,Carnes e derivados,True
+350,Carnes e derivados,True
+351,Carnes e derivados,False
+352,Carnes e derivados,False
+353,Carnes e derivados,False
+354,Carnes e derivados,True
+356,Carnes e derivados,True
+358,Carnes e derivados,False
+359,Carnes e derivados,True
+361,Carnes e derivados,True
+362,Carnes e derivados,False
+363,Carnes e derivados,False
+365,Carnes e derivados,False
+368,Carnes e derivados,False
+370,Carnes e derivados,False
+371,Carnes e derivados,False
+374,Carnes e derivados,True
+376,Carnes e derivados,True
+377,Carnes e derivados,False
+382,Carnes e derivados,True
+383,Carnes e derivados,False
+384,Carnes e derivados,False
+385,Carnes e derivados,False
+388,Carnes e derivados,False
+392,Carnes e derivados,False
+393,Carnes e derivados,False
+395,Carnes e derivados,False
+396,Carnes e derivados,False
+401,Carnes e derivados,False
+403,Carnes e derivados,False
+405,Carnes e derivados,False
+406,Carnes e derivados,False
+411,Carnes e derivados,True
+413,Carnes e derivados,False
+418,Carnes e derivados,True
+419,Carnes e derivados,True
+420,Carnes e derivados,False
+422,Carnes e derivados,False
+423,Carnes e derivados,False
+428,Carnes e derivados,False
+429,Carnes e derivados,False
+430,Carnes e derivados,True
+434,Carnes e derivados,False
+438,Carnes e derivados,False
+440,Carnes e derivados,False
+441,Carnes e derivados,True
+442,Carnes e derivados,False
+444,Carnes e derivados,False
+445,Carnes e derivados,False
+446,Leite e derivados,True
+452,Leite e derivados,False
+459,Leite e derivados,False
+476,Bebidas (alcoólicas e não alcoólicas),True
+480,Bebidas (alcoólicas e não alcoólicas),False
+482,Bebidas (alcoólicas e não alcoólicas),False
+491,Produtos açucarados,False
+496,Produtos açucarados,True
+497,Produtos açucarados,False
+498,Produtos açucarados,False
+509,Produtos açucarados,False
+510,Produtos açucarados,True
+563,Leguminosas e derivados,True
+583,Leguminosas e derivados,False

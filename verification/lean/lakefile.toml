@@ -1,0 +1,11 @@
+name = "taco_verification"
+version = "0.1.0"
+defaultTargets = ["TacoTyping"]
+
+[[lean_lib]]
+name = "TacoTyping"
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "99109e53618b8a994c9885dcf7ab40a14b8d509a"

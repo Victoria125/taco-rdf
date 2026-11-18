@@ -1,0 +1,3 @@
+nevo_code,nevo_label,cdno_class,cdno_label,nevo_values,evidence
+FAT,Fat total,CDNO_0200068,concentration of lipid in material entity,3346,TACO's values of the same NEVO code carry this class
+TRP,Tryptophan,CDNO_0200065,concentration of tryptophan in material entity,14,TACO's values of the same NEVO code carry this class

@@ -79,7 +79,8 @@ def markdown(counts: dict[str, Counter], data: Path, run: str, top: int = 8) -> 
     lines = ["# Checks of NICE-Food's NEVO subgraph", "",
              f"Generated on {run} by `python scripts/check_nice_food.py --report "
              "analysis/nice_food_nevo_checks.md`",
-             f"from `{data.name}` of NICE-Food v3 (https://doi.org/10.5281/zenodo.18450818) and the shapes in",
+             f"from `{data.name}` of NICE-Food v3 (https://doi.org/10.5281/zenodo.18450818) and the shapes "
+             "in",
              "[shapes/nice-food/nevo-shapes.ttl](../shapes/nice-food/nevo-shapes.ttl), validated with Jena's",
              "SHACL engine. It counts results by check and by nutrient or unit, and holds no NEVO value.", "",
              "| Check | Results |", "| --- | ---: |"]
