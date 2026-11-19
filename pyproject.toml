@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 authors = [{ name = "Vitória Maia", email = "vitoriamaia19@gmail.com" }]
 license = { text = "MIT" }
 keywords = ["food composition", "TACO", "RDF", "knowledge graph", "FoodOn", "ChEBI", "SHACL", "FAIR"]
-dependencies = ["rdflib>=7.0", "pyshacl>=0.26", "xlrd>=2.0"]
+dependencies = ["rdflib>=7.0", "pyshacl>=0.26", "xlrd>=2.0", "requests>=2.31"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "ruff>=0.6", "owlrl>=6", "openpyxl>=3.1"]
