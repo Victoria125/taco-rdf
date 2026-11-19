@@ -190,9 +190,11 @@ def test_sparql_portability_depends_on_fio_cdno_and_om_not_dataset_metadata(expo
     assert [r[0] for r in no_metadata.query(query)] == expected
 
     # Negative metamorphic tests identify what the query *actually* requires.
-    no_measure = Graph(no_metadata)
+    no_measure = Graph()
+    no_measure += no_metadata
     no_measure.remove((value, OM.hasValue, measure))
     assert list(no_measure.query(query)) == []
-    no_cdno = Graph(no_metadata)
+    no_cdno = Graph()
+    no_cdno += no_metadata
     no_cdno.remove((value, RDF.type, OBO.CDNO_0200040))
     assert list(no_cdno.query(query)) == []
