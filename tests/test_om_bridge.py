@@ -17,7 +17,6 @@ from rdflib.namespace import DCAT, PROV, RDF, SKOS, XSD
 from taco_rdf import nice_food
 from taco_rdf.namespaces import FIO, OM, QUDT, ROOT, TACO, UNIT
 
-
 EXPECTED_UNITS = {
     UNIT.GM: (OM.gramPerHectogram, "g"),
     UNIT.PERCENT: (OM.gramPerHectogram, "g"),
