@@ -1,0 +1,43 @@
+name: Lean 4 core proof checks
+
+on:
+  push:
+    paths:
+      - "verification/lean/**"
+      - ".github/workflows/lean-core.yml"
+  pull_request:
+    paths:
+      - "verification/lean/**"
+      - ".github/workflows/lean-core.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lean-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned Lean toolchain
+        uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: verification/lean
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: false
+          use-github-cache: false
+      - name: Check core numerical rules and review-resolution proofs
+        working-directory: verification/lean
+        run: |
+          lean --version
+          lean TacoRules.lean
+          lean TypeReviewApplication.lean
+      - name: Disallow admitted proofs in core files
+        working-directory: verification/lean
+        run: |
+          if grep -nE '\b(sorry|admit)\b' TacoRules.lean TypeReviewApplication.lean; then
+            echo 'Core Lean source contains an admitted proof' >&2
+            exit 1
+          fi
