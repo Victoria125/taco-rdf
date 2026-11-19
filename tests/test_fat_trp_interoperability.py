@@ -12,7 +12,6 @@ import csv
 import importlib.util
 from decimal import Decimal
 
-import pytest
 from rdflib import Graph, Literal
 from rdflib.namespace import DCTERMS, RDF, SKOS, XSD
 
@@ -141,7 +140,7 @@ def test_actual_overlay_adds_only_types_and_expands_cdno_queries(monkeypatch):
         current = list(after.query(q))
         assert len(previous) == 1
         assert len(current) == 2
-    assert list(before.triples((None, OM.hasNumericalValue, None))) == list(
+    assert set(before.triples((None, OM.hasNumericalValue, None))) == set(
         after.triples((None, OM.hasNumericalValue, None))
     )
 
