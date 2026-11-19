@@ -1,0 +1,21 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://w3id.org/taco-rdf/shapes/om-bridge#> .
+
+# Contract for the TACO NICE-Food export's measured cells.
+# A µg observation may have only a string unit to reproduce the pinned NEVO pattern;
+# therefore this deliberately does NOT require every unit to have an OM IRI.
+ex:MeasureContract a sh:NodeShape ;
+    sh:targetClass om:Measure ;
+    sh:property [
+        sh:path om:hasNumericalValue ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:decimal
+    ] ;
+    sh:property [
+        sh:path om:hasUnit ;
+        sh:minCount 1 ;
+        sh:maxCount 2
+    ] .
