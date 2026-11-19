@@ -28,7 +28,7 @@ GitHub Actions run [44575639962](https://github.com/Victoria125/taco-rdf/actions
 - `ruff check src tests scripts`: passed.
 - `pytest -q`: **427 passed, 3 skipped, 3 warnings**, 0 failures.
 - The previous CI failure was a missing runtime dependency, `requests`; this was corrected by adding `requests>=2.31` to the main dependencies in `pyproject.toml`.
-- CI currently tests Python code. Earlier documented Lean, Fuseki and SHACL checks are separate; the CI success does not imply those were rerun.
+- The Python CI tests Python code. A separate [Lean 4 core workflow](https://github.com/Victoria125/taco-rdf/actions/runs/44580362375) successfully compiled `TacoRules.lean` and `TypeReviewApplication.lean` with Lean 4 v4.36.0-rc2 and checked for `sorry`/`admit`. This independent core smoke check does not rerun the generated 25 data-specific certificates, local Fuseki or SHACL validation.
 
 ## Previously documented independent checks (not rerun in this handover)
 
