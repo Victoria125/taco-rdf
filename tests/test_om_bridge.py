@@ -15,7 +15,7 @@ from rdflib import Graph, Literal
 from rdflib.namespace import DCAT, PROV, RDF, SKOS, XSD
 
 from taco_rdf import nice_food
-from taco_rdf.namespaces import FIO, OM, QUDT, ROOT, TACO, UNIT
+from taco_rdf.namespaces import FIO, ID, NEVONUT, OBO, OM, QUDT, ROOT, TACO, UNIT
 
 EXPECTED_UNITS = {
     UNIT.GM: (OM.gramPerHectogram, "g"),
@@ -153,3 +153,46 @@ def test_nice_food_om_is_a_per_100g_representation_not_a_simple_uri_rename(graph
     assert nice_food.UNITS[UNIT.GM][0] == OM.gramPerHectogram
     assert nice_food.UNITS[UNIT.PERCENT][0] == OM.gramPerHectogram
     assert len(list(out.subjects(RDF.type, OM.Measure))) > 0
+
+
+def test_sparql_portability_depends_on_fio_cdno_and_om_not_dataset_metadata(exported_graph):
+    """Remove optional metadata without changing the nutrient query; break core predicates and it fails."""
+    out, _ = exported_graph
+    food = ID["food/1"]
+    value = ID["measurement/1/protein"]
+    measure = out.value(value, OM.hasValue)
+    assert measure is not None
+    assert (value, RDF.type, OBO.CDNO_0200040) in out
+    assert (value, FIO.hasNutrient, NEVONUT.PROT) in out
+
+    small = Graph()
+    for subject in (food, value, measure, nice_food.DATASET):
+        for p, obj in out.predicate_objects(subject):
+            small.add((subject, p, obj))
+    # The query deliberately uses the shared semantic class rather than a table-specific nutrient code.
+    query = f"""
+        PREFIX fio: <http://www.foodvoc.org/resource/fio#>
+        PREFIX om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+        PREFIX obo: <http://purl.obolibrary.org/obo/>
+        SELECT ?n WHERE {{
+          <{food}> a fio:FoodItem ; fio:hasNutritionalValue <{value}> .
+          <{value}> a obo:CDNO_0200040 ; om:hasValue ?m .
+          ?m om:hasNumericalValue ?n .
+        }}
+    """
+    expected = [r[0] for r in small.query(query)]
+    assert len(expected) == 1
+    assert expected[0].toPython() > 0
+    no_metadata = Graph()
+    for subject, pred, obj in small:
+        if subject != nice_food.DATASET and pred != PROV.wasDerivedFrom:
+            no_metadata.add((subject, pred, obj))
+    assert [r[0] for r in no_metadata.query(query)] == expected
+
+    # Negative metamorphic tests identify what the query *actually* requires.
+    no_measure = Graph(no_metadata)
+    no_measure.remove((value, OM.hasValue, measure))
+    assert list(no_measure.query(query)) == []
+    no_cdno = Graph(no_metadata)
+    no_cdno.remove((value, RDF.type, OBO.CDNO_0200040))
+    assert list(no_cdno.query(query)) == []
