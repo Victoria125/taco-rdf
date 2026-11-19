@@ -19,16 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install pinned Lean toolchain
-        uses: leanprover/lean-action@v1
-        with:
-          lake-package-directory: verification/lean
-          auto-config: false
-          build: false
-          test: false
-          lint: false
-          use-mathlib-cache: false
-          use-github-cache: false
+      - name: Install pinned Lean toolchain using elan
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -o /tmp/elan-init.sh
+          sh /tmp/elan-init.sh -y --default-toolchain none --no-modify-path
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Check core numerical rules and review-resolution proofs
         working-directory: verification/lean
         run: |
