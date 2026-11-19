@@ -1,0 +1,42 @@
+taco_nutrient,nevo_code,taco_tagname,taco_unit,nevo_unit,nevo_values,test,verdict
+moisture,WATER,WATER,g,g,1673,,same quantity by definition
+energy_kcal,ENERCC,ENERC,kcal,kcal,1685,energy kcal,calculated another way
+energy_kj,ENERCJ,ENERC,kJ,kJ,1685,energy kJ,calculated another way
+protein,PROT,PROCNT,g,g,3346,protein,"same quantity, checked with data"
+lipids,FAT,FAT,g,g,3346,,to confirm with NEVO's method
+cholesterol,CHORL,CHOLE,mg,mg,1650,,same quantity by definition
+dietary_fiber,FIBT,FIBTG,g,g,3346,,to confirm with NEVO's method
+ash,ASH,ASH,g,g,1312,,same quantity by definition
+calcium,CA,CA,mg,mg,1651,,same quantity by definition
+magnesium,MG,MG,mg,mg,1592,,same quantity by definition
+phosphorus,P,P,mg,mg,1636,,same quantity by definition
+iron,FE,FE,mg,mg,1669,,same quantity by definition
+sodium,NA,NA,mg,,0,,NEVO's values are under another code
+potassium,K,K,mg,mg,1648,,same quantity by definition
+copper,CU,CU,mg,mg,1507,,same quantity by definition
+zinc,ZN,ZN,mg,mg,1579,,same quantity by definition
+retinol,RETOL,RETOL,µg,µg,1630,,same quantity by definition
+re,VITA_RE,VITA,µg,µg,1639,vitamin A,"same quantity, checked with data"
+rae,VITA_RAE,VITA,µg,µg,1639,vitamin A,"same quantity, checked with data"
+thiamin,THIA,THIA,mg,mg,1629,,to confirm with NEVO's method
+riboflavin,RIBF,RIFB,mg,mg,1631,,to confirm with NEVO's method
+pyridoxine,VITB6,VITB6A,mg,mg,1582,,to confirm with NEVO's method
+niacin,NIA,NIA,mg,mg,1584,,to confirm with NEVO's method
+vitamin_c,VITC,VITC,mg,mg,1631,,to confirm with NEVO's method
+sfa,FASAT,FASAT,g,g,1673,fatty acids,"same quantity, checked with data"
+pufa,FAPU,FAPU,g,g,1671,fatty acids,"same quantity, checked with data"
+fa_12_0,F12:0,F12D0,g,g,1476,fatty acids,"same quantity, checked with data"
+fa_14_0,F14:0,F14D0,g,g,1497,fatty acids,"same quantity, checked with data"
+fa_16_0,F16:0,F16D0,g,g,1511,fatty acids,"same quantity, checked with data"
+fa_18_0,F18:0,F18D0,g,g,1511,fatty acids,"same quantity, checked with data"
+fa_18_1t,F18:1TRS,F18D1T,g,g,1361,fatty acids,"same quantity, checked with data"
+fa_18_2_n6,F18:2CN6,F18D2CN6,g,g,1600,fatty acids,"same quantity, checked with data"
+fa_18_3_n3,F18:3CN3,F18D3CN3,g,g,1575,fatty acids,"same quantity, checked with data"
+fa_20_0,F20:0,F20D0,g,g,1481,fatty acids,"same quantity, checked with data"
+fa_20_5,F20:5CN3,F20D5N3,g,g,1565,fatty acids,"same quantity, checked with data"
+fa_22_0,F22:0,F22D0,g,g,1469,fatty acids,"same quantity, checked with data"
+fa_22_6,F22:6CN3,F22D6N3,g,g,1566,fatty acids,"same quantity, checked with data"
+fa_24_0,F24:0,F24D0,g,g,1466,fatty acids,"same quantity, checked with data"
+alcohol,ALC,,g,g,1673,,same quantity by definition
+tryptophan,TRP,TRP_G,g,mg,14,,same quantity in another unit
+available_carbohydrate,CHO,CHOCDF − FIBTG,g,g,3346,carbohydrate,calculated another way

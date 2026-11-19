@@ -1,0 +1,247 @@
+food_number,name_pt,source_sheet,adjudicated,justification
+9,"Biscoito, doce, recheado com chocolate",Discordâncias,FOODON_03301585,"O sabor informado é o do recheio. A TACO não descreve sua consistência, necessária para restringir o biscoito à classe de recheio cremoso."
+10,"Biscoito, doce, recheado com morango",Discordâncias,FOODON_03301585,"O sabor informado é o do recheio. A TACO não descreve sua consistência, necessária para restringir o biscoito à classe de recheio cremoso."
+11,"Biscoito, doce, wafer, recheado de chocolate",Discordâncias,FOODON_03303140,"Wafer identifica a estrutura da massa. O sabor do recheio está documentado, mas a textura do recheio permanece em aberto."
+12,"Biscoito, doce, wafer, recheado de morango",Discordâncias,FOODON_03303140,"Wafer identifica a estrutura da massa. O sabor do recheio está documentado, mas a textura do recheio permanece em aberto."
+14,"Bolo, mistura para",Discordâncias,FOODON_03302535,A mistura comercial antecede o bolo preparado. Seu baixo teor de água na TACO sustenta a apresentação seca sem especificar sabor.
+19,"Canjica, branca, crua",Discordâncias,FOODON_03310640,"A canjica branca crua é milho seco para cocção. A definição FoodOn de hominy exige tratamento alcalino, etapa que a TACO não documenta."
+21,"Cereais, milho, flocos, com sal",Discordâncias,FOODON_03540342,"Os flocos são de milho processado. A ficha distingue sal adicionado, mas não documenta a torra que caracteriza a definição de corn flakes."
+22,"Cereais, milho, flocos, sem sal",Discordâncias,FOODON_03540342,"Os flocos são de milho processado. A ficha distingue sal adicionado, mas não documenta a torra que caracteriza a definição de corn flakes."
+24,"Cereais, mistura para vitamina, trigo, cevada e aveia",Discordâncias,FOODON_00001709,"Trigo, cevada e aveia compõem uma mistura para vitamina. O uso indicado é como ingrediente de bebida, sem indicação de consumo como cereal matinal."
+28,"Creme de milho, pó",Discordâncias,FOODON_00001089,O nome identifica um derivado de milho em pó para preparo. A classe de milho moído comporta a apresentação sem exigir que a amostra seja amido purificado.
+35,"Farinha, de trigo",Discordâncias,FOODON_03540088,A definição FoodEx2 abrange farinhas de trigo de diferentes graus de refino. É adequada ao produto sem indicação de grau de extração.
+36,"Farinha, láctea, de cereais",Discordâncias,FOODON_00001709,A farinha láctea contém material de cereais e leite. A categoria geral de produto de cereais acomoda a formulação composta.
+41,"Macarrão, trigo, cru, com ovos",Mudanças de tipo,FOODON_03316956,A massa crua leva ovos. A ficha não informa umidade ou refrigeração que permitam exigir massa fresca. A classe de massa com ovos é compatível com os dados.
+44,"Milho, verde, cru",Dúvidas com acordo,FOODON_03317387,Proposta mais geral. Milho verde indica o estádio de colheita e o texto em inglês sugere sweet corn. Adota-se grão de milho até confirmar que a cultivar era açucarada.
+45,"Milho, verde, enlatado, drenado",Mudanças de tipo | Dúvidas com acordo,FOODON_03302665,"A TACO descreve grãos de milho verde enlatados e drenados. Em português, verde indica colheita imatura. Sem cultivar documentada, a classe de grãos de milho enlatados preserva a conserva."
+46,"Mingau tradicional, pó",Discordâncias,FOODON_03540321,A própria classe FoodEx2 identifica a mistura seca de mingau para diluir. É essa a apresentação informada pela TACO.
+47,"Pamonha, barra para cozimento, pré-cozida",Discordâncias,FOODON_00002330,A pamonha em barra é um preparado de milho pré-cozido. A descrição não estabelece o invólucro nem a técnica de uma variedade específica de tamal.
+51,"Pão, milho, forma",Discordâncias,FOODON_03312059,O milho caracteriza a formulação do pão de forma. A classe de pão de milho retém essa informação e admite outros ingredientes.
+53,"Pão, trigo, francês",Discordâncias,FOODON_03301931,Pão francês brasileiro é pão de trigo porcionado em unidades. A classe de pão individual de trigo conserva o formato.
+60,"Pastel, massa, frita",Dúvidas com acordo,FOODON_00005804,O material é massa de pastel já frita. A definição de pastry admite produtos de massa fritos. A ficha deixa em aberto o recheio.
+61,"Pipoca, com óleo de soja, sem sal",Discordâncias,FOODON_03302179,Os grãos estouraram em óleo de soja. Popcorn (popped) registra o estado do milho e admite a fritura em óleo sem adição de sal.
+66,"Abóbora, menina brasileira, crua",Discordâncias,FOODON_03301577,O Quadro 7 associa menina-brasileira a Cucurbita moschata. A ficha indica fruto cru e deixa em aberto o estágio de colheita.
+67,"Abóbora, moranga, crua",Discordâncias,FOODON_03301697,"A TACO identifica moranga da variedade Exposição, de Cucurbita maxima. A classe de abóbora do tipo pumpkin crua é compatível com o fruto descrito."
+68,"Abóbora, moranga, refogada",Discordâncias,FOODON_03316339,O refogado é uma cocção. A classe de pumpkin cozida conserva o tipo de abóbora e o estado após o preparo.
+69,"Abóbora, pescoço, crua",Discordâncias,FOODON_00004565,A abóbora de pescoço de Cucurbita moschata corresponde ao tipo de abóbora de inverno. O formato do fruto não implica a variedade americana de abobrinha crookneck.
+73,"Abobrinha, paulista, crua",Dúvidas com acordo,FOODON_03310107,A TACO classifica o fruto como abobrinha paulista e identifica C. maxima. Summer squash cru permite o tipo culinário sem inferir a cultivar italiana.
+74,"Acelga, crua",Dúvidas com acordo,FOODON_03306698,O Quadro 7 associa a acelga ao gênero Beta e a tradução informa chard. A decisão é compatível com essa ficha. O nome popular também pode designar outra hortaliça em outros levantamentos.
+75,"Agrião, cru",Discordâncias,FOODON_00003064,"O agrião cru é a hortaliça de Nasturtium officinale. A porção consumida pode incluir talos tenros e folhas, sem separação indicada na ficha."
+76,"Aipo, cru",Discordâncias,FOODON_00001704,O Quadro 7 identifica Apium graveolens. A ficha deixa em aberto o grupo de cultivar e as proporções de folhas e talos.
+86,"Batata, baroa, cozida",Discordâncias,FOODON_03310993,O nome comercial e a tradução sugerem arracacha. O Quadro 7 registra Chaerophyllum bulbosum. A classe de raiz no estado indicado resolve o conflito sem fixar a espécie.
+87,"Batata, baroa, crua",Discordâncias,FOODON_03301561,O nome comercial e a tradução sugerem arracacha. O Quadro 7 registra Chaerophyllum bulbosum. A classe de raiz no estado indicado resolve o conflito sem fixar a espécie.
+93,"Batata, inglesa, frita",Discordâncias,FOODON_03543891,O Apêndice 2 descreve o corte do tubérculo em palitos antes da fritura. A classe de batata frita obtida de batata cortada registra essa informação.
+94,"Batata, inglesa, sauté",Discordâncias,FOODON_03543889,O preparo sauté envolve a finalização na frigideira em gordura. A categoria de batata salteada é mais informativa que a de batata cozida.
+99,"Biscoito, polvilho doce",Discordâncias,FOODON_00002466,Polvilho doce identifica a fécula de mandioca. O produto pronto é um biscoito. O nome do ingrediente deixa em aberto o teor de açúcar do biscoito.
+101,"Brócolis, cru",Discordâncias,FOODON_03540525,"A TACO descreve brócolis cru. Seu protocolo para brócolis cozido utiliza flores e talos, e a ficha do cru não delimita a amostra aos floretes."
+108,"Cebolinha, crua",Discordâncias,FOODON_03000021,O Quadro 7 identifica Allium fistulosum. Welsh onion (raw) preserva a identificação e o estado cru e passou pela checagem de bloqueio da planilha.
+111,"Chicória, crua",Mudanças de tipo,FOODON_03000447,O Quadro 7 identifica Cichorium endivia. Endive leaf corresponde à folha dessa espécie e distingue o alimento da chicória de C. intybus.
+115,"Couve, manteiga, crua",Discordâncias,FOODON_03304860,A amostra é a folha crua de couve-manteiga. A classe inclui tanto a parte comestível quanto o estado de preparo.
+124,"Fécula, de mandioca",Discordâncias,FOODON_03544170,A fécula é o amido separado da mandioca. A classe tapioca starch identifica o componente obtido por extração e evita a ambiguidade entre farinha e fécula.
+125,"Feijão, broto, cru",Discordâncias,FOODON_03540507,O Quadro 7 identifica Vigna radiata. A classe FoodEx2 de brotos de feijão-mungo pertence ao ramo de hortaliças alimentares. As duas alternativas originais caem no ramo de planta bloqueado.
+126,"Inhame, cru",Mudanças de tipo,FOODON_03309801,O Quadro 7 identifica Colocasia esculenta. A classe de taro cru descreve o cormo comestível. Yam remeteria a Dioscorea.
+127,"Jiló, cru",Discordâncias,FOODON_03540660,A definição FoodEx2 de Ethiopian eggplants inclui o grupo Gilo. A espécie alimentar registrada na TACO sustenta a identificação do jiló.
+128,"Jurubeba, crua",Discordâncias,FOODON_03540630,A jurubeba é o fruto comestível de Solanum. O Quadro 7 informa somente o gênero. A categoria de hortaliça-fruto respeita esse limite.
+131,"Mandioca, farofa, temperada",Discordâncias,FOODON_00001692,Farofa temperada é uma preparação derivada da mandioca. A classe de produto de mandioca admite os temperos e a farinha usada como base.
+134,"Maxixe, cru",Discordâncias,FOODON_03540675,O maxixe do Quadro 7 é Cucumis anguria. A classe alimentar bur gherkins identifica o fruto dessa espécie.
+136,"Nhoque, batata, cozido",Mudanças de tipo,FOODON_03540193,As duas classes representam nhoque. A classe atual já abrange a massa de batata preparada como nhoque. A substituição não acrescentaria a batata nem o estado cozido.
+139,"Palmito, pupunha, em conserva",Discordâncias,FOODON_03540565,O palmito procede de Bactris gasipaes. A classe identifica o tecido comestível da espécie. A conserva fica registrada na descrição da TACO.
+140,"Pão, de queijo, assado",Dúvidas com acordo,FOODON_03302457,"A amostra é pão de queijo assado. Cheese bread descreve o produto com queijo, mas não distingue a receita brasileira de polvilho. Essa limitação deve acompanhar o mapeamento."
+141,"Pão, de queijo, cru",Discordâncias,FOODON_03311552,"A amostra é a massa crua de pão de queijo, antes de assar. Dough admite massa à base de polvilho."
+145,"Pimentão, vermelho, cru",Discordâncias,FOODON_03306732,"O alimento é pimentão vermelho cru, um bell pepper do tipo doce. A classe documenta cor, tipo e estado."
+146,"Polvilho, doce",Discordâncias,FOODON_03544170,A fécula é o amido separado da mandioca. A classe tapioca starch identifica o componente obtido por extração e evita a ambiguidade entre farinha e fécula.
+149,"Repolho, branco, cru",Discordâncias,FOODON_03540478,A cor branca está explícita no nome. A classe de repolho branco retém o tipo comercial e admite a amostra crua.
+155,"Serralha, crua",Discordâncias,FOODON_03540408,"Sonchus oleraceus, registrado no Quadro 7, é a serralha. A classe identifica as folhas dessa hortaliça."
+156,"Taioba, crua",Discordâncias,FOODON_03540436,A TACO identifica Xanthosoma sagittifolium. Tannia leaves registra a espécie alimentar e a parte folhosa.
+161,"Tomate, salada",Discordâncias,FOODON_03301453,"Salada designa um tipo comercial de tomate. Como a ficha não explicita o estado de preparo, a classe do fruto conserva o que está documentado."
+162,"Vagem, crua",Discordâncias,FOODON_00002766,A porção consumida é a vagem verde de feijão-comum. A classe alimentar de vagem inteira ou em pedaços passou pela checagem de bloqueio.
+166,"Abiu, cru",Discordâncias,FOODON_03305237,O abiu está descrito como fruto tropical cru. Essa classe permanece válida sem equiparar o abiu a outra espécie de nome semelhante.
+171,"Ameixa, calda, enlatada",Discordâncias,FOODON_03303225,O item 171 identifica a calda. A TACO reserva o nº 173 para a ameixa drenada. A classe de xarope representa a fração líquida da conserva.
+174,"Atemóia, crua",Discordâncias,FOODON_03305237,"A atemoia é uma fruta tropical híbrida, analisada crua. A definição FoodEx2 de cherimoias e afins depende de um agrupamento regulatório que não identifica expressamente este híbrido."
+176,"Banana, doce em barra",Discordâncias,FOODON_03310650,O doce em barra é uma preparação concentrada de banana. A classe de pasta de fruta admite o produto firme sem pressupor a adição de gelificante.
+181,"Banana, pacova, crua",Dúvidas com acordo,FOODON_03310126,"A tradução da ficha explicita plantain type para a pacova crua. O grupo genômico AAB informado no Quadro 7, isoladamente, não permite essa distinção."
+183,"Cacau, cru",Discordâncias,FOODON_00001215,"A definição de cacao food product abrange derivados de Theobroma cacao. O nome não autoriza especificar sementes, pó ou chocolate."
+190,"Carambola, crua",Mudanças de tipo,FOODON_00004646,Carambola é star fruit. A classe proposta registra tanto a identidade do fruto quanto o estado cru informado.
+192,"Cupuaçu, cru",Mudanças de tipo,FOODON_00003195,O cupuaçu é o fruto cru de Theobroma grandiflorum. A classe proposta identifica explicitamente a parte comestível e o estado cru.
+205,"Jambo, cru",Discordâncias,FOODON_03541669,"A definição de Malay pommarosas cita Syzygium malaccense e o sinônimo Eugenia malaccensis, registrado no Quadro 7 para o jambo."
+207,"Kiwi, cru",Mudanças de tipo,FOODON_00004387,O Quadro 7 informa Actinidia chinensis. A ficha não especifica pele pilosa nem cultivar. A categoria de kiwi evita impor essa característica.
+210,"Laranja, da terra, crua",Discordâncias,FOODON_03541440,A descrição FoodEx2 de laranjas amargas identifica Citrus aurantium. O nome laranja-da-terra e o estado cru são compatíveis.
+216,"Laranja, valência, crua",Mudanças de tipo,FOODON_03309832,A variedade Valência está documentada. A ficha não informa origem californiana nem uma seleção identificada por esse nome comercial. Mantém-se laranja crua.
+218,"Limão, cravo, suco",Discordâncias,FOODON_03306160,"O item é o suco de limão-cravo, denominado Rangpur lime na tradução. A classe identifica o suco de lima sem exigir cultivar ou concentração."
+220,"Limão, tahiti, cru",Mudanças de tipo,FOODON_03541454,A TACO identifica limão Tahiti. A categoria de Tahiti limes preserva a variedade comercial declarada.
+223,"Macaúba, crua",Discordâncias,FOODON_03305237,O alimento é o fruto cru da macaúba. A categoria de fruta tropical permite registrar a amostra sem supor extração do óleo.
+224,"Mamão, doce em calda, drenado",Discordâncias,FOODON_03303951,O mamão foi preparado como doce em calda e drenado. A classe de conserva de mamão representa os pedaços de fruta que ficaram após a drenagem.
+225,"Mamão, Formosa, cru",Discordâncias,FOODON_03401739,A definição da classe GS1 descreve mamão do grupo Formosa comercializado fresco. A TACO informa o grupo e o estado cru.
+227,"Mamão verde, doce em calda, drenado",Discordâncias,FOODON_03303951,O mamão foi preparado como doce em calda e drenado. A classe de conserva de mamão representa os pedaços de fruta que ficaram após a drenagem.
+234,"Maracujá, suco concentrado, envasado",Discordâncias,FOODON_00005596,O Quadro 7 associa o maracujá à forma amarela. A categoria de suco de maracujá amarelo conserva a origem botânica e admite a apresentação concentrada.
+237,"Mexerica, Murcote, crua",Discordâncias,FOODON_03541464,O Quadro 7 informa o cruzamento Citrus reticulata × C. sinensis. A definição FoodEx2 de tangor contempla precisamente esse grupo de híbridos.
+241,"Pequi, cru",Discordâncias,FOODON_03305237,"O item é pequi cru, fruto de Caryocar brasiliense. A classe de fruta tropical crua admite a espécie e distingue o fruto do óleo de pequi."
+246,"Pinha, crua",Discordâncias,FOODON_03401408,Pinha corresponde a Annona squamosa no Quadro 7. O termo comercial sugar apples descreve o fruto fresco dessa espécie.
+250,"Tamarindo, cru",Acordos bloqueados,FOODON_03401425,A TACO registra Tamarindus indica cru. A definição GS1 de tamarindo identifica o fruto fresco da espécie no ramo de produtos vegetais. O código de vagem crua está bloqueado.
+253,"Tucumã, cru",Discordâncias,FOODON_03541644,O Quadro 7 e a definição FoodEx2 de awara palm fruits identificam Astrocaryum vulgare. A classe descreve o fruto alimentar do tucumã.
+254,"Umbu, cru",Discordâncias,FOODON_03305237,"Umbu é o fruto de Spondias tuberosa, descrito cru. A categoria de fruta tropical crua não pressupõe outra espécie de Spondias."
+258,"Uva, suco concentrado, envasado",Mudanças de tipo,FOODON_03543238,A classe atual já identifica suco concentrado de uva. A proposta expressa as mesmas propriedades. O envasamento não exige uma troca de código.
+264,"Margarina, com óleo hidrogenado, sem sal (80% de lipídeos)",Mudanças de tipo,FOODON_03306260,A ausência de sal está explícita no nome da margarina. A classe salt-free conserva essa propriedade para a formulação de óleo indicada.
+266,"Margarina, com óleo interesterificado, sem sal (65% de lipídeos)",Mudanças de tipo,FOODON_03306260,A ausência de sal está explícita no nome da margarina. A classe salt-free conserva essa propriedade para a formulação de óleo indicada.
+273,"Abadejo, filé, congelado, assado",Discordâncias,FOODON_03542400,"O Quadro 7 identifica Genypterus blacodes, da família Ophidiidae. A categoria alimentar cusk-eels inclui a espécie e admite o preparo do filé informado na ficha."
+274,"Abadejo, filé, congelado,cozido",Discordâncias,FOODON_03542400,"O Quadro 7 identifica Genypterus blacodes, da família Ophidiidae. A categoria alimentar cusk-eels inclui a espécie e admite o preparo do filé informado na ficha."
+275,"Abadejo, filé, congelado, cru",Discordâncias,FOODON_03309178,Genypterus blacodes é o golden kingklip. O filé cru congelado conserva essa identidade. Pollock corresponde a outro peixe.
+276,"Abadejo, filé, congelado, grelhado",Discordâncias,FOODON_03542400,"O Quadro 7 identifica Genypterus blacodes, da família Ophidiidae. A categoria alimentar cusk-eels inclui a espécie e admite o preparo do filé informado na ficha."
+277,"Atum, conserva em óleo",Discordâncias,FOODON_03310701,A TACO identifica Thunnus thynnus. A classe de atum-rabilho permite manter a espécie e o estado apresentado na ficha.
+278,"Atum, fresco, cru",Discordâncias,FOODON_03308449,A TACO identifica Thunnus thynnus. A classe de atum-rabilho permite manter a espécie e o estado apresentado na ficha.
+283,"Cação, posta, crua",Mudanças de tipo,FOODON_03301751,A amostra é uma posta de cação cru. Shark meat (raw) corresponde à carne analisada e evita interpretar o item como tubarão integral.
+284,"Camarão, Rio Grande, grande, cozido",Discordâncias,FOODON_03311618,O Apêndice 2 descreve a cocção do camarão em água. Esse detalhe sustenta a classe específica de camarão fervido.
+288,"Corimba, cru",Discordâncias,FOODON_00001249,O Quadro 7 identifica peixes do gênero Prochilodus. São pescados de água doce. A categoria alimentar admite a apresentação indicada na ficha.
+289,"Corimbatá, assado",Discordâncias,FOODON_00001249,O Quadro 7 identifica peixes do gênero Prochilodus. São pescados de água doce. A categoria alimentar admite a apresentação indicada na ficha.
+290,"Corimbatá, cozido",Discordâncias,FOODON_00001249,O Quadro 7 identifica peixes do gênero Prochilodus. São pescados de água doce. A categoria alimentar admite a apresentação indicada na ficha.
+291,"Corvina de água doce, crua",Discordâncias,FOODON_00001249,A TACO identifica uma corvina do gênero Plagioscion de água doce. A classe geral de pescado de água doce evita equiparar o nome comercial a outra espécie de croaker.
+292,"Corvina do mar, crua",Discordâncias,FOODON_03542377,"O Quadro 7 identifica Micropogonias furnieri, da família Sciaenidae. A categoria FoodEx2 de drums abrange esses pescados e admite o preparo da ficha."
+293,"Corvina grande, assada",Discordâncias,FOODON_03542377,"O Quadro 7 identifica Micropogonias furnieri, da família Sciaenidae. A categoria FoodEx2 de drums abrange esses pescados e admite o preparo da ficha."
+294,"Corvina grande, cozida",Discordâncias,FOODON_03542377,"O Quadro 7 identifica Micropogonias furnieri, da família Sciaenidae. A categoria FoodEx2 de drums abrange esses pescados e admite o preparo da ficha."
+295,"Dourada de água doce, fresca",Dúvidas com acordo,FOODON_03303384,O Quadro 7 identifica um bagre do gênero Brachyplatystoma. A apresentação é fresca e a ficha não registra cocção. Catfish (raw) é compatível com esses dados.
+296,"Lambari, congelado, cru",Discordâncias,FOODON_03542259,O lambari registrado é Astyanax taeniatus. O grupo alimentar dos caracídeos mantém essa identificação tanto para o produto cru quanto para o preparado.
+297,"Lambari, congelado, frito",Discordâncias,FOODON_03542259,O lambari registrado é Astyanax taeniatus. O grupo alimentar dos caracídeos mantém essa identificação tanto para o produto cru quanto para o preparado.
+298,"Lambari, fresco, cru",Discordâncias,FOODON_03542259,O lambari registrado é Astyanax taeniatus. O grupo alimentar dos caracídeos mantém essa identificação tanto para o produto cru quanto para o preparado.
+301,"Merluza, filé, assado",Discordâncias,FOODON_03542351,A TACO associa a merluza a Merluccius hubbsi. A categoria de merluzas abrange o peixe e admite o filé no preparo indicado.
+302,"Merluza, filé, cru",Discordâncias,FOODON_03309093,O Quadro 7 identifica Merluccius hubbsi. Argentine hake (raw) preserva a espécie e o estado cru do filé.
+303,"Merluza, filé, frito",Discordâncias,FOODON_03542351,A TACO associa a merluza a Merluccius hubbsi. A categoria de merluzas abrange o peixe e admite o filé no preparo indicado.
+304,"Pescada, branca, crua",Discordâncias,FOODON_03542373,A pescada-branca é identificada como Cynoscion spp. A categoria coletiva de weakfishes permite manter o gênero sem presumir uma espécie particular.
+305,"Pescada, branca, frita",Discordâncias,FOODON_03542373,A pescada-branca é identificada como Cynoscion spp. A categoria coletiva de weakfishes permite manter o gênero sem presumir uma espécie particular.
+306,"Pescada, filé, com farinha de trigo, frito",Discordâncias,FOODON_03309065,O filé recebeu cobertura de farinha de trigo antes de fritar. A classe de filé empanado preserva o corte e o revestimento.
+307,"Pescada, filé, cru",Discordâncias,FOODON_03305734,"O item é filé cru de pescada. O Quadro 7 indica Macrodon para pescada, enquanto a denominação weakfish pode corresponder a outra espécie."
+308,"Pescada, filé, frito",Discordâncias,FOODON_03310717,A TACO registra Macrodon para a pescada. A definição FoodEx2 de weakfishes restringe a classe a Cynoscion. Peixe frito conserva o modo de preparo sem trocar o gênero.
+309,"Pescada, filé, molho escabeche",Discordâncias,FOODON_03543861,A unidade analisada é o filé preparado com molho escabeche. A categoria de prato de pescado admite os ingredientes do molho.
+310,"Pescadinha, crua",Discordâncias,FOODON_03542373,A pescadinha consta como Cynoscion striatus no Quadro 7. A classe coletiva de weakfishes evita pressupor a identidade de uma espécie norte-americana.
+314,"Porquinho, cru",Discordâncias,FOODON_00001249,"O Quadro 7 associa porquinho a Prochilodus spp., um gênero de água doce. A tradução triggerfish aponta para outro grupo. Prevalece a identificação publicada na TACO."
+316,"Salmão, sem pele, fresco, cru",Discordâncias,FOODON_03307996,"O Quadro 7 identifica Salmo salar. A ficha informa carne crua sem pele, mas não explicita o corte em filé neste item."
+318,"Sardinha, assada",Discordâncias,FOODON_03542404,A sardinha do Quadro 7 é Sardinella brasiliensis. A categoria que inclui Sardinella preserva a identificação do peixe e admite o preparo indicado.
+320,"Sardinha, frita",Discordâncias,FOODON_03542404,A sardinha do Quadro 7 é Sardinella brasiliensis. A categoria que inclui Sardinella preserva a identificação do peixe e admite o preparo indicado.
+323,Apresuntado,Dúvidas com acordo,FOODON_00005588,O apresuntado é um produto suíno reestruturado. Pork loaf serve como aproximação. O formulário não apresenta ficha de fabricação para comprovar uma equivalência de formulação.
+327,"Carne, bovina, acém, moído, cru",Discordâncias,FOODON_00002929,A moagem e o corte de origem estão documentados. Ground chuck identifica a carne moída proveniente do acém.
+334,"Carne, bovina, capa de contra-filé, com gordura, crua",Discordâncias,FOODON_02000204,"A capa do contrafilé situa-se na região costal. A amostra está crua, mas a ficha não registra o porcionamento em bifes exigido por ribeye cap steak."
+335,"Carne, bovina, capa de contra-filé, com gordura, grelhada",Discordâncias,FOODON_02000203,"A capa do contrafilé foi grelhada. A região costal é identificável, mas a grelha, por si, não determina as dimensões de um ribeye cap steak."
+336,"Carne, bovina, capa de contra-filé, sem gordura, crua",Discordâncias,FOODON_02000204,"A capa do contrafilé situa-se na região costal. A amostra está crua, mas a ficha não registra o porcionamento em bifes exigido por ribeye cap steak."
+337,"Carne, bovina, capa de contra-filé, sem gordura, grelhada",Discordâncias,FOODON_02000203,"A capa do contrafilé foi grelhada. A região costal é identificável, mas a grelha, por si, não determina as dimensões de um ribeye cap steak."
+339,"Carne, bovina, charque, cru",Discordâncias,FOODON_00001696,A salga e a cura caracterizam o produto bovino. A categoria de carne bovina curada admite a apresentação crua da TACO.
+341,"Carne, bovina, contra-filé de costela, cru",Mudanças de tipo | Dúvidas com acordo,FOODON_02000212,O contrafilé de costela cru corresponde à peça da região do ribeye. A ficha não informa corte em bifes. Usa-se ribeye roll para a peça.
+342,"Carne, bovina, contra-filé de costela, grelhado",Discordâncias,FOODON_02000203,"O nome localiza o corte na região costal bovina. Sem documentação do porcionamento, a classe regional é mais defensável que um corte comercial de bife."
+344,"Carne, bovina, contra-filé, com gordura, grelhado",Discordâncias,FOODON_02000123,O contrafilé sem osso foi grelhado. A ficha mantém o corte identificado como strip loin e deixa em aberto o porcionamento em bifes.
+346,"Carne, bovina, contra-filé, sem gordura, grelhado",Discordâncias,FOODON_02000123,O contrafilé sem osso foi grelhado. A ficha mantém o corte identificado como strip loin e deixa em aberto o porcionamento em bifes.
+354,"Carne, bovina, cupim, cru",Discordâncias,FOODON_02000415,O cupim é um corte de açougue bovino identificado pelo nome. A classe de corte bovino cru retém essa característica da amostra.
+361,"Carne, bovina, fraldinha, com gordura, cozida",Discordâncias,FOODON_03309738,A fraldinha brasileira foi identificada como corte bovino. A descrição não delimita os músculos da peça conforme a especificação de sirloin bavette flap. Mantém-se a classe compatível com o estado registrado.
+362,"Carne, bovina, fraldinha, com gordura, crua",Discordâncias,FOODON_02000415,A fraldinha brasileira foi identificada como corte bovino. A descrição não delimita os músculos da peça conforme a especificação de sirloin bavette flap. Mantém-se a classe compatível com o estado registrado.
+367,"Carne, bovina, maminha, crua",Discordâncias,FOODON_02000146,"A maminha vem da ponta da alcatra. A região anatômica está documentada, mas a ficha não especifica o porcionamento comercial em roast ou steak."
+368,"Carne, bovina, maminha, grelhada",Discordâncias,FOODON_02000145,"A maminha vem da ponta da alcatra. A região anatômica está documentada, mas a ficha não especifica o porcionamento comercial em roast ou steak."
+369,"Carne, bovina, miolo de alcatra, sem gordura, cru",Dúvidas com acordo,FOODON_02000148,"O miolo de alcatra cru corresponde à porção central da alcatra. Top sirloin butt mantém o corte de referência, com incerteza sobre os limites exatos da desossa."
+370,"Carne, bovina, miolo de alcatra, sem gordura, grelhado",Discordâncias,FOODON_02000147,Miolo de alcatra identifica uma porção da alcatra. O preparo na grelha não comprova a apresentação em bifes de top sirloin.
+376,"Carne, bovina, patinho, sem gordura, cru",Discordâncias,FOODON_02000026,A classe de sirloin tip cru retém a correspondência de corte utilizada para o patinho e o estado cru informado na ficha.
+385,"Carne, bovina, seca, crua",Discordâncias,FOODON_00001696,A salga e a cura caracterizam o produto bovino. A categoria de carne bovina curada admite a apresentação crua da TACO.
+388,"Croquete, de carne, frito",Discordâncias,FOODON_03543848,O produto é um croquete de carne já frito. A categoria de preparações de carne comporta a massa e a fritura do croquete.
+391,"Frango, asa, com pele, crua",Mudanças de tipo,FOODON_02020244,É a asa crua de frango com pele. A classe proposta acrescenta a presença da pele à informação de corte e estado cru.
+397,"Frango, coxa, com pele, crua",Mudanças de tipo,FOODON_02020240,"A coxa crua manteve a pele. A nova classe identifica a coxa, a pele e o estado cru."
+398,"Frango, coxa, sem pele, cozida",Mudanças de tipo,FOODON_02020237,"A retirada da pele é explícita e determina a porção comestível da coxa. A classe skinless admite a cocção, que segue registrada na descrição TACO."
+401,"Frango, filé, à milanesa",Discordâncias,FOODON_03309151,O Apêndice 2 descreve o empanamento e a fritura dos filés. A classe de frango empanado e frito corresponde à preparação feita pela equipe.
+407,"Frango, peito, com pele, cru",Mudanças de tipo,FOODON_02020234,"O peito de frango foi analisado cru e com pele. A proposta retém simultaneamente corte, pele e estado."
+408,"Frango, peito, sem pele, cozido",Mudanças de tipo,FOODON_02020231,O peito cozido foi analisado sem pele. A classe skinless preserva a composição da peça e admite o estado cozido registrado na ficha.
+412,"Frango, sobrecoxa, com pele, crua",Mudanças de tipo,FOODON_02020230,A pele integra a sobrecoxa crua analisada. A classe proposta retém tanto a pele quanto o estado cru.
+416,"Hambúrguer, bovino, frito",Mudanças de tipo,FOODON_03302101,A unidade é o disco de carne bovina moída após fritura. A classe da porção de carne cozida representa o hambúrguer sem presumir pão ou acompanhamentos.
+418,"Lingüiça, frango, crua",Discordâncias,FOODON_03401689,A linguiça foi formulada com frango. A categoria de embutido de frango admite o produto no estado indicado e conserva a espécie declarada.
+419,"Lingüiça, frango, frita",Discordâncias,FOODON_03401689,A linguiça foi formulada com frango. A categoria de embutido de frango admite o produto no estado indicado e conserva a espécie declarada.
+420,"Lingüiça, frango, grelhada",Discordâncias,FOODON_03401689,A linguiça foi formulada com frango. A categoria de embutido de frango admite o produto no estado indicado e conserva a espécie declarada.
+425,"Peru, congelado, assado",Discordâncias,FOODON_03307670,"O peru foi assado para análise. A classe de peru assado identifica a ave e o preparo, sem restringir a uma parte específica."
+426,"Peru, congelado, cru",Discordâncias,FOODON_03304545,A condição congelada é explícita na amostra crua de peru. A classe de peru congelado preserva a apresentação do alimento.
+431,"Porco, costela, crua",Mudanças de tipo,FOODON_00003270,"A costela suína está crua, mas a ficha não diz de qual segmento da caixa torácica veio. Pork ribs abrange os cortes possíveis."
+432,"Porco, lombo, assado",Mudanças de tipo,FOODON_00002570,"A TACO registra lombo suíno assado. A peça não está especificada como a parte central do lombo, detalhe exigido pela classe atual."
+434,"Porco, orelha, salgada, crua",Discordâncias,FOODON_02021685,O órgão suíno foi salgado e analisado cru. A classe específica da parte crua admite a salga descrita.
+437,"Porco, rabo, salgado, cru",Discordâncias,FOODON_02021801,O órgão suíno foi salgado e analisado cru. A classe específica da parte crua admite a salga descrita.
+440,"Quibe, assado",Discordâncias,FOODON_03543848,A combinação de carne e trigo constitui uma preparação de carne. Essa categoria admite o quibe no estado registrado e mantém o alimento composto como unidade.
+441,"Quibe, cru",Discordâncias,FOODON_03543848,A combinação de carne e trigo constitui uma preparação de carne. Essa categoria admite o quibe no estado registrado e mantém o alimento composto como unidade.
+442,"Quibe, frito",Discordâncias,FOODON_03543848,A combinação de carne e trigo constitui uma preparação de carne. Essa categoria admite o quibe no estado registrado e mantém o alimento composto como unidade.
+444,"Toucinho, cru",Discordâncias,FOODON_00005413,"A tradução da TACO identifica o toucinho como fatback, tecido adiposo dorsal suíno. A classe escolhida é compatível com o estado da amostra."
+445,"Toucinho, frito",Discordâncias,FOODON_00005412,"A tradução da TACO identifica o toucinho como fatback, tecido adiposo dorsal suíno. A classe escolhida é compatível com o estado da amostra."
+446,"Bebida láctea, pêssego",Discordâncias,FOODON_03316101,"A bebida láctea tem sabor de pêssego. A ficha não documenta esterilização, etapa exigida pela alternativa mais restrita."
+447,Creme de Leite,Discordâncias,FOODON_00005747,"A ficha identifica creme de leite e a análise se refere à apresentação fluida. Cream (liquid) descreve o creme como alimento, antes de ser batido."
+455,"Leite, de vaca, achocolatado",Discordâncias,FOODON_03301816,"O achocolatado já está preparado em leite de vaca. Chocolate milk descreve a bebida pronta, como consta no formulário."
+456,"Leite, de vaca, desnatado, pó",Mudanças de tipo,FOODON_03310016,"A amostra é leite de vaca desnatado e em pó. A proposta conserva espécie, retirada da gordura e secagem."
+457,"Leite, de vaca, desnatado, UHT",Mudanças de tipo,FOODON_03317579,O tratamento UHT está documentado para o leite desnatado. A proposta mantém tanto o teor de gordura quanto o processo térmico.
+458,"Leite, de vaca, integral",Mudanças de tipo,FOODON_00005478,"O leite é de vaca e integral. A ficha não especifica ausência de aditivos, condição exigida pela classe atual."
+459,"Leite, de vaca, integral, pó",Discordâncias,FOODON_03542726,Leite integral em pó explicita a secagem e o teor integral de gordura. A categoria de leite em pó integral retém as duas propriedades.
+460,"Leite, fermentado",Discordâncias,FOODON_03542692,"A categoria de leites fermentados contempla o produto. A ficha não identifica cultura, consistência ou formulação de uma bebida láctea específica."
+461,"Queijo, minas, frescal",Mudanças de tipo,FOODON_03601036,A ficha identifica queijo Minas frescal. Minas cheese registra a identidade brasileira do queijo. Frescal permanece indicado no nome da amostra.
+465,"Queijo, pasteurizado",Discordâncias,FOODON_03000287,"O português informa pasteurização e a tradução sugere queijo processado. A pasteurização, isoladamente, não documenta fusão ou emulsificação. Mantém-se a classe de queijo."
+468,"Queijo, requeijão, cremoso",Discordâncias,FOODON_03315643,Requeijão cremoso é um queijo processado de consistência espalhável. As duas propostas representam essas propriedades. Cheese spread (processed) as expressa diretamente.
+470,"Bebida isotônica, sabores variados",Discordâncias,FOODON_03543324,O alimento é vendido como bebida isotônica. A definição FoodEx2 contempla expressamente as bebidas isotônicas com eletrólitos e admite diferentes sabores.
+472,"Cana, aguardente",Discordâncias,FOODON_03543380,"A aguardente descrita é um destilado de cana-de-açúcar. A cana é um colmo, o que permite enquadrar a bebida entre os destilados de matérias-primas que não são frutas."
+474,"Cerveja, pilsen",Discordâncias,FOODON_03543333,Pilsen pertence à família das cervejas lager. O estilo indicado na TACO permite manter essa distinção.
+475,"Chá, erva-doce, infusão 5%",Dúvidas com acordo,FOODON_00003170,O item é a infusão líquida de erva-doce. A designação popular pode indicar funcho ou anis. A classe de infusão de ervas evita impor uma espécie sem registro.
+476,"Chá, mate, infusão 5%",Discordâncias,FOODON_03311583,A amostra é uma infusão líquida de mate. O percentual descreve o preparo da bebida. A classe mate (liquid) explicita a forma analisada.
+480,"Refrigerante, tipo cola",Discordâncias,FOODON_03301776,"O produto é um refrigerante carbonatado do tipo cola. A classe retém a carbonatação e o sabor sem especificar marca, cafeína ou adoçante."
+483,"Refrigerante, tipo limão",Discordâncias,FOODON_03302411,A ficha descreve um refrigerante de limão. Lemon soda corresponde à bebida carbonatada com esse sabor.
+489,"Ovo, de galinha, inteiro, cru",Discordâncias,FOODON_03301075,A porção comestível do ovo inteiro cru reúne clara e gema. A definição da classe descreve justamente o conteúdo obtido após retirar a casca.
+491,"Achocolatado, pó",Discordâncias,FOODON_03304061,A TACO descreve pó para preparar bebida de chocolate. A formulação pode ser identificada sem supor que a mistura seja instantânea.
+493,"Açúcar, mascavo",Mudanças de tipo,FOODON_03420156,"Mascavo identifica açúcar escuro pouco refinado. A definição FoodOn de muscovado acrescenta teor e sabor intensos de melaço, características não discriminadas nesta ficha."
+499,Cocada branca,Discordâncias,FOODON_03301051,Cocada branca é um doce de coco. A ficha não documenta o formato em montes nem a apresentação comercial de coconut haystacks.
+500,"Doce, de abóbora, cremoso",Discordâncias,FOODON_03540948,O produto é abóbora conservada com açúcar em consistência cremosa. A categoria FoodEx2 comporta a preparação açucarada de hortaliças.
+504,Maria mole,Discordâncias,FOODON_00001576,"A maria-mole é um doce aerado. A variante com coco também se enquadra nessa categoria, sem exigir a formulação de um marshmallow específico."
+505,"Maria mole, coco queimado",Discordâncias,FOODON_00001576,"A maria-mole é um doce aerado. A variante com coco também se enquadra nessa categoria, sem exigir a formulação de um marshmallow específico."
+507,"Mel, de abelha",Discordâncias,FOODON_03543011,A ficha identifica o próprio mel de abelha. A categoria FoodEx2 de mel é mais precisa que uma classe que também comporta produtos derivados do mel.
+508,Melado,Mudanças de tipo,FOODON_03311346,O melado é o xarope obtido por concentração do caldo de cana. O nome não estabelece que a amostra seja o resíduo da extração de cristais de açúcar.
+510,Rapadura,Discordâncias,FOODON_03307047,"A rapadura é açúcar de cana concentrado em bloco. Na hierarquia FoodOn, panela está sob plant sweetener, o que resolve a ambiguidade do nome com o queijo homônimo."
+511,"Café, pó, torrado",Mudanças de tipo,FOODON_03543413,Torra e moagem estão documentadas. A ficha não informa granulometria média. A classe de café torrado e moído admite os graus de moagem possíveis.
+512,"Capuccino, pó",Discordâncias,FOODON_03315399,O cappuccino está em pó para reconstituição. A classe de mistura para bebida à base de café conserva o estado em que o material foi analisado.
+514,"Fermento, biológico, levedura, tablete",Mudanças de tipo,FOODON_03311884,O fermento biológico é apresentado em tablete. Compressed yeast registra essa forma física além da identidade como levedura para panificação.
+518,Shoyu,Discordâncias,FOODON_03304988,"Shoyu identifica um tipo de molho de soja. A TACO explicita o nome, que pode ser mantido na classe mais específica."
+521,"Azeitona, verde, conserva",Discordâncias,FOODON_03310829,"A amostra é azeitona verde em conserva. A ficha confirma a conservação, mas não especifica a solução de cobertura."
+522,"Chantilly, spray, com gordura vegetal",Discordâncias,FOODON_03316089,O chantilly formulado com gordura vegetal é apresentado como substituto de creme batido. A alternativa descreve essa função e admite a dispensação em spray.
+525,Acarajé,Discordâncias,FOODON_03601041,O Apêndice 2 descreve o bolinho de feijão-fradinho frito em dendê e recheado com camarão. Fritter classifica a unidade frita pronta.
+526,Arroz carreteiro,Discordâncias,FOODON_03543974,O apêndice descreve arroz cozido com carne-seca. A categoria de prato de arroz e carne abrange ambos na mesma preparação.
+527,"Baião de dois, arroz e feijão-de-corda",Discordâncias,FOODON_03543973,"A receita junta arroz, feijão-de-corda, toucinho e queijo coalho. A categoria de prato de arroz cozido admite o conjunto descrito."
+529,"Bife à cavalo, com contra filé",Discordâncias,FOODON_03543848,O bife de contrafilé é servido com ovo frito sobre ele. A classe de preparação à base de carne conserva o bife e o acompanhamento como um prato.
+530,Bolinho de arroz,Discordâncias,FOODON_03601041,O Apêndice 2 descreve a modelagem e a fritura da massa de arroz. Fritter representa o bolinho já preparado.
+531,Camarão à baiana,Discordâncias,FOODON_03543864,O camarão é servido com o molho da preparação baiana. A categoria de refeição à base de frutos do mar abrange o prato completo.
+532,"Charuto, de repolho",Discordâncias,FOODON_03543975,"O repolho envolve recheio de arroz e carne. A categoria de prato de arroz, carne e hortaliças representa os três componentes."
+533,"Cuscuz, de milho, cozido com sal",Discordâncias,FOODON_03400822,O cuscuz brasileiro desta ficha usa milho e sal. A categoria de prato salgado de cereal admite milho e não exige sêmola de trigo.
+534,"Cuscuz, paulista",Discordâncias,FOODON_03400822,"A receita paulista reúne farinhas de milho e mandioca, sardinha, ovos e hortaliças. A classe de prato salgado de cereal comporta o conjunto."
+535,"Cuxá, molho",Discordâncias,FOODON_03311870,A vinagreira fornece as folhas que caracterizam o molho de cuxá. A classe de molho de folhas admite o camarão e os demais ingredientes da receita.
+536,Dobradinha,Discordâncias,FOODON_03543860,A dobradinha combina bucho e outros ingredientes após o cozimento. A categoria de prato de vísceras representa a preparação servida.
+537,Estrogonofe de carne,Discordâncias,FOODON_03304779,A carne bovina é cozida em molho. A classe geral de ensopado bovino admite o estrogonofe sem pressupor acompanhamento de macarrão.
+538,Estrogonofe de frango,Discordâncias,FOODON_03303025,O frango em pedaços é preparado em molho. A classe de ensopado de frango conserva a espécie e o caráter do prato.
+539,Feijão tropeiro mineiro,Discordâncias,FOODON_03543902,"O feijão tropeiro reúne feijão, carne suína, farinha e ovo. A categoria de prato de feijão com carne inclui a preparação inteira."
+540,Feijoada,Discordâncias,FOODON_03317590,A feijoada descrita combina feijão-preto e carnes suínas no cozimento. A classe pork and beans admite os dois componentes sem exigir enlatamento.
+541,"Frango, com açafrão",Discordâncias,FOODON_03303025,O frango é preparado com açafrão e cozido. A classe de ensopado de frango conserva o alimento-base e admite esse tempero.
+542,"Macarrão, molho bolognesa",Discordâncias,FOODON_03317305,O Apêndice 2 identifica o formato espaguete e o molho com carne. A classe descreve a massa servida com esse molho.
+543,Maniçoba,Discordâncias,FOODON_03543850,"Na maniçoba, a folha de mandioca é cozida com carnes. A categoria de ensopado de carne comporta a maniva como parte da preparação."
+544,Quibebe,Discordâncias,FOODON_03543850,"Na receita analisada, abóbora e carne-seca são cozidas juntas até formar caldo espesso. A categoria de ensopado de carne admite essa combinação."
+545,"Salada, de legumes, com maionese",Discordâncias,FOODON_03544022,A preparação contém uma mistura de hortaliças. A classe de salada mista de vegetais conserva essa composição e admite a apresentação indicada na ficha.
+546,"Salada, de legumes, cozida no vapor",Discordâncias,FOODON_03544022,A preparação contém uma mistura de hortaliças. A classe de salada mista de vegetais conserva essa composição e admite a apresentação indicada na ficha.
+548,Sarapatel,Discordâncias,FOODON_03543860,O sarapatel usa miúdos e sangue suíno na mesma receita. A categoria de pratos de vísceras admite o conjunto.
+550,Tacacá,Discordâncias,FOODON_03543998,"O tacacá é o caldo pronto servido com tucupi, goma, jambu e camarão. A classe de sopa pronta representa a preparação servida."
+551,"Tapioca, com manteiga",Discordâncias,FOODON_03544047,A goma de mandioca é aquecida na chapa e servida com manteiga. A categoria alimentar de lanche à base de fécula de tapioca contempla a preparação.
+552,"Tucupi, com pimenta-de-cheiro",Discordâncias,FOODON_00001692,"O tucupi é o líquido derivado da mandioca, preparado com temperos. A classe de produto de mandioca admite o caldo após o processamento."
+554,Vatapá,Discordâncias,FOODON_03543864,"A receita de vatapá inclui camarão, oleaginosas, leite de coco e dendê. A classe de preparação à base de frutos do mar admite esses ingredientes."
+555,Virado à paulista,Discordâncias,FOODON_03543902,"O virado paulista reúne feijão, carne suína e farinha. A classe de refeição de feijão e carne mantém os componentes no mesmo prato."
+556,Yakisoba,Discordâncias,FOODON_03543960,"A ficha identifica yakisoba, uma preparação cozida de macarrão. O nome não estabelece equivalência com o prato chinês específico chamado chow mein."
+558,"Amendoim, torrado, salgado",Mudanças de tipo,FOODON_03306901,O amendoim foi torrado e salgado. A ficha não explicita a retirada da película. Peanut (roasted) preserva a torra sem exigir descascamento da película.
+560,"Ervilha, enlatada, drenada",Discordâncias,FOODON_03306809,"A formulação informa ervilha em lata, drenada para análise. A classe de ervilha enlatada não acrescenta uma cor ou um estágio de maturação."
+561,"Feijão, carioca, cozido",Mudanças de tipo,FOODON_00002762,Carioca é um grupo comercial de feijão-comum brasileiro. A ficha não estabelece equivalência com pinto. A classe de feijão cozido é compatível.
+562,"Feijão, carioca, cru",Discordâncias,FOODON_03541073,O item é um grão seco e cru de feijão-comum. A definição FoodEx2 inclui variedades de Phaseolus vulgaris e preserva o tipo comercial brasileiro no nome TACO.
+564,"Feijão, fradinho, cru",Discordâncias,FOODON_03000202,O feijão-fradinho desta ficha é o grão maduro cru de Vigna unguiculata. A classe registra também o estágio do grão.
+565,"Feijão, jalo, cozido",Mudanças de tipo | Dúvidas com acordo,FOODON_00002762,O feijão jalo está cozido. A cor do grão não basta para identificá-lo como integrante da classe comercial yellow bean.
+566,"Feijão, jalo, cru",Discordâncias,FOODON_03541073,O item é um grão seco e cru de feijão-comum. A definição FoodEx2 inclui variedades de Phaseolus vulgaris e preserva o tipo comercial brasileiro no nome TACO.
+567,"Feijão, preto, cozido",Discordâncias,FOODON_00002762,Feijão-preto identifica um grupo brasileiro de feijão-comum. A cor não determina a variedade black turtle. A cocção está expressa na classe.
+568,"Feijão, preto, cru",Discordâncias,FOODON_03541073,A cor preta e o estado seco e cru estão documentados. A categoria de feijões-comuns secos admite o grupo brasileiro sem exigir a variedade black turtle.
+569,"Feijão, rajado, cozido",Mudanças de tipo,FOODON_00002762,O feijão rajado é listrado e foi cozido. Essa aparência não determina equivalência com uma variedade estrangeira pinto.
+570,"Feijão, rajado, cru",Discordâncias,FOODON_03541073,O item é um grão seco e cru de feijão-comum. A definição FoodEx2 inclui variedades de Phaseolus vulgaris e preserva o tipo comercial brasileiro no nome TACO.
+571,"Feijão, rosinha, cozido",Discordâncias,FOODON_00002762,"O rosinha é um grupo comercial brasileiro. O cozimento é conhecido, mas o nome da cor não comprova a equivalência com o grupo estrangeiro pink bean."
+572,"Feijão, rosinha, cru",Discordâncias,FOODON_03541073,O rosinha é um feijão-comum cru e seco. A categoria FoodEx2 admite a variedade brasileira sem pressupor equivalência comercial com pink bean.
+573,"Feijão, roxo, cozido",Mudanças de tipo,FOODON_00002762,A TACO identifica a cor roxa do feijão cozido. A classe kidney bean exigiria informação adicional sobre o tipo do grão.
+574,"Feijão, roxo, cru",Discordâncias,FOODON_03541073,O item é um grão seco e cru de feijão-comum. A definição FoodEx2 inclui variedades de Phaseolus vulgaris e preserva o tipo comercial brasileiro no nome TACO.
+583,"Soja, extrato solúvel, pó",Discordâncias,FOODON_03310182,A TACO nomeia o extrato de soja em pó. A própria classe especifica a matéria-prima e a apresentação anterior à reconstituição.
+585,"Tremoço, cru",Discordâncias,FOODON_00003757,O Quadro 7 identifica Lupinus albus. A classe de semente de tremoço-branco retém a espécie e admite a apresentação indicada na ficha.
+586,"Tremoço, em conserva",Discordâncias,FOODON_00003757,O Quadro 7 identifica Lupinus albus. A classe de semente de tremoço-branco retém a espécie e admite a apresentação indicada na ficha.
+587,"Amêndoa, torrada, salgada",Discordâncias,FOODON_00003523,"A TACO informa torra e sal, mas não registra o meio de torra. A classe de amêndoa mantém em aberto a presença de óleo durante o processamento."
+589,"Castanha-do-Brasil, crua",Mudanças de tipo,FOODON_03541129,A definição da classe atual brazilnut (raw) herda a condição shell on. O dado da TACO é da porção comestível. A categoria alimentar de Bertholletia excelsa evita exigir a casca.
+590,"Coco, cru",Discordâncias,FOODON_00004256,A amostra de coco cru é a porção comestível sólida. A classe identifica a polpa e a distingue da água de coco registrada à parte.
+591,"Coco, verde, cru",Discordâncias,FOODON_03303085,A TACO diz coco verde cru e não delimita a fração analisada. A classe de coco cru evita inferir uma amostra formada exclusivamente de polpa.
+595,"Pinhão, cozido",Discordâncias,FOODON_03304497,O pinhão cozido é a semente de Araucaria angustifolia. A classe de semente comestível admite a espécie e evita atribuição ao gênero Pinus.
+597,"Noz, crua",Discordâncias,FOODON_03315232,"O Quadro 7 identifica Carya illinoinensis, a pecã. A espécie orienta a decisão mesmo com walnut na tradução do formulário."

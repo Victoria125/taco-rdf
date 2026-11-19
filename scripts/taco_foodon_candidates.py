@@ -14,11 +14,16 @@ Every class is checked against the pinned release and, in Fuseki, for a whole or
 ancestors, which the build refuses as a type (docs/foodon-typing.md); usable_classes lists the candidates
 that pass both. in_round_1 marks the foods that round 1 sampled, which its adjudication may type first.
 
+With --all-foods the sheet covers all 597 foods, for round 3 (docs/alignment-review-v3.md), and goes to
+build/taco/foodon_round3/. The 311 typed foods are searched blind: they get no history candidate, which is
+where their type came from, and a food is never its own TACO neighbour, so their type is among the
+candidates only when a search finds it again.
+
 This is retrieval, not mapping: reviewers decide, and nothing is typed from a candidate. The sheet is
 separated by semicolons, as Excel reads CSV in Portuguese. It holds NEVO's food names, which NEVO's
 conditions of use do not let this project redistribute, so it goes to build/, which git ignores.
 
-    $env:PYTHONPATH = "src"; python scripts/taco_foodon_candidates.py --ols
+    $env:PYTHONPATH = "src"; python scripts/taco_foodon_candidates.py --ols [--all-foods]
 """
 
 from __future__ import annotations
@@ -30,10 +35,13 @@ import json
 import sys
 from pathlib import Path
 
+from taco_rdf import sparql
 from taco_rdf.namespaces import BUILD_DIR, ROOT
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql.endpoint()
 OUT_DIR = BUILD_DIR / "taco" / "foodon_round2"
+OUT_DIR_ALL = BUILD_DIR / "taco" / "foodon_round3"
+HISTORY = ("history_relation", "history_class", "history_label", "history_obstacle")
 GAPS = ROOT / "analysis" / "data" / "foodon_typing_gaps.csv"
 TYPES = ROOT / "analysis" / "data" / "foodon_types.csv"
 NAMES = ROOT / "data" / "labels" / "food_names_en.csv"
@@ -62,6 +70,17 @@ def read(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(fh))
 
 
+def old_round_1() -> set[int]:
+    """The foods a round under protocol 1 sampled, if review/round-1 holds one; a type-only review
+    (protocol 3) in that folder is no such round."""
+    manifest = ROUND_1.parent / "manifest.json"
+    if not manifest.is_file():
+        return set()
+    if json.loads(manifest.read_text(encoding="utf-8")).get("protocol_version") != 1:
+        return set()
+    return {int(r["food_number"]) for r in read(ROUND_1)}
+
+
 def name_candidate(name_en: str, labels: dict, folded: dict) -> tuple[str, str, str]:
     """The first FoodOn label TACO's English name gives, by TBCA's comma rules, then NEVO's word rules."""
     found = tbca.candidate(name_en, labels)
@@ -87,30 +106,39 @@ def main() -> int:
     p.add_argument("--endpoint", default=ENDPOINT, help=f"nicefood Fuseki endpoint (default {ENDPOINT})")
     p.add_argument("--ols", action="store_true", help="also search FoodOn in EBI's OLS (cached)")
     p.add_argument("--delay", type=float, default=0.3, help="seconds between OLS requests")
-    p.add_argument("--out", type=Path, default=OUT_DIR, help=f"folder to write (default {OUT_DIR})")
+    p.add_argument("--all-foods", action="store_true",
+                   help=f"all 597 foods, the typed ones blind, for round 3 (default folder {OUT_DIR_ALL})")
+    p.add_argument("--out", type=Path, help=f"folder to write (default {OUT_DIR})")
     args = p.parse_args()
+    args.out = args.out or (OUT_DIR_ALL if args.all_foods else OUT_DIR)
     labels = tbca.foodon_labels(tbca.CLASSES)
     folded = nevo.foodon_labels()
     pinned = {c for c, _ in labels.values() if c.startswith("FOODON_")}
     names = {int(r["food_number"]): r for r in read(NAMES)}
-    round1 = {int(r["food_number"]) for r in read(ROUND_1)}
+    round1 = old_round_1()
     typed = [{"food_number": int(r["food_number"]), "name_en": names[int(r["food_number"])]["name_en"],
               "classes": [(curie(r["target_iri"]), r["target_label"])]} for r in read(TYPES)]
     nevo_typed = [f for f in nevo.nevo_foods(args.endpoint) if f["classes"]]
     args.out.mkdir(parents=True, exist_ok=True)
     cache_path = args.out / "ols_cache.json"
     cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.is_file() else {}
+    entries = [{"food_number": int(g["food_number"]), "name_pt": g["name_pt"], "group": g["group"],
+                "history_relation": g["candidate_predicate"],
+                "history_class": "; ".join(curie(c) for c in g["candidate_iri"].split(" | ") if c),
+                "history_label": g["candidate_label"].replace(" | ", "; "),
+                "history_obstacle": g["candidate_obstacle"].replace(" | ", "; ")} for g in read(GAPS)]
+    if args.all_foods:  # the typed foods, blind: no history candidate, which is where their type came from
+        entries += [{"food_number": int(t["food_number"]), "name_pt": t["name_pt"], "group": t["group"]}
+                    | dict.fromkeys(HISTORY, "") for t in read(TYPES)]
+        entries.sort(key=lambda e: e["food_number"])
     rows = []
-    for gap in read(GAPS):
-        n = int(gap["food_number"])
+    for entry in entries:
+        n = entry["food_number"]
         name_en = names[n]["name_en"]
-        row = {"food_number": n, "name_pt": gap["name_pt"], "name_en": name_en, "group": gap["group"],
-               "in_round_1": str(n in round1), "history_relation": gap["candidate_predicate"],
-               "history_class": "; ".join(curie(c) for c in gap["candidate_iri"].split(" | ") if c),
-               "history_label": gap["candidate_label"].replace(" | ", "; "),
-               "history_obstacle": gap["candidate_obstacle"].replace(" | ", "; ")}
+        row = {"food_number": n, "name_pt": entry["name_pt"], "name_en": name_en, "group": entry["group"],
+               "in_round_1": str(n in round1)} | {k: entry[k] for k in HISTORY}
         row["name_class"], row["name_label"], row["name_rule"] = name_candidate(name_en, labels, folded)
-        near = nevo.neighbours(name_en, typed, n=1)
+        near = nevo.neighbours(name_en, [t for t in typed if t["food_number"] != n], n=1)  # never itself
         row |= {"taco_neighbour_class": "", "taco_neighbour_label": "", "taco_neighbour_food": "",
                 "taco_neighbour_score": ""}
         if near:
@@ -152,7 +180,9 @@ def main() -> int:
         return sum(1 for r in subset if r.get(key))
 
     in_round_1 = sum(1 for r in rows if r["in_round_1"] == "True")
-    print(f"TACO foods without a FoodOn type: {len(rows)} ({in_round_1} in round 1)")
+    typed_now = {t["food_number"] for t in typed}
+    with_type = sum(r["food_number"] in typed_now for r in rows)
+    print(f"TACO foods: {len(rows)} ({with_type} with a type, searched blind; {in_round_1} in round 1)")
     print(f"wrote {out}")
     for key in ("history_class", "name_class", "taco_neighbour_class", "nevo_neighbour1_class", "ols1_class"):
         print(f"  {key.removesuffix('_class'):16} {count(key)}")

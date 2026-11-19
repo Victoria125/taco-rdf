@@ -32,8 +32,11 @@ def test_only_foods_without_a_usable_candidate_are_requests():
 
 def test_the_list_holds_untyped_foods_and_taco_names_only():
     with (ROOT / "analysis" / "data" / "foodon_term_requests.csv").open(encoding="utf-8") as fh:
-        rows = list(csv.DictReader(fh))
+        reader = csv.DictReader(fh)
+        assert reader.fieldnames == ["food_number", "name_pt", "name_en", "group", "foodon_has_the_organism"]
+        rows = list(reader)
     with (ROOT / "analysis" / "data" / "foodon_typing_gaps.csv").open(encoding="utf-8") as fh:
         untyped = {r["food_number"]: r["name_pt"] for r in csv.DictReader(fh)}
-    assert rows and list(rows[0]) == ["food_number", "name_pt", "name_en", "group", "foodon_has_the_organism"]
     assert all(untyped.get(r["food_number"]) == r["name_pt"] for r in rows)
+    if not untyped:
+        assert rows == []

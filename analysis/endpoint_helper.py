@@ -13,7 +13,9 @@ from pathlib import Path
 import pandas as pd
 from SPARQLWrapper import JSON, SPARQLWrapper
 
-FUSEKI = "http://localhost:3030/taco_nevo/sparql"
+from taco_rdf.sparql import TACO_NEVO, endpoint
+
+FUSEKI = endpoint(TACO_NEVO)
 
 
 def open_query(path: str | Path) -> str:

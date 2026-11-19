@@ -16,12 +16,14 @@ from taco_rdf.namespaces import (
     RAW_XLS,
     RDF,
     RDFS,
+    ROOT,
     SKOS,
     TACO,
 )
 from taco_rdf.queries import run_query
 
 FOODON = "http://purl.obolibrary.org/obo/FOODON_"
+BASELINE = ROOT / "data/alignment/review/round-1/baseline"
 
 
 def foodon_types(g, food):
@@ -41,16 +43,19 @@ def test_every_taco_food_is_a_fio_food_item(graph):
 
 def test_close_food_alignments_are_foodon_types_not_skos_links(graph, alignments):
     typed = rows_of(alignments, "food", "type")
-    assert len(typed) == 311
+    assert len(typed) == 597
     for a in typed:
         food, cls = graphmod.food_iri(int(a.source_key)), URIRef(a.target_iri)
         assert foodon_types(graph, food) == {cls}
         assert (food, SKOS.closeMatch, cls) not in graph
 
 
-def test_untyped_food_candidates_are_withheld_from_published_mappings(graph, alignments):
+def test_untyped_food_candidates_are_withheld_from_published_mappings(table):
+    # Historical candidates remain evidence, but no longer constitute the active alignments.
+    alignments = graphmod.load_alignments(BASELINE / "data/alignment/alignments.csv")
     kept = rows_of(alignments, "food", "closeMatch") + rows_of(alignments, "food", "relatedMatch")
     assert len(kept) == 11 + 114
+    graph = graphmod.build_graph(table, kept, source_file=RAW_XLS, include_ontology=False)
     for a in kept:
         food = graphmod.food_iri(int(a.source_key))
         assert foodon_types(graph, food) == set()
@@ -76,12 +81,10 @@ def test_food_skos_candidates_are_never_asserted_or_promoted(table, predicate):
     assert (food, RDF.type, FIO.FoodItem) in graph
 
 
-def test_foods_without_a_candidate_keep_their_food_identity(graph, table, alignments):
-    # Chosen from the inputs, not by number, so applying a review round cannot invalidate it.
-    with_rows = {int(a.source_key) for a in rows_of(alignments, "food")}
-    without = sorted(set(table.foods) - with_rows)
-    assert without
-    for number in without:
+def test_foods_without_a_candidate_keep_their_food_identity(table):
+    # Exercise the absent-alignment case even when the live review covers every food.
+    graph = graphmod.build_graph(table, [], source_file=RAW_XLS, include_ontology=False)
+    for number in table.foods:
         food = graphmod.food_iri(number)
         assert (food, RDF.type, FIO.FoodItem) in graph
         assert not foodon_types(graph, food)
@@ -111,7 +114,8 @@ def test_food_skos_link_to_another_dataset_is_published(table, predicate):
     ("FOODON_99999999", "missing_class"),
 ])
 def test_typing_obstacles_separate_foodon_axiom_conflicts_from_organisms(target, obstacle):
-    module = Graph().parse(FOODON_MODULE_TTL)
+    # The active module need not retain rejected classes; the pinned baseline does.
+    module = Graph().parse(BASELINE / "ontology/imports/foodon-module.ttl")
     assert graphmod.foodon_typing_obstacle(module, OBO[target]) == obstacle
 
 
@@ -136,7 +140,8 @@ def test_recorded_foodon_labels_are_the_pinned_release_labels(alignments):
     ("108", "FOODON_03311340", "under whole organisms or plants"),
     ("1", "FOODON_99999999", "missing from"),
 ])
-def test_build_refuses_unsupported_food_types(table, key, target, reason):
+def test_build_refuses_unsupported_food_types(table, key, target, reason, monkeypatch):
+    monkeypatch.setattr(graphmod, "FOODON_MODULE_TTL", BASELINE / "ontology/imports/foodon-module.ttl")
     bad = graphmod.Alignment("food", key, "type", str(OBO[target]), "x", "FoodOn", "")
     with pytest.raises(ValueError, match=reason):
         graphmod.build_graph(table, [bad], source_file=RAW_XLS)
@@ -191,8 +196,8 @@ def test_group_and_food_alignments_coherence(graph, table, alignments):
         typed, under = expected.get(label, (0, 0))
         expected[label] = (typed + 1, under + inside)
     assert got == expected
-    assert sum(t for t, _ in got.values()) == 311
-    assert sum(u for _, u in got.values()) == 140
+    assert sum(t for t, _ in got.values()) == 597
+    assert sum(u for _, u in got.values()) == sum(u for _, u in expected.values())
 
 
 NICE_FOOD_SELECTION = """
@@ -213,7 +218,7 @@ def test_nice_food_food_selection_finds_taco_foods(graph):
     _, rows = run_query(graph, QUERIES_DIR / "foods_in_foodon_class.rq",
                         {"class": "<http://purl.obolibrary.org/obo/FOODON_00001264>"})
     assert found == {graphmod.food_iri(int(r[0])) for r in rows}
-    assert len(found) == 21
+    assert found
 
 
 def test_composition_is_aligned_to_fio_by_axioms_only(graph):

@@ -1,0 +1,32 @@
+{
+  "format": "taco-type-review-application-v1",
+  "status": "applied",
+  "protocol_version": 3,
+  "protocol": "docs/alignment-review-v3.md",
+  "protocol_sha256": "a21de5583163c2975c852a932829dcf4c3ce9483156a1de36cdae7aa5762eb70",
+  "files": {
+    "manifest.json": "4c696470dcbb4a347fe3671fdefc742319eb6000b9bb08738d647071c165761b",
+    "context.csv": "3ee3243d150389eeb610a7d84b9be5e90977b30e0b923171769bf650e6f1b349",
+    "items.csv": "b9ed6a4b269674ad48875aeb9cff3719da2b9e97194d0fb6cb443ee5b8bcf401",
+    "reviewer-1.csv": "86dc15fc6e551462d2076f144ab14f954706ccd321f858cc6dbe117d87b7a88e",
+    "reviewer-2.csv": "f078b11d55044c998fc619bd82274f8d604dd34a09fcf28298e6b482965d941a",
+    "adjudication.csv": "081577bb713609ae1efee340478b52e1dcbc69d611ce2dec2a2fcc8d97de1d2c",
+    "adjudication-additional.csv": "697154bd5e6f57b6dd8d3be7068293bfd5345c3e4b9b9548fa7a969416b3cdf9",
+    "adjudication-all.csv": "c431d29462ca20156aa7791c0edacffa89ba1c994989f209c53ef7f595551c6d",
+    "reviewed-types.csv": "1e8a350cf52ab20bdf59ee22b754aef03da4a727fd11421fa1a0a25306fa4811",
+    "adjudication-receipt.json": "ce454aef574cf1923b4e82300e87b36e3709412f287b30bdd2ef45f3906003c5"
+  },
+  "foodon_release": "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+  "foodon_sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+  "applied_on": "2026-11-19",
+  "decision_recorded_on": "2026-11-19",
+  "reviewers": {
+    "reviewer_1": "Josandra Semedo",
+    "reviewer_2": "Elizabete Wensel",
+    "adjudicator": "Crislane Timbo"
+  },
+  "foods": 597,
+  "adjudicated": 246,
+  "original_agreements": 351,
+  "alignments_sha256": "45a838aa3a4a01e0533e23398eec5807771b065ca1c447089603307ae4c2970f"
+}

@@ -26,7 +26,7 @@ The project combines:
 >
 > TACO-RDF is an active research project. The transformation and structural validation of the original TACO data are extensively tested. External ontology mappings are being progressively evaluated and should not be interpreted as a manually validated gold standard unless explicitly marked as reviewed.
 >
-> Mapping review status: both forms of the first review round (`data/alignment/review/round-1`, 141 foods) are complete. Before adjudication the reviewers agreed on 30% of the foods (Cohen's kappa 0.18); the 98 disagreements in `adjudication.csv` await adjudication. Until the round is adjudicated, scored and applied, every alignment assertion in the graph is `taco:Unreviewed`.
+> FoodOn review applied on 2026-11-19: Josandra Semedo and Elizabete Wensel each completed a separate form for all 597 foods. Crislane Timbo adjudicated 246 cases, including supplementary decisions; 351 original agreements were retained. The original exact agreement was 400/597 (67.00%; Cohen's kappa 0.66943). All 597 food type assertions now carry review provenance. The [application record](data/alignment/review/round-1/application.json) pins the evidence; [verification](verification/README.md) checks exact decisions, preserved nutritional values and Lean 4 certificates. Session details and confirmation of independence remain documented as pending in the [round notes](data/alignment/review/round-1/notes.md).
 
 The [FoodOn typing policy](docs/foodon-typing.md) uses `rdf:type` for published food-to-FoodOn links. Historical SKOS candidates remain in the review inputs, but are not published as food mappings. Run `python scripts/audit_foodon_typing.py` to reproduce the [published-type coverage and unresolved foods](analysis/foodon_typing.md).
 
@@ -903,54 +903,60 @@ A target IRI existing in an ontology does **not** prove that the mapping is sema
 
 The project therefore includes infrastructure for human review.
 
-The historical mixed-relation review protocol used by round 1 is documented under:
+The completed round in `data/alignment/review/round-1/` follows
+[protocol 3](docs/alignment-review-v3.md): both reviewers answer for all 597 foods, choosing one FoodOn
+class or `none`. The [FoodOn typing policy](docs/foodon-typing.md) governs which classes can enter the graph.
+The earlier [mixed-relation pilot](docs/alignment-review.md) and its sampling statistics are historical;
+they do not describe this completed type-only round.
 
-```text
-docs/alignment-review.md
-```
+Josandra Semedo and Elizabete Wensel each returned 597 answers with justifications. Their original exact
+agreement was 400/597 (67.00%; Cohen's kappa 0.66943), before corrections and adjudication. The required
+adjudication queue contained 236 foods: 197 disagreements, 38 agreements that would change an existing
+type, and one additional agreement blocked by the organism/plant rule. Crislane Timbo supplied 246 distinct
+decisions, including supplementary agreed cases; 351 original agreements were retained.
 
-Its text and the round's inputs remain fixed by the manifest checksums. The [FoodOn typing policy](docs/foodon-typing.md) governs publication: only `type` food-to-FoodOn mappings enter the graph. Round 1 can still evaluate its original SKOS candidates, and its scores describe that historical baseline. A SKOS outcome is retained as review evidence and is not promoted to `rdf:type` or published as a food mapping.
+The consolidated decisions give all 597 foods one type, using 469 distinct FoodOn classes. Of the 311
+previously typed foods, 222 keep their class and 89 change; the other 286 receive a type. No final class
+reaches the prohibited organism or plant roots in the pinned hierarchy. Coverage and agreement do not
+estimate semantic accuracy. Session dates, assistance, relationships to the author, confirmation of
+independence and permission to publish names remain separate records in the
+[round notes](data/alignment/review/round-1/notes.md).
 
-A review round can record:
+The evidence is preserved in:
 
-```text
-food identifier
-food name
-existing mapping
-candidate concept
-mapping relation
-decision
-certainty
-justification
-evidence
-reviewer
-review date
-ontology version
-```
+- `reviewer-1.csv` and `reviewer-2.csv`: the received answers, reasons, searched terms and uncertainty flags;
+- `adjudication.csv`: the 197 original disagreements; `adjudication-additional.csv`: the other 49 decisions;
+- `adjudication-all.csv`: all 246 distinct adjudications, with source sheets and justifications;
+- `reviewed-types.csv`: all 597 final decisions and their origins;
+- `manifest.json`, `adjudication-receipt.json` and `application.json`: input checksums, receipt and activation;
+- `baseline/`: the alignment and audit inputs from before application.
 
-Two reviewers can evaluate the same sample independently, followed by adjudication of disagreements.
-
-A round is prepared, scored and applied with the following commands. The build then applies the publication policy:
+The round is already applied. After installing the project as described below, the application and build
+can be reproduced from the completed evidence and a local copy of the hash-pinned full FoodOn release:
 
 ```bash
-python scripts/prepare_alignment_review.py                        # items, context and two blank forms
-# two reviewers fill in reviewer-a.csv and reviewer-b.csv independently
-python scripts/score_alignment_review.py data/alignment/review/round-1   # writes adjudication.csv
-# the disagreements are decided in adjudication.csv
-python scripts/score_alignment_review.py data/alignment/review/round-1   # results.md, results.csv, reviewed.sssom.tsv
-python scripts/apply_alignment_review.py data/alignment/review/round-1   # alignments.csv takes the reviewed mappings
-python -m taco_rdf build && python -m taco_rdf validate
+python scripts/apply_alignment_review.py data/alignment/review/round-1 --foodon data/external/foodon/foodon.owl --applied-on 2026-11-19 --reviewer-1 "Josandra Semedo" --reviewer-2 "Elizabete Wensel"
+python scripts/extract_foodon_module.py --foodon data/external/foodon/foodon.owl
+python -m taco_rdf build
+python -m taco_rdf validate --graph build/taco.ttl
+python -m taco_rdf nice-food --graph build/taco.ttl
+python scripts/audit_foodon_typing.py
 ```
 
-`results.md` reports agreement before adjudication (Cohen's kappa), outcomes by part and by stratum, every
-error found, and the precision of all links estimated from the random sample: each sampled food is weighted
-by the size of its stratum, with 95% intervals.
+Reapplying the same completed evidence preserves its activation record. Preparing blank forms or rescoring
+the original answers is not part of rebuilding this round. `scripts/score_type_review.py` prepares the
+disagreement queue before adjudication and refuses to overwrite a queue containing human decisions; it
+does not consolidate the additional decisions or apply the round. The protocol-1
+`prepare_alignment_review.py` and `score_alignment_review.py` commands are for the historical pilot.
 
-In the graph, a published assertion whose food has been reviewed is `taco:Reviewed`, with `taco:reviewer`,
-`dcterms:date`, `taco:ontologyVersion` and a `prov:wasDerivedFrom` link to its `taco:ReviewRound`. SHACL
-requires all four. Every other assertion stays `taco:Unreviewed` with `taco:NotRecorded`. The build refuses
-a mapping in `alignments.csv` that differs from its latest review, so a scored round must be applied before
-the graph can be built again. This consistency check also covers retained historical candidates; it does not make them publishable. Reviewer A's answers alone do not confer reviewed status.
+The native graph marks all 597 food type assertions `taco:Reviewed`, with `taco:reviewer`, `dcterms:date`,
+`taco:ontologyVersion` and a `prov:wasDerivedFrom` link to the `taco:ReviewRound`. SHACL requires that
+provenance. Other mappings retain their own review status. The activation marker pins the completed
+evidence; the build rejects changes to those files or to an applied food type. The
+[application verification](verification/README.md) compares every final food/class pair and its provenance
+across the evidence, alignments, audits and RDF outputs, and confirms that nutritional triples were
+preserved. Lean checks the formalized rules and finite certificates; the nutritional judgement remains
+the reviewers' work.
 
 ---
 
@@ -996,6 +1002,9 @@ process automatically
 ```
 
 while the RDF graph can retain a richer project-specific representation.
+
+The completed protocol-3 round uses `reviewed-types.csv` and its receipt and activation metadata.
+It does not require the historical pilot's `reviewed.sssom.tsv` file.
 
 ---
 
@@ -1244,6 +1253,10 @@ It can instead identify a scientifically suspicious value already present in the
 
 # Running queries
 
+In the NICE-Food export loaded together with NEVO and the pinned FoodOn hierarchy, the unchanged
+[NICE-Food protein query](queries/nice-food/protein_groups.rq) finds **185 TACO foods** after the review.
+The [query report](analysis/taco_nice_food.md) records the counts by group and the equivalent CDNO query.
+
 Example:
 
 ```bash
@@ -1297,20 +1310,10 @@ compares it with TACO's carbohydrate minus dietary fibre, available carbohydrate
 used unchanged. TACO's moisture, in percent of the food's mass, is compared with NEVO's water in g per 100 g.
 NEVO's monounsaturated fatty acids are the cis isomers only. NEVO's conditions of use
 allow its data only unchanged and with source and version (see [data/SOURCES.md](data/SOURCES.md)), so do not
-commit the matched values. Only identical FoodOn classes match, and the TACO graph is still unreviewed, so
-the pairs show where the two tables can be compared, not that the foods are the same.
+commit the matched values. Only identical FoodOn classes match; reviewed class membership does not imply
+nutritional equivalence. The pairs identify where the two tables can be compared.
 
-The run of 2026-10-19 ([report](analysis/taco_nevo_comparison.md)) found 2294 value pairs between 87 TACO
-foods and 111 NEVO foods (115 food pairs) in 83 FoodOn classes and 33 CDNO classes. The pairs are uneven: one
-class, whole wheat bread, pairs one TACO food with 14 NEVO foods, hence the median per TACO food. Water
-(Spearman 0.97, median TACO/NEVO ratio 1.00), protein (0.94, 0.95), available carbohydrate (0.94, 0.97) and the
-fatty acid totals rank the foods alike and lie close, which suggests that the shared FoodOn and CDNO typing
-brings comparable foods and nutrients together. Several minerals are lower in TACO, with wide quartiles (iron
-0.70, sodium 0.68, calcium 0.75), and vitamins agree least: pyridoxine does not rank the foods alike (−0.10),
-riboflavin, vitamin C and niacin lie between 0.57 and 0.68. These are leads to check (the unreviewed FoodOn
-types, fortification, varieties, analytical methods), not evidence of which table is right. The EU tolerance
-shares show why they are exploratory only: 82% of the sodium values lie within the tolerance, but 17% lie
-within 20% of NEVO's.
+The [current comparison report](analysis/taco_nevo_comparison.md) is regenerated after the completed review. It reports matched foods and values, rank correlations, ratios and exploratory tolerance bands. Food classes can be broad, and differences in varieties, fortification, sampling and analytical methods can affect the comparisons. These results do not determine which table is correct.
 
 The same queries run in Apache Jena Fuseki, the triple store NICE-Food's analysis uses.
 [triplestore/README.md](triplestore/README.md) says how to start it and load the TACO graph and the NEVO
@@ -1318,13 +1321,15 @@ subgraphs with `scripts/load_triplestore.py`; there the comparison of every CDNO
 instead of 15 minutes. [analysis/taco_nevo_triplestore.ipynb](analysis/taco_nevo_triplestore.ipynb) queries it
 through SPARQLWrapper, as NICE-Food's notebooks do: it draws the graph around a FoodOn class with networkx,
 and, with the pinned FoodOn release loaded, pairs foods whose classes are one step apart in FoodOn's
-hierarchy, which gives 54 more TACO foods a NEVO food (see the triplestore README for how well they compare).
+hierarchy. The current [structure report](docs/structure.md) distinguishes shared classes from pairs one
+subclass step apart; the dated runs in the triplestore README preserve earlier results.
 
 Two checks turn what the comparison found by hand into rules anyone can rerun. `scripts/check_food_pairs.py`
 flags the pairs of foods of one FoodOn class whose composition disagrees in three or more components (water,
 protein, available carbohydrate and fibre against the EU labelling tolerance, minerals by a factor of three):
-20 of the 115 food pairs, between 17 TACO foods, among them 5 of the 6 pairs judged by hand not to be the
-same food ([report](analysis/taco_nevo_food_pair_check.md)). `scripts/check_nice_food.py` validates NICE-Food's
+38 of the 183 food pairs, between 31 TACO foods, in the run of 2026-11-19
+([report](analysis/taco_nevo_food_pair_check.md)). These flags identify comparisons to investigate; they do
+not invalidate the reviewed FoodOn membership by themselves. `scripts/check_nice_food.py` validates NICE-Food's
 NEVO subgraph with Jena's SHACL engine against shapes for the NICE-Food pattern
 ([shapes/nice-food/nevo-shapes.ttl](shapes/nice-food/nevo-shapes.ttl), which the TACO validation does not read)
 ([report](analysis/nice_food_nevo_checks.md)): its 3,314 values of available carbohydrate have CDNO's general

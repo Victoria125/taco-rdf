@@ -9,11 +9,16 @@ from collections import Counter
 import pytest
 
 from taco_rdf import evaluation as ev
-from taco_rdf.graph import Alignment
+from taco_rdf.graph import Alignment, load_alignments
 from taco_rdf.namespaces import ROOT
 
 PROBLEM_CASES = ROOT / "data" / "alignment" / "review" / "problem_cases.csv"
 DAY = "2026-09-24"
+
+
+@pytest.fixture(scope="module")
+def alignments():
+    return load_alignments(ROOT / "data/alignment/review/round-1/baseline/data/alignment/alignments.csv")
 
 
 def fill(rows, answers, reviewer):

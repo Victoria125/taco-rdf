@@ -151,46 +151,46 @@ food,4,type,http://purl.obolibrary.org/obo/FOODON_03311121,white rice (raw),Food
 food,5,type,http://purl.obolibrary.org/obo/FOODON_00004677,white rice (cooked),FoodOn,TACO's tipo 1/tipo 2 milling grade is not distinguished in FoodOn; both grades map to this class
 food,6,type,http://purl.obolibrary.org/obo/FOODON_03311121,white rice (raw),FoodOn,TACO's tipo 1/tipo 2 milling grade is not distinguished in FoodOn; both grades map to this class
 food,7,type,http://purl.obolibrary.org/obo/FOODON_03307110,rolled oats,FoodOn,
-food,8,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302327,shortbread cookie,FoodOn,"Brazilian cornstarch-based maisena cookie; closest available class, composition not identical"
+food,8,type,http://purl.obolibrary.org/obo/FOODON_03540238,"02380 - biscuits, sweet, plain (efsa foodex2)",FoodOn,Revised by review round-1.
 food,13,type,http://purl.obolibrary.org/obo/FOODON_03305260,cream cracker,FoodOn,
-food,14,type,http://purl.obolibrary.org/obo/FOODON_03317068,cake mix,FoodOn,
-food,15,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003409,cassava,FoodOn,"TACO item is a ready-made cassava cake, not the raw root; no FoodOn cassava-cake class found"
+food,14,type,http://purl.obolibrary.org/obo/FOODON_03302535,cake mix (dry),FoodOn,Revised by review round-1.
+food,15,type,http://purl.obolibrary.org/obo/FOODON_00001278,cake food product,FoodOn,Revised by review round-1.
 food,16,type,http://purl.obolibrary.org/obo/FOODON_03305417,chocolate cake,FoodOn,
-food,18,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302343,cornbread,FoodOn,US cornbread and Brazilian bolo de milho differ in sweetness and texture; closest available class
-food,19,type,http://purl.obolibrary.org/obo/FOODON_03310226,hominy,FoodOn,
-food,21,type,http://purl.obolibrary.org/obo/FOODON_03302904,corn flakes,FoodOn,TACO's salted variant is not distinguished
-food,22,type,http://purl.obolibrary.org/obo/FOODON_03302904,corn flakes,FoodOn,
-food,23,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301336,infant cereal,FoodOn,generic infant cereal class; does not capture the corn-specific porridge form
-food,24,type,http://purl.obolibrary.org/obo/FOODON_03540337,03370 - mixed breakfast cereals (efsa foodex2),FoodOn,
+food,18,type,http://purl.obolibrary.org/obo/FOODON_00001278,cake food product,FoodOn,Revised by review round-1.
+food,19,type,http://purl.obolibrary.org/obo/FOODON_03310640,corn kernel (dried),FoodOn,Revised by review round-1.
+food,21,type,http://purl.obolibrary.org/obo/FOODON_03540342,03420 - processed maize-based flakes (efsa foodex2),FoodOn,Revised by review round-1.
+food,22,type,http://purl.obolibrary.org/obo/FOODON_03540342,03420 - processed maize-based flakes (efsa foodex2),FoodOn,Revised by review round-1.
+food,23,type,http://purl.obolibrary.org/obo/FOODON_03301336,infant cereal,FoodOn,Revised by review round-1.
+food,24,type,http://purl.obolibrary.org/obo/FOODON_00001709,cereal food product,FoodOn,Revised by review round-1.
 food,25,type,http://purl.obolibrary.org/obo/FOODON_03311318,"breakfast cereal (corn-based, ready-to-eat)",FoodOn,
-food,26,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302904,corn flakes,FoodOn,TACO item is sugared; generic corn flakes class does not capture the sugar coating
+food,26,type,http://purl.obolibrary.org/obo/FOODON_03311318,"breakfast cereal (corn-based, ready-to-eat)",FoodOn,Revised by review round-1.
 food,27,type,http://purl.obolibrary.org/obo/FOODON_00005562,cream of rice,FoodOn,
-food,29,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400192,"pudding, starch (us cfr)",FoodOn,curau is a Brazilian sweet corn pudding; broad starch-pudding category is the closest available class
-food,30,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400192,"pudding, starch (us cfr)",FoodOn,curau mix; same caveat as the prepared dish
+food,29,type,http://purl.obolibrary.org/obo/FOODON_03301660,pudding,FoodOn,Revised by review round-1.
+food,30,type,http://purl.obolibrary.org/obo/FOODON_03310796,pudding mix,FoodOn,Revised by review round-1.
 food,31,type,http://purl.obolibrary.org/obo/FOODON_00002207,rice flour,FoodOn,TACO's iron/folate enrichment is not captured by this generic class
 food,32,type,http://purl.obolibrary.org/obo/FOODON_03540081,"00810 - rye flour, wholemeal (efsa foodex2)",FoodOn,
 food,33,type,http://purl.obolibrary.org/obo/FOODON_03306290,yellow corn flour,FoodOn,
 food,34,type,http://purl.obolibrary.org/obo/FOODON_00005442,breadcrumbs,FoodOn,
 food,35,type,http://purl.obolibrary.org/obo/FOODON_03540088,00880 - wheat flour (efsa foodex2),FoodOn,
-food,36,type,http://purl.obolibrary.org/obo/FOODON_03301336,infant cereal,FoodOn,the milk-based (láctea) composition is not distinguished by this generic class
+food,36,type,http://purl.obolibrary.org/obo/FOODON_00001709,cereal food product,FoodOn,Revised by review round-1.
 food,37,type,http://purl.obolibrary.org/obo/FOODON_03306124,lasagna noodle,FoodOn,
 food,38,type,http://purl.obolibrary.org/obo/FOODON_03306124,lasagna noodle,FoodOn,
 food,39,type,http://purl.obolibrary.org/obo/FOODON_00002940,instant noodle,FoodOn,
 food,40,type,http://purl.obolibrary.org/obo/FOODON_00002354,wheat pasta,FoodOn,
-food,41,type,http://purl.obolibrary.org/obo/FOODON_03540179,01790 - fresh egg pasta (efsa foodex2),FoodOn,
+food,41,type,http://purl.obolibrary.org/obo/FOODON_03316956,egg noodle product,FoodOn,Revised by review round-1.
 food,42,type,http://purl.obolibrary.org/obo/FOODON_00005791,corn starch,FoodOn,
 food,43,type,http://purl.obolibrary.org/obo/FOODON_03310257,cornmeal,FoodOn,
-food,44,type,http://purl.obolibrary.org/obo/FOODON_03301422,sweet corn kernel (raw),FoodOn,
-food,45,type,http://purl.obolibrary.org/obo/FOODON_03540952,09520 - sweet corn canned (efsa foodex2),FoodOn,
-food,46,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311555,porridge,FoodOn,generic porridge class; TACO's specific instant powder mix form is not captured
-food,47,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304758,tamale,FoodOn,"pamonha is a Brazilian corn tamale wrapped in husk; tamale is the closest available class, not an identical dish"
+food,44,type,http://purl.obolibrary.org/obo/FOODON_03317387,corn kernel,FoodOn,Revised by review round-1.
+food,45,type,http://purl.obolibrary.org/obo/FOODON_03302665,corn kernel (canned),FoodOn,Revised by review round-1.
+food,46,type,http://purl.obolibrary.org/obo/FOODON_03540321,"03210 - porridge (in dry form, to be diluted) (efsa foodex2)",FoodOn,Revised by review round-1.
+food,47,type,http://purl.obolibrary.org/obo/FOODON_00002330,multi-component corn food product,FoodOn,Revised by review round-1.
 food,48,type,http://purl.obolibrary.org/obo/FOODON_03302473,oatmeal bread,FoodOn,
 food,49,type,http://purl.obolibrary.org/obo/FOODON_03302371,soya bread,FoodOn,
 food,50,type,http://purl.obolibrary.org/obo/FOODON_03302452,gluten bread,FoodOn,
 food,51,type,http://purl.obolibrary.org/obo/FOODON_03312059,corn bread product,FoodOn,
 food,52,type,http://purl.obolibrary.org/obo/FOODON_03301119,whole wheat bread,FoodOn,
-food,53,type,http://purl.obolibrary.org/obo/FOODON_03302686,french bread (loaf),FoodOn,
-food,54,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302200,wheat bread,FoodOn,"Brazilian pão sovado is a specific enriched, kneaded bread style; generic wheat bread is the closest available class"
+food,53,type,http://purl.obolibrary.org/obo/FOODON_03301931,wheat roll or bun,FoodOn,Revised by review round-1.
+food,54,type,http://purl.obolibrary.org/obo/FOODON_03302200,wheat bread,FoodOn,Revised by review round-1.
 food,59,type,http://purl.obolibrary.org/obo/FOODON_00005805,pastry dough,FoodOn,
 food,60,type,http://purl.obolibrary.org/obo/FOODON_00005804,pastry,FoodOn,
 food,61,type,http://purl.obolibrary.org/obo/FOODON_03302179,popcorn (popped),FoodOn,TACO item is made with soybean oil; the air-popped variant was avoided as it contradicts the preparation
@@ -201,9 +201,9 @@ food,260,type,http://purl.obolibrary.org/obo/FOODON_00002808,olive oil (extra-vi
 food,261,type,http://purl.obolibrary.org/obo/FOODON_03302643,butter (salted),FoodOn,
 food,262,type,http://purl.obolibrary.org/obo/FOODON_03301777,butter (unsalted),FoodOn,
 food,263,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
-food,264,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
+food,264,type,http://purl.obolibrary.org/obo/FOODON_03306260,margarine (salt-free),FoodOn,Revised by review round-1.
 food,265,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
-food,266,type,http://purl.obolibrary.org/obo/FOODON_03301672,margarine,FoodOn,generic margarine class; FoodOn does not distinguish hydrogenated vs. interesterified oil or salt content
+food,266,type,http://purl.obolibrary.org/obo/FOODON_03306260,margarine (salt-free),FoodOn,Revised by review round-1.
 food,267,type,http://purl.obolibrary.org/obo/FOODON_03316688,babassu oil (edible),FoodOn,
 food,268,type,http://purl.obolibrary.org/obo/FOODON_03302578,canola oil,FoodOn,
 food,269,type,http://purl.obolibrary.org/obo/FOODON_03310357,sunflower seed oil,FoodOn,
@@ -214,291 +214,291 @@ food,485,type,http://purl.obolibrary.org/obo/FOODON_02020723,quail egg (raw),Foo
 food,487,type,http://purl.obolibrary.org/obo/FOODON_03305052,chicken egg yolk (cooked),FoodOn,
 food,489,type,http://purl.obolibrary.org/obo/FOODON_03301075,"chicken egg (shell off, raw)",FoodOn,
 food,490,type,http://purl.obolibrary.org/obo/FOODON_00002461,chicken egg (fried),FoodOn,
-food,511,type,http://purl.obolibrary.org/obo/FOODON_03302659,"coffee bean (roasted, medium ground)",FoodOn,TACO does not state the grind size; medium grind assumed as the generic default
-food,512,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303096,cappuccino,FoodOn,TACO item is the instant powder mix; this class more directly represents the prepared beverage
+food,511,type,http://purl.obolibrary.org/obo/FOODON_03543413,"34130 - coffee ground, roasted (efsa foodex2)",FoodOn,Revised by review round-1.
+food,512,type,http://purl.obolibrary.org/obo/FOODON_03315399,beverage mix (coffee based),FoodOn,Revised by review round-1.
 food,513,type,http://purl.obolibrary.org/obo/FOODON_03301940,baking powder,FoodOn,
-food,514,type,http://purl.obolibrary.org/obo/FOODON_03413797,baker's yeast,FoodOn,
-food,515,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03544158,41580 - gelatine (efsa foodex2),FoodOn,generic gelatin; does not capture the flavoured-dessert-powder form
-food,518,type,http://purl.obolibrary.org/obo/FOODON_00001235,soy sauce food product,FoodOn,
+food,514,type,http://purl.obolibrary.org/obo/FOODON_03311884,compressed yeast,FoodOn,Revised by review round-1.
+food,515,type,http://purl.obolibrary.org/obo/FOODON_03305873,gelatin dessert mix (dry),FoodOn,Revised by review round-1.
+food,518,type,http://purl.obolibrary.org/obo/FOODON_03304988,shoyu sauce,FoodOn,Revised by review round-1.
 food,519,type,http://purl.obolibrary.org/obo/FOODON_03306222,seasoning salt,FoodOn,
 food,520,type,http://purl.obolibrary.org/obo/FOODON_03303700,black olive (canned),FoodOn,
 food,521,type,http://purl.obolibrary.org/obo/FOODON_03310829,green olive (canned),FoodOn,
-food,522,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03542683,26830 - cream sprayable (efsa foodex2),FoodOn,"TACO item is a vegetable-fat-based whipped topping, not dairy cream; closest available class"
+food,522,type,http://purl.obolibrary.org/obo/FOODON_03316089,vegetable fat analog of whipped cream,FoodOn,Revised by review round-1.
 food,523,type,http://purl.obolibrary.org/obo/FOODON_03303084,coconut milk,FoodOn,
 food,524,type,http://purl.obolibrary.org/obo/FOODON_03301440,mayonnaise,FoodOn,
-food,587,type,http://purl.obolibrary.org/obo/FOODON_03311210,"almond (dry, roasted)",FoodOn,the salted preparation is not distinguished
+food,587,type,http://purl.obolibrary.org/obo/FOODON_00003523,almond,FoodOn,Revised by review round-1.
 food,588,type,http://purl.obolibrary.org/obo/FOODON_03311214,"cashew nut (shell off, roasted)",FoodOn,the salted preparation is not distinguished
-food,589,type,http://purl.obolibrary.org/obo/FOODON_03301821,brazilnut (raw),FoodOn,
-food,590,type,http://purl.obolibrary.org/obo/FOODON_03303085,coconut (raw),FoodOn,
-food,591,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00005449,coconut water,FoodOn,"TACO's 'Coco, verde, cru' entry may cover the whole green coconut rather than only its water; not fully certain which part was analysed"
+food,589,type,http://purl.obolibrary.org/obo/FOODON_03541129,11290 - brazil nuts (efsa foodex2),FoodOn,Revised by review round-1.
+food,590,type,http://purl.obolibrary.org/obo/FOODON_00004256,piece of coconut meat (raw),FoodOn,Revised by review round-1.
+food,591,type,http://purl.obolibrary.org/obo/FOODON_03303085,coconut (raw),FoodOn,Revised by review round-1.
 food,593,type,http://purl.obolibrary.org/obo/FOODON_03310306,sesame seed,FoodOn,
 food,594,type,http://purl.obolibrary.org/obo/FOODON_00003683,flaxseed,FoodOn,
 food,596,type,http://purl.obolibrary.org/obo/FOODON_00005166,peach palm pulp (boiled),FoodOn,
-food,597,type,http://purl.obolibrary.org/obo/FOODON_03315233,walnut (raw),FoodOn,
+food,597,type,http://purl.obolibrary.org/obo/FOODON_03315232,pecan nut (raw),FoodOn,Revised by review round-1.
 food,470,type,http://purl.obolibrary.org/obo/FOODON_03543324,33240 - isotonic and sport drinks (efsa foodex2),FoodOn,
 food,471,type,http://purl.obolibrary.org/obo/FOODON_00001244,coffee beverage,FoodOn,
-food,472,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301614,rum,FoodOn,cachaça is a sugarcane spirit distinct from rum by production tradition; closest available spirits class
-food,474,type,http://purl.obolibrary.org/obo/FOODON_03543331,33310 - beer and beer-like beverage (efsa foodex2),FoodOn,the pilsner style is not distinguished
-food,476,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412059,mate plant,FoodOn,"no dedicated mate-tea-infusion class exists; this points to the botanical source, not the prepared beverage"
+food,472,type,http://purl.obolibrary.org/obo/FOODON_03543380,33800 - spirits not from fruit (efsa foodex2),FoodOn,Revised by review round-1.
+food,474,type,http://purl.obolibrary.org/obo/FOODON_03543333,33330 - lager beer (efsa foodex2),FoodOn,Revised by review round-1.
+food,476,type,http://purl.obolibrary.org/obo/FOODON_03311583,mate (liquid),FoodOn,Revised by review round-1.
 food,477,type,http://purl.obolibrary.org/obo/FOODON_00005243,black tea (steeped),FoodOn,
 food,478,type,http://purl.obolibrary.org/obo/FOODON_00005449,coconut water,FoodOn,
 food,479,type,http://purl.obolibrary.org/obo/FOODON_03307660,tonic water,FoodOn,
-food,480,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400843,soft drink (eurofir),FoodOn,the cola flavour is not distinguished
+food,480,type,http://purl.obolibrary.org/obo/FOODON_03301776,cola carbonated beverage,FoodOn,Revised by review round-1.
 food,481,type,http://purl.obolibrary.org/obo/FOODON_03305563,"beverage (carbonated, guarana-flavored)",FoodOn,
-food,483,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400843,soft drink (eurofir),FoodOn,the lemon-lime flavour is not distinguished
-food,447,type,http://purl.obolibrary.org/obo/FOODON_03420160,mammalian light cream (18%-30%),FoodOn,
+food,483,type,http://purl.obolibrary.org/obo/FOODON_03302411,lemon soda,FoodOn,Revised by review round-1.
+food,447,type,http://purl.obolibrary.org/obo/FOODON_00005747,cream (liquid),FoodOn,Revised by review round-1.
 food,448,type,http://purl.obolibrary.org/obo/FOODON_03301502,yogurt (plain),FoodOn,
 food,449,type,http://purl.obolibrary.org/obo/FOODON_03305085,yogurt (nonfat),FoodOn,
 food,451,type,http://purl.obolibrary.org/obo/FOODON_03307441,strawberry yogurt,FoodOn,
 food,453,type,http://purl.obolibrary.org/obo/FOODON_03304384,sweetened condensed milk,FoodOn,
 food,454,type,http://purl.obolibrary.org/obo/FOODON_02021057,goat milk,FoodOn,
 food,455,type,http://purl.obolibrary.org/obo/FOODON_03301816,chocolate milk,FoodOn,
-food,456,type,http://purl.obolibrary.org/obo/FOODON_03301657,nonfat dry milk,FoodOn,
-food,457,type,http://purl.obolibrary.org/obo/FOODON_03301484,skim milk food product,FoodOn,the UHT processing is not distinguished
-food,458,type,http://purl.obolibrary.org/obo/FOODON_00005479,cow whole milk (without additives),FoodOn,
-food,459,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03542725,27250 - milk powder (efsa foodex2),FoodOn,generic milk powder class; whole-fat is not distinguished from other milk powders
-food,460,type,http://purl.obolibrary.org/obo/FOODON_03302672,milk (fermented),FoodOn,
-food,461,type,http://purl.obolibrary.org/obo/FOODON_03000649,fresh cheese,FoodOn,the Brazilian minas frescal style is not distinguished
-food,462,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03316148,semihard cheese,FoodOn,the Brazilian minas meia-cura style is not distinguished
+food,456,type,http://purl.obolibrary.org/obo/FOODON_03310016,cow skim milk (powdered),FoodOn,Revised by review round-1.
+food,457,type,http://purl.obolibrary.org/obo/FOODON_03317579,skim milk (uht-sterilized),FoodOn,Revised by review round-1.
+food,458,type,http://purl.obolibrary.org/obo/FOODON_00005478,cow whole milk,FoodOn,Revised by review round-1.
+food,459,type,http://purl.obolibrary.org/obo/FOODON_03542726,"27260 - milk powder, full fat (efsa foodex2)",FoodOn,Revised by review round-1.
+food,460,type,http://purl.obolibrary.org/obo/FOODON_03542692,26920 - fermented milk products (efsa foodex2),FoodOn,Revised by review round-1.
+food,461,type,http://purl.obolibrary.org/obo/FOODON_03601036,minas cheese,FoodOn,Revised by review round-1.
+food,462,type,http://purl.obolibrary.org/obo/FOODON_03601036,minas cheese,FoodOn,Revised by review round-1.
 food,463,type,http://purl.obolibrary.org/obo/FOODON_03303578,mozzarella cheese,FoodOn,
 food,464,type,http://purl.obolibrary.org/obo/FOODON_00003247,parmesan cheese food product,FoodOn,
-food,465,type,http://purl.obolibrary.org/obo/FOODON_03400787,processed cheese (eurofir),FoodOn,
-food,467,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03315868,cheese varietal semi-hard,FoodOn,the Brazilian queijo prato style (similar to Gouda/Edam) is not distinguished
-food,468,type,http://purl.obolibrary.org/obo/FOODON_03315638,cream cheese spread,FoodOn,
+food,465,type,http://purl.obolibrary.org/obo/FOODON_03000287,cheese,FoodOn,Revised by review round-1.
+food,467,type,http://purl.obolibrary.org/obo/FOODON_03316148,semihard cheese,FoodOn,Revised by review round-1.
+food,468,type,http://purl.obolibrary.org/obo/FOODON_03315643,cheese spread (processed),FoodOn,Revised by review round-1.
 food,469,type,http://purl.obolibrary.org/obo/FOODON_03302908,ricotta cheese,FoodOn,
-food,491,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03543723,37230 - hot chocolate (efsa foodex2),FoodOn,TACO item is the powder mix itself; this class more directly represents the prepared drink
+food,491,type,http://purl.obolibrary.org/obo/FOODON_03304061,cocoa-flavored powder,FoodOn,Revised by review round-1.
 food,492,type,http://purl.obolibrary.org/obo/FOODON_03301073,sugar (granulated),FoodOn,
 food,493,type,http://purl.obolibrary.org/obo/FOODON_03420156,brown sugar,FoodOn,
 food,494,type,http://purl.obolibrary.org/obo/FOODON_03307345,sugar (refined),FoodOn,
 food,495,type,http://purl.obolibrary.org/obo/FOODON_03302806,milk chocolate,FoodOn,
-food,498,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303613,chocolate chip (semisweet),FoodOn,"matches on sweetness class only; TACO item is presumed to be a bar/block, not chips"
-food,499,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304233,coconut haystacks candy,FoodOn,Brazilian cocada and US coconut haystacks are similar but distinct coconut-sugar candies
+food,498,type,http://purl.obolibrary.org/obo/FOODON_03303588,dark chocolate,FoodOn,Revised by review round-1.
+food,499,type,http://purl.obolibrary.org/obo/FOODON_03301051,candy,FoodOn,Revised by review round-1.
 food,501,type,http://purl.obolibrary.org/obo/FOODON_00003138,dulce de leche,FoodOn,
-food,502,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305342,gelatin dessert,FoodOn,generic gelatin dessert class; does not capture the traditional beef/cow-foot collagen source
+food,502,type,http://purl.obolibrary.org/obo/FOODON_03305342,gelatin dessert,FoodOn,Revised by review round-1.
 food,503,type,http://purl.obolibrary.org/obo/FOODON_03301061,corn syrup,FoodOn,
-food,504,type,http://purl.obolibrary.org/obo/FOODON_03305639,marshmallow,FoodOn,Brazilian Maria mole is a coconut-marshmallow confection
+food,504,type,http://purl.obolibrary.org/obo/FOODON_00001576,aerated confectionery food product,FoodOn,Revised by review round-1.
 food,506,type,http://purl.obolibrary.org/obo/FOODON_03543067,30670 - quince cheese (efsa foodex2),FoodOn,'quince cheese' is the English trade term for quince paste/marmalade
-food,507,type,http://purl.obolibrary.org/obo/FOODON_03401114,10000213 - honey (shelf stable) (gs1 gpc),FoodOn,
-food,508,type,http://purl.obolibrary.org/obo/FOODON_03543004,30040 - sugar cane molasses (efsa foodex2),FoodOn,
-food,509,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302946,custard,FoodOn,quindim is a specific Brazilian baked coconut-egg-yolk custard; generic custard class is the closest available
+food,507,type,http://purl.obolibrary.org/obo/FOODON_03543011,30110 - honey (efsa foodex2),FoodOn,Revised by review round-1.
+food,508,type,http://purl.obolibrary.org/obo/FOODON_03311346,sugar cane syrup,FoodOn,Revised by review round-1.
+food,509,type,http://purl.obolibrary.org/obo/FOODON_03302946,custard,FoodOn,Revised by review round-1.
 food,557,type,http://purl.obolibrary.org/obo/FOODON_03301299,peanut (raw),FoodOn,
-food,558,type,http://purl.obolibrary.org/obo/FOODON_03309827,"peanut (skin off, salted, roasted)",FoodOn,
+food,558,type,http://purl.obolibrary.org/obo/FOODON_03306901,peanut (roasted),FoodOn,Revised by review round-1.
 food,559,type,http://purl.obolibrary.org/obo/FOODON_03540620,06200 - garden peas (with pods) (efsa foodex2),FoodOn,
-food,561,type,http://purl.obolibrary.org/obo/FOODON_00004375,pinto bean (cooked),FoodOn,TACO's feijão carioca is the pinto-bean-type variety
-food,562,type,http://purl.obolibrary.org/obo/FOODON_03000089,pinto bean (raw),FoodOn,TACO's feijão carioca is the pinto-bean-type variety
-food,564,type,http://purl.obolibrary.org/obo/FOODON_03309834,cowpea (raw),FoodOn,TACO's feijão fradinho (black-eyed pea) is a cowpea variety
-food,565,type,http://purl.obolibrary.org/obo/FOODON_00004377,yellow bean (cooked),FoodOn,
-food,566,type,http://purl.obolibrary.org/obo/FOODON_03000094,yellow bean (raw),FoodOn,
-food,567,type,http://purl.obolibrary.org/obo/FOODON_00004376,black turtle bean (cooked),FoodOn,
-food,568,type,http://purl.obolibrary.org/obo/FOODON_00005277,"black turtle bean (raw, mature)",FoodOn,
-food,569,type,http://purl.obolibrary.org/obo/FOODON_00004375,pinto bean (cooked),FoodOn,TACO's feijão rajado is treated here as a pinto-bean-type variety; FoodOn does not distinguish it from feijão carioca
-food,570,type,http://purl.obolibrary.org/obo/FOODON_03000089,pinto bean (raw),FoodOn,TACO's feijão rajado is treated here as a pinto-bean-type variety; FoodOn does not distinguish it from feijão carioca
-food,571,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311570,"pink bean (cooked, canned)",FoodOn,TACO does not state the bean was canned
-food,572,type,http://purl.obolibrary.org/obo/FOODON_03000090,pink bean (raw),FoodOn,
-food,573,type,http://purl.obolibrary.org/obo/FOODON_00005619,kidney bean (cooked),FoodOn,TACO's feijão roxo is treated here as a kidney-bean-type variety
-food,574,type,http://purl.obolibrary.org/obo/FOODON_00005279,"kidney bean (raw, mature)",FoodOn,TACO's feijão roxo is treated here as a kidney-bean-type variety
+food,561,type,http://purl.obolibrary.org/obo/FOODON_00002762,bean (cooked),FoodOn,Revised by review round-1.
+food,562,type,http://purl.obolibrary.org/obo/FOODON_03541073,10730 - borlotti or other common beans (dry) (efsa foodex2),FoodOn,Revised by review round-1.
+food,564,type,http://purl.obolibrary.org/obo/FOODON_03000202,"blackeyed pea (raw, mature)",FoodOn,Revised by review round-1.
+food,565,type,http://purl.obolibrary.org/obo/FOODON_00002762,bean (cooked),FoodOn,Revised by review round-1.
+food,566,type,http://purl.obolibrary.org/obo/FOODON_03541073,10730 - borlotti or other common beans (dry) (efsa foodex2),FoodOn,Revised by review round-1.
+food,567,type,http://purl.obolibrary.org/obo/FOODON_00002762,bean (cooked),FoodOn,Revised by review round-1.
+food,568,type,http://purl.obolibrary.org/obo/FOODON_03541073,10730 - borlotti or other common beans (dry) (efsa foodex2),FoodOn,Revised by review round-1.
+food,569,type,http://purl.obolibrary.org/obo/FOODON_00002762,bean (cooked),FoodOn,Revised by review round-1.
+food,570,type,http://purl.obolibrary.org/obo/FOODON_03541073,10730 - borlotti or other common beans (dry) (efsa foodex2),FoodOn,Revised by review round-1.
+food,571,type,http://purl.obolibrary.org/obo/FOODON_00002762,bean (cooked),FoodOn,Revised by review round-1.
+food,572,type,http://purl.obolibrary.org/obo/FOODON_03541073,10730 - borlotti or other common beans (dry) (efsa foodex2),FoodOn,Revised by review round-1.
+food,573,type,http://purl.obolibrary.org/obo/FOODON_00002762,bean (cooked),FoodOn,Revised by review round-1.
+food,574,type,http://purl.obolibrary.org/obo/FOODON_03541073,10730 - borlotti or other common beans (dry) (efsa foodex2),FoodOn,Revised by review round-1.
 food,575,type,http://purl.obolibrary.org/obo/FOODON_03000123,chickpea (raw),FoodOn,
 food,576,type,http://purl.obolibrary.org/obo/FOODON_03306815,pigeon pea (raw),FoodOn,
-food,577,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004634,brown lentil (cooked),FoodOn,TACO does not state the lentil variety; brown is assumed as the common default
+food,577,type,http://purl.obolibrary.org/obo/FOODON_03310641,lentil,FoodOn,Revised by review round-1.
 food,578,type,http://purl.obolibrary.org/obo/FOODON_03000103,lentil (raw),FoodOn,
 food,579,type,http://purl.obolibrary.org/obo/FOODON_03310296,peanut candy,FoodOn,
 food,580,type,http://purl.obolibrary.org/obo/FOODON_03302000,peanut brittle,FoodOn,
 food,581,type,http://purl.obolibrary.org/obo/FOODON_03302142,soybean flour,FoodOn,
 food,582,type,http://purl.obolibrary.org/obo/FOODON_03305289,soybean milk,FoodOn,
 food,584,type,http://purl.obolibrary.org/obo/FOODON_00004697,tofu,FoodOn,
-food,585,type,http://purl.obolibrary.org/obo/FOODON_03302080,lupine bean (raw),FoodOn,
-food,273,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,274,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,275,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,276,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413876,pollock,FoodOn,"generic species class; the cooking method and frozen state are not distinguished; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,277,type,http://purl.obolibrary.org/obo/FOODON_03309668,"tuna (solid pack, canned in oil)",FoodOn,
-food,278,type,http://purl.obolibrary.org/obo/FOODON_03305444,tuna (raw),FoodOn,
-food,280,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411423,cod,FoodOn,generic species class; the salted and sautéed preparation is not captured
-food,283,type,http://purl.obolibrary.org/obo/FOODON_03309626,shark (raw),FoodOn,
+food,585,type,http://purl.obolibrary.org/obo/FOODON_00003757,white lupine bean,FoodOn,Revised by review round-1.
+food,273,type,http://purl.obolibrary.org/obo/FOODON_03542400,24000 - cusk-eels (efsa foodex2),FoodOn,Revised by review round-1.
+food,274,type,http://purl.obolibrary.org/obo/FOODON_03542400,24000 - cusk-eels (efsa foodex2),FoodOn,Revised by review round-1.
+food,275,type,http://purl.obolibrary.org/obo/FOODON_03309178,golden kingklip (raw),FoodOn,Revised by review round-1.
+food,276,type,http://purl.obolibrary.org/obo/FOODON_03542400,24000 - cusk-eels (efsa foodex2),FoodOn,Revised by review round-1.
+food,277,type,http://purl.obolibrary.org/obo/FOODON_03310701,bluefin tuna (canned),FoodOn,Revised by review round-1.
+food,278,type,http://purl.obolibrary.org/obo/FOODON_03308449,northern bluefin tuna (raw),FoodOn,Revised by review round-1.
+food,280,type,http://purl.obolibrary.org/obo/FOODON_03307021,codfish (salted),FoodOn,Revised by review round-1.
+food,283,type,http://purl.obolibrary.org/obo/FOODON_03301751,shark meat (raw),FoodOn,Revised by review round-1.
 food,286,type,http://purl.obolibrary.org/obo/FOODON_03310723,shrimp (fried),FoodOn,the specific 'sete barbas' species is not distinguished
 food,287,type,http://purl.obolibrary.org/obo/FOODON_03311304,crabmeat (cooked),FoodOn,
-food,292,type,http://purl.obolibrary.org/obo/FOODON_03308183,croaker (raw),FoodOn,
-food,293,closeMatch,http://purl.obolibrary.org/obo/FOODON_03411794,croaker,FoodOn,"generic species class; size and baking are not captured; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,294,closeMatch,http://purl.obolibrary.org/obo/FOODON_03411794,croaker,FoodOn,"generic species class; size and cooking method are not captured; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,301,closeMatch,http://purl.obolibrary.org/obo/FOODON_03413878,hake,FoodOn,"generic species class; baking is not captured; not asserted as rdf:type because the target is the organism (taxon) class, not a food material"
-food,302,type,http://purl.obolibrary.org/obo/FOODON_03309095,hake fillet (raw),FoodOn,
-food,303,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03413878,hake,FoodOn,generic species class; frying is not captured
-food,304,type,http://purl.obolibrary.org/obo/FOODON_03307997,weakfish (raw),FoodOn,
-food,305,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,FoodOn,generic species class; frying is not captured
-food,306,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,FoodOn,"generic species class; the breaded, fried preparation is not captured"
-food,307,type,http://purl.obolibrary.org/obo/FOODON_03307997,weakfish (raw),FoodOn,
-food,308,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412375,weakfish,FoodOn,generic species class; frying is not captured
-food,310,type,http://purl.obolibrary.org/obo/FOODON_03307997,weakfish (raw),FoodOn,TACO's pescadinha is a small weakfish
-food,311,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02021822,catfish,FoodOn,generic catfish class; TACO's pintado is a specific Brazilian species (Pseudoplatystoma) not distinguished here
-food,312,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303384,catfish (raw),FoodOn,generic catfish class; TACO's pintado is a specific Brazilian species (Pseudoplatystoma) not distinguished here
-food,313,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02021822,catfish,FoodOn,generic catfish class; TACO's pintado is a specific Brazilian species (Pseudoplatystoma) not distinguished here
-food,314,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03310203,triggerfish (raw),FoodOn,the regional name 'porquinho' is not certainly this species
-food,316,type,http://purl.obolibrary.org/obo/FOODON_02022078,"atlantic salmon fillet (skinless, raw)",FoodOn,
-food,318,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411558,sardine,FoodOn,generic species class; baking is not captured
+food,292,type,http://purl.obolibrary.org/obo/FOODON_03542377,23770 - drums (efsa foodex2),FoodOn,Revised by review round-1.
+food,293,type,http://purl.obolibrary.org/obo/FOODON_03542377,23770 - drums (efsa foodex2),FoodOn,Revised by review round-1.
+food,294,type,http://purl.obolibrary.org/obo/FOODON_03542377,23770 - drums (efsa foodex2),FoodOn,Revised by review round-1.
+food,301,type,http://purl.obolibrary.org/obo/FOODON_03542351,23510 - hakes (efsa foodex2),FoodOn,Revised by review round-1.
+food,302,type,http://purl.obolibrary.org/obo/FOODON_03309093,argentine hake (raw),FoodOn,Revised by review round-1.
+food,303,type,http://purl.obolibrary.org/obo/FOODON_03542351,23510 - hakes (efsa foodex2),FoodOn,Revised by review round-1.
+food,304,type,http://purl.obolibrary.org/obo/FOODON_03542373,23730 - weakfishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,305,type,http://purl.obolibrary.org/obo/FOODON_03542373,23730 - weakfishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,306,type,http://purl.obolibrary.org/obo/FOODON_03309065,fish fillet (breaded),FoodOn,Revised by review round-1.
+food,307,type,http://purl.obolibrary.org/obo/FOODON_03305734,fish fillet (raw),FoodOn,Revised by review round-1.
+food,308,type,http://purl.obolibrary.org/obo/FOODON_03310717,fish (fried),FoodOn,Revised by review round-1.
+food,310,type,http://purl.obolibrary.org/obo/FOODON_03542373,23730 - weakfishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,311,type,http://purl.obolibrary.org/obo/FOODON_03311273,catfish (cooked),FoodOn,Revised by review round-1.
+food,312,type,http://purl.obolibrary.org/obo/FOODON_03303384,catfish (raw),FoodOn,Revised by review round-1.
+food,313,type,http://purl.obolibrary.org/obo/FOODON_03311273,catfish (cooked),FoodOn,Revised by review round-1.
+food,314,type,http://purl.obolibrary.org/obo/FOODON_00001249,freshwater fish food product,FoodOn,Revised by review round-1.
+food,316,type,http://purl.obolibrary.org/obo/FOODON_03307996,piece of atlantic salmon meat (raw),FoodOn,Revised by review round-1.
+food,318,type,http://purl.obolibrary.org/obo/FOODON_03542404,24040 - sardinella or oil sardine (efsa foodex2),FoodOn,Revised by review round-1.
 food,319,type,http://purl.obolibrary.org/obo/FOODON_03308329,sardine in oil (canned),FoodOn,
 food,321,type,http://purl.obolibrary.org/obo/FOODON_03308100,sardine (raw),FoodOn,
-food,526,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03307154,rice (flavored with beef extract),FoodOn,approximates arroz carreteiro; does not capture the full dish
-food,528,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,generic beef stew; the specific Paraná recipe is not captured
-food,536,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03420192,tripe,FoodOn,ingredient-level match; tripe is the dish's defining ingredient
-food,537,type,http://purl.obolibrary.org/obo/FOODON_03302094,beef stroganoff with noodles,FoodOn,
-food,538,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302094,beef stroganoff with noodles,FoodOn,TACO item is chicken stroganoff; this class is specifically beef
-food,545,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03400866,prepared salad (eurofir),FoodOn,the mayonnaise dressing is not captured
-food,546,type,http://purl.obolibrary.org/obo/FOODON_03307615,vegetable (steamed),FoodOn,
+food,526,type,http://purl.obolibrary.org/obo/FOODON_03543974,39740 - rice and meat meal (efsa foodex2),FoodOn,Revised by review round-1.
+food,528,type,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,Revised by review round-1.
+food,536,type,http://purl.obolibrary.org/obo/FOODON_03543860,38600 - offal based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,537,type,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,Revised by review round-1.
+food,538,type,http://purl.obolibrary.org/obo/FOODON_03303025,chicken stew,FoodOn,Revised by review round-1.
+food,545,type,http://purl.obolibrary.org/obo/FOODON_03544022,40220 - mixed vegetable salad (efsa foodex2),FoodOn,Revised by review round-1.
+food,546,type,http://purl.obolibrary.org/obo/FOODON_03544022,40220 - mixed vegetable salad (efsa foodex2),FoodOn,Revised by review round-1.
 food,547,type,http://purl.obolibrary.org/obo/FOODON_03306092,chicken salad,FoodOn,
 food,549,type,http://purl.obolibrary.org/obo/FOODON_00003242,tabbouleh,FoodOn,
-food,551,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03307663,tapioca,FoodOn,does not capture the griddled crepe with butter preparation
-food,553,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,generic beef stew; the cassava component is not captured
-food,556,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00002953,chow mein,FoodOn,closest available stir-fried noodle dish; not identical to yakisoba
-food,323,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306437,ham (chopped),FoodOn,apresuntado is a cheaper pressed/reformed ham product
+food,551,type,http://purl.obolibrary.org/obo/FOODON_03544047,40470 - tapioca starch-based snacks (efsa foodex2),FoodOn,Revised by review round-1.
+food,553,type,http://purl.obolibrary.org/obo/FOODON_03304779,beef stew,FoodOn,Revised by review round-1.
+food,556,type,http://purl.obolibrary.org/obo/FOODON_03543960,"39600 - pasta based dishes, cooked (efsa foodex2)",FoodOn,Revised by review round-1.
+food,323,type,http://purl.obolibrary.org/obo/FOODON_00005588,pork loaf,FoodOn,Revised by review round-1.
 food,324,type,http://purl.obolibrary.org/obo/FOODON_03301432,beef bouillon cube,FoodOn,
 food,325,type,http://purl.obolibrary.org/obo/FOODON_03301431,chicken bouillon cube,FoodOn,
 food,326,type,http://purl.obolibrary.org/obo/FOODON_03310753,ground beef (cooked),FoodOn,the acém/chuck cut is not distinguished
-food,327,type,http://purl.obolibrary.org/obo/FOODON_03301886,"beef (ground, raw)",FoodOn,the acém/chuck cut is not distinguished
-food,328,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311141,beef chuck (roast cooked),FoodOn,the lean/fat-trimmed distinction is not captured
+food,327,type,http://purl.obolibrary.org/obo/FOODON_00002929,ground chuck,FoodOn,Revised by review round-1.
+food,328,type,http://purl.obolibrary.org/obo/FOODON_02000045,beef chuck,FoodOn,Revised by review round-1.
 food,329,type,http://purl.obolibrary.org/obo/FOODON_03310939,beef chuck (raw),FoodOn,the lean/fat-trimmed distinction is not captured
 food,330,type,http://purl.obolibrary.org/obo/FOODON_03303566,meatball (raw),FoodOn,
 food,333,type,http://purl.obolibrary.org/obo/FOODON_03304093,beef tripe (raw),FoodOn,
-food,334,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000218,beef ribeye cap steak (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
-food,336,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000218,beef ribeye cap steak (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
-food,341,type,http://purl.obolibrary.org/obo/FOODON_02000210,beef ribeye steak (raw),FoodOn,
+food,334,type,http://purl.obolibrary.org/obo/FOODON_02000204,beef rib (raw),FoodOn,Revised by review round-1.
+food,336,type,http://purl.obolibrary.org/obo/FOODON_02000204,beef rib (raw),FoodOn,Revised by review round-1.
+food,341,type,http://purl.obolibrary.org/obo/FOODON_02000212,beef ribeye roll (raw),FoodOn,Revised by review round-1.
 food,343,type,http://purl.obolibrary.org/obo/FOODON_02000124,"beef strip loin (boneless, raw)",FoodOn,
-food,344,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,FoodOn,generic parent class only; grilling is not captured
+food,344,type,http://purl.obolibrary.org/obo/FOODON_02000123,beef strip loin (boneless),FoodOn,Revised by review round-1.
 food,345,type,http://purl.obolibrary.org/obo/FOODON_02000124,"beef strip loin (boneless, raw)",FoodOn,the lean/fat-trimmed distinction is not captured
-food,346,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,FoodOn,generic parent class only; grilling is not captured
-food,347,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000207,beef ribeye roast,FoodOn,
+food,346,type,http://purl.obolibrary.org/obo/FOODON_02000123,beef strip loin (boneless),FoodOn,Revised by review round-1.
+food,347,type,http://purl.obolibrary.org/obo/FOODON_02000203,beef rib,FoodOn,Revised by review round-1.
 food,348,type,http://purl.obolibrary.org/obo/FOODON_02000204,beef rib (raw),FoodOn,
-food,349,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311514,roast beef bottom round (cooked),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
-food,350,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000003,beef bottom round (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
-food,351,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311014,beef top round roast (cooked),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
-food,352,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000013,beef top round (raw),FoodOn,TACO's Brazilian butchery cut does not map exactly onto this class; the lean/fat-trimmed distinction is not captured
+food,349,type,http://purl.obolibrary.org/obo/FOODON_02000002,beef bottom round,FoodOn,Revised by review round-1.
+food,350,type,http://purl.obolibrary.org/obo/FOODON_02000003,beef bottom round (raw),FoodOn,Revised by review round-1.
+food,351,type,http://purl.obolibrary.org/obo/FOODON_02000012,beef top round,FoodOn,Revised by review round-1.
+food,352,type,http://purl.obolibrary.org/obo/FOODON_02000013,beef top round (raw),FoodOn,Revised by review round-1.
 food,355,type,http://purl.obolibrary.org/obo/FOODON_03302734,beef liver (raw),FoodOn,
-food,356,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02020913,beef liver,FoodOn,the cooking method is not captured
+food,356,type,http://purl.obolibrary.org/obo/FOODON_02020913,beef liver,FoodOn,Revised by review round-1.
 food,357,type,http://purl.obolibrary.org/obo/FOODON_02000402,beef tenderloin (raw),FoodOn,the lean/fat-trimmed distinction is not captured
-food,358,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003301,beef loin,FoodOn,generic parent class only; grilling is not captured
+food,358,type,http://purl.obolibrary.org/obo/FOODON_00003302,beef tenderloin,FoodOn,Revised by review round-1.
 food,360,type,http://purl.obolibrary.org/obo/FOODON_02000176,beef flank (raw),FoodOn,the lean/fat-trimmed distinction is not captured
 food,364,type,http://purl.obolibrary.org/obo/FOODON_02000040,beef eye of round (raw),FoodOn,
 food,366,type,http://purl.obolibrary.org/obo/FOODON_03310938,beef tongue (raw),FoodOn,
-food,367,type,http://purl.obolibrary.org/obo/FOODON_02000166,beef tri-tip steak (raw),FoodOn,
+food,367,type,http://purl.obolibrary.org/obo/FOODON_02000146,beef sirloin (raw),FoodOn,Revised by review round-1.
 food,369,type,http://purl.obolibrary.org/obo/FOODON_02000148,beef top sirloin butt (raw),FoodOn,the lean/fat-trimmed distinction is not captured
 food,372,type,http://purl.obolibrary.org/obo/FOODON_02000198,beef shank (raw),FoodOn,the lean/fat-trimmed distinction is not captured
 food,373,type,http://purl.obolibrary.org/obo/FOODON_02000070,beef shoulder clod (raw),FoodOn,
 food,375,type,http://purl.obolibrary.org/obo/FOODON_02000070,beef shoulder clod (raw),FoodOn,the lean/fat-trimmed distinction is not captured
-food,378,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03303432,beef brisket (pit barbeque cooked),FoodOn,TACO does not specify a barbecue preparation
+food,378,type,http://purl.obolibrary.org/obo/FOODON_02000189,beef brisket,FoodOn,Revised by review round-1.
 food,379,type,http://purl.obolibrary.org/obo/FOODON_02000190,beef brisket (raw),FoodOn,the lean/fat-trimmed distinction is not captured
 food,386,type,http://purl.obolibrary.org/obo/FOODON_03305354,chicken croquette,FoodOn,
 food,387,type,http://purl.obolibrary.org/obo/FOODON_03310696,meat croquette (raw),FoodOn,
 food,389,type,http://purl.obolibrary.org/obo/FOODON_03307577,chicken pie,FoodOn,
 food,390,type,http://purl.obolibrary.org/obo/FOODON_03307577,chicken pie,FoodOn,the pre-cooked state is not captured
-food,391,type,http://purl.obolibrary.org/obo/FOODON_03303029,chicken wing (raw),FoodOn,
+food,391,type,http://purl.obolibrary.org/obo/FOODON_02020244,"chicken wing (with skin, raw)",FoodOn,Revised by review round-1.
 food,394,type,http://purl.obolibrary.org/obo/FOODON_03303027,chicken heart (raw),FoodOn,
-food,395,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02020178,chicken heart,FoodOn,the cooking method is not captured
-food,397,type,http://purl.obolibrary.org/obo/FOODON_02020224,chicken drumstick (raw),FoodOn,
-food,398,type,http://purl.obolibrary.org/obo/FOODON_03311139,chicken drumstick (cooked),FoodOn,
+food,395,type,http://purl.obolibrary.org/obo/FOODON_02020178,chicken heart,FoodOn,Revised by review round-1.
+food,397,type,http://purl.obolibrary.org/obo/FOODON_02020240,"chicken drumstick (with skin, raw)",FoodOn,Revised by review round-1.
+food,398,type,http://purl.obolibrary.org/obo/FOODON_02020237,chicken drumstick (skinless),FoodOn,Revised by review round-1.
 food,399,type,http://purl.obolibrary.org/obo/FOODON_02020238,"chicken drumstick (skinless, raw)",FoodOn,
 food,400,type,http://purl.obolibrary.org/obo/FOODON_03301179,chicken liver (raw),FoodOn,
 food,402,type,http://purl.obolibrary.org/obo/FOODON_03301121,"chicken (whole or pieces, raw)",FoodOn,
 food,404,type,http://purl.obolibrary.org/obo/FOODON_03311101,chicken (cooked),FoodOn,
-food,405,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301121,"chicken (whole or pieces, raw)",FoodOn,the skinless state is not captured
-food,407,type,http://purl.obolibrary.org/obo/FOODON_03303012,chicken breast (raw),FoodOn,
-food,408,type,http://purl.obolibrary.org/obo/FOODON_03311140,chicken breast (cooked),FoodOn,
+food,405,type,http://purl.obolibrary.org/obo/FOODON_03301121,"chicken (whole or pieces, raw)",FoodOn,Revised by review round-1.
+food,407,type,http://purl.obolibrary.org/obo/FOODON_02020234,"chicken breast (with skin, raw)",FoodOn,Revised by review round-1.
+food,408,type,http://purl.obolibrary.org/obo/FOODON_02020231,chicken breast (skinless),FoodOn,Revised by review round-1.
 food,409,type,http://purl.obolibrary.org/obo/FOODON_02020232,"chicken breast (skinless, raw)",FoodOn,
-food,412,type,http://purl.obolibrary.org/obo/FOODON_03310166,chicken thigh (raw),FoodOn,
+food,412,type,http://purl.obolibrary.org/obo/FOODON_02020230,"chicken thigh (with skin, raw)",FoodOn,Revised by review round-1.
 food,414,type,http://purl.obolibrary.org/obo/FOODON_02020226,"chicken thigh (skinless, raw)",FoodOn,
 food,415,type,http://purl.obolibrary.org/obo/FOODON_03304663,ground beef patty (raw),FoodOn,
-food,416,type,http://purl.obolibrary.org/obo/FOODON_00002737,beef hamburger (dish),FoodOn,
-food,417,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00002737,beef hamburger (dish),FoodOn,grilling vs. frying is not distinguished
+food,416,type,http://purl.obolibrary.org/obo/FOODON_03302101,ground beef patty (cooked),FoodOn,Revised by review round-1.
+food,417,type,http://purl.obolibrary.org/obo/FOODON_03302101,ground beef patty (cooked),FoodOn,Revised by review round-1.
 food,421,type,http://purl.obolibrary.org/obo/FOODON_03310623,pork sausage (raw),FoodOn,
 food,424,type,http://purl.obolibrary.org/obo/FOODON_03311682,mortadella,FoodOn,
 food,425,type,http://purl.obolibrary.org/obo/FOODON_03307670,turkey roast,FoodOn,
-food,426,type,http://purl.obolibrary.org/obo/FOODON_03307208,turkey meat (raw),FoodOn,
+food,426,type,http://purl.obolibrary.org/obo/FOODON_03304545,turkey (frozen),FoodOn,Revised by review round-1.
 food,427,type,http://purl.obolibrary.org/obo/FOODON_03311076,pork chop (raw),FoodOn,
-food,428,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004490,pork chop,FoodOn,frying is not captured
-food,429,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004490,pork chop,FoodOn,grilling is not captured
-food,431,type,http://purl.obolibrary.org/obo/FOODON_02000316,pork loin back ribs (raw),FoodOn,
-food,432,type,http://purl.obolibrary.org/obo/FOODON_00005406,pork loin center roast,FoodOn,
+food,428,type,http://purl.obolibrary.org/obo/FOODON_03311467,pork chop (cooked),FoodOn,Revised by review round-1.
+food,429,type,http://purl.obolibrary.org/obo/FOODON_03311467,pork chop (cooked),FoodOn,Revised by review round-1.
+food,431,type,http://purl.obolibrary.org/obo/FOODON_00003270,pork ribs,FoodOn,Revised by review round-1.
+food,432,type,http://purl.obolibrary.org/obo/FOODON_00002570,pork loin,FoodOn,Revised by review round-1.
 food,433,type,http://purl.obolibrary.org/obo/FOODON_02000289,pork loin (raw),FoodOn,
-food,434,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003845,pork ear,FoodOn,the salted preparation is not captured
-food,435,relatedMatch,http://purl.obolibrary.org/obo/FOODON_02000334,pork sirloin tip roast,FoodOn,TACO's pernil is the whole leg; this is a sub-cut
+food,434,type,http://purl.obolibrary.org/obo/FOODON_02021685,pork ear (raw),FoodOn,Revised by review round-1.
+food,435,type,http://purl.obolibrary.org/obo/FOODON_02000283,pork leg,FoodOn,Revised by review round-1.
 food,436,type,http://purl.obolibrary.org/obo/FOODON_02000284,pork leg (raw),FoodOn,
 food,437,type,http://purl.obolibrary.org/obo/FOODON_02021801,pork tail (raw),FoodOn,the salted preparation is not captured
-food,439,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003149,Canadian bacon,FoodOn,similar lean cured pork product; not identical to Brazilian presunto
+food,439,type,http://purl.obolibrary.org/obo/FOODON_00005591,ham,FoodOn,Revised by review round-1.
 food,443,type,http://purl.obolibrary.org/obo/FOODON_03312067,salami,FoodOn,
-food,445,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03307782,pork rind (fried),FoodOn,"toucinho is fried pork fat, not skin/rind; closest available class"
-food,64,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003009,kabocha squash plant,FoodOn,the cooking/sauteing state is not captured
-food,65,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003009,kabocha squash plant,FoodOn,
-food,66,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301697,pumpkin (raw),FoodOn,the specific Brazilian variety is not distinguished
-food,67,type,http://purl.obolibrary.org/obo/FOODON_00004565,winter squash (raw),FoodOn,
-food,68,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004565,winter squash (raw),FoodOn,the cooking/sauteing state is not captured
-food,69,type,http://purl.obolibrary.org/obo/FOODON_03000082,crookneck squash (raw),FoodOn,
+food,445,type,http://purl.obolibrary.org/obo/FOODON_00005412,pork backfat,FoodOn,Revised by review round-1.
+food,64,type,http://purl.obolibrary.org/obo/FOODON_00003946,winter squash,FoodOn,Revised by review round-1.
+food,65,type,http://purl.obolibrary.org/obo/FOODON_00004565,winter squash (raw),FoodOn,Revised by review round-1.
+food,66,type,http://purl.obolibrary.org/obo/FOODON_03301577,squash (raw),FoodOn,Revised by review round-1.
+food,67,type,http://purl.obolibrary.org/obo/FOODON_03301697,pumpkin (raw),FoodOn,Revised by review round-1.
+food,68,type,http://purl.obolibrary.org/obo/FOODON_03316339,pumpkin (cooked),FoodOn,Revised by review round-1.
+food,69,type,http://purl.obolibrary.org/obo/FOODON_00004565,winter squash (raw),FoodOn,Revised by review round-1.
 food,71,type,http://purl.obolibrary.org/obo/FOODON_00004138,zucchini squash (raw),FoodOn,
-food,72,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004138,zucchini squash (raw),FoodOn,the cooking/sauteing state is not captured
+food,72,type,http://purl.obolibrary.org/obo/FOODON_03310943,zucchini squash,FoodOn,Revised by review round-1.
 food,73,type,http://purl.obolibrary.org/obo/FOODON_03310107,summer squash (raw),FoodOn,
 food,74,type,http://purl.obolibrary.org/obo/FOODON_03306698,swiss chard leaf (raw),FoodOn,
-food,75,type,http://purl.obolibrary.org/obo/FOODON_03000149,watercress leaf (raw),FoodOn,
-food,76,type,http://purl.obolibrary.org/obo/FOODON_03301727,celery stalk (raw),FoodOn,
-food,77,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03540369,03690 - head lettuces (efsa foodex2),FoodOn,the iceberg variety is not distinguished
+food,75,type,http://purl.obolibrary.org/obo/FOODON_00003064,watercress,FoodOn,Revised by review round-1.
+food,76,type,http://purl.obolibrary.org/obo/FOODON_00001704,celery food product,FoodOn,Revised by review round-1.
+food,77,type,http://purl.obolibrary.org/obo/FOODON_03000124,crisphead lettuce (raw),FoodOn,Revised by review round-1.
 food,78,type,http://purl.obolibrary.org/obo/FOODON_03306126,loose leaf lettuce (raw),FoodOn,
 food,79,type,http://purl.obolibrary.org/obo/FOODON_03000125,butterhead lettuce (raw),FoodOn,
 food,80,type,http://purl.obolibrary.org/obo/FOODON_03000019,red leaf lettuce (raw),FoodOn,
-food,81,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301192,basil leaf (raw),FoodOn,"alfavaca is a related basil variety, not certainly the same species"
+food,81,type,http://purl.obolibrary.org/obo/FOODON_03301192,basil leaf (raw),FoodOn,Revised by review round-1.
 food,82,type,http://purl.obolibrary.org/obo/FOODON_03305208,garlic bulb (raw),FoodOn,
 food,83,type,http://purl.obolibrary.org/obo/FOODON_03311757,leek (raw),FoodOn,
 food,84,type,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,
-food,85,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,the cooking/sauteing state is not captured
-food,86,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03540755,07550 - arracacha (efsa foodex2),FoodOn,the cooked state is not captured
-food,87,type,http://purl.obolibrary.org/obo/FOODON_03540755,07550 - arracacha (efsa foodex2),FoodOn,
+food,85,type,http://purl.obolibrary.org/obo/FOODON_00003623,chicory leaf,FoodOn,Revised by review round-1.
+food,86,type,http://purl.obolibrary.org/obo/FOODON_03310993,root vegetable (cooked),FoodOn,Revised by review round-1.
+food,87,type,http://purl.obolibrary.org/obo/FOODON_03301561,root vegetable (raw),FoodOn,Revised by review round-1.
 food,88,type,http://purl.obolibrary.org/obo/FOODON_00004429,sweet potato (cooked),FoodOn,
 food,89,type,http://purl.obolibrary.org/obo/FOODON_03301717,sweet potato (raw),FoodOn,
 food,91,type,http://purl.obolibrary.org/obo/FOODON_03306100,potato (cooked),FoodOn,
 food,92,type,http://purl.obolibrary.org/obo/FOODON_03301449,potato (raw),FoodOn,
-food,93,type,http://purl.obolibrary.org/obo/FOODON_03301959,potato (french-fried),FoodOn,
-food,94,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306100,potato (cooked),FoodOn,sauteing is not distinguished from other cooking methods
+food,93,type,http://purl.obolibrary.org/obo/FOODON_03543891,38910 - french fries from cut potato (efsa foodex2),FoodOn,Revised by review round-1.
+food,94,type,http://purl.obolibrary.org/obo/FOODON_03543889,38890 - pan-fried potato (efsa foodex2),FoodOn,Revised by review round-1.
 food,95,type,http://purl.obolibrary.org/obo/FOODON_03309715,eggplant (cooked),FoodOn,
 food,96,type,http://purl.obolibrary.org/obo/FOODON_03309709,eggplant (raw),FoodOn,
 food,98,type,http://purl.obolibrary.org/obo/FOODON_00004137,beetroot (raw),FoodOn,
 food,100,type,http://purl.obolibrary.org/obo/FOODON_03311420,broccoli (cooked),FoodOn,
-food,101,type,http://purl.obolibrary.org/obo/FOODON_03301713,broccoli floret (raw),FoodOn,
+food,101,type,http://purl.obolibrary.org/obo/FOODON_03540525,05250 - broccoli (efsa foodex2),FoodOn,Revised by review round-1.
 food,103,type,http://purl.obolibrary.org/obo/FOODON_03307043,yam (raw),FoodOn,
-food,104,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411717,amaranth plant,FoodOn,botanical class; the leafy-green food state is not captured
-food,105,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,the catalonha variety is not distinguished
-food,106,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,the catalonha variety is not distinguished; sauteing is not captured
+food,104,type,http://purl.obolibrary.org/obo/FOODON_03000026,amaranth leaf,FoodOn,Revised by review round-1.
+food,105,type,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,Revised by review round-1.
+food,106,type,http://purl.obolibrary.org/obo/FOODON_00003623,chicory leaf,FoodOn,Revised by review round-1.
 food,107,type,http://purl.obolibrary.org/obo/FOODON_03301704,onion (raw),FoodOn,
-food,108,closeMatch,http://purl.obolibrary.org/obo/FOODON_03311340,scallion (raw),FoodOn,not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (scallion is_a scallion plant)
+food,108,type,http://purl.obolibrary.org/obo/FOODON_03000021,welsh onion (raw),FoodOn,Revised by review round-1.
 food,109,type,http://purl.obolibrary.org/obo/FOODON_03311100,carrot (cooked),FoodOn,
 food,110,type,http://purl.obolibrary.org/obo/FOODON_03301570,carrot root (raw),FoodOn,
-food,111,type,http://purl.obolibrary.org/obo/FOODON_03000038,chicory leaf (raw),FoodOn,
-food,112,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03311502,chayote (raw),FoodOn,the cooking/sauteing state is not captured
+food,111,type,http://purl.obolibrary.org/obo/FOODON_03000447,endive leaf,FoodOn,Revised by review round-1.
+food,112,type,http://purl.obolibrary.org/obo/FOODON_00003653,chayote,FoodOn,Revised by review round-1.
 food,113,type,http://purl.obolibrary.org/obo/FOODON_03311502,chayote (raw),FoodOn,
-food,115,type,http://purl.obolibrary.org/obo/FOODON_00003503,collard greens bunch,FoodOn,
-food,116,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003503,collard greens bunch,FoodOn,the cooking/sauteing state is not captured
+food,115,type,http://purl.obolibrary.org/obo/FOODON_03304860,collard leaf (raw),FoodOn,Revised by review round-1.
+food,116,type,http://purl.obolibrary.org/obo/FOODON_00003500,collard leaf,FoodOn,Revised by review round-1.
 food,117,type,http://purl.obolibrary.org/obo/FOODON_03302732,cauliflower floret (raw),FoodOn,
 food,119,type,http://purl.obolibrary.org/obo/FOODON_03000085,New Zealand spinach leaf (raw),FoodOn,
-food,120,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03000085,New Zealand spinach leaf (raw),FoodOn,the cooking/sauteing state is not captured
+food,120,type,http://purl.obolibrary.org/obo/FOODON_03000084,New Zealand spinach leaf,FoodOn,Revised by review round-1.
 food,121,type,http://purl.obolibrary.org/obo/FOODON_03310125,cassava flour,FoodOn,the raw/toasted distinction is not captured
 food,122,type,http://purl.obolibrary.org/obo/FOODON_03310125,cassava flour,FoodOn,the raw/toasted distinction is not captured
 food,124,type,http://purl.obolibrary.org/obo/FOODON_03544170,41700 - tapioca starch (efsa foodex2),FoodOn,
-food,125,closeMatch,http://purl.obolibrary.org/obo/FOODON_00002576,bean sprout,FoodOn,the bean variety is not distinguished; not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (bean sprout is_a bean plant)
-food,126,type,http://purl.obolibrary.org/obo/FOODON_03307043,yam (raw),FoodOn,
-food,127,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414982,ethiopian eggplant plant,FoodOn,botanical class matching jiló's species (Solanum aethiopicum)
-food,129,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03302304,cassava (raw),FoodOn,the cooking/sauteing state is not captured
+food,125,type,http://purl.obolibrary.org/obo/FOODON_03540507,05070 - mung bean sprouts (efsa foodex2),FoodOn,Revised by review round-1.
+food,126,type,http://purl.obolibrary.org/obo/FOODON_03309801,taro root (raw),FoodOn,Revised by review round-1.
+food,127,type,http://purl.obolibrary.org/obo/FOODON_03540660,06600 - ethiopian eggplants (efsa foodex2),FoodOn,Revised by review round-1.
+food,129,type,http://purl.obolibrary.org/obo/FOODON_00003409,cassava,FoodOn,Revised by review round-1.
 food,130,type,http://purl.obolibrary.org/obo/FOODON_03302304,cassava (raw),FoodOn,
 food,133,type,http://purl.obolibrary.org/obo/FOODON_03301192,basil leaf (raw),FoodOn,
-food,134,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00003415,cucumber,FoodOn,maxixe (Cucumis anguria) is a distinct relative of cucumber
+food,134,type,http://purl.obolibrary.org/obo/FOODON_03540675,06750 - bur gherkins (efsa foodex2),FoodOn,Revised by review round-1.
 food,135,type,http://purl.obolibrary.org/obo/FOODON_03301579,mustard greens (raw),FoodOn,
 food,136,type,http://purl.obolibrary.org/obo/FOODON_03540193,01930 - gnocchi (efsa foodex2),FoodOn,
 food,137,type,http://purl.obolibrary.org/obo/FOODON_03307633,turnip (raw),FoodOn,
 food,138,type,http://purl.obolibrary.org/obo/FOODON_03306832,heart of palm (canned),FoodOn,
-food,139,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306832,heart of palm (canned),FoodOn,the pupunha (peach palm) species is not distinguished from juçara
+food,139,type,http://purl.obolibrary.org/obo/FOODON_03540565,05650 - peach palm hearts (efsa foodex2),FoodOn,Revised by review round-1.
 food,142,type,http://purl.obolibrary.org/obo/FOODON_03301545,cucumber (raw),FoodOn,
 food,143,type,http://purl.obolibrary.org/obo/FOODON_00003012,yellow bell pepper (raw),FoodOn,
 food,144,type,http://purl.obolibrary.org/obo/FOODON_03306726,sweet green bell pepper (raw),FoodOn,
-food,145,type,http://purl.obolibrary.org/obo/FOODON_03315874,red bell pepper (raw),FoodOn,
+food,145,type,http://purl.obolibrary.org/obo/FOODON_03306732,sweet red bell pepper (raw),FoodOn,Revised by review round-1.
 food,146,type,http://purl.obolibrary.org/obo/FOODON_03544170,41700 - tapioca starch (efsa foodex2),FoodOn,
 food,147,type,http://purl.obolibrary.org/obo/FOODON_03301828,okra (raw),FoodOn,
 food,148,type,http://purl.obolibrary.org/obo/FOODON_03304656,radish (raw),FoodOn,
-food,149,type,http://purl.obolibrary.org/obo/FOODON_03310228,green cabbage head (raw),FoodOn,
+food,149,type,http://purl.obolibrary.org/obo/FOODON_03540478,04780 - white cabbage (efsa foodex2),FoodOn,Revised by review round-1.
 food,150,type,http://purl.obolibrary.org/obo/FOODON_03304685,red cabbage head (raw),FoodOn,
-food,151,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03304685,red cabbage head (raw),FoodOn,the cooking/sauteing state is not captured
+food,151,type,http://purl.obolibrary.org/obo/FOODON_00002922,red cabbage head,FoodOn,Revised by review round-1.
 food,152,type,http://purl.obolibrary.org/obo/FOODON_00005223,arugula leaf (raw),FoodOn,
 food,153,type,http://purl.obolibrary.org/obo/FOODON_03301205,parsley leaf (raw),FoodOn,
 food,154,type,http://purl.obolibrary.org/obo/FOODON_03303882,mixed vegetables (canned),FoodOn,
@@ -506,77 +506,238 @@ food,155,type,http://purl.obolibrary.org/obo/FOODON_03540408,04080 - sowthistle 
 food,158,type,http://purl.obolibrary.org/obo/FOODON_03301455,tomato paste,FoodOn,
 food,159,type,http://purl.obolibrary.org/obo/FOODON_03301217,tomato sauce,FoodOn,
 food,160,type,http://purl.obolibrary.org/obo/FOODON_03301457,tomato puree,FoodOn,
-food,162,closeMatch,http://purl.obolibrary.org/obo/FOODON_00004236,green bean pod (raw),FoodOn,not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (bean pod is_a bean sprout is_a bean plant)
+food,162,type,http://purl.obolibrary.org/obo/FOODON_00002766,green bean (whole pod or pieces),FoodOn,Revised by review round-1.
 food,163,type,http://purl.obolibrary.org/obo/FOODON_03305236,avocado (raw),FoodOn,
 food,164,type,http://purl.obolibrary.org/obo/FOODON_03301831,pineapple (raw),FoodOn,
-food,165,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301831,pineapple (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
-food,167,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03401427,10006759 - acai berries (gs1 gpc),FoodOn,does not capture the guarana syrup/glucose addition
-food,168,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03401427,10006759 - acai berries (gs1 gpc),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,165,type,http://purl.obolibrary.org/obo/FOODON_03306782,pineapple pulp,FoodOn,Revised by review round-1.
+food,167,type,http://purl.obolibrary.org/obo/FOODON_03306369,fruit pulp (sweetened),FoodOn,Revised by review round-1.
+food,168,type,http://purl.obolibrary.org/obo/FOODON_03305316,fruit pulp (frozen),FoodOn,Revised by review round-1.
 food,169,type,http://purl.obolibrary.org/obo/FOODON_03310823,acerola (raw),FoodOn,
-food,170,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03310823,acerola (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
-food,171,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03306026,plum nectar (canned),FoodOn,nectar is a liquid product; TACO's item is fruit in syrup
+food,170,type,http://purl.obolibrary.org/obo/FOODON_03305316,fruit pulp (frozen),FoodOn,Revised by review round-1.
+food,171,type,http://purl.obolibrary.org/obo/FOODON_03303225,syrup,FoodOn,Revised by review round-1.
 food,172,type,http://purl.obolibrary.org/obo/FOODON_03301580,plum (raw),FoodOn,
 food,175,type,http://purl.obolibrary.org/obo/FOODON_03310126,plantain (raw),FoodOn,
-food,177,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,the figo cultivar is not distinguished
+food,177,type,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,Revised by review round-1.
 food,179,type,http://purl.obolibrary.org/obo/FOODON_03301130,Cavendish banana (raw),FoodOn,TACO's banana nanica is the Brazilian Cavendish
-food,181,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,the pacova cultivar is not distinguished
-food,184,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411284,ambarella plant,FoodOn,botanical class only; no food-item-state class was found for this species
-food,185,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411307,hog plum plant,FoodOn,botanical class only; no food-item-state class was found for this species (matches Spondias mombin)
-food,186,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411221,cashew plant,FoodOn,botanical class; does not isolate the cashew apple specifically
-food,187,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411221,cashew plant,FoodOn,botanical class; does not isolate the cashew apple or its frozen pulp
+food,181,type,http://purl.obolibrary.org/obo/FOODON_03310126,plantain (raw),FoodOn,Revised by review round-1.
+food,184,type,http://purl.obolibrary.org/obo/FOODON_03541662,16620 - ambarellas (efsa foodex2),FoodOn,Revised by review round-1.
+food,185,type,http://purl.obolibrary.org/obo/FOODON_03305316,fruit pulp (frozen),FoodOn,Revised by review round-1.
+food,186,type,http://purl.obolibrary.org/obo/FOODON_03541666,16660 - cashew apples (efsa foodex2),FoodOn,Revised by review round-1.
+food,187,type,http://purl.obolibrary.org/obo/FOODON_03305316,fruit pulp (frozen),FoodOn,Revised by review round-1.
 food,189,type,http://purl.obolibrary.org/obo/FOODON_03311790,persimmon (raw),FoodOn,the specific cultivar is not distinguished
-food,190,type,http://purl.obolibrary.org/obo/FOODON_03541661,16610 - carambolas (efsa foodex2),FoodOn,
-food,191,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03412398,ciruela plant,FoodOn,botanical class only; no food-item-state class was found for this species (matches Spondias purpurea)
-food,192,type,http://purl.obolibrary.org/obo/FOODON_03543694,36940 - cupuaçu (efsa foodex2),FoodOn,
-food,193,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03543694,36940 - cupuaçu (efsa foodex2),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,190,type,http://purl.obolibrary.org/obo/FOODON_00004646,star fruit (raw),FoodOn,Revised by review round-1.
+food,191,type,http://purl.obolibrary.org/obo/FOODON_03541675,16750 - purple mombins (efsa foodex2),FoodOn,Revised by review round-1.
+food,192,type,http://purl.obolibrary.org/obo/FOODON_00003195,cupuaçu fruit (raw),FoodOn,Revised by review round-1.
+food,193,type,http://purl.obolibrary.org/obo/FOODON_00003221,cupuaçu fruit food product,FoodOn,Revised by review round-1.
 food,194,type,http://purl.obolibrary.org/obo/FOODON_03301804,fig (raw),FoodOn,
 food,195,type,http://purl.obolibrary.org/obo/FOODON_03306055,"fig (preserved in syrup, canned)",FoodOn,
 food,196,type,http://purl.obolibrary.org/obo/FOODON_03305285,breadfruit (raw),FoodOn,
 food,197,type,http://purl.obolibrary.org/obo/FOODON_03305317,guava (raw),FoodOn,the white variety is not distinguished
 food,198,type,http://purl.obolibrary.org/obo/FOODON_03305326,guava (paste),FoodOn,
-food,199,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305326,guava (paste),FoodOn,the thicker cascão preparation is not distinguished
-food,200,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305317,guava (raw),FoodOn,the red variety is not distinguished
+food,199,type,http://purl.obolibrary.org/obo/FOODON_03305326,guava (paste),FoodOn,Revised by review round-1.
+food,200,type,http://purl.obolibrary.org/obo/FOODON_03305317,guava (raw),FoodOn,Revised by review round-1.
 food,201,type,http://purl.obolibrary.org/obo/FOODON_03305318,soursop (raw),FoodOn,
-food,202,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03305318,soursop (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
-food,203,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414266,jaboticaba plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,202,type,http://purl.obolibrary.org/obo/FOODON_00005627,soursop pulp,FoodOn,Revised by review round-1.
+food,203,type,http://purl.obolibrary.org/obo/FOODON_03541668,16680 - jaboticabas (efsa foodex2),FoodOn,Revised by review round-1.
 food,204,type,http://purl.obolibrary.org/obo/FOODON_00003087,jackfruit (raw),FoodOn,
-food,205,type,http://purl.obolibrary.org/obo/FOODON_00005306,rose apple (raw),FoodOn,
+food,205,type,http://purl.obolibrary.org/obo/FOODON_03541669,16690 - malay pommarosas (efsa foodex2),FoodOn,Revised by review round-1.
 food,206,type,http://purl.obolibrary.org/obo/FOODON_00005313,jambolan (raw),FoodOn,
-food,207,type,http://purl.obolibrary.org/obo/FOODON_03303398,fuzzy kiwifruit (raw),FoodOn,the common green kiwifruit is assumed
+food,207,type,http://purl.obolibrary.org/obo/FOODON_00004387,kiwifruit,FoodOn,Revised by review round-1.
 food,208,type,http://purl.obolibrary.org/obo/FOODON_00002511,navel orange (raw),FoodOn,
-food,210,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411193,sour orange plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,210,type,http://purl.obolibrary.org/obo/FOODON_03541440,14400 - bitter oranges (efsa foodex2),FoodOn,Revised by review round-1.
 food,214,type,http://purl.obolibrary.org/obo/FOODON_03309832,orange (raw),FoodOn,the specific cultivar is not distinguished
 food,215,type,http://purl.obolibrary.org/obo/FOODON_03301103,orange juice,FoodOn,
-food,216,type,http://purl.obolibrary.org/obo/FOODON_03309926,california valencia orange (raw),FoodOn,
-food,218,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414214,mandarin lime plant,FoodOn,botanical class only; no food-item-state class was found for this species; juice form not captured
-food,219,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03411067,lime (citrus) plant,FoodOn,botanical class only; no food-item-state class was found for this species; the galego (key lime) variety and juice form are not captured
-food,220,type,http://purl.obolibrary.org/obo/FOODON_00003661,lime,FoodOn,
+food,216,type,http://purl.obolibrary.org/obo/FOODON_03309832,orange (raw),FoodOn,Revised by review round-1.
+food,218,type,http://purl.obolibrary.org/obo/FOODON_03306160,lime juice,FoodOn,Revised by review round-1.
+food,219,type,http://purl.obolibrary.org/obo/FOODON_03306160,lime juice,FoodOn,Revised by review round-1.
+food,220,type,http://purl.obolibrary.org/obo/FOODON_03541454,14540 - tahiti limes (efsa foodex2),FoodOn,Revised by review round-1.
 food,222,type,http://purl.obolibrary.org/obo/FOODON_00004205,Fuji apple (raw),FoodOn,
-food,225,type,http://purl.obolibrary.org/obo/FOODON_03301830,papaya (raw),FoodOn,the specific cultivar is not distinguished
+food,225,type,http://purl.obolibrary.org/obo/FOODON_03401739,10005954 - papayas formosa (gs1 gpc),FoodOn,Revised by review round-1.
 food,226,type,http://purl.obolibrary.org/obo/FOODON_03301830,papaya (raw),FoodOn,
 food,228,type,http://purl.obolibrary.org/obo/FOODON_03301813,mango (raw),FoodOn,the specific cultivar is not distinguished
 food,229,type,http://purl.obolibrary.org/obo/FOODON_03301813,mango (raw),FoodOn,the specific cultivar is not distinguished
-food,230,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03301813,mango (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,230,type,http://purl.obolibrary.org/obo/FOODON_03303956,mango (pulp),FoodOn,Revised by review round-1.
 food,231,type,http://purl.obolibrary.org/obo/FOODON_00004923,Tommy Atkins mango (raw),FoodOn,
 food,232,type,http://purl.obolibrary.org/obo/FOODON_03309552,passion fruit (raw),FoodOn,
 food,233,type,http://purl.obolibrary.org/obo/FOODON_03310453,passion fruit pulp (frozen),FoodOn,
 food,235,type,http://purl.obolibrary.org/obo/FOODON_03301040,watermelon (raw),FoodOn,
 food,236,type,http://purl.obolibrary.org/obo/FOODON_03301593,melon (raw),FoodOn,the specific cultivar is not distinguished
-food,237,type,http://purl.obolibrary.org/obo/FOODON_03303080,tangerine (raw),FoodOn,the specific cultivar is not distinguished
+food,237,type,http://purl.obolibrary.org/obo/FOODON_03541464,14640 - tangors (efsa foodex2),FoodOn,Revised by review round-1.
 food,238,type,http://purl.obolibrary.org/obo/FOODON_03303080,tangerine (raw),FoodOn,the specific cultivar is not distinguished
 food,239,type,http://purl.obolibrary.org/obo/FOODON_03301722,strawberry (raw),FoodOn,
 food,240,type,http://purl.obolibrary.org/obo/FOODON_00003181,loquat (raw),FoodOn,
-food,241,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414545,pequi plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,241,type,http://purl.obolibrary.org/obo/FOODON_03305237,tropical fruit (raw),FoodOn,Revised by review round-1.
 food,242,type,http://purl.obolibrary.org/obo/FOODON_03301724,pear (raw),FoodOn,the specific cultivar is not distinguished
 food,243,type,http://purl.obolibrary.org/obo/FOODON_00002843,Williams pear (raw),FoodOn,
 food,244,type,http://purl.obolibrary.org/obo/FOODON_03301719,peach (raw),FoodOn,the specific cultivar is not distinguished
 food,247,type,http://purl.obolibrary.org/obo/FOODON_00005188,surinam cherry (raw),FoodOn,
-food,248,relatedMatch,http://purl.obolibrary.org/obo/FOODON_00005188,surinam cherry (raw),FoodOn,the frozen pulp state is not distinguished from the whole raw fruit
+food,248,type,http://purl.obolibrary.org/obo/FOODON_03305316,fruit pulp (frozen),FoodOn,Revised by review round-1.
 food,249,type,http://purl.obolibrary.org/obo/FOODON_00003066,pomegranate (raw),FoodOn,
-food,250,closeMatch,http://purl.obolibrary.org/obo/FOODON_03309932,tamarind pod (raw),FoodOn,not asserted as rdf:type because FoodOn 2026-09-20 places the target under whole plant (bean pod is_a bean sprout is_a bean plant)
+food,250,type,http://purl.obolibrary.org/obo/FOODON_03401425,10006359 - tamarindo (gs1 gpc),FoodOn,Revised by review round-1.
 food,251,type,http://purl.obolibrary.org/obo/FOODON_03303080,tangerine (raw),FoodOn,the specific cultivar is not distinguished
 food,252,type,http://purl.obolibrary.org/obo/FOODON_03305751,tangerine juice,FoodOn,
-food,253,relatedMatch,http://purl.obolibrary.org/obo/FOODON_03414346,tucum plant,FoodOn,botanical class only; no food-item-state class was found for this species
+food,253,type,http://purl.obolibrary.org/obo/FOODON_03541644,16440 - awara palm fruits (efsa foodex2),FoodOn,Revised by review round-1.
 food,256,type,http://purl.obolibrary.org/obo/FOODON_03301123,grape (raw),FoodOn,the specific cultivar is not distinguished
 food,257,type,http://purl.obolibrary.org/obo/FOODON_03301123,grape (raw),FoodOn,the specific cultivar is not distinguished
 food,258,type,http://purl.obolibrary.org/obo/FOODON_03543238,"32380 - juice concentrate, grape (efsa foodex2)",FoodOn,
+food,9,type,http://purl.obolibrary.org/obo/FOODON_03301585,cookie,FoodOn,Revised by review round-1.
+food,10,type,http://purl.obolibrary.org/obo/FOODON_03301585,cookie,FoodOn,Revised by review round-1.
+food,11,type,http://purl.obolibrary.org/obo/FOODON_03303140,cookie wafer,FoodOn,Revised by review round-1.
+food,12,type,http://purl.obolibrary.org/obo/FOODON_03303140,cookie wafer,FoodOn,Revised by review round-1.
+food,17,type,http://purl.obolibrary.org/obo/FOODON_00001278,cake food product,FoodOn,Revised by review round-1.
+food,20,type,http://purl.obolibrary.org/obo/FOODON_03301660,pudding,FoodOn,Revised by review round-1.
+food,28,type,http://purl.obolibrary.org/obo/FOODON_00001089,milled corn food product,FoodOn,Revised by review round-1.
+food,55,type,http://purl.obolibrary.org/obo/FOODON_03302093,beef turnover,FoodOn,Revised by review round-1.
+food,56,type,http://purl.obolibrary.org/obo/FOODON_03302093,beef turnover,FoodOn,Revised by review round-1.
+food,57,type,http://purl.obolibrary.org/obo/FOODON_03303871,cheese turnover,FoodOn,Revised by review round-1.
+food,58,type,http://purl.obolibrary.org/obo/FOODON_03303871,cheese turnover,FoodOn,Revised by review round-1.
+food,70,type,http://purl.obolibrary.org/obo/FOODON_03310943,zucchini squash,FoodOn,Revised by review round-1.
+food,90,type,http://purl.obolibrary.org/obo/FOODON_03310054,potato crisp,FoodOn,Revised by review round-1.
+food,97,type,http://purl.obolibrary.org/obo/FOODON_03317254,beetroot,FoodOn,Revised by review round-1.
+food,99,type,http://purl.obolibrary.org/obo/FOODON_00002466,biscuit (hard) food product,FoodOn,Revised by review round-1.
+food,102,type,http://purl.obolibrary.org/obo/FOODON_00003448,yam,FoodOn,Revised by review round-1.
+food,114,type,http://purl.obolibrary.org/obo/FOODON_03000031,coriander leaf (dried),FoodOn,Revised by review round-1.
+food,118,type,http://purl.obolibrary.org/obo/FOODON_00003410,cauliflower floret,FoodOn,Revised by review round-1.
+food,123,type,http://purl.obolibrary.org/obo/FOODON_03310125,cassava flour,FoodOn,Revised by review round-1.
+food,128,type,http://purl.obolibrary.org/obo/FOODON_03540630,06300 - fruiting vegetables (efsa foodex2),FoodOn,Revised by review round-1.
+food,131,type,http://purl.obolibrary.org/obo/FOODON_00001692,cassava food product,FoodOn,Revised by review round-1.
+food,132,type,http://purl.obolibrary.org/obo/FOODON_00003409,cassava,FoodOn,Revised by review round-1.
+food,140,type,http://purl.obolibrary.org/obo/FOODON_03302457,cheese bread,FoodOn,Revised by review round-1.
+food,141,type,http://purl.obolibrary.org/obo/FOODON_03311552,dough,FoodOn,Revised by review round-1.
+food,156,type,http://purl.obolibrary.org/obo/FOODON_03540436,04360 - tannia leaves (efsa foodex2),FoodOn,Revised by review round-1.
+food,157,type,http://purl.obolibrary.org/obo/FOODON_03309927,tomato (raw),FoodOn,Revised by review round-1.
+food,161,type,http://purl.obolibrary.org/obo/FOODON_03301453,tomato,FoodOn,Revised by review round-1.
+food,166,type,http://purl.obolibrary.org/obo/FOODON_03305237,tropical fruit (raw),FoodOn,Revised by review round-1.
+food,173,type,http://purl.obolibrary.org/obo/FOODON_03301279,plum (canned),FoodOn,Revised by review round-1.
+food,174,type,http://purl.obolibrary.org/obo/FOODON_03305237,tropical fruit (raw),FoodOn,Revised by review round-1.
+food,176,type,http://purl.obolibrary.org/obo/FOODON_03310650,fruit paste,FoodOn,Revised by review round-1.
+food,178,type,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,Revised by review round-1.
+food,180,type,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,Revised by review round-1.
+food,182,type,http://purl.obolibrary.org/obo/FOODON_00004184,banana (raw),FoodOn,Revised by review round-1.
+food,183,type,http://purl.obolibrary.org/obo/FOODON_00001215,cacao food product,FoodOn,Revised by review round-1.
+food,188,type,http://purl.obolibrary.org/obo/FOODON_03305321,fruit juice concentrate,FoodOn,Revised by review round-1.
+food,209,type,http://purl.obolibrary.org/obo/FOODON_03301103,orange juice,FoodOn,Revised by review round-1.
+food,211,type,http://purl.obolibrary.org/obo/FOODON_03301103,orange juice,FoodOn,Revised by review round-1.
+food,212,type,http://purl.obolibrary.org/obo/FOODON_03309832,orange (raw),FoodOn,Revised by review round-1.
+food,213,type,http://purl.obolibrary.org/obo/FOODON_03301103,orange juice,FoodOn,Revised by review round-1.
+food,217,type,http://purl.obolibrary.org/obo/FOODON_03301103,orange juice,FoodOn,Revised by review round-1.
+food,221,type,http://purl.obolibrary.org/obo/FOODON_03301710,apple (raw),FoodOn,Revised by review round-1.
+food,223,type,http://purl.obolibrary.org/obo/FOODON_03305237,tropical fruit (raw),FoodOn,Revised by review round-1.
+food,224,type,http://purl.obolibrary.org/obo/FOODON_03303951,papaya preserves,FoodOn,Revised by review round-1.
+food,227,type,http://purl.obolibrary.org/obo/FOODON_03303951,papaya preserves,FoodOn,Revised by review round-1.
+food,234,type,http://purl.obolibrary.org/obo/FOODON_00005596,yellow passion fruit juice,FoodOn,Revised by review round-1.
+food,245,type,http://purl.obolibrary.org/obo/FOODON_03301271,peach (canned),FoodOn,Revised by review round-1.
+food,246,type,http://purl.obolibrary.org/obo/FOODON_03401408,10005940 - sugar apples (gs1 gpc),FoodOn,Revised by review round-1.
+food,254,type,http://purl.obolibrary.org/obo/FOODON_03305237,tropical fruit (raw),FoodOn,Revised by review round-1.
+food,255,type,http://purl.obolibrary.org/obo/FOODON_03305316,fruit pulp (frozen),FoodOn,Revised by review round-1.
+food,271,type,http://purl.obolibrary.org/obo/FOODON_03305263,vegetable oil,FoodOn,Revised by review round-1.
+food,279,type,http://purl.obolibrary.org/obo/FOODON_03307021,codfish (salted),FoodOn,Revised by review round-1.
+food,281,type,http://purl.obolibrary.org/obo/FOODON_00002235,shark food product,FoodOn,Revised by review round-1.
+food,282,type,http://purl.obolibrary.org/obo/FOODON_00002235,shark food product,FoodOn,Revised by review round-1.
+food,284,type,http://purl.obolibrary.org/obo/FOODON_03311618,shrimp (boiled),FoodOn,Revised by review round-1.
+food,285,type,http://purl.obolibrary.org/obo/FOODON_03301837,shrimp (raw),FoodOn,Revised by review round-1.
+food,288,type,http://purl.obolibrary.org/obo/FOODON_00001249,freshwater fish food product,FoodOn,Revised by review round-1.
+food,289,type,http://purl.obolibrary.org/obo/FOODON_00001249,freshwater fish food product,FoodOn,Revised by review round-1.
+food,290,type,http://purl.obolibrary.org/obo/FOODON_00001249,freshwater fish food product,FoodOn,Revised by review round-1.
+food,291,type,http://purl.obolibrary.org/obo/FOODON_00001249,freshwater fish food product,FoodOn,Revised by review round-1.
+food,295,type,http://purl.obolibrary.org/obo/FOODON_03303384,catfish (raw),FoodOn,Revised by review round-1.
+food,296,type,http://purl.obolibrary.org/obo/FOODON_03542259,22590 - characins (efsa foodex2),FoodOn,Revised by review round-1.
+food,297,type,http://purl.obolibrary.org/obo/FOODON_03542259,22590 - characins (efsa foodex2),FoodOn,Revised by review round-1.
+food,298,type,http://purl.obolibrary.org/obo/FOODON_03542259,22590 - characins (efsa foodex2),FoodOn,Revised by review round-1.
+food,299,type,http://purl.obolibrary.org/obo/FOODON_00001589,anchovy food product,FoodOn,Revised by review round-1.
+food,300,type,http://purl.obolibrary.org/obo/FOODON_00001589,anchovy food product,FoodOn,Revised by review round-1.
+food,309,type,http://purl.obolibrary.org/obo/FOODON_03543861,38610 - fish and seafood based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,315,type,http://purl.obolibrary.org/obo/FOODON_02022079,atlantic salmon fillet (with skin),FoodOn,Revised by review round-1.
+food,317,type,http://purl.obolibrary.org/obo/FOODON_02022077,atlantic salmon fillet (skinless),FoodOn,Revised by review round-1.
+food,320,type,http://purl.obolibrary.org/obo/FOODON_03542404,24040 - sardinella or oil sardine (efsa foodex2),FoodOn,Revised by review round-1.
+food,322,type,http://purl.obolibrary.org/obo/FOODON_00001737,cichlid food product,FoodOn,Revised by review round-1.
+food,331,type,http://purl.obolibrary.org/obo/FOODON_03303567,meatball (cooked),FoodOn,Revised by review round-1.
+food,332,type,http://purl.obolibrary.org/obo/FOODON_03420192,tripe,FoodOn,Revised by review round-1.
+food,335,type,http://purl.obolibrary.org/obo/FOODON_02000203,beef rib,FoodOn,Revised by review round-1.
+food,337,type,http://purl.obolibrary.org/obo/FOODON_02000203,beef rib,FoodOn,Revised by review round-1.
+food,338,type,http://purl.obolibrary.org/obo/FOODON_03311654,"beef (cured, cooked)",FoodOn,Revised by review round-1.
+food,339,type,http://purl.obolibrary.org/obo/FOODON_00001696,cattle cured meat food product,FoodOn,Revised by review round-1.
+food,340,type,http://purl.obolibrary.org/obo/FOODON_03310240,beef (fried),FoodOn,Revised by review round-1.
+food,342,type,http://purl.obolibrary.org/obo/FOODON_02000203,beef rib,FoodOn,Revised by review round-1.
+food,353,type,http://purl.obolibrary.org/obo/FOODON_03311662,beef (roasted),FoodOn,Revised by review round-1.
+food,354,type,http://purl.obolibrary.org/obo/FOODON_02000415,butchery cut of beef (raw),FoodOn,Revised by review round-1.
+food,359,type,http://purl.obolibrary.org/obo/FOODON_02000175,beef flank,FoodOn,Revised by review round-1.
+food,361,type,http://purl.obolibrary.org/obo/FOODON_03309738,beef (cooked),FoodOn,Revised by review round-1.
+food,362,type,http://purl.obolibrary.org/obo/FOODON_02000415,butchery cut of beef (raw),FoodOn,Revised by review round-1.
+food,363,type,http://purl.obolibrary.org/obo/FOODON_02000039,beef eye of round,FoodOn,Revised by review round-1.
+food,365,type,http://purl.obolibrary.org/obo/FOODON_02020916,beef tongue,FoodOn,Revised by review round-1.
+food,368,type,http://purl.obolibrary.org/obo/FOODON_02000145,beef sirloin,FoodOn,Revised by review round-1.
+food,370,type,http://purl.obolibrary.org/obo/FOODON_02000147,beef top sirloin butt,FoodOn,Revised by review round-1.
+food,371,type,http://purl.obolibrary.org/obo/FOODON_02000197,beef shank,FoodOn,Revised by review round-1.
+food,374,type,http://purl.obolibrary.org/obo/FOODON_02000069,beef shoulder clod,FoodOn,Revised by review round-1.
+food,376,type,http://purl.obolibrary.org/obo/FOODON_02000026,beef sirloin tip (raw),FoodOn,Revised by review round-1.
+food,377,type,http://purl.obolibrary.org/obo/FOODON_02000025,beef sirloin tip,FoodOn,Revised by review round-1.
+food,380,type,http://purl.obolibrary.org/obo/FOODON_02000146,beef sirloin (raw),FoodOn,Revised by review round-1.
+food,381,type,http://purl.obolibrary.org/obo/FOODON_02000145,beef sirloin,FoodOn,Revised by review round-1.
+food,382,type,http://purl.obolibrary.org/obo/FOODON_02000146,beef sirloin (raw),FoodOn,Revised by review round-1.
+food,383,type,http://purl.obolibrary.org/obo/FOODON_02000145,beef sirloin,FoodOn,Revised by review round-1.
+food,384,type,http://purl.obolibrary.org/obo/FOODON_03311654,"beef (cured, cooked)",FoodOn,Revised by review round-1.
+food,385,type,http://purl.obolibrary.org/obo/FOODON_00001696,cattle cured meat food product,FoodOn,Revised by review round-1.
+food,388,type,http://purl.obolibrary.org/obo/FOODON_03543848,38480 - meat based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,392,type,http://purl.obolibrary.org/obo/FOODON_03311101,chicken (cooked),FoodOn,Revised by review round-1.
+food,393,type,http://purl.obolibrary.org/obo/FOODON_03311101,chicken (cooked),FoodOn,Revised by review round-1.
+food,396,type,http://purl.obolibrary.org/obo/FOODON_02020239,chicken drumstick (with skin),FoodOn,Revised by review round-1.
+food,401,type,http://purl.obolibrary.org/obo/FOODON_03309151,"chicken (breaded and fried, homemade)",FoodOn,Revised by review round-1.
+food,403,type,http://purl.obolibrary.org/obo/FOODON_03311101,chicken (cooked),FoodOn,Revised by review round-1.
+food,406,type,http://purl.obolibrary.org/obo/FOODON_02020233,chicken breast (with skin),FoodOn,Revised by review round-1.
+food,410,type,http://purl.obolibrary.org/obo/FOODON_02020231,chicken breast (skinless),FoodOn,Revised by review round-1.
+food,411,type,http://purl.obolibrary.org/obo/FOODON_00003330,chicken thigh (with skin),FoodOn,Revised by review round-1.
+food,413,type,http://purl.obolibrary.org/obo/FOODON_00003331,chicken thigh (skinless),FoodOn,Revised by review round-1.
+food,418,type,http://purl.obolibrary.org/obo/FOODON_03401689,10005834 - chicken sausages - prepared/processed (gs1 gpc),FoodOn,Revised by review round-1.
+food,419,type,http://purl.obolibrary.org/obo/FOODON_03401689,10005834 - chicken sausages - prepared/processed (gs1 gpc),FoodOn,Revised by review round-1.
+food,420,type,http://purl.obolibrary.org/obo/FOODON_03401689,10005834 - chicken sausages - prepared/processed (gs1 gpc),FoodOn,Revised by review round-1.
+food,422,type,http://purl.obolibrary.org/obo/FOODON_00002729,pork sausage,FoodOn,Revised by review round-1.
+food,423,type,http://purl.obolibrary.org/obo/FOODON_00002729,pork sausage,FoodOn,Revised by review round-1.
+food,430,type,http://purl.obolibrary.org/obo/FOODON_00003270,pork ribs,FoodOn,Revised by review round-1.
+food,438,type,http://purl.obolibrary.org/obo/FOODON_00005591,ham,FoodOn,Revised by review round-1.
+food,440,type,http://purl.obolibrary.org/obo/FOODON_03543848,38480 - meat based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,441,type,http://purl.obolibrary.org/obo/FOODON_03543848,38480 - meat based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,442,type,http://purl.obolibrary.org/obo/FOODON_03543848,38480 - meat based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,444,type,http://purl.obolibrary.org/obo/FOODON_00005413,pork backfat (raw),FoodOn,Revised by review round-1.
+food,446,type,http://purl.obolibrary.org/obo/FOODON_03316101,beverage (dairy based),FoodOn,Revised by review round-1.
+food,450,type,http://purl.obolibrary.org/obo/FOODON_03317605,yogurt (fruit flavored),FoodOn,Revised by review round-1.
+food,452,type,http://purl.obolibrary.org/obo/FOODON_03317605,yogurt (fruit flavored),FoodOn,Revised by review round-1.
+food,466,type,http://purl.obolibrary.org/obo/FOODON_03303550,petite suisse cheese,FoodOn,Revised by review round-1.
+food,473,type,http://purl.obolibrary.org/obo/FOODON_03315245,sugar cane juice (raw),FoodOn,Revised by review round-1.
+food,475,type,http://purl.obolibrary.org/obo/FOODON_00003170,herbal tea (liquid),FoodOn,Revised by review round-1.
+food,482,type,http://purl.obolibrary.org/obo/FOODON_03311097,orange-flavored soft drink,FoodOn,Revised by review round-1.
+food,486,type,http://purl.obolibrary.org/obo/FOODON_03310224,chicken egg white (boiled),FoodOn,Revised by review round-1.
+food,488,type,http://purl.obolibrary.org/obo/FOODON_00002800,chicken egg (boiled),FoodOn,Revised by review round-1.
+food,496,type,http://purl.obolibrary.org/obo/FOODON_03302806,milk chocolate,FoodOn,Revised by review round-1.
+food,497,type,http://purl.obolibrary.org/obo/FOODON_03302806,milk chocolate,FoodOn,Revised by review round-1.
+food,500,type,http://purl.obolibrary.org/obo/FOODON_03540948,09480 - candied or sugar preserved vegetables (efsa foodex2),FoodOn,Revised by review round-1.
+food,505,type,http://purl.obolibrary.org/obo/FOODON_00001576,aerated confectionery food product,FoodOn,Revised by review round-1.
+food,510,type,http://purl.obolibrary.org/obo/FOODON_03307047,panela,FoodOn,Revised by review round-1.
+food,516,type,http://purl.obolibrary.org/obo/FOODON_03309467,salt (low sodium),FoodOn,Revised by review round-1.
+food,517,type,http://purl.obolibrary.org/obo/FOODON_03309954,table salt,FoodOn,Revised by review round-1.
+food,525,type,http://purl.obolibrary.org/obo/FOODON_03601041,fritter,FoodOn,Revised by review round-1.
+food,527,type,http://purl.obolibrary.org/obo/FOODON_03543973,"39730 - rice based dishes, cooked (efsa foodex2)",FoodOn,Revised by review round-1.
+food,529,type,http://purl.obolibrary.org/obo/FOODON_03543848,38480 - meat based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,530,type,http://purl.obolibrary.org/obo/FOODON_03601041,fritter,FoodOn,Revised by review round-1.
+food,531,type,http://purl.obolibrary.org/obo/FOODON_03543864,38640 - seafood-based meals (efsa foodex2),FoodOn,Revised by review round-1.
+food,532,type,http://purl.obolibrary.org/obo/FOODON_03543975,"39750 - rice, meat, and vegetables meal (efsa foodex2)",FoodOn,Revised by review round-1.
+food,533,type,http://purl.obolibrary.org/obo/FOODON_03400822,savoury cereal dish (eurofir),FoodOn,Revised by review round-1.
+food,534,type,http://purl.obolibrary.org/obo/FOODON_03400822,savoury cereal dish (eurofir),FoodOn,Revised by review round-1.
+food,535,type,http://purl.obolibrary.org/obo/FOODON_03311870,leaf sauce,FoodOn,Revised by review round-1.
+food,539,type,http://purl.obolibrary.org/obo/FOODON_03543902,39020 - beans and meat meal (efsa foodex2),FoodOn,Revised by review round-1.
+food,540,type,http://purl.obolibrary.org/obo/FOODON_03317590,pork and beans,FoodOn,Revised by review round-1.
+food,541,type,http://purl.obolibrary.org/obo/FOODON_03303025,chicken stew,FoodOn,Revised by review round-1.
+food,542,type,http://purl.obolibrary.org/obo/FOODON_03317305,spaghetti with meat sauce,FoodOn,Revised by review round-1.
+food,543,type,http://purl.obolibrary.org/obo/FOODON_03543850,38500 - meat stew (efsa foodex2),FoodOn,Revised by review round-1.
+food,544,type,http://purl.obolibrary.org/obo/FOODON_03543850,38500 - meat stew (efsa foodex2),FoodOn,Revised by review round-1.
+food,548,type,http://purl.obolibrary.org/obo/FOODON_03543860,38600 - offal based dishes (efsa foodex2),FoodOn,Revised by review round-1.
+food,550,type,http://purl.obolibrary.org/obo/FOODON_03543998,39980 - soups (ready-to-eat) (efsa foodex2),FoodOn,Revised by review round-1.
+food,552,type,http://purl.obolibrary.org/obo/FOODON_00001692,cassava food product,FoodOn,Revised by review round-1.
+food,554,type,http://purl.obolibrary.org/obo/FOODON_03543864,38640 - seafood-based meals (efsa foodex2),FoodOn,Revised by review round-1.
+food,555,type,http://purl.obolibrary.org/obo/FOODON_03543902,39020 - beans and meat meal (efsa foodex2),FoodOn,Revised by review round-1.
+food,560,type,http://purl.obolibrary.org/obo/FOODON_03306809,pea (canned),FoodOn,Revised by review round-1.
+food,563,type,http://purl.obolibrary.org/obo/FOODON_03306820,blackeyed pea (cooked),FoodOn,Revised by review round-1.
+food,583,type,http://purl.obolibrary.org/obo/FOODON_03310182,soybean extract powdered,FoodOn,Revised by review round-1.
+food,586,type,http://purl.obolibrary.org/obo/FOODON_00003757,white lupine bean,FoodOn,Revised by review round-1.
+food,592,type,http://purl.obolibrary.org/obo/FOODON_00004510,flour,FoodOn,Revised by review round-1.
+food,595,type,http://purl.obolibrary.org/obo/FOODON_03304497,edible seed food product,FoodOn,Revised by review round-1.

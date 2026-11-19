@@ -14,13 +14,12 @@ import argparse
 from collections import defaultdict
 from pathlib import Path
 
-import requests
 from rdflib import OWL, RDFS, Graph, URIRef
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
-CLASSES = """
-PREFIX fio: <http://www.foodvoc.org/resource/fio#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+from taco_rdf import sparql
+
+ENDPOINT = sparql.endpoint()
+CLASSES = sparql.prefixes("fio", "rdfs") + """
 SELECT DISTINCT ?c ?parent WHERE {
   ?v a fio:NutritionalValue , ?c . FILTER STRSTARTS(STR(?c), "http://purl.obolibrary.org/obo/CDNO_")
   OPTIONAL { ?c rdfs:subClassOf ?parent . FILTER isIRI(?parent) }
@@ -36,14 +35,11 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--cdno", type=Path, required=True, help="CDNO release, e.g. cdno.owl")
     args = p.parse_args()
-    r = requests.post(ENDPOINT, data={"query": CLASSES},
-                      headers={"Accept": "application/sparql-results+json"}, timeout=900)
-    r.raise_for_status()
     store: dict[str, set[str]] = defaultdict(set)
-    for b in r.json()["results"]["bindings"]:
-        store[b["c"]["value"]]
+    for b in sparql.select(CLASSES, ENDPOINT):
+        store[b["c"]]
         if "parent" in b:
-            store[b["c"]["value"]].add(b["parent"]["value"])
+            store[b["c"]].add(b["parent"])
     cdno = Graph().parse(args.cdno, format="xml")
     labels = {str(s): str(o) for s, o in cdno.subject_objects(RDFS.label)}
     differ = 0

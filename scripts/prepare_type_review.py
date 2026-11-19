@@ -1,10 +1,12 @@
-"""Prepare round 2 of the alignment review: FoodOn types for the TACO foods that have none (protocol 2).
+"""Prepare a type-only review of TACO's foods: their FoodOn types.
 
-Round 2 covers the foods without a FoodOn type that round 1 did not sample (docs/alignment-review-v2.md). The
-first reviewer's form holds all of them; the second reviewer's holds a sample, allocated to TACO's food groups
-in proportion to their size (largest remainders) and drawn within each group with a recorded seed. Each row
-lists the candidates of scripts/taco_foodon_candidates.py that the build could publish, with their FoodOn
-labels and the sources that proposed them, and no NEVO food name.
+Protocol 3 (docs/alignment-review-v3.md), the default, prepares the review in data/alignment/review/round-1:
+all 597 foods, the typed ones blind, with every food for both reviewers. Protocol 2
+(docs/alignment-review-v2.md) prepares round 2: the foods without a FoodOn type that a round under protocol 1
+did not sample, all for the first reviewer and a sample for the second, allocated to TACO's food groups in
+proportion to their size (largest remainders) and drawn within each group with a recorded seed. Each row lists
+the candidates of scripts/taco_foodon_candidates.py that the build could publish, with their FoodOn labels and
+the sources that proposed them, and no NEVO food name.
 
     $env:PYTHONPATH = "src"; python scripts/prepare_type_review.py
 """
@@ -28,8 +30,19 @@ OUT = ROOT / "data" / "alignment" / "review" / "round-2"
 PROTOCOL = ROOT / "docs" / "alignment-review-v2.md"
 CLASSES = ROOT / "ontology" / "imports" / "foodon-classes.tsv"
 ROUND_1 = ROOT / "data" / "alignment" / "review" / "round-1" / "items.csv"
-INPUTS = [ROOT / "analysis" / "data" / "foodon_typing_gaps.csv",
-          ROOT / "data" / "labels" / "food_names_en.csv", CLASSES, ROUND_1, PROTOCOL]
+GAPS = ROOT / "analysis" / "data" / "foodon_typing_gaps.csv"
+NAMES = ROOT / "data" / "labels" / "food_names_en.csv"
+INPUTS = [GAPS, NAMES, CLASSES, ROUND_1, PROTOCOL]
+PROTOCOL_3 = ROOT / "docs" / "alignment-review-v3.md"
+# Each protocol: candidate sheet, folder, protocol text, inputs recorded in the manifest, what it leaves out,
+# and the round it prepares.
+PROTOCOLS = {
+    2: (SHEET, OUT, PROTOCOL, INPUTS, "foods without a FoodOn type that round 1 sampled", 2),
+    3: (BUILD_DIR / "taco" / "foodon_round3" / "candidates.csv",
+        ROOT / "data" / "alignment" / "review" / "round-1", PROTOCOL_3,
+        [GAPS, ROOT / "analysis" / "data" / "foodon_types.csv", NAMES, CLASSES, PROTOCOL_3],
+        "none: every TACO food, the typed ones without their type", 1),
+}
 SOURCES = {"history": "history", "name": "name", "taco_neighbour": "TACO neighbour",
            "nevo_neighbour1": "NEVO neighbour", "nevo_neighbour2": "NEVO neighbour",
            "ols1": "OLS", "ols2": "OLS", "ols3": "OLS"}
@@ -72,13 +85,19 @@ def candidates(row: dict[str, str], labels: dict[str, str]) -> str:
 
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--sheet", type=Path, default=SHEET,
-                   help="candidates from scripts/taco_foodon_candidates.py")
-    p.add_argument("--out", type=Path, default=OUT)
-    p.add_argument("--sample", type=int, default=60, help="foods for the second reviewer (default 60)")
+    p.add_argument("--protocol", type=int, choices=sorted(PROTOCOLS), default=3,
+                   help="3: all foods for both reviewers, in round-1 (default); 2: round 2 after a "
+                   "protocol-1 round, with a sample for reviewer 2")
+    p.add_argument("--sheet", type=Path, help="candidates from scripts/taco_foodon_candidates.py")
+    p.add_argument("--out", type=Path)
+    p.add_argument("--sample", type=int, default=60,
+                   help="round 2: foods for the second reviewer (default 60)")
     p.add_argument("--seed", type=int, default=20261117)
     p.add_argument("--force", action="store_true", help="overwrite forms that already hold answers")
     args = p.parse_args()
+    sheet, out, protocol, inputs_used, excluded, round_number = PROTOCOLS[args.protocol]
+    inputs_used = [path for path in inputs_used if path != ROUND_1 or path.is_file()]
+    args.sheet, args.out = args.sheet or sheet, args.out or out
     for form in ("reviewer-1.csv", "reviewer-2.csv"):
         path = args.out / form
         if path.is_file() and not args.force:
@@ -89,10 +108,13 @@ def main() -> int:
     with CLASSES.open(encoding="utf-8") as fh:
         labels = dict(line.rstrip("\n").split("\t", 1) for line in fh if line.startswith("FOODON_"))
     with args.sheet.open(encoding="utf-8-sig") as fh:
-        rows = [r for r in csv.DictReader(fh, delimiter=";") if r["in_round_1"] == "False"]
+        rows = [r for r in csv.DictReader(fh, delimiter=";")
+                if args.protocol == 3 or r["in_round_1"] == "False"]
     groups: dict[str, list[int]] = {}
     for r in rows:
         groups.setdefault(r["group"], []).append(int(r["food_number"]))
+    if args.protocol == 3:  # both reviewers answer every food
+        args.sample = len(rows)
     sample = draw(groups, args.sample, args.seed)
     args.out.mkdir(parents=True, exist_ok=True)
     items = [{"food_number": r["food_number"], "group": r["group"],
@@ -108,18 +130,21 @@ def main() -> int:
             w.writeheader()
             w.writerows(data)
     allocation = allocate({g: len(f) for g, f in groups.items()}, args.sample)
-    inputs = {str(path.relative_to(ROOT)).replace("\\", "/"): review_hash(path) for path in INPUTS}
-    manifest = {"round": 2, "protocol": "docs/alignment-review-v2.md", "protocol_version": 2,
+    inputs = {str(path.relative_to(ROOT)).replace("\\", "/"): review_hash(path) for path in inputs_used}
+    manifest = {"round": round_number, "protocol": str(protocol.relative_to(ROOT)).replace("\\", "/"),
+                "protocol_version": args.protocol,
                 "hash_format": "sha256-lf-v1", "created": datetime.date.today().isoformat(),
                 "foodon_release": "2026-09-20", "foods": len(rows), "sample_size": len(sample),
                 "seed": args.seed, "allocation": allocation,
-                "excluded": "foods without a FoodOn type that round 1 sampled", "inputs": inputs,
+                "excluded": excluded, "inputs": inputs,
                 "context_sha256": review_hash(args.out / "context.csv"),
                 "items_sha256": review_hash(args.out / "items.csv"),
                 "candidates_sha256": review_hash(args.sheet)}
     (args.out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
                                             encoding="utf-8")
-    print(f"round 2: {len(rows)} foods for reviewer 1, {len(sample)} for reviewer 2 (seed {args.seed}); "
+    print(f"round {round_number} (protocol {args.protocol}): {len(rows)} foods for reviewer 1, "
+          f"{len(sample)} for reviewer 2 "
+          f"(seed {args.seed}); "
           f"wrote {args.out}")
     return 0
 

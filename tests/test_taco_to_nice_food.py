@@ -71,6 +71,8 @@ def test_a_food_is_a_food_item_marked_as_a_version_of_taco_with_its_foodon_class
     assert (FOOD, RDF.type, nice.FIO.FoodItem) in g
     assert (FOOD, RDF.type, OBO.FOODON_03301449) in g
     assert (FOOD, DCTERMS.isVersionOf, nice.TACO_SOURCE) in g
+    assert list(g.objects(FOOD, DCTERMS.hasVersion)) == [nice.TACO_VERSION]
+    assert nice.TACO_VERSION.language == "pt"  # the table's language, as NEVO's version is in Dutch
     assert len(set(g.objects(FOOD, SKOS.prefLabel))) == 2
     assert counts["foods with a FoodOn class"] == 1
 

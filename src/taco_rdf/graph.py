@@ -127,12 +127,13 @@ def cdno_measurement_types(alignments: list[Alignment]) -> dict[str, URIRef]:
 
 @dataclass(frozen=True)
 class ReviewRound:
-    """A scored round of alignment review: its SSSOM export and the manifest it was prepared under."""
+    """An applied review and its evidence file (legacy SSSOM or protocol-3 decision CSV)."""
 
     name: str
     sssom: Path
     protocol_sha256: str
     foodon_release: str
+    protocol: str = "docs/alignment-review.md"
 
 
 @dataclass(frozen=True)
@@ -153,9 +154,25 @@ _SSSOM_PREDICATE = {"rdf:type": "type", "skos:closeMatch": "closeMatch", "skos:e
 
 
 def read_review_round(folder: Path) -> list[ReviewedMapping]:
-    """The mappings of one scored round, from its reviewed.sssom.tsv."""
+    """The mappings of an applied type review, or a legacy scored SSSOM round."""
     folder = Path(folder)
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
+    if manifest.get("protocol_version") == 3:
+        from .type_review import validate
+
+        checked = validate(folder, require_application=True)
+        applied = checked.application
+        assert applied is not None
+        review = ReviewRound(folder.name, folder / "reviewed-types.csv", applied["protocol_sha256"],
+                             applied["foodon_release"], applied["protocol"])
+        people = applied["reviewers"]
+        return [ReviewedMapping(
+            food=n, predicate="" if row["decision"] == "none" else "type",
+            target_iri="" if row["decision"] == "none" else str(OBO) + row["decision"],
+            reviewers=(people["reviewer_1"], people["reviewer_2"], *(
+                (people["adjudicator"],) if row["decision_source"] == "adjudication" else ())),
+            reviewed_on=applied["decision_recorded_on"], round=review)
+            for n, row in sorted(checked.rows.items())]
     review = ReviewRound(folder.name, folder / "reviewed.sssom.tsv", manifest["protocol_sha256"],
                          manifest["foodon_release"])
     with open(review.sssom, newline="", encoding="utf-8") as fh:
@@ -192,7 +209,8 @@ def load_reviewed_mappings(review_dir: Path = REVIEW_DIR) -> dict[int, ReviewedM
     Later rounds supersede earlier ones.
     """
     reviewed: dict[int, ReviewedMapping] = {}
-    folders = [f for f in Path(review_dir).glob("round-*") if (f / "reviewed.sssom.tsv").is_file()]
+    folders = [f for f in Path(review_dir).glob("round-*")
+               if (f / "reviewed.sssom.tsv").is_file() or (f / "application.json").is_file()]
     for folder in sorted(folders, key=_round_number):
         for mapping in read_review_round(folder):
             reviewed[mapping.food] = mapping
@@ -499,7 +517,7 @@ def _add_review_rounds(g: Graph, reviewed: dict[int, ReviewedMapping]) -> dict[s
         g.add((node, TACO.sha256, Literal(sha256_of(review.sssom))))
         g.add((node, TACO.ontologyVersion, URIRef(review.foodon_release)))
         g.add((node, SKOS.editorialNote, Literal(
-            "Dual independent review with adjudication of disagreements, under docs/alignment-review.md "
+            f"Dual review with adjudication of disagreements, under {review.protocol} "
             f"(SHA-256 {review.protocol_sha256} of the protocol as the round was prepared).", lang="en")))
         rounds[review.name] = node
     return rounds

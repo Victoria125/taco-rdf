@@ -19,35 +19,28 @@ from __future__ import annotations
 
 import argparse
 import csv
-import importlib.util
 import io
 import json
-import os
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
-import requests
 from rdflib import RDF, Graph, URIRef
 
-from taco_rdf.namespaces import BUILD_DIR, ROOT
+from taco_rdf import sparql as store
+from taco_rdf import tools
+from taco_rdf.namespaces import BUILD_DIR, NEVO_SOURCE, ROOT, TACO_SOURCE
+from taco_rdf.nice_food_queries import richest
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
-TACO = "https://nepa.unicamp.br/tabela-brasileira-de-composicao-de-alimentos-4a-edicao/"
-NEVO = "https://www.rivm.nl/nederlands-voedingsstoffenbestand"
+ENDPOINT = store.endpoint()
+TACO = str(TACO_SOURCE)
+NEVO = str(NEVO_SOURCE)
 OBO = "http://purl.obolibrary.org/obo/"
 CSV_OUT = ROOT / "data" / "alignment" / "nevo_cdno_completion.csv"
 TTL_OUT = BUILD_DIR / "nevo" / "nevo_cdno_completion.ttl"
 JSON_OUT = BUILD_DIR / "nevo" / "nevo_cdno_completion.json"
-JAVA = Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Java" / "jdk-21.0.12.1+1" / "bin" / "java.exe"
-JAR = ROOT.parent / "tools" / "apache-jena-fuseki-6.2.0" / "fuseki-server.jar"
-PREFIXES = ("PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> "
-            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> "
-            "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
-            "PREFIX fio: <http://www.foodvoc.org/resource/fio#> "
-            "PREFIX om: <http://www.ontology-of-units-of-measure.org/resource/om-2/> "
-            "PREFIX dcterms: <http://purl.org/dc/terms/> PREFIX obo: <http://purl.obolibrary.org/obo/> ")
+PREFIXES = store.prefixes("rdf", "rdfs", "skos", "fio", "om", "dcterms", "obo")
 WITHOUT_CDNO = PREFIXES + f"""SELECT ?n (SAMPLE(STR(?l)) AS ?label) (COUNT(?v) AS ?values) WHERE {{
   ?f dcterms:isVersionOf <{NEVO}> ; fio:hasNutritionalValue ?v . ?v fio:hasNutrient ?n .
   OPTIONAL {{ ?n rdfs:label ?l FILTER (LANG(?l) = "en") }}
@@ -59,15 +52,8 @@ TACO_CLASSES = PREFIXES + f"""SELECT DISTINCT ?n ?c (SAMPLE(STR(?l)) AS ?label) 
 }} GROUP BY ?n ?c"""
 
 
-def sparql(endpoint: str, query: str, accept: str = "application/sparql-results+json") -> requests.Response:
-    r = requests.post(endpoint, data={"query": query}, headers={"Accept": accept}, timeout=900)
-    r.raise_for_status()
-    return r
-
-
 def rows(endpoint: str, query: str) -> list[dict[str, str]]:
-    bindings = sparql(endpoint, query).json()["results"]["bindings"]
-    return [{k: v["value"] for k, v in b.items()} for b in bindings]
+    return store.select(query, endpoint)
 
 
 def completion(without: list[dict[str, str]], taco: list[dict[str, str]]) -> list[dict[str, str]]:
@@ -89,10 +75,9 @@ def completion(without: list[dict[str, str]], taco: list[dict[str, str]]) -> lis
 def additions(endpoint: str, mapping: list[dict[str, str]], nutrient_ns: str) -> Graph:
     g = Graph()
     for m in mapping:
-        text = sparql(endpoint, PREFIXES + f"CONSTRUCT {{ ?v rdf:type obo:{m['cdno_class']} }} WHERE {{ "
-                      f"?f dcterms:isVersionOf <{NEVO}> ; fio:hasNutritionalValue ?v . "
-                      f"?v fio:hasNutrient <{nutrient_ns}{m['nevo_code']}> }}", "text/turtle").text
-        g.parse(data=text, format="turtle")
+        g += store.construct(PREFIXES + f"CONSTRUCT {{ ?v rdf:type obo:{m['cdno_class']} }} WHERE {{ "
+                             f"?f dcterms:isVersionOf <{NEVO}> ; fio:hasNutritionalValue ?v . "
+                             f"?v fio:hasNutrient <{nutrient_ns}{m['nevo_code']}> }}", endpoint)
     return g
 
 
@@ -110,29 +95,23 @@ def jena(java: Path, jar: Path, graph: Graph, query: str) -> list[dict[str, str]
 def question(endpoint: str, java: Path, jar: Path, kind: str, code: str, cdno: str, extra: Graph,
              nutrient_ns: str) -> dict[str, list[dict[str, str]]]:
     """The foods of a kind richest in a nutrient, before and after the additions, by ARQ."""
-    spec = importlib.util.spec_from_file_location("cq", ROOT / "scripts" / "competency_questions.py")
-    assert spec is not None and spec.loader is not None
-    cq = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(cq)
-    subset = Graph()
-    subset.parse(data=sparql(endpoint, PREFIXES + f"""CONSTRUCT {{
+    subset = store.construct(PREFIXES + f"""CONSTRUCT {{
         ?food rdf:type fio:FoodItem ; rdf:type ?type ; dcterms:isVersionOf ?src ; skos:prefLabel ?name ;
               fio:hasNutritionalValue ?v . ?v ?vp ?vo . ?m om:hasNumericalValue ?x ; om:hasUnit ?u }} WHERE {{
         ?type rdfs:subClassOf* obo:{kind} .
         ?food rdf:type fio:FoodItem ; rdf:type ?type ; dcterms:isVersionOf ?src ; skos:prefLabel ?name ;
               fio:hasNutritionalValue ?v .
         ?v fio:hasNutrient <{nutrient_ns}{code}> ; ?vp ?vo ; om:hasValue ?m .
-        ?m om:hasNumericalValue ?x . OPTIONAL {{ ?m om:hasUnit ?u }} }}""", "text/turtle").text,
-                 format="turtle")
-    subset.parse(data=sparql(endpoint, PREFIXES + f"CONSTRUCT {{ ?a rdfs:subClassOf ?b }} WHERE {{ "
-                             f"?a rdfs:subClassOf* obo:{kind} . ?a rdfs:subClassOf ?b . FILTER isIRI(?b) }}",
-                             "text/turtle").text, format="turtle")
+        ?m om:hasNumericalValue ?x . OPTIONAL {{ ?m om:hasUnit ?u }} }}""", endpoint)
+    subset += store.construct(PREFIXES + f"CONSTRUCT {{ ?a rdfs:subClassOf ?b }} WHERE {{ "
+                              f"?a rdfs:subClassOf* obo:{kind} . ?a rdfs:subClassOf ?b . FILTER isIRI(?b) }}",
+                              endpoint)
     values = set(subset.subjects(None, None))
     after = subset + Graph()
     for v, _, c in extra.triples((None, RDF.type, None)):
         if v in values:
             after.add((v, RDF.type, URIRef(c)))
-    query = cq.richest(kind, cdno)
+    query = richest(kind, cdno)
     return {"before": jena(java, jar, subset, query), "after": jena(java, jar, after, query)}
 
 
@@ -142,8 +121,8 @@ def main() -> int:
     p.add_argument("--question", action="store_true",
                    help="ask which foods of a kind have the most fat, before and after")
     p.add_argument("--kind", default="FOODON_00001256", help="FoodOn class of the kind (default dairy)")
-    p.add_argument("--java", type=Path, default=JAVA)
-    p.add_argument("--jar", type=Path, default=JAR)
+    p.add_argument("--java", type=Path, default=tools.java())
+    p.add_argument("--jar", type=Path, default=tools.fuseki_jar())
     args = p.parse_args()
     without = rows(args.endpoint, WITHOUT_CDNO)
     mapping = completion(without, rows(args.endpoint, TACO_CLASSES))

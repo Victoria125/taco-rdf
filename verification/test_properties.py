@@ -5,7 +5,8 @@ of them. When one fails, Hypothesis shrinks it to a smallest failing example.
 
 - scripts/taco_to_nice_food.py keeps every TACO value: one nutritional value per measurement, its number
   unchanged, its status, its CDNO classes, NEVO's code exactly where the alignment file gives one, and
-  available carbohydrate as carbohydrate minus fibre (zero below zero).
+  available carbohydrate as carbohydrate minus fibre (zero below zero); and every food item, and only a food
+  item, has TACO's version once, in Portuguese, as NEVO's food items have NEVO's in Dutch.
 - analysis/comparison_helper.py computes Spearman's rho and the ratio quartiles as SciPy and NumPy do.
 
 Hypothesis and SciPy are not dependencies of the project; install them where Python finds them, e.g.
@@ -24,7 +25,7 @@ import numpy as np
 import pandas as pd
 from hypothesis import HealthCheck, given, settings
 from hypothesis import strategies as st
-from rdflib import RDF, Graph, Literal
+from rdflib import DCTERMS, RDF, Graph, Literal
 from scipy import stats
 
 from taco_rdf.namespaces import ID, OBO, QUDT, ROOT, TACO, UNIT
@@ -106,6 +107,18 @@ def test_the_export_keeps_every_value_its_number_status_classes_and_code(foods):
                   if str(v).endswith("/available_carbohydrate"))
     assert counts["values"] == measured
     assert len(set(out.subjects(RDF.type, nice.FIO.NutritionalValue))) == measured + derived
+
+
+@settings(max_examples=300, deadline=None, suppress_health_check=[HealthCheck.too_slow])
+@given(st.lists(food, min_size=1, max_size=3))
+def test_every_food_item_and_only_a_food_item_has_taco_s_version_once(foods):
+    out, _ = nice.export(taco_graph(foods), CODES)
+    items = set(out.subjects(RDF.type, nice.FIO.FoodItem))
+    versions = list(out.triples((None, DCTERMS.hasVersion, None)))
+    assert len(items) == len(foods)
+    assert sorted(s for s, _, _ in versions) == sorted(items)
+    assert {o for _, _, o in versions} == {nice.TACO_VERSION}
+    assert nice.TACO_VERSION.language == "pt"
 
 
 @settings(max_examples=300, deadline=None, suppress_health_check=[HealthCheck.too_slow])

@@ -29,11 +29,14 @@ from pathlib import Path
 import requests
 from rdflib import RDF, Graph
 
+from taco_rdf import sparql as sparql_store
+from taco_rdf.namespaces import TACO_SOURCE as TACO_IRI
+
 ROOT = Path(__file__).resolve().parents[1]
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql_store.endpoint()
 OBO = "http://purl.obolibrary.org/obo/"
 ORGANISM_ROOTS = (OBO + "COB_0000022", OBO + "PO_0000003")
-TACO_SOURCE = "https://nepa.unicamp.br/tabela-brasileira-de-composicao-de-alimentos-4a-edicao/"
+TACO_SOURCE = str(TACO_IRI)
 OUT = ROOT / "build" / "verification" / "TacoTypingState.lean"
 # What the project's reports and the assistant claimed on 2026-11-17.
 CLAIMS = {"foods": 597, "typed": 311, "untyped": 286, "untyped_with_candidate": 125,

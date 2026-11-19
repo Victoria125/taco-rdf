@@ -13,7 +13,6 @@ from rdflib import URIRef
 from taco_rdf import evaluation as ev
 from taco_rdf import graph as graphmod
 from taco_rdf.namespaces import (
-    ALIGNMENTS_CSV,
     DCTERMS,
     ID,
     OBO,
@@ -28,6 +27,20 @@ from taco_rdf.validate import validate
 
 DAY = "2026-09-24"
 NEVO_ITEM = "https://data.rivm.nl/data/nvip/bigfood/nevo21/nevocode#1"  # an example item of another dataset
+ALIGNMENTS_CSV = ROOT / "data/alignment/review/round-1/baseline/data/alignment/alignments.csv"
+
+
+@pytest.fixture
+def alignments():
+    """Legacy protocol tests use the unchanged pre-review inputs."""
+    baseline = ROOT / "data/alignment/review/round-1/baseline"
+    return graphmod.load_alignments(baseline / "data/alignment/alignments.csv")
+
+
+@pytest.fixture(autouse=True)
+def historical_module(monkeypatch):
+    monkeypatch.setattr(graphmod, "FOODON_MODULE_TTL",
+                        ROOT / "data/alignment/review/round-1/baseline/ontology/imports/foodon-module.ttl")
 
 
 def nevo_link(food):

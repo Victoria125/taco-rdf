@@ -34,25 +34,22 @@ import time
 import unicodedata
 from pathlib import Path
 
-import requests
+import requests  # EBI's Ontology Lookup Service
 
-from taco_rdf.namespaces import BUILD_DIR, ROOT
+from taco_rdf import sparql
+from taco_rdf.namespaces import BUILD_DIR, NEVO_SOURCE, ROOT
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql.endpoint()
 OUT_DIR = BUILD_DIR / "nevo" / "foodon_pilot"
 TACO_TYPES = ROOT / "analysis" / "data" / "foodon_types.csv"
 TACO_NAMES = ROOT / "data" / "labels" / "food_names_en.csv"
 OLS = "https://www.ebi.ac.uk/ols4/api/search"
 FOODON = "http://purl.obolibrary.org/obo/FOODON_"
-NEVO_FOODS = """
-PREFIX fio: <http://www.foodvoc.org/resource/fio#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+NEVO_FOODS = sparql.prefixes("fio", "dcterms", "skos", "rdfs") + """
 SELECT ?f (SAMPLE(STR(?en)) AS ?name_en) (SAMPLE(STR(?nl)) AS ?name_nl)
        (GROUP_CONCAT(DISTINCT CONCAT(STR(?c), "|", COALESCE(STR(?cl), "")); separator="||") AS ?classes)
 WHERE {
-  ?f a fio:FoodItem ; dcterms:isVersionOf <https://www.rivm.nl/nederlands-voedingsstoffenbestand> .
+  ?f a fio:FoodItem ; dcterms:isVersionOf <""" + str(NEVO_SOURCE) + """> .
   OPTIONAL { ?f skos:prefLabel ?en FILTER (LANG(?en) = "en") }
   OPTIONAL { ?f skos:prefLabel ?nl FILTER (LANG(?nl) = "nl") }
   OPTIONAL { ?f a ?c . FILTER STRSTARTS(STR(?c), "http://purl.obolibrary.org/obo/FOODON_")
@@ -205,17 +202,14 @@ def taco_typed(types: Path = TACO_TYPES, names: Path = TACO_NAMES) -> list[dict]
 
 
 def nevo_foods(endpoint: str) -> list[dict]:
-    r = requests.post(endpoint, data={"query": NEVO_FOODS},
-                      headers={"Accept": "application/sparql-results+json"}, timeout=900)
-    r.raise_for_status()
     foods = []
-    for b in r.json()["results"]["bindings"]:
-        iri = b["f"]["value"]
-        value = b.get("classes", {}).get("value", "")
+    for b in sparql.select(NEVO_FOODS, endpoint):
+        iri = b["f"]
+        value = b.get("classes", "")
         classes = [c.split("|", 1) for c in value.split("||") if c]
         foods.append({"iri": iri, "release": iri.split("/")[-2], "code": iri.rsplit("#", 1)[-1],
-                      "name_en": b.get("name_en", {}).get("value", ""),
-                      "name_nl": b.get("name_nl", {}).get("value", ""),
+                      "name_en": b.get("name_en", ""),
+                      "name_nl": b.get("name_nl", ""),
                       "classes": [(c.rsplit("/", 1)[-1], label) for c, label in classes]})
     return foods
 

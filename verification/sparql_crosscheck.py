@@ -12,12 +12,12 @@ from __future__ import annotations
 import time
 from collections import Counter
 
-import requests
 from rdflib import Graph
 
+from taco_rdf import sparql
 from taco_rdf.namespaces import BUILD_DIR, ROOT
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql.endpoint()
 NEVO = ROOT / "data" / "external" / "nice-food"
 QUERIES = {
     # query file: the columns compared
@@ -35,11 +35,8 @@ def number(text: str) -> str:
 
 
 def fuseki(query: str, columns: list[str]) -> Counter:
-    r = requests.post(ENDPOINT, data={"query": query},
-                      headers={"Accept": "application/sparql-results+json"}, timeout=900)
-    r.raise_for_status()
-    rows = r.json()["results"]["bindings"]
-    return Counter(tuple(number(b[c]["value"]) if c in b else "" for c in columns) for b in rows)
+    rows = sparql.select(query, ENDPOINT)
+    return Counter(tuple(number(b[c]) if c in b else "" for c in columns) for b in rows)
 
 
 def rdflib_rows(graph: Graph, query: str, columns: list[str]) -> Counter:

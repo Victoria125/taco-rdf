@@ -18,55 +18,15 @@ import argparse
 import sys
 from concurrent.futures import ThreadPoolExecutor
 
-import requests
+from taco_rdf import sparql
+from taco_rdf.nice_food_queries import NEVO, PREFIXES, QUESTIONS, SHARED, TACO, richest
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
-TACO = "https://nepa.unicamp.br/tabela-brasileira-de-composicao-de-alimentos-4a-edicao/"
-NEVO = "https://www.rivm.nl/nederlands-voedingsstoffenbestand"
-PREFIXES = """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX fio: <http://www.foodvoc.org/resource/fio#>
-PREFIX om: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX obo: <http://purl.obolibrary.org/obo/>
-"""
-# (question, FoodOn class of the kind of food, CDNO class of the nutrient)
-QUESTIONS = [
-    ("Which fruits have the most vitamin C?", "FOODON_00001057", "CDNO_0200192"),
-    ("Which legumes have the most iron?", "FOODON_00001264", "CDNO_0200651"),
-    ("Which dairy foods have the most calcium?", "FOODON_00001256", "CDNO_0200544"),
-    ("Which nuts have the most magnesium?", "FOODON_00001172", "CDNO_0200570"),
-]
-
-
-def richest(kind: str, nutrient: str) -> str:
-    """The foods of a kind with their largest value of a nutrient, by table, richest first."""
-    return PREFIXES + f"""SELECT ?source ?name (MAX(?value) AS ?amount) (SAMPLE(?u) AS ?unit) WHERE {{
-  ?type rdfs:subClassOf* obo:{kind} .
-  ?food rdf:type fio:FoodItem ; rdf:type ?type ; dcterms:isVersionOf ?source ; skos:prefLabel ?name .
-  FILTER (LANG(?name) = "en")
-  ?food fio:hasNutritionalValue ?v . ?v rdf:type obo:{nutrient} ; om:hasValue ?m .
-  ?m om:hasNumericalValue ?value .
-  OPTIONAL {{ ?m om:hasUnit ?u FILTER isLiteral(?u) }}
-}} GROUP BY ?source ?name ORDER BY ?source DESC(?amount) ?name
-"""
-
-
-SHARED = PREFIXES + f"""SELECT ?label (COUNT(DISTINCT ?t) AS ?taco) (COUNT(DISTINCT ?n) AS ?nevo) WHERE {{
-  ?t rdf:type fio:FoodItem ; rdf:type ?type ; dcterms:isVersionOf <{TACO}> .
-  ?n rdf:type fio:FoodItem ; rdf:type ?type ; dcterms:isVersionOf <{NEVO}> .
-  FILTER STRSTARTS(STR(?type), "http://purl.obolibrary.org/obo/FOODON_")
-  ?type rdfs:label ?label .
-}} GROUP BY ?label ORDER BY DESC(?taco + ?nevo) ?label
-"""
+__all__ = ["NEVO", "PREFIXES", "QUESTIONS", "SHARED", "TACO", "ask", "richest"]
+ENDPOINT = sparql.endpoint()
 
 
 def ask(endpoint: str, query: str) -> list[dict[str, str]]:
-    r = requests.post(endpoint, data={"query": query}, headers={"Accept": "application/sparql-results+json"},
-                      timeout=600)
-    r.raise_for_status()
-    return [{k: v["value"] for k, v in b.items()} for b in r.json()["results"]["bindings"]]
+    return sparql.select(query, endpoint, timeout=600)
 
 
 def top(rows: list[dict[str, str]], source: str, n: int) -> list[dict[str, str]]:

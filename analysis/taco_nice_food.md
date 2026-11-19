@@ -1,6 +1,6 @@
 # TACO as a NICE-Food subgraph
 
-Generated on 2026-11-05. `scripts/taco_to_nice_food.py` wrote `build/taco_nice_food.ttl` from the TACO
+Updated on 2026-11-19 after applying the completed 597-food review. `scripts/taco_to_nice_food.py` wrote `build/taco_nice_food.ttl` from the TACO
 snapshot `build/taco.ttl`. It was loaded into a Fuseki dataset, `nicefood`, with NEVO's subgraphs of
 NICE-Food v3 (https://doi.org/10.5281/zenodo.18450818) and the FoodOn release this project pins
 (2026-09-20), as [triplestore/README.md](../triplestore/README.md) describes. NEVO appears here in counts
@@ -8,10 +8,10 @@ only, since its conditions of use do not let this project redistribute its value
 
 ## The subgraph
 
-The subgraph writes TACO in the pattern of NICE-Food's `nevo21_graph.ttl`, in 182,160 triples:
+The subgraph writes TACO in the pattern of NICE-Food's `nevo21_graph.ttl`, in 183,043 triples:
 
-- **Foods.** TACO's 597 foods are `fio:FoodItem`s with their Portuguese and English names. The 311 that
-  the reviewed alignment gives a FoodOn class keep it. Each food is marked with `dcterms:isVersionOf`
+- **Foods.** TACO's 597 foods are `fio:FoodItem`s with their Portuguese and English names. All 597 have
+  a confirmed FoodOn class; the review uses 469 distinct classes. Each food is marked with `dcterms:isVersionOf`
   TACO's page, as NICE-Food marks NEVO's foods with NEVO's.
 - **Values.** Each of TACO's 21,150 values is a `fio:NutritionalValue`, and 17,561 of them have a CDNO
   class. 17,564 values have a number, written as an `om:Measure` whose unit is an OM unit and a string, as
@@ -39,32 +39,26 @@ The subgraph writes TACO in the pattern of NICE-Food's `nevo21_graph.ttl`, in 18
 ## NICE-Food's own query
 
 [queries/nice-food/protein_groups.rq](../queries/nice-food/protein_groups.rq) is the protein query of
-NICE-Food's publication analysis, copied unchanged. Over `nicefood` it returns 474 rows in about 20 s, 105
+NICE-Food's publication analysis, copied unchanged. Over `nicefood` it returns 554 rows, 185
 of them TACO foods:
 
 | FoodOn group | NEVO rows | TACO rows |
 | --- | ---: | ---: |
-| Fish food product | 56 | 10 |
-| Legume food product | 66 | 21 |
-| Mammalian meat food product | 117 | 14 |
-| Plant fruit food product | 130 | 60 |
-| **All** | **369** | **105** |
+| Fish food product | 56 | 27 |
+| Legume food product | 66 | 19 |
+| Mammalian meat food product | 117 | 33 |
+| Plant fruit food product | 130 | 106 |
+| **All** | **369** | **185** |
 
 TACO's rows include lupin, peanut, lentil and red bean among the legumes, and tuna among the fish.
 
 The query chooses protein by NEVO's code (`fio:hasNutrient nevonut:PROT`), so another table reaches it only
 by writing NEVO's codes. [protein_groups_cdno.rq](../queries/nice-food/protein_groups_cdno.rq) changes that
 one line: it chooses the value by its CDNO class, protein (`CDNO_0200040`). Over `nicefood` it returns the
-same 474 rows, in 14 s.
+same 554 rows; the complete result sets were compared and agree.
 
-The two queries were also run over a temporary dataset in which TACO names only its own nutrients:
-
-| Query | TACO with NEVO's codes | TACO with its own nutrients only |
-| --- | ---: | ---: |
-| `protein_groups.rq`, unchanged | 105 TACO rows | 0 |
-| `protein_groups_cdno.rq`, one line changed | 105 | 105 |
-
-`tests/test_taco_to_nice_food.py` checks the same on a small graph.
+`tests/test_taco_to_nice_food.py` also checks a small graph using only TACO's own nutrient codes:
+the CDNO query still finds its protein values, while the query requiring NEVO's code does not.
 
 ## The checks applied to NEVO
 
@@ -76,7 +70,7 @@ TACO's subgraph (`scripts/check_nice_food.py --data build/taco_nice_food.ttl`):
 | Nutritional value without a CDNO class | 3,589 of 21,720 (17%) | 75,903 of 185,272 (41%) |
 | Nutritional value without exactly one measure | 3,586 | 0 |
 | Measure whose unit is only a string, not an OM unit | 478 | 26,010 |
-| Food item without a FoodOn class | 286 of 597 (48%) | 357 of 1,657 (22%) |
+| Food item without a FoodOn class | 0 of 597 (0%) | 357 of 1,657 (22%) |
 | Two nutritional values of one nutrient for one food item | 0 | 7,295 |
 | Available carbohydrate (CHO) without CDNO's available carbohydrate class | 0 | 3,314 |
 | Nutrient whose code is `nan` | 0 | 1 |
@@ -87,7 +81,7 @@ On TACO's side:
   TACO does not give.
 - The values without one measure are the trace and not-applicable cells.
 - The string-only units are micrograms, which NEVO's subgraph writes the same way.
-- Fewer TACO foods have a FoodOn class than NEVO's, because this project asserts only reviewed alignments.
+- All 597 TACO foods have a reviewed FoodOn class. This is coverage, not an accuracy estimate.
 
 ## A FoodOn finding
 
@@ -97,10 +91,9 @@ food product* (`FOODON_00001006`):
 *chicken breast (cooked)* → *meat (cooked)* → *meat (prepared)* → *meat (whole or pieces)* → *mammalian meat
 food product*
 
-TACO's cooked chicken breast and drumstick are typed with the right classes, yet `protein_groups.rq` counts
-them as mammalian meat. NEVO's poultry is typed with other classes and is not affected. Any table whose
-poultry FoodOn types as *meat (cooked)* or *meat (prepared)* will meet this. Whether a newer FoodOn release
-has fixed it has not been checked.
+This path can place poultry typed as *meat (cooked)* or *meat (prepared)* in the query's mammalian category.
+The query follows the pinned ontology hierarchy. Human review of food membership does not repair upstream
+ontology axioms. Whether another FoodOn release changes this path has not been checked.
 
 ## What adding TACO to NICE-Food would take
 
@@ -111,8 +104,8 @@ has fixed it has not been checked.
   CDNO choice needs no table to adopt another's codes.
 - **Missing values.** The pattern has no place for trace and not-applicable values; this subgraph keeps
   TACO's status on them.
-- **FoodOn coverage.** 311 of TACO's 597 foods have a reviewed FoodOn class; the others are still being
-  reviewed ([data/alignment/review/](../data/alignment/review/)).
+- **FoodOn coverage.** All 597 foods have a reviewed FoodOn class. The completed evidence, supplementary
+  adjudications and application marker are in [data/alignment/review/round-1/](../data/alignment/review/round-1/).
 
 ## Limits
 

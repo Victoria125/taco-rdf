@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from rdflib import Namespace
+from rdflib import Namespace, URIRef
 from rdflib.namespace import DCAT, DCTERMS, FOAF, OWL, PROV, RDF, RDFS, SKOS, XSD
 
 BASE = "https://w3id.org/taco-rdf/"
@@ -16,6 +16,12 @@ ODRL = Namespace("http://www.w3.org/ns/odrl/2/")
 OBO = Namespace("http://purl.obolibrary.org/obo/")
 SH = Namespace("http://www.w3.org/ns/shacl#")
 FIO = Namespace("http://www.foodvoc.org/resource/fio#")
+# NICE-Food's terms: Ontology of units of Measure 2.0, and NEVO's nutrients as NICE-Food mints them.
+OM = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
+NEVONUT = Namespace("https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#")
+# The tables each food item is a version of (dcterms:isVersionOf), in TACO's NICE-Food export and NICE-Food's.
+TACO_SOURCE = URIRef("https://nepa.unicamp.br/tabela-brasileira-de-composicao-de-alimentos-4a-edicao/")
+NEVO_SOURCE = URIRef("https://www.rivm.nl/nederlands-voedingsstoffenbestand")
 
 PREFIXES = {
     "taco": TACO,
@@ -66,8 +72,11 @@ __all__ = [
     "FOOD_NAMES_EN",
     "GRAPH_TTL",
     "ID",
+    "NEVONUT",
+    "NEVO_SOURCE",
     "OBO",
     "ODRL",
+    "OM",
     "ONTOLOGY_TTL",
     "OWL",
     "POLICY_TTL",
@@ -84,6 +93,7 @@ __all__ = [
     "SHAPES_DIR",
     "SKOS",
     "TACO",
+    "TACO_SOURCE",
     "UNIT",
     "XSD",
 ]

@@ -22,11 +22,10 @@ from pathlib import Path
 
 from rdflib import RDFS, Graph, Namespace
 
-from taco_rdf.namespaces import ROOT
+from taco_rdf import tools
+from taco_rdf.namespaces import FIO, OM, ROOT
 
 SH = Namespace("http://www.w3.org/ns/shacl#")
-FIO = Namespace("http://www.foodvoc.org/resource/fio#")
-OM = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
 SHAPES = ROOT / "shapes" / "nice-food" / "nevo-shapes.ttl"
 NEVO = ROOT / "data" / "external" / "nice-food" / "nevo21_graph.ttl"
 
@@ -96,9 +95,11 @@ def markdown(counts: dict[str, Counter], data: Path, run: str, top: int = 8) -> 
 
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--jar", type=Path, required=True, help="a jar bundling Jena's SHACL engine, e.g. "
-                   "apache-jena-fuseki-6.2.0/fuseki-server.jar")
-    p.add_argument("--java", default="java", help="the java executable (Java 21 for Fuseki 6)")
+    p.add_argument("--jar", type=Path, default=tools.fuseki_jar(),
+                   help="a jar bundling Jena's SHACL engine, such as Fuseki's (default: TACO_FUSEKI_JAR, "
+                   "or the one triplestore/README.md unpacks)")
+    p.add_argument("--java", default=tools.java(), help="the java executable, Java 21 for Fuseki 6 (default: "
+                   "TACO_JAVA, the PATH, JAVA_HOME or an installed JDK)")
     p.add_argument("--data", type=Path, default=NEVO, help=f"NEVO subgraph to check (default {NEVO})")
     p.add_argument("--report", type=Path, help="write the counts as Markdown, e.g. "
                    "analysis/nice_food_nevo_checks.md")

@@ -31,7 +31,10 @@ def test_every_query_file_parses_and_runs(graph):
     for path in sorted(QUERIES_DIR.glob("*.rq")):
         header, rows = run_query(graph, path, binds.get(path.stem, {}))
         assert header, path.name
-        assert rows, path.name
+        if path.stem == "foods_without_foodon_type":
+            assert rows == []  # The completed review types all 597 foods.
+        else:
+            assert rows, path.name
 
 
 def test_graph_overview(graph):
@@ -89,8 +92,8 @@ def test_alignment_query_lists_all_groups(graph):
 
 def test_food_alignment_query_lists_only_official_foodon_types(graph):
     _, rows = q(graph, "food_alignments")
-    assert len(rows) == 311
-    assert len({int(r[0]) for r in rows}) == 311
+    assert len(rows) == 597
+    assert {int(r[0]) for r in rows} == set(range(1, 598))
     assert {str(r[2]) for r in rows} == {"type"}
 
 
@@ -99,7 +102,7 @@ def test_foods_without_foodon_type_query_includes_all_untyped_foods(graph):
     _, untyped = q(graph, "foods_without_foodon_type")
     typed_ids = {int(r[0]) for r in typed}
     untyped_ids = {int(r[0]) for r in untyped}
-    assert len(untyped) == len(untyped_ids) == 286
+    assert len(untyped) == len(untyped_ids) == 0
     assert typed_ids.isdisjoint(untyped_ids)
     assert len(typed_ids | untyped_ids) == 597
 
@@ -119,8 +122,8 @@ def test_food_queries_do_not_treat_candidate_skos_links_as_foodon_types():
 def test_alignment_evidence_query_has_no_candidate_food_assertions(graph):
     _, rows = q(graph, "alignment_evidence")
     food_rows = [row for row in rows if (row[0], RDF.type, TACO.Food) in graph]
-    assert len(rows) == 456
-    assert len(food_rows) == 311
+    assert len(rows) == 742
+    assert len(food_rows) == 597
     assert {row[1] for row in food_rows} == {RDF.type}
 
 

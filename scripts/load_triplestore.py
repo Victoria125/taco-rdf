@@ -24,13 +24,14 @@ from pathlib import Path
 
 import requests
 
+from taco_rdf import sparql
 from taco_rdf.namespaces import BUILD_DIR, ROOT
 
 NEVO_DIR = ROOT / "data" / "external" / "nice-food"
 NEVO_FILES = ("nevo21_graph.ttl", "nevo23_graph.ttl")
 FOODON = ROOT / "data" / "external" / "foodon" / "foodon.owl"
 TBCA = BUILD_DIR / "tbca.ttl"
-FUSEKI = "http://localhost:3030/taco_nevo"
+FUSEKI = sparql.dataset(sparql.TACO_NEVO)
 MEDIA_TYPES = {".ttl": "text/turtle; charset=utf-8", ".owl": "application/rdf+xml"}
 
 _spec = importlib.util.spec_from_file_location(

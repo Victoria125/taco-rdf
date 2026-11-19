@@ -1,14 +1,13 @@
-"""List the TACO foods that FoodOn has no class for yet: candidates for new FoodOn terms.
+"""List current untyped TACO foods for which the candidate search found no usable class.
 
 scripts/taco_foodon_candidates.py searches FoodOn for each TACO food without a type: by TACO's English name,
 through similar typed TACO and NEVO foods, and in EBI's Ontology Lookup Service. For some foods none of these
-finds a class the build could use. They are mostly foods of Brazil: regional dishes, native fruits and
-freshwater fish. Where the search found FoodOn's class for the plant or animal they come from, whose label
-shares a word with the food's name, it is listed: FoodOn then has the organism but not the food.
+finds a class the build could use. A failed automated search is a lead for investigation, not proof that
+FoodOn lacks a defensible food class. Organism labels sharing a word with the food's name are search evidence.
 
-Round 2 of the review decides each of these foods (a general class may still fit); the list is what TACO could
-offer FoodOn as new terms. It holds TACO's names and FoodOn's labels only, no NEVO name, so it is kept in
-analysis/.
+Historical candidate rows are filtered against the current typing-gap audit so that completed human
+decisions cannot reappear as unresolved foods. Run scripts/audit_foodon_typing.py first. The report holds
+TACO's names and FoodOn's labels only, no NEVO name, so it is kept in analysis/.
 
     $env:PYTHONPATH = "src"; python scripts/foodon_term_requests.py
 """
@@ -25,8 +24,10 @@ from taco_rdf.namespaces import BUILD_DIR, ROOT
 
 SHEET = BUILD_DIR / "taco" / "foodon_round2" / "candidates.csv"
 CLASSES = ROOT / "ontology" / "imports" / "foodon-classes.tsv"
+GAPS = ROOT / "analysis" / "data" / "foodon_typing_gaps.csv"
 CSV_OUT = ROOT / "analysis" / "data" / "foodon_term_requests.csv"
 MD_OUT = ROOT / "analysis" / "foodon_term_requests.md"
+FIELDS = ("food_number", "name_pt", "name_en", "group", "foodon_has_the_organism")
 GROUP_EN = {"Alimentos preparados": "Prepared dishes", "Pescados e frutos do mar": "Fish and seafood",
             "Frutas e derivados": "Fruits", "Verduras, hortaliças e derivados": "Vegetables",
             "Carnes e derivados": "Meat", "Produtos açucarados": "Sugar products",
@@ -45,22 +46,26 @@ def organisms(row: dict[str, str], labels: dict[str, str]) -> list[str]:
             if c in labels and words(labels[c]) & name]
 
 
-def requests_from(sheet: list[dict[str, str]], labels: dict[str, str]) -> list[dict[str, str]]:
+def requests_from(sheet: list[dict[str, str]], labels: dict[str, str],
+                  untyped: set[str] | None = None) -> list[dict[str, str]]:
+    """Keep unresolved foods only; a historical candidate is not a current gap."""
     return [{"food_number": r["food_number"], "name_pt": r["name_pt"], "name_en": r["name_en"],
              "group": r["group"], "foodon_has_the_organism": " | ".join(organisms(r, labels))}
-            for r in sheet if not r["usable_classes"].strip()]
+            for r in sheet if not r["usable_classes"].strip()
+            and (untyped is None or r["food_number"] in untyped)]
 
 
-def markdown(rows: list[dict[str, str]]) -> str:
-    lines = ["# Brazilian foods FoodOn could add", "",
-             f"For {len(rows)} of TACO's foods, the search of `scripts/taco_foodon_candidates.py` (TACO's "
-             "name, similar typed TACO and NEVO foods, and EBI's Ontology Lookup Service) found no class of "
-             "the pinned FoodOn release that the build could use. Most are foods of Brazil: regional "
-             "dishes, native fruits and freshwater fish. For some, FoodOn has the plant or animal but not "
-             "the food.", "",
-             "They are candidates for new-term requests to FoodOn. Review round 2 "
-             "([protocol](../docs/alignment-review-v2.md)) decides each food first: a more general class may "
-             "still fit, and a `none` decision records the terms searched.", "",
+def markdown(rows: list[dict[str, str]], untyped_count: int | None = None) -> str:
+    status = ("The current typing audit has no untyped TACO foods. Historical candidate-search results "
+              "therefore produce no unresolved term requests. This does not rule out useful, more specific "
+              "FoodOn terms for foods currently assigned to a general class." if untyped_count == 0 else
+              f"For {len(rows)} currently untyped TACO foods, the historical candidate search found no "
+              "usable class. These are search leads, not established ontology gaps: a defensible general "
+              "class may still exist, and an organism match does not establish food-class membership.")
+    lines = ["# FoodOn term-search leads for unresolved TACO foods", "", status, "",
+             "This report intersects the candidate search with `analysis/data/foodon_typing_gaps.csv`. "
+             "Completed decisions under the [type-only review protocol](../docs/alignment-review-v3.md) "
+             "take precedence over historical search suggestions.", "",
              "Generated by `python scripts/foodon_term_requests.py`.", ""]
     for group in dict.fromkeys(r["group"] for r in rows):
         lines += [f"## {GROUP_EN.get(group, group)} ({group})", "",
@@ -71,26 +76,41 @@ def markdown(rows: list[dict[str, str]]) -> str:
     return "\n".join(lines)
 
 
+def write_csv(path: Path, rows: list[dict[str, str]]) -> None:
+    """Write the stable schema even when no unresolved foods remain."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=FIELDS, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+
 def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--sheet", type=Path, default=SHEET,
                    help="candidates from scripts/taco_foodon_candidates.py")
+    p.add_argument("--gaps", type=Path, default=GAPS, help="current audit_foodon_typing.py gap CSV")
     args = p.parse_args()
-    if not args.sheet.is_file():
+    if not args.gaps.is_file():
+        print(f"{args.gaps} is missing; run scripts/audit_foodon_typing.py first", file=sys.stderr)
+        return 1
+    with args.gaps.open(encoding="utf-8-sig") as fh:
+        untyped = {r["food_number"] for r in csv.DictReader(fh)}
+    if untyped and not args.sheet.is_file():
         print(f"{args.sheet} is missing; run scripts/taco_foodon_candidates.py first", file=sys.stderr)
         return 1
-    with CLASSES.open(encoding="utf-8") as fh:
-        labels = dict(line.rstrip("\n").split("\t", 1) for line in fh if line.startswith("FOODON_"))
-    with args.sheet.open(encoding="utf-8-sig") as fh:
-        rows = requests_from(list(csv.DictReader(fh, delimiter=";")), labels)
+    rows = []
+    if untyped:
+        with CLASSES.open(encoding="utf-8") as fh:
+            labels = dict(line.rstrip("\n").split("\t", 1) for line in fh if line.startswith("FOODON_"))
+        with args.sheet.open(encoding="utf-8-sig") as fh:
+            rows = requests_from(list(csv.DictReader(fh, delimiter=";")), labels, untyped)
     rows.sort(key=lambda r: (list(GROUP_EN).index(r["group"]) if r["group"] in GROUP_EN else 99,
                              int(r["food_number"])))
-    with CSV_OUT.open("w", encoding="utf-8", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator="\n")
-        w.writeheader()
-        w.writerows(rows)
-    MD_OUT.write_text(markdown(rows), encoding="utf-8", newline="\n")
-    print(f"{len(rows)} TACO foods without a usable FoodOn class; "
+    write_csv(CSV_OUT, rows)
+    MD_OUT.parent.mkdir(parents=True, exist_ok=True)
+    MD_OUT.write_text(markdown(rows, len(untyped)), encoding="utf-8", newline="\n")
+    print(f"{len(rows)} unresolved TACO foods without a usable search candidate; "
           f"{sum(bool(r['foodon_has_the_organism']) for r in rows)} with the organism in FoodOn")
     print(f"wrote {CSV_OUT} and {MD_OUT}")
     return 0

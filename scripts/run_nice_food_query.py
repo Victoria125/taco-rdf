@@ -17,9 +17,10 @@ from pathlib import Path
 import requests
 from rdflib import SKOS, Graph
 
+from taco_rdf import sparql
 from taco_rdf.namespaces import BUILD_DIR
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql.endpoint()
 SUBGRAPH = BUILD_DIR / "taco_nice_food.ttl"
 
 

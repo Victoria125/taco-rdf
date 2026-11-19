@@ -15,21 +15,20 @@ import csv
 import shutil
 import subprocess
 import tempfile
-import winreg
+import textwrap
+from html import escape
 from pathlib import Path
 
-import requests
+from rdflib import Graph, Literal, URIRef
 
-from taco_rdf.namespaces import ROOT
+from taco_rdf import sparql
+from taco_rdf.namespaces import FIO, ID, OBO, OM, RDF, RDFS, ROOT, SKOS
 
 REPO = ROOT
 OUT = ROOT / "docs" / "taco-in-nice-food"
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql.endpoint()
 EDGE = ""
-CDNO_CLASSES = """
-PREFIX fio: <http://www.foodvoc.org/resource/fio#>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+CDNO_CLASSES = sparql.prefixes("fio", "dcterms", "rdfs") + """
 SELECT ?cdno (SAMPLE(STR(?l)) AS ?label)
   (COUNT(DISTINCT IF(?t = "TACO", ?f, ?none)) AS ?taco_foods) (COUNT(DISTINCT IF(?t = "NEVO", ?f, ?none)) AS ?nevo_foods)
   (GROUP_CONCAT(DISTINCT IF(?t = "TACO", ?code, ""); separator=" ") AS ?taco_codes)
@@ -46,6 +45,8 @@ WHERE {
 
 def edge_path() -> str:
     """Microsoft Edge, as Windows registers it."""
+    import winreg  # Windows only; imported here so that the rest of the module loads elsewhere
+
     key = r"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe"
     with winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, key) as k:
         return winreg.QueryValue(k, None)
@@ -53,14 +54,11 @@ def edge_path() -> str:
 
 def cdno_rows(endpoint: str) -> list[list[str]]:
     """The CDNO classes values in the store are typed with, and the foods and codes of each table."""
-    r = requests.post(endpoint, data={"query": CDNO_CLASSES},
-                      headers={"Accept": "application/sparql-results+json"}, timeout=900)
-    r.raise_for_status()
     rows = []
-    for b in r.json()["results"]["bindings"]:
-        label = b["label"]["value"].removeprefix("concentration of ").removesuffix(" in material entity")
-        rows.append([b["cdno"]["value"].rsplit("/", 1)[-1], label, b["taco_foods"]["value"], b["nevo_foods"]["value"],
-                     " ".join(sorted(b["taco_codes"]["value"].split())), " ".join(sorted(b["nevo_codes"]["value"].split()))])
+    for b in sparql.select(CDNO_CLASSES, endpoint):
+        label = b["label"].removeprefix("concentration of ").removesuffix(" in material entity")
+        rows.append([b["cdno"].rsplit("/", 1)[-1], label, b["taco_foods"], b["nevo_foods"],
+                     " ".join(sorted(b["taco_codes"].split())), " ".join(sorted(b["nevo_codes"].split()))])
     both = lambda r: int(r[2]) > 0 and int(r[3]) > 0  # noqa: E731
     return sorted(rows, key=lambda r: (not both(r), r[1]))
 
@@ -84,9 +82,13 @@ def svg(w, h, body, label):
 
 def box(x, y, w, h, title, sub, cls="n"):
     cx = x + w / 2
+    lines = textwrap.wrap(str(title), width=max(18, int(w / 7))) or [""]
+    title_y = y + h / 2 - 4 - 6 * (len(lines) - 1)
+    title_svg = "".join(f'<tspan x="{cx}" y="{title_y + i * 12}">{escape(line)}</tspan>'
+                        for i, line in enumerate(lines))
     return (f'<rect class="{cls}" x="{x}" y="{y}" width="{w}" height="{h}" rx="5"/>'
-            f'<text class="t" x="{cx}" y="{y + h / 2 - 4}" text-anchor="middle">{title}</text>'
-            f'<text class="s" x="{cx}" y="{y + h / 2 + 14}" text-anchor="middle">{sub}</text>')
+            f'<text class="t" text-anchor="middle" style="font-size:11px">{title_svg}</text>'
+            f'<text class="s" x="{cx}" y="{y + h / 2 + 14}" text-anchor="middle">{escape(str(sub))}</text>')
 
 
 def arrow(x1, y1, x2, y2, key=False, dash=False):
@@ -95,13 +97,13 @@ def arrow(x1, y1, x2, y2, key=False, dash=False):
 
 
 def label(x, y, text, key=False, anchor="middle"):
-    return f'<text class="{"lk" if key else "l"}" x="{x}" y="{y}" text-anchor="{anchor}">{text}</text>'
+    return f'<text class="{"lk" if key else "l"}" x="{x}" y="{y}" text-anchor="{anchor}">{escape(str(text))}</text>'
 
 
 # Figure 1: the pattern
 f1 = "".join([
     box(20, 30, 160, 56, "Source table", "TACO or NEVO page"), box(300, 30, 180, 56, "Food item", "fio:FoodItem"),
-    box(600, 30, 180, 56, "FoodOn class", "FOODON_00005279", "k"), box(900, 30, 160, 56, "FoodOn superclass", "FOODON_00002761"),
+    box(600, 30, 180, 56, "FoodOn class", "food class IRI", "k"), box(900, 30, 160, 56, "FoodOn superclass", "parent class IRI"),
     arrow(300, 58, 183, 58), label(241, 50, "dcterms:isVersionOf"), arrow(480, 58, 597, 58, True), label(539, 50, "rdf:type", True),
     arrow(780, 58, 897, 58), label(839, 50, "rdfs:subClassOf"), label(690, 104, "pairs foods across tables", True),
     arrow(390, 86, 390, 167), label(398, 131, "fio:hasNutritionalValue", anchor="start"),
@@ -117,25 +119,60 @@ f1 = "".join([
 ])
 FIG1 = svg(1080, 390, f1, "The NICE-Food pattern as TACO-RDF writes it")
 
-# Figure 2: one food
-f2 = "".join([
-    box(20, 170, 200, 64, "Feijão, roxo, cru", "TACO food 574"),
-    box(300, 20, 230, 56, "kidney bean (raw, mature)", "FOODON_00005279", "k"), box(620, 20, 170, 56, "kidney bean", "FOODON_00002761"),
-    box(880, 20, 180, 56, "common bean", "FOODON_00003403"),
-    '<polyline class="ek" points="120,170 120,48 297,48" marker-end="url(#ak)"/>', label(210, 40, "rdf:type", True),
-    arrow(530, 48, 617, 48), label(575, 40, "subClassOf"), arrow(790, 48, 877, 48), label(835, 40, "subClassOf"),
-    '<polyline class="e" points="220,202 260,202"/><line class="e" x1="260" y1="138" x2="260" y2="298"/>',
-    arrow(260, 138, 297, 138), arrow(260, 218, 297, 218), arrow(260, 298, 297, 298), label(240, 100, "fio:hasNutritionalValue", anchor="start"),
-    box(300, 110, 260, 56, "Protein 22.17 g", "CDNO_0200040 · PROT"),
-    box(300, 190, 260, 56, "Carbohydrate 59.99 g", "CDNO_0200005 · TACO's own"),
-    box(300, 270, 260, 56, "Dietary fibre 33.84 g", "CDNO_0200035 · FIBT"),
-    '<rect class="k" x="680" y="222" width="300" height="74" rx="5"/>',
-    '<text class="t" x="830" y="246" text-anchor="middle">Available carbohydrate 26.14 g</text>',
-    label(830, 264, "59.99 − 33.84, derived"), '<text class="s" x="830" y="282" text-anchor="middle">CDNO_0200033 · CHO</text>',
-    arrow(680, 244, 563, 220, True, True), arrow(680, 276, 563, 298, True, True), label(621, 214, "prov:wasDerivedFrom", True),
-    '<polyline class="e" points="120,234 120,380 830,380 830,299" marker-end="url(#a)"/>', label(475, 372, "fio:hasNutritionalValue"),
-])
-FIG2 = svg(1080, 400, f2, "Raw red beans, TACO food 574, through the graph")
+def food_figure(source: Graph, module: Graph, number: int = 574) -> str:
+    """Draw the current export's food, values and a path of asserted FoodOn superclass edges."""
+    food = ID[f"food/{number}"]
+    names = sorted(str(n) for n in source.objects(food, SKOS.prefLabel) if n.language == "pt")
+    types = sorted(t for t in source.objects(food, RDF.type) if str(t).startswith(str(OBO) + "FOODON_"))
+    if len(types) != 1 or not names:
+        raise ValueError(f"food {number} needs one FoodOn type and a Portuguese name")
+    chain = [types[0]]
+    while len(chain) < 3:
+        parents = sorted(t for t in module.objects(chain[-1], RDFS.subClassOf)
+                         if isinstance(t, URIRef) and str(t).startswith(str(OBO) + "FOODON_")
+                         and t not in chain)
+        if not parents:
+            break
+        chain.append(parents[0])
+    parts = [box(20, 170, 200, 64, names[0], f"TACO food {number}"),
+             '<polyline class="ek" points="120,170 120,48 297,48" marker-end="url(#ak)"/>',
+             label(210, 40, "rdf:type", True)]
+    for i, cls in enumerate(chain):
+        labels = sorted(str(n) for n in module.objects(cls, RDFS.label))
+        parts.append(box(300 + i * 260, 20, 230, 56, labels[0] if labels else cls.rsplit("/", 1)[-1],
+                         cls.rsplit("/", 1)[-1], "k" if i == 0 else "n"))
+        if i:
+            parts += [arrow(270 + i * 260, 48, 297 + i * 260, 48),
+                      label(285 + i * 260, 90, "subClassOf")]
+    nodes = {str(v).rsplit("/", 1)[-1]: v for v in source.objects(food, FIO.hasNutritionalValue)}
+
+    def value(key):
+        node = nodes[key]
+        measure = source.value(node, OM.hasValue)
+        number_value = source.value(measure, OM.hasNumericalValue)
+        units = sorted(str(u) for u in source.objects(measure, OM.hasUnit) if isinstance(u, Literal))
+        classes = sorted(str(c).rsplit("/", 1)[-1] for c in source.objects(node, RDF.type)
+                         if str(c).startswith(str(OBO) + "CDNO_"))
+        nutrient = str(source.value(node, FIO.hasNutrient)).replace("#", "/").rsplit("/", 1)[-1]
+        if number_value is None or not units or len(classes) != 1:
+            raise ValueError(f"food {number}, {key}: missing number, unit or CDNO class")
+        return f"{number_value.toPython():.2f}", units[0], f"{classes[0]} · {nutrient}"
+
+    parts += ['<polyline class="e" points="220,202 260,202"/><line class="e" x1="260" y1="138" x2="260" y2="298"/>',
+              label(240, 100, "fio:hasNutritionalValue", anchor="start")]
+    for i, (key, title) in enumerate((("protein", "Protein"), ("carbohydrate", "Carbohydrate"),
+                                     ("dietary_fiber", "Dietary fibre"))):
+        number_text, unit, description = value(key)
+        parts += [arrow(260, 138 + 80 * i, 297, 138 + 80 * i),
+                  box(300, 110 + 80 * i, 260, 56, f"{title} {number_text} {unit}", description)]
+    available, unit, description = value("available_carbohydrate")
+    parts += [box(680, 222, 300, 74, f"Available carbohydrate {available} {unit}", description, "k"),
+              label(830, 317, "Total minus fibre; values rounded for display"),
+              arrow(680, 244, 563, 220, True, True), arrow(680, 276, 563, 298, True, True),
+              label(621, 214, "prov:wasDerivedFrom", True),
+              '<polyline class="e" points="120,234 120,380 830,380 830,299" marker-end="url(#a)"/>',
+              label(475, 372, "fio:hasNutritionalValue")]
+    return svg(1080, 400, "".join(parts), f"TACO food {number}, read from the current export and FoodOn module")
 
 # Figure 3: CDNO classes that link TACO and NEVO values
 ROWS = [("Umidade (moisture)", "water", "CDNO_0200002", "WATER"), ("Proteína (protein)", "protein", "CDNO_0200040", "PROT"),
@@ -156,14 +193,14 @@ for i, (taco, cdno, cid, nevo) in enumerate(ROWS):
               arrow(280, y + 19, 367, y + 19, True), arrow(760, y + 19, 673, y + 19, True)]
 h3 = 50 + len(ROWS) * 48 + 36
 parts += [label(325, 46, "rdf:type", True), label(715, 46, "rdf:type", True),
-          f'<text class="l" x="490" y="{h3 - 14}" text-anchor="middle">12 of the 33 CDNO classes that TACO and NEVO values share; 96 CDNO classes are in use in all</text>']
+          f'<text class="l" x="490" y="{h3 - 14}" text-anchor="middle">Examples of shared CDNO classes; the complete current counts are in cdno_classes_used.csv</text>']
 FIG3 = svg(980, h3, "".join(parts), "CDNO classes that type both TACO and NEVO values")
 
 # Figure 4: what was compared
-STEPS = [("Pair foods", "same FoodOn class", ["115 food pairs", "83 shared FoodOn classes", "+257 pairs one step apart", "in FoodOn's hierarchy"]),
-         ("Pair values", "same CDNO class and unit", ["2,294 value pairs", "33 CDNO classes", "available carbohydrate:", "TACO total − fibre vs NEVO"]),
+STEPS = [("Pair foods", "same FoodOn class", ["match asserted food types", "hierarchy comparison:", "one subclass step apart", "reported separately"]),
+         ("Pair values", "same CDNO class and unit", ["match nutrient definitions", "available carbohydrate:", "TACO total − fibre vs NEVO"]),
          ("One value per food", "median of its NEVO foods", ["each TACO food counts", "once, however broad", "its FoodOn class"]),
-         ("Agreement", "rank, ratio, bands", ["Spearman's rho, TACO/NEVO", "ratio, within 20 %", "protein: rho 0.94,", "median ratio 0.95"])]
+         ("Agreement", "rank, ratio, bands", ["Spearman's rho, TACO/NEVO", "ratio, within 20 %", "current counts and results:", "comparison report"])]
 parts = []
 for i, (title, key, lines) in enumerate(STEPS):
     x = 20 + i * 265
@@ -174,7 +211,7 @@ for i, (title, key, lines) in enumerate(STEPS):
         parts.append(arrow(x + 227, 95, x + 263, 95))
 FIG4 = svg(1080, 190, "".join(parts), "How TACO and NEVO values were compared")
 
-FIGS = {"1_graph_pattern": (FIG1, 1080, 390), "2_one_food_red_beans": (FIG2, 1080, 400),
+FIGS = {"1_graph_pattern": (FIG1, 1080, 390),
         "3_cdno_classes_shared": (FIG3, 980, h3), "4_what_was_compared": (FIG4, 1080, 190)}
 
 DOC = """<!doctype html><html lang="en"><head><meta charset="utf-8"><title>TACO in NICE-Food</title><style>
@@ -189,12 +226,12 @@ th { color: #56635f; font-weight: 600; } .num { text-align: right; } .pb { page-
 </style></head><body>
 <h1>TACO in NICE-Food</h1>
 <p class="meta">How the TACO-RDF knowledge graph was built, the ontologies it uses and why, and what was compared with NEVO. Vitória Maia, November 2026.</p>
-<p>TACO, the Brazilian food composition table (NEPA-UNICAMP, 4th edition, 2011), is written as a knowledge graph in NICE-Food's own pattern: 597 foods and 21,720 values. Loaded in Fuseki next to NICE-Food's NEVO graph and FoodOn, NICE-Food's own query <code>protein_groups.rq</code> runs unchanged and returns 474 rows, 105 of them Brazilian foods.</p>
+<p>TACO, the Brazilian food composition table (NEPA-UNICAMP, 4th edition, 2011), is written as a knowledge graph in NICE-Food's own pattern: 597 foods and 21,720 values. All 597 food classifications were reviewed by Josandra Semedo and Elizabete Wensel, with adjudication by Crislane Timbo, and applied on 19 November 2026. Loaded beside NEVO and FoodOn, NICE-Food's own query <code>protein_groups.rq</code> runs unchanged. Current query counts are in the accompanying subgraph report.</p>
 
 <h2>Ontologies and vocabularies, and why</h2>
 <table><tr><th>Vocabulary</th><th>Used for</th><th>Why</th></tr>
 <tr><td>FIO</td><td>Food items, nutritional values, nutrients</td><td>NICE-Food's own pattern for NEVO, so TACO loads beside NEVO and NICE-Food's queries read it unchanged.</td></tr>
-<tr><td>FoodOn</td><td>What kind of food each item is (<code>rdf:type</code>)</td><td>Pairs a TACO food with NEVO foods of the same class; its hierarchy pairs classes one step apart. 311 foods carry a class that passed human review.</td></tr>
+<tr><td>FoodOn</td><td>What kind of food each item is (<code>rdf:type</code>)</td><td>Pairs a TACO food with NEVO foods of the same class; its hierarchy pairs classes one step apart. All 597 foods carry a reviewed class; the decisions use 469 distinct classes.</td></tr>
 <tr><td>CDNO</td><td>What each value is a concentration of (<code>rdf:type</code>)</td><td>Pairs values across tables whatever each table calls its nutrients. Each class is defined as a concentration (PATO) of a ChEBI entity.</td></tr>
 <tr><td>OM</td><td>Units</td><td>NICE-Food's unit vocabulary: g and mg per 100 g, with the unit also as a string.</td></tr>
 <tr><td>PROV-O</td><td>Derived values</td><td>Available carbohydrate is calculated, so it points to the values it comes from.</td></tr>
@@ -208,16 +245,16 @@ th { color: #56635f; font-weight: 600; } .num { text-align: right; } .pb { page-
 <h2 class="pb">CDNO: what makes the two tables comparable</h2>
 <p>A value typed with a CDNO class says what it is a concentration of, independently of the table's own nutrient codes. TACO's values use 54 CDNO classes and NEVO's 75; 33 classes type values of both, and those are the classes the comparison pairs values by.</p>
 <img src="images/3_cdno_classes_shared.svg"><p class="cap">Figure 3. CDNO classes that type both TACO and NEVO values. Where TACO and NEVO report the same component, TACO's values also name NEVO's code (<code>nevonut:PROT</code>), so NICE-Food's queries find them. The list of all 96 classes in use is in <code>cdno/cdno_classes_used.csv</code>.</p>
-<p>Because the CDNO class carries the meaning, a query can choose values by class instead of by NEVO's codes. With TACO written with its own nutrient codes, NICE-Food's <code>protein_groups.rq</code> finds no TACO food; with one line changed to choose protein by its CDNO class (<code>CDNO_0200040</code>), it finds all 105. Another table, such as TBCA, can join the same way.</p>
+<p>A query can choose protein by its CDNO class (<code>CDNO_0200040</code>) instead of NEVO's nutrient code. This permits a table to retain its own nutrient codes while participating in the query. The original and CDNO queries are included, with current counts in the subgraph report.</p>
 
 <h2>What was compared</h2>
 <img src="images/4_what_was_compared.svg"><p class="cap">Figure 4. TACO and NEVO foods are paired by FoodOn class and their values by CDNO class and unit; each TACO food then counts once, against the median of its NEVO foods.</p>
-<p>For protein, the 83 TACO foods that share a FoodOn class with NEVO foods agree closely with them: Spearman's rho 0.94, median TACO/NEVO ratio 0.95 (quartiles 0.80 to 1.10). FoodOn's hierarchy adds 257 pairs of classes one step apart and gives 54 more TACO foods a NEVO partner. The comparison by nutrient is in <code>comparison/taco_nevo_comparison.md</code>.</p>
+<p>The comparison is regenerated after the completed classification review. Current counts, rank correlations and ratio distributions are in <code>comparison/taco_nevo_comparison.md</code>. Shared class membership permits comparison but does not establish nutritional equivalence.</p>
 
 <h2>How it was checked</h2>
 <ul><li>SHACL shapes for the NICE-Food pattern, run with two engines (Jena and pySHACL) with the same result: no duplicate values, one nutrient per value.</li>
 <li>The exported values against TACO's printed PDF: 6,259 values of 569 foods, all identical.</li>
-<li>330 automated tests; the numeric rules (available carbohydrate, comparison bands) proved in Lean 4 and run against the code on 27,401 cases.</li></ul>
+<li>Automated regression tests and independent verification compare all 597 decisions against original review evidence, RDF exports and preserved nutritional triples. Lean 4 checks resolution rules and concrete certificates; deliberate incorrect inputs test error detection. See the accompanying review verification report.</li></ul>
 
 <h2>Files</h2>
 <table><tr><th>File</th><th>What it is</th></tr>
@@ -230,6 +267,10 @@ th { color: #56635f; font-weight: 600; } .num { text-align: right; } .pb { page-
 </body></html>"""
 
 FILES = {
+    "review/application.json": "data/alignment/review/round-1/application.json",
+    "review/verification.json": "build/verification/review_application/result.json",
+    "review/verification.md": "verification/README.md",
+    "review/reviewed-types.csv": "data/alignment/review/round-1/reviewed-types.csv",
     "knowledge-graph/taco_nice_food.ttl": "build/taco_nice_food.ttl",
     "ontology/taco.ttl": "ontology/taco.ttl",
     "ontology/cdno-module.ttl": "ontology/imports/cdno-module.ttl",
@@ -241,7 +282,10 @@ FILES = {
     "queries/taco_nevo_same_foodon_class.rq": "queries/nevo/taco_nevo_same_foodon_class.rq",
     "queries/taco_nevo_available_carbohydrate.rq": "queries/nevo/taco_nevo_available_carbohydrate.rq",
     "comparison/taco_nevo_comparison.md": "analysis/taco_nevo_comparison.md",
+    "comparison/taco_nice_food.md": "analysis/taco_nice_food.md",
     "scripts/taco_to_nice_food.py": "scripts/taco_to_nice_food.py",
+    "scripts/taco_rdf/nice_food.py": "src/taco_rdf/nice_food.py",
+    "scripts/taco_rdf/namespaces.py": "src/taco_rdf/namespaces.py",
 }
 
 
@@ -334,7 +378,10 @@ def main() -> int:
     if OUT.exists():
         shutil.rmtree(OUT)
     (OUT / "images").mkdir(parents=True)
-    for name, (text, w, h) in FIGS.items():
+    source = Graph().parse(REPO / "build/taco_nice_food.ttl")
+    module = Graph().parse(REPO / "ontology/imports/foodon-module.ttl")
+    figures = {**FIGS, "2_one_food_red_beans": (food_figure(source, module), 1080, 400)}
+    for name, (text, w, h) in figures.items():
         svg_path = OUT / "images" / f"{name}.svg"
         svg_path.write_text(text, encoding="utf-8")
         edge("--force-device-scale-factor=2", "--default-background-color=FFFFFFFF", f"--window-size={w},{h}",
@@ -345,6 +392,10 @@ def main() -> int:
          doc.as_uri())
     doc.unlink()
     files = OUT / "files"
+    from example_food_rdf import VALUES, example
+    example_graph = example(source, ID["food/574"], VALUES)
+    (files / "knowledge-graph").mkdir(parents=True)
+    example_graph.serialize(files / "knowledge-graph/example_food_574.ttl", format="turtle")
     (files / "cdno").mkdir(parents=True)
     with (files / "cdno" / "cdno_classes_used.csv").open("w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh, lineterminator="\n")

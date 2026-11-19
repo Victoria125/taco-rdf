@@ -21,8 +21,9 @@ import requests
 
 from taco_rdf.evaluation import cohen_kappa, review_hash
 from taco_rdf.namespaces import ROOT
+from taco_rdf.type_review import input_path
 
-ROUND = ROOT / "data" / "alignment" / "review" / "round-2"
+ROUND = ROOT / "data" / "alignment" / "review" / "round-1"  # the type-only review under protocol 3
 CLASSES = ROOT / "ontology" / "imports" / "foodon-classes.tsv"
 OBO = "http://purl.obolibrary.org/obo/"
 ROOTS = ("COB_0000022", "PO_0000003")
@@ -50,13 +51,14 @@ def validate(folder: Path, manifest: dict) -> list[dict[str, str]]:
 
     Returns context.csv's rows; raises ValueError otherwise.
     """
-    if manifest.get("protocol_version") != 2 or manifest.get("hash_format") != "sha256-lf-v1":
-        raise ValueError("not a round prepared under protocol version 2 with sha256-lf-v1 checksums")
-    changed = [p for p, digest in manifest["inputs"].items() if review_hash(ROOT / p) != digest]
+    if manifest.get("protocol_version") not in (2, 3) or manifest.get("hash_format") != "sha256-lf-v1":
+        raise ValueError("not a round prepared under protocol version 2 or 3 with sha256-lf-v1 checksums")
+    changed = [p for p, digest in manifest["inputs"].items()
+               if review_hash(input_path(folder, p)) != digest]
     changed += [f"{n}.csv" for n in ("context", "items")
                 if review_hash(folder / f"{n}.csv") != manifest[f"{n}_sha256"]]
     if changed:
-        raise ValueError("round 2's inputs differ from the manifest: " + ", ".join(changed))
+        raise ValueError("the round's inputs differ from the manifest: " + ", ".join(changed))
     with (folder / "context.csv").open(encoding="utf-8-sig") as fh:
         context = list(csv.DictReader(fh))
     with (folder / "items.csv").open(encoding="utf-8-sig") as fh:
@@ -120,6 +122,14 @@ def main() -> int:
     p.add_argument("--endpoint", help="SPARQL endpoint with the FoodOn release, for organism checks and near "
                    "agreement")
     args = p.parse_args()
+    adjudication = args.round / "adjudication.csv"
+    if adjudication.is_file():
+        with adjudication.open(encoding="utf-8-sig", newline="") as stream:
+            if any(row.get("adjudicated", "").strip() or row.get("justification", "").strip()
+                   for row in csv.DictReader(stream)):
+                print("adjudication.csv already contains human decisions; scoring will not overwrite it",
+                      file=sys.stderr)
+                return 1
     try:
         validate(args.round, json.loads((args.round / "manifest.json").read_text(encoding="utf-8")))
     except ValueError as e:

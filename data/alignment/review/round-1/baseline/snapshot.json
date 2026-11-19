@@ -1,0 +1,33 @@
+{
+  "captured_on": "2026-11-19",
+  "files": {
+    "analysis/data/foodon_typing_gaps.csv": {
+      "sha256": "71463f492dd120de1313621f22971da8385260a2e9c47f25a8360b4fdc24a1db",
+      "sha256_lf": "71463f492dd120de1313621f22971da8385260a2e9c47f25a8360b4fdc24a1db"
+    },
+    "analysis/data/foodon_types.csv": {
+      "sha256": "3c2092ac296765fae272c96dc337a548948b1d7690f888e4d07941014db2f640",
+      "sha256_lf": "3c2092ac296765fae272c96dc337a548948b1d7690f888e4d07941014db2f640"
+    },
+    "data/labels/food_names_en.csv": {
+      "sha256": "da4517e8d9be92a6ade4204e0f39689422b3dc55692f317b1a73f62c2fbe8df4",
+      "sha256_lf": "da4517e8d9be92a6ade4204e0f39689422b3dc55692f317b1a73f62c2fbe8df4"
+    },
+    "ontology/imports/foodon-classes.tsv": {
+      "sha256": "10609b37ee5da7a97cf82bbbf423a0a5860efac7b3d68529c37ef58faf480b9f",
+      "sha256_lf": "053907adb1af5b73497df9f3d5cd08a831dd32a1fa3e231e968943f954d4e64a"
+    },
+    "docs/alignment-review-v3.md": {
+      "sha256": "a21de5583163c2975c852a932829dcf4c3ce9483156a1de36cdae7aa5762eb70",
+      "sha256_lf": "a21de5583163c2975c852a932829dcf4c3ce9483156a1de36cdae7aa5762eb70"
+    },
+    "data/alignment/alignments.csv": {
+      "sha256": "8ecec9420fd37534f2d9fb2ac740aee1fb2182542291e54913ea13dadca38a39",
+      "sha256_lf": "8c3841511736f9a5c3334b5fc3170632d91c0ed36c2dcdc2672777278276402c"
+    },
+    "ontology/imports/foodon-module.ttl": {
+      "sha256": "d8ace1e798ad09ba8af30cef69345082301d817d707a9f373e29faa86ff38b6a",
+      "sha256_lf": "6a828d13e32ed68c88a87fff71519bd5e7dff9798c68b6d0e26fac9d8f1e87ad"
+    }
+  }
+}

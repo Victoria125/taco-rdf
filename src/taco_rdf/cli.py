@@ -40,6 +40,12 @@ def build_graph(xls: Path = RAW_XLS) -> Graph:
     paths = [ALIGNMENTS_CSV, FOOD_NAMES_EN, ONTOLOGY_TTL, POLICY_TTL,
              *sorted({r.round.sssom for r in reviewed.values()}),
              *sorted(CORRECTIONS_DIR.glob("*.csv")), *sorted((ROOT / "src" / "taco_rdf").glob("*.py"))]
+    from .type_review import FILES
+    for folder in sorted(REVIEW_DIR.glob("round-*")):
+        if (folder / "application.json").is_file():
+            paths.extend(folder / name for name in (*FILES, "application.json"))
+            paths.append(ROOT / "docs/alignment-review-v3.md")
+    paths = sorted(set(paths))
     for path in paths:
         relative = path.relative_to(ROOT).as_posix()
         entity = ID["build-input/" + relative]
@@ -121,6 +127,12 @@ def _cmd_publish(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_nice_food(args: argparse.Namespace) -> int:
+    from .nice_food import write
+
+    return write(Path(args.graph), Path(args.output))
+
+
 def _cmd_serve(args: argparse.Namespace) -> int:
     from .serve import serve
 
@@ -159,6 +171,11 @@ def main(argv: list[str] | None = None) -> int:
     pub.add_argument("--graph", help="use this graph file instead of rebuilding")
     pub.add_argument("-o", "--output", default=str(BUILD_DIR / "site"))
     pub.set_defaults(func=_cmd_publish)
+
+    nf = sub.add_parser("nice-food", help="write TACO as a NICE-Food subgraph (build/taco_nice_food.ttl)")
+    nf.add_argument("--graph", default=str(BUILD_DIR / "taco.ttl"), help="TACO Turtle snapshot to export")
+    nf.add_argument("-o", "--output", default=str(BUILD_DIR / "taco_nice_food.ttl"))
+    nf.set_defaults(func=_cmd_nice_food)
 
     sv = sub.add_parser("serve", help="run a read-only SPARQL endpoint at /sparql")
     sv.add_argument("--graph", help=_SNAPSHOT_HELP)

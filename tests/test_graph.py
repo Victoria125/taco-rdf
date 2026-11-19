@@ -142,8 +142,9 @@ def test_provenance_is_complete(graph):
     assert "NEPA-UNICAMP" in str(graph.value(src, DCTERMS.bibliographicCitation))
 
 
-def test_build_is_deterministic(table, alignments, food_names_en, graph):
-    again = graphmod.build_graph(table, alignments, source_file=RAW_XLS, food_names_en=food_names_en)
+def test_build_is_deterministic(table, alignments, food_names_en, graph, reviewed):
+    again = graphmod.build_graph(table, alignments, source_file=RAW_XLS, food_names_en=food_names_en,
+                                reviewed=reviewed)
     assert len(again) == len(graph)
     def ground(g):
         return {t for t in g if not any(hasattr(x, "n3") and x.n3().startswith("_:") for x in t)}

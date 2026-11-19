@@ -22,12 +22,10 @@ from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 from pypdf import PdfReader
-from rdflib import DCTERMS, Graph, Namespace
+from rdflib import DCTERMS, Graph
 
-from taco_rdf.namespaces import BUILD_DIR, ROOT, TACO
+from taco_rdf.namespaces import BUILD_DIR, FIO, OM, ROOT, TACO
 
-FIO = Namespace("http://www.foodvoc.org/resource/fio#")
-OM = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
 PDF = ROOT / "data" / "external" / "taco" / "taco_4_edicao_revisada_e_ampliada.pdf"
 # The PDF's columns, in order, and the nutrient each is written under in the subgraph.
 COLUMNS = ["WATER", "ENERCC", "ENERCJ", "PROT", "FAT", "CHORL", "carbohydrate", "FIBT", "ASH", "CA", "MG"]

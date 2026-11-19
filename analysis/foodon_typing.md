@@ -1,8 +1,8 @@
 # Published FoodOn typing and unresolved foods
 
-311 of 597 TACO foods have a published FoodOn `rdf:type` (52.1%).
-Published type assertions: 311. Foods without a FoodOn type: 286.
-Of the untyped foods, 125 retain historical candidates and 161 have no candidate recorded in the alignment inputs.
+597 of 597 TACO foods have a published FoodOn `rdf:type` (100.0%).
+Published type assertions: 597. Foods without a FoodOn type: 0.
+Of the untyped foods, 0 retain historical candidates and 0 have no candidate recorded in the alignment inputs.
 
 These are coverage counts, not semantic accuracy estimates. Absence of a type does not prove
 that FoodOn lacks a suitable class. The gap CSV is a review queue; a confirmed ontology gap
@@ -11,12 +11,12 @@ FoodOn does not express the food's more specific preparation or cultural identit
 
 ## Candidates the FoodOn module cannot back
 
-FoodOn axiom conflicts: 4 untyped foods (108, 125, 162, 250) have a food class candidate that FoodOn also places
+FoodOn axiom conflicts: 0 untyped foods (none) have a food class candidate that FoodOn also places
 under whole organisms or plants. FoodOn has a class for them, but `rdf:type` would entail that
 the food is an organism, so the build withholds it. These are not ontology gaps; the conflicting
 axioms should be reported to FoodOn. NICE-Food's notebooks type food items without this check.
 
-Organism classes only: 31 untyped foods retain only a class of whole organisms or
+Organism classes only: 0 untyped foods retain only a class of whole organisms or
 plants as candidate. A food class, possibly a more general one, still has to be searched for.
 
 ## Reproducible exports
@@ -41,26 +41,26 @@ A historical non-type decision does not establish the absence of a defensible Fo
 
 | Status | Typed foods | Untyped foods |
 | --- | ---: | ---: |
-| pending_review | 311 | 286 |
+| reviewed_type | 597 | 0 |
 
 ## Coverage by TACO group
 
 | Group | Foods | Typed | Untyped |
 | --- | ---: | ---: | ---: |
-| Cereais e derivados | 63 | 42 | 21 |
-| Verduras, hortaliças e derivados | 99 | 59 | 40 |
-| Frutas e derivados | 96 | 48 | 48 |
-| Gorduras e óleos | 14 | 13 | 1 |
-| Pescados e frutos do mar | 50 | 13 | 37 |
-| Carnes e derivados | 123 | 52 | 71 |
-| Leite e derivados | 24 | 17 | 7 |
-| Bebidas (alcoólicas e não alcoólicas) | 14 | 7 | 7 |
-| Ovos e derivados | 7 | 5 | 2 |
-| Produtos açucarados | 20 | 10 | 10 |
-| Miscelâneas | 9 | 5 | 4 |
-| Outros alimentos industrializados | 5 | 4 | 1 |
-| Alimentos preparados | 32 | 4 | 28 |
-| Leguminosas e derivados | 30 | 24 | 6 |
-| Nozes e sementes | 11 | 8 | 3 |
+| Cereais e derivados | 63 | 63 | 0 |
+| Verduras, hortaliças e derivados | 99 | 99 | 0 |
+| Frutas e derivados | 96 | 96 | 0 |
+| Gorduras e óleos | 14 | 14 | 0 |
+| Pescados e frutos do mar | 50 | 50 | 0 |
+| Carnes e derivados | 123 | 123 | 0 |
+| Leite e derivados | 24 | 24 | 0 |
+| Bebidas (alcoólicas e não alcoólicas) | 14 | 14 | 0 |
+| Ovos e derivados | 7 | 7 | 0 |
+| Produtos açucarados | 20 | 20 | 0 |
+| Miscelâneas | 9 | 9 | 0 |
+| Outros alimentos industrializados | 5 | 5 | 0 |
+| Alimentos preparados | 32 | 32 | 0 |
+| Leguminosas e derivados | 30 | 30 | 0 |
+| Nozes e sementes | 11 | 11 | 0 |
 
 Reproduce with `python scripts/audit_foodon_typing.py` from the repository root.

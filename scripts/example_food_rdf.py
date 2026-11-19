@@ -17,21 +17,18 @@ from __future__ import annotations
 import argparse
 import sys
 
-import requests
-from rdflib import Graph, Namespace, URIRef
+from rdflib import Graph, URIRef
 
-from taco_rdf.namespaces import ROOT
+from taco_rdf import sparql
+from taco_rdf.namespaces import FIO, NEVONUT, OM, ROOT, TACO_SOURCE
 from taco_rdf.namespaces import TACO as TACO_ONTOLOGY
 
-ENDPOINT = "http://localhost:3030/nicefood/sparql"
+ENDPOINT = sparql.endpoint()
 KG_DIR = ROOT / "docs" / "taco-in-nice-food" / "files" / "knowledge-graph"
 EXPORT = KG_DIR / "taco_nice_food.ttl"
-TACO = "https://nepa.unicamp.br/tabela-brasileira-de-composicao-de-alimentos-4a-edicao/"
-FIO = Namespace("http://www.foodvoc.org/resource/fio#")
-OM = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
+TACO = str(TACO_SOURCE)
 VALUES = ("protein", "lipids", "energy_kcal", "magnesium", "available_carbohydrate")
-PREFIXES = {"obo": "http://purl.obolibrary.org/obo/", "fio": str(FIO), "om": str(OM),
-            "nevonut": "https://data.rivm.nl/data/nvip/bigfood/nevo/nutrient#",
+PREFIXES = {"obo": "http://purl.obolibrary.org/obo/", "fio": str(FIO), "om": str(OM), "nevonut": str(NEVONUT),
             "dcterms": "http://purl.org/dc/terms/", "skos": "http://www.w3.org/2004/02/skos/core#",
             "prov": "http://www.w3.org/ns/prov#", "taco": str(TACO_ONTOLOGY)}
 SPARQL_PREFIXES = "".join(f"PREFIX {p}: <{ns}> " for p, ns in PREFIXES.items())
@@ -54,12 +51,6 @@ def example(source: Graph, food: URIRef, values: tuple[str, ...] | None) -> Grap
     return g
 
 
-def post(endpoint: str, query: str, accept: str) -> requests.Response:
-    r = requests.post(endpoint, data={"query": query}, headers={"Accept": accept}, timeout=300)
-    r.raise_for_status()
-    return r
-
-
 def from_fuseki(endpoint: str, food: URIRef) -> Graph:
     """The food, its values and their measures, as loaded in Fuseki."""
     g = Graph()
@@ -67,7 +58,7 @@ def from_fuseki(endpoint: str, food: URIRef) -> Graph:
                   SPARQL_PREFIXES + f"CONSTRUCT {{ ?v ?vp ?vo . ?m ?mp ?mo }} WHERE {{ "
                   f"<{food}> fio:hasNutritionalValue ?v . ?v ?vp ?vo . "
                   "OPTIONAL { ?v om:hasValue ?m . ?m ?mp ?mo } }"):
-        g.parse(data=post(endpoint, query, "text/turtle").text, format="turtle")
+        g += sparql.construct(query, endpoint, timeout=300)
     return g
 
 
@@ -82,12 +73,12 @@ def summary(endpoint: str) -> list[tuple[str, str]]:
       OPTIONAL {{ ?v a ?value_class .
                   FILTER STRSTARTS(STR(?value_class), "http://purl.obolibrary.org/obo/CDNO_") }}
     }}"""
-    b = post(endpoint, q, "application/sparql-results+json").json()["results"]["bindings"][0]
+    b = sparql.select(q, endpoint, timeout=300)[0]
     triples = sum(1 for _ in open(EXPORT, encoding="utf-8")) if EXPORT.is_file() else 0
     size = f"{EXPORT.stat().st_size / 1e6:.1f} MB, {triples:,} lines" if triples else "missing"
-    return [("TACO foods", b["foods"]["value"]), ("with a FoodOn type", b["typedfoods"]["value"]),
-            ("nutritional values", b["values"]["value"]), ("FoodOn classes used", b["foodon"]["value"]),
-            ("CDNO classes used", b["cdno"]["value"]),
+    return [("TACO foods", b["foods"]), ("with a FoodOn type", b["typedfoods"]),
+            ("nutritional values", b["values"]), ("FoodOn classes used", b["foodon"]),
+            ("CDNO classes used", b["cdno"]),
             ("file on GitHub", f"docs/taco-in-nice-food/files/knowledge-graph/taco_nice_food.ttl ({size})")]
 
 

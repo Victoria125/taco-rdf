@@ -1,142 +1,598 @@
-food_number,part,stratum,stratum_size,sample_size,inclusion_probability,flag
-591,sample,15/relatedMatch,1,1,1.0,
-72,sample,2/relatedMatch,21,2,0.0952,
-435,sample,6/relatedMatch,23,2,0.087,pork leg related to a sirloin tip roast
-517,sample,11/none,2,2,1.0,
-216,problem case,,0,0,,"the class says Californian, which the TACO name does not state"
-271,sample,4/none,1,1,1.0,
-527,prepared dish,,0,0,,
-468,problem case,,0,0,,"requeijão typed as cream cheese spread, a different product"
-488,sample,9/none,2,2,1.0,unmapped although FoodOn has chicken egg (boiled)
-536,prepared dish,,0,0,,
-514,sample,11/type,5,2,0.4,
-577,sample,14/relatedMatch,2,2,1.0,the class says brown lentil; TACO gives no variety
-559,problem case,,0,0,,"EFSA agency class, outside FoodOn's food product classes"
-533,prepared dish,,0,0,,
-457,sample,7/type,17,2,0.1176,
-20,sample,1/none,11,2,0.1818,
-490,sample,9/type,5,2,0.4,
-543,prepared dish,,0,0,,
-521,sample,12/type,4,2,0.5,
-534,prepared dish,,0,0,,
-528,prepared dish,,0,0,,
-160,sample,2/type,59,2,0.0339,
-529,prepared dish,,0,0,,
-311,problem case,,0,0,,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
-416,problem case,,0,0,,fried patty typed as a hamburger dish; the frying is not in the class
-126,sample,2/type,59,2,0.0339,
-260,sample,4/type,13,2,0.1538,
-592,sample,15/none,2,2,1.0,
-545,prepared dish,,0,0,,
-312,problem case,,0,0,,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
-466,sample,7/none,4,2,0.5,unmapped although FoodOn has petite suisse cheese
-569,problem case,,0,0,,carioca and rajado beans share the pinto bean class
-505,sample,10/none,5,2,0.4,
-588,sample,15/type,8,2,0.25,"the class label has no word for salted, which the name has (lexical triage)"
-540,prepared dish,,0,0,,
-561,sample,14/type,24,2,0.0833,carioca and rajado beans share the pinto bean class
-310,sample,5/type,13,2,0.1538,
-437,problem case,,0,0,,salted tail typed as raw pork tail; the salting is not in the class
-294,sample,5/closeMatch,7,2,0.2857,
-461,problem case,,0,0,,typed fresh cheese; FoodOn has minas cheese
-511,problem case,,0,0,,"the class says medium ground, which TACO does not state"
-515,sample,11/relatedMatch,2,2,1.0,
-280,sample,5/relatedMatch,10,2,0.2,
-462,sample,7/relatedMatch,3,2,0.6667,related to semihard cheese; FoodOn has minas cheese
-347,problem case,,0,0,,beef ribs related to a ribeye roast
-551,prepared dish,,0,0,,
-548,prepared dish,,0,0,,
-450,sample,7/none,4,2,0.5,
-380,problem case,,0,0,,unmapped although FoodOn has beef culotte steak (the cut)
-560,sample,14/none,4,2,0.5,unmapped although FoodOn has pea (canned)
-467,sample,7/relatedMatch,3,2,0.6667,
-503,sample,10/type,10,2,0.2,
-26,sample,1/relatedMatch,10,2,0.2,
-410,sample,6/none,48,2,0.0417,
-302,sample,5/type,13,2,0.1538,
-478,sample,8/type,7,2,0.2857,
-313,problem case,,0,0,,generic catfish; FoodOn has sorubim catfish (Pseudoplatystoma)
-389,problem case,,0,0,,"the class label has no word for precooked or roasted, which the name has (lexical triage)"
-587,problem case,,0,0,,"the class label has no word for salted, which the name has (lexical triage)"
-595,sample,15/none,2,2,1.0,
-108,sample,2/closeMatch,3,2,0.6667,
-15,sample,1/relatedMatch,10,2,0.2,
-535,prepared dish,,0,0,,
-151,sample,2/relatedMatch,21,2,0.0952,
-250,sample,3/closeMatch,1,1,1.0,
-331,sample,6/none,48,2,0.0417,
-516,sample,11/none,2,2,1.0,
-281,sample,5/none,20,2,0.1,
-381,problem case,,0,0,,unmapped although FoodOn has beef culotte steak (the cut) and beef (grilled)
-483,sample,8/relatedMatch,4,2,0.5,
-555,prepared dish,,0,0,,
-549,sample,13/type,4,2,0.5,
-570,problem case,,0,0,,carioca and rajado beans share the pinto bean class
-386,problem case,,0,0,,"the class label has no word for fried, which the name has (lexical triage)"
-211,sample,3/none,23,2,0.087,
-562,problem case,,0,0,,carioca and rajado beans share the pinto bean class
-512,sample,11/relatedMatch,2,2,1.0,
-284,sample,5/none,20,2,0.1,unmapped although FoodOn has shrimp (cooked)
-167,sample,3/relatedMatch,24,2,0.0833,
-251,sample,3/type,48,2,0.0417,
-546,sample,13/type,4,2,0.5,
-486,sample,9/none,2,2,1.0,unmapped although FoodOn has chicken egg white (boiled)
-541,sample,13/none,20,2,0.1,
-571,sample,14/relatedMatch,2,2,1.0,"the class says canned, which TACO does not state"
-502,sample,10/relatedMatch,5,2,0.4,
-513,sample,11/type,5,2,0.4,
-162,sample,2/closeMatch,3,2,0.6667,
-454,sample,7/type,17,2,0.1176,
-531,prepared dish,,0,0,,
-390,problem case,,0,0,,"the class label has no word for precooked, which the name has (lexical triage)"
-552,sample,13/none,20,2,0.1,
-471,sample,8/type,7,2,0.2857,
-550,prepared dish,,0,0,,
-240,sample,3/type,48,2,0.0417,
-530,prepared dish,,0,0,,
-171,sample,3/relatedMatch,24,2,0.0833,
-473,sample,8/none,3,2,0.6667,
-425,sample,6/type,52,2,0.0385,"the class label has no word for frozen or roasted, which the name has (lexical triage)"
-102,sample,2/none,16,2,0.125,
-293,sample,5/closeMatch,7,2,0.2857,
-426,problem case,,0,0,,"the class label has no word for frozen, which the name has (lexical triage)"
-472,sample,8/relatedMatch,4,2,0.5,
-526,prepared dish,,0,0,,
-270,sample,4/type,13,2,0.1538,
-532,prepared dish,,0,0,,
-538,sample,13/relatedMatch,8,2,0.25,chicken dish related to a beef class
-525,prepared dish,,0,0,,
-494,sample,10/type,10,2,0.2,
-586,sample,14/none,4,2,0.5,
-553,prepared dish,,0,0,,
-417,sample,6/relatedMatch,23,2,0.087,
-99,sample,2/none,16,2,0.125,
-439,problem case,,0,0,,ham related to Canadian bacon
-575,sample,14/type,24,2,0.0833,
-539,prepared dish,,0,0,,
-279,problem case,,0,0,,unmapped although FoodOn has codfish (salted)
-547,prepared dish,,0,0,,
-285,problem case,,0,0,,unmapped although FoodOn has shrimp (raw)
-556,sample,13/relatedMatch,8,2,0.25,
-378,problem case,,0,0,,boiled brisket related to barbecued brisket
-432,problem case,,0,0,,roasted loin typed with a cut name (center roast); the roasting is not in the class
-63,sample,1/type,42,2,0.0476,
-205,problem case,,0,0,,TACO gives no species; jambo is usually the Malay apple and the class is rose apple
-554,prepared dish,,0,0,,
-500,sample,10/none,5,2,0.4,
-522,sample,12/relatedMatch,1,1,1.0,
-520,sample,12/type,4,2,0.5,
-544,prepared dish,,0,0,,
-56,sample,1/none,11,2,0.1818,
-188,sample,3/none,23,2,0.087,
-499,sample,10/relatedMatch,5,2,0.4,
-303,sample,5/relatedMatch,10,2,0.2,
-407,sample,6/type,52,2,0.0385,
-489,sample,9/type,5,2,0.4,
-41,problem case,,0,0,,"the class says fresh pasta, which the TACO name does not state; it is also an EFSA agency class"
-3,sample,1/type,42,2,0.0476,
-475,sample,8/none,3,2,0.6667,
-537,problem case,,0,0,,"the class adds noodles, which the TACO name does not state"
-542,prepared dish,,0,0,,
-589,sample,15/type,8,2,0.25,
-7,problem case,,0,0,,"the class label has no word for raw, which the name has (lexical triage)"
+food_number,group,in_sample
+1,Cereais e derivados,True
+2,Cereais e derivados,True
+3,Cereais e derivados,True
+4,Cereais e derivados,True
+5,Cereais e derivados,True
+6,Cereais e derivados,True
+7,Cereais e derivados,True
+8,Cereais e derivados,True
+9,Cereais e derivados,True
+10,Cereais e derivados,True
+11,Cereais e derivados,True
+12,Cereais e derivados,True
+13,Cereais e derivados,True
+14,Cereais e derivados,True
+15,Cereais e derivados,True
+16,Cereais e derivados,True
+17,Cereais e derivados,True
+18,Cereais e derivados,True
+19,Cereais e derivados,True
+20,Cereais e derivados,True
+21,Cereais e derivados,True
+22,Cereais e derivados,True
+23,Cereais e derivados,True
+24,Cereais e derivados,True
+25,Cereais e derivados,True
+26,Cereais e derivados,True
+27,Cereais e derivados,True
+28,Cereais e derivados,True
+29,Cereais e derivados,True
+30,Cereais e derivados,True
+31,Cereais e derivados,True
+32,Cereais e derivados,True
+33,Cereais e derivados,True
+34,Cereais e derivados,True
+35,Cereais e derivados,True
+36,Cereais e derivados,True
+37,Cereais e derivados,True
+38,Cereais e derivados,True
+39,Cereais e derivados,True
+40,Cereais e derivados,True
+41,Cereais e derivados,True
+42,Cereais e derivados,True
+43,Cereais e derivados,True
+44,Cereais e derivados,True
+45,Cereais e derivados,True
+46,Cereais e derivados,True
+47,Cereais e derivados,True
+48,Cereais e derivados,True
+49,Cereais e derivados,True
+50,Cereais e derivados,True
+51,Cereais e derivados,True
+52,Cereais e derivados,True
+53,Cereais e derivados,True
+54,Cereais e derivados,True
+55,Cereais e derivados,True
+56,Cereais e derivados,True
+57,Cereais e derivados,True
+58,Cereais e derivados,True
+59,Cereais e derivados,True
+60,Cereais e derivados,True
+61,Cereais e derivados,True
+62,Cereais e derivados,True
+63,Cereais e derivados,True
+64,"Verduras, hortaliças e derivados",True
+65,"Verduras, hortaliças e derivados",True
+66,"Verduras, hortaliças e derivados",True
+67,"Verduras, hortaliças e derivados",True
+68,"Verduras, hortaliças e derivados",True
+69,"Verduras, hortaliças e derivados",True
+70,"Verduras, hortaliças e derivados",True
+71,"Verduras, hortaliças e derivados",True
+72,"Verduras, hortaliças e derivados",True
+73,"Verduras, hortaliças e derivados",True
+74,"Verduras, hortaliças e derivados",True
+75,"Verduras, hortaliças e derivados",True
+76,"Verduras, hortaliças e derivados",True
+77,"Verduras, hortaliças e derivados",True
+78,"Verduras, hortaliças e derivados",True
+79,"Verduras, hortaliças e derivados",True
+80,"Verduras, hortaliças e derivados",True
+81,"Verduras, hortaliças e derivados",True
+82,"Verduras, hortaliças e derivados",True
+83,"Verduras, hortaliças e derivados",True
+84,"Verduras, hortaliças e derivados",True
+85,"Verduras, hortaliças e derivados",True
+86,"Verduras, hortaliças e derivados",True
+87,"Verduras, hortaliças e derivados",True
+88,"Verduras, hortaliças e derivados",True
+89,"Verduras, hortaliças e derivados",True
+90,"Verduras, hortaliças e derivados",True
+91,"Verduras, hortaliças e derivados",True
+92,"Verduras, hortaliças e derivados",True
+93,"Verduras, hortaliças e derivados",True
+94,"Verduras, hortaliças e derivados",True
+95,"Verduras, hortaliças e derivados",True
+96,"Verduras, hortaliças e derivados",True
+97,"Verduras, hortaliças e derivados",True
+98,"Verduras, hortaliças e derivados",True
+99,"Verduras, hortaliças e derivados",True
+100,"Verduras, hortaliças e derivados",True
+101,"Verduras, hortaliças e derivados",True
+102,"Verduras, hortaliças e derivados",True
+103,"Verduras, hortaliças e derivados",True
+104,"Verduras, hortaliças e derivados",True
+105,"Verduras, hortaliças e derivados",True
+106,"Verduras, hortaliças e derivados",True
+107,"Verduras, hortaliças e derivados",True
+108,"Verduras, hortaliças e derivados",True
+109,"Verduras, hortaliças e derivados",True
+110,"Verduras, hortaliças e derivados",True
+111,"Verduras, hortaliças e derivados",True
+112,"Verduras, hortaliças e derivados",True
+113,"Verduras, hortaliças e derivados",True
+114,"Verduras, hortaliças e derivados",True
+115,"Verduras, hortaliças e derivados",True
+116,"Verduras, hortaliças e derivados",True
+117,"Verduras, hortaliças e derivados",True
+118,"Verduras, hortaliças e derivados",True
+119,"Verduras, hortaliças e derivados",True
+120,"Verduras, hortaliças e derivados",True
+121,"Verduras, hortaliças e derivados",True
+122,"Verduras, hortaliças e derivados",True
+123,"Verduras, hortaliças e derivados",True
+124,"Verduras, hortaliças e derivados",True
+125,"Verduras, hortaliças e derivados",True
+126,"Verduras, hortaliças e derivados",True
+127,"Verduras, hortaliças e derivados",True
+128,"Verduras, hortaliças e derivados",True
+129,"Verduras, hortaliças e derivados",True
+130,"Verduras, hortaliças e derivados",True
+131,"Verduras, hortaliças e derivados",True
+132,"Verduras, hortaliças e derivados",True
+133,"Verduras, hortaliças e derivados",True
+134,"Verduras, hortaliças e derivados",True
+135,"Verduras, hortaliças e derivados",True
+136,"Verduras, hortaliças e derivados",True
+137,"Verduras, hortaliças e derivados",True
+138,"Verduras, hortaliças e derivados",True
+139,"Verduras, hortaliças e derivados",True
+140,"Verduras, hortaliças e derivados",True
+141,"Verduras, hortaliças e derivados",True
+142,"Verduras, hortaliças e derivados",True
+143,"Verduras, hortaliças e derivados",True
+144,"Verduras, hortaliças e derivados",True
+145,"Verduras, hortaliças e derivados",True
+146,"Verduras, hortaliças e derivados",True
+147,"Verduras, hortaliças e derivados",True
+148,"Verduras, hortaliças e derivados",True
+149,"Verduras, hortaliças e derivados",True
+150,"Verduras, hortaliças e derivados",True
+151,"Verduras, hortaliças e derivados",True
+152,"Verduras, hortaliças e derivados",True
+153,"Verduras, hortaliças e derivados",True
+154,"Verduras, hortaliças e derivados",True
+155,"Verduras, hortaliças e derivados",True
+156,"Verduras, hortaliças e derivados",True
+157,"Verduras, hortaliças e derivados",True
+158,"Verduras, hortaliças e derivados",True
+159,"Verduras, hortaliças e derivados",True
+160,"Verduras, hortaliças e derivados",True
+161,"Verduras, hortaliças e derivados",True
+162,"Verduras, hortaliças e derivados",True
+163,Frutas e derivados,True
+164,Frutas e derivados,True
+165,Frutas e derivados,True
+166,Frutas e derivados,True
+167,Frutas e derivados,True
+168,Frutas e derivados,True
+169,Frutas e derivados,True
+170,Frutas e derivados,True
+171,Frutas e derivados,True
+172,Frutas e derivados,True
+173,Frutas e derivados,True
+174,Frutas e derivados,True
+175,Frutas e derivados,True
+176,Frutas e derivados,True
+177,Frutas e derivados,True
+178,Frutas e derivados,True
+179,Frutas e derivados,True
+180,Frutas e derivados,True
+181,Frutas e derivados,True
+182,Frutas e derivados,True
+183,Frutas e derivados,True
+184,Frutas e derivados,True
+185,Frutas e derivados,True
+186,Frutas e derivados,True
+187,Frutas e derivados,True
+188,Frutas e derivados,True
+189,Frutas e derivados,True
+190,Frutas e derivados,True
+191,Frutas e derivados,True
+192,Frutas e derivados,True
+193,Frutas e derivados,True
+194,Frutas e derivados,True
+195,Frutas e derivados,True
+196,Frutas e derivados,True
+197,Frutas e derivados,True
+198,Frutas e derivados,True
+199,Frutas e derivados,True
+200,Frutas e derivados,True
+201,Frutas e derivados,True
+202,Frutas e derivados,True
+203,Frutas e derivados,True
+204,Frutas e derivados,True
+205,Frutas e derivados,True
+206,Frutas e derivados,True
+207,Frutas e derivados,True
+208,Frutas e derivados,True
+209,Frutas e derivados,True
+210,Frutas e derivados,True
+211,Frutas e derivados,True
+212,Frutas e derivados,True
+213,Frutas e derivados,True
+214,Frutas e derivados,True
+215,Frutas e derivados,True
+216,Frutas e derivados,True
+217,Frutas e derivados,True
+218,Frutas e derivados,True
+219,Frutas e derivados,True
+220,Frutas e derivados,True
+221,Frutas e derivados,True
+222,Frutas e derivados,True
+223,Frutas e derivados,True
+224,Frutas e derivados,True
+225,Frutas e derivados,True
+226,Frutas e derivados,True
+227,Frutas e derivados,True
+228,Frutas e derivados,True
+229,Frutas e derivados,True
+230,Frutas e derivados,True
+231,Frutas e derivados,True
+232,Frutas e derivados,True
+233,Frutas e derivados,True
+234,Frutas e derivados,True
+235,Frutas e derivados,True
+236,Frutas e derivados,True
+237,Frutas e derivados,True
+238,Frutas e derivados,True
+239,Frutas e derivados,True
+240,Frutas e derivados,True
+241,Frutas e derivados,True
+242,Frutas e derivados,True
+243,Frutas e derivados,True
+244,Frutas e derivados,True
+245,Frutas e derivados,True
+246,Frutas e derivados,True
+247,Frutas e derivados,True
+248,Frutas e derivados,True
+249,Frutas e derivados,True
+250,Frutas e derivados,True
+251,Frutas e derivados,True
+252,Frutas e derivados,True
+253,Frutas e derivados,True
+254,Frutas e derivados,True
+255,Frutas e derivados,True
+256,Frutas e derivados,True
+257,Frutas e derivados,True
+258,Frutas e derivados,True
+259,Gorduras e óleos,True
+260,Gorduras e óleos,True
+261,Gorduras e óleos,True
+262,Gorduras e óleos,True
+263,Gorduras e óleos,True
+264,Gorduras e óleos,True
+265,Gorduras e óleos,True
+266,Gorduras e óleos,True
+267,Gorduras e óleos,True
+268,Gorduras e óleos,True
+269,Gorduras e óleos,True
+270,Gorduras e óleos,True
+271,Gorduras e óleos,True
+272,Gorduras e óleos,True
+273,Pescados e frutos do mar,True
+274,Pescados e frutos do mar,True
+275,Pescados e frutos do mar,True
+276,Pescados e frutos do mar,True
+277,Pescados e frutos do mar,True
+278,Pescados e frutos do mar,True
+279,Pescados e frutos do mar,True
+280,Pescados e frutos do mar,True
+281,Pescados e frutos do mar,True
+282,Pescados e frutos do mar,True
+283,Pescados e frutos do mar,True
+284,Pescados e frutos do mar,True
+285,Pescados e frutos do mar,True
+286,Pescados e frutos do mar,True
+287,Pescados e frutos do mar,True
+288,Pescados e frutos do mar,True
+289,Pescados e frutos do mar,True
+290,Pescados e frutos do mar,True
+291,Pescados e frutos do mar,True
+292,Pescados e frutos do mar,True
+293,Pescados e frutos do mar,True
+294,Pescados e frutos do mar,True
+295,Pescados e frutos do mar,True
+296,Pescados e frutos do mar,True
+297,Pescados e frutos do mar,True
+298,Pescados e frutos do mar,True
+299,Pescados e frutos do mar,True
+300,Pescados e frutos do mar,True
+301,Pescados e frutos do mar,True
+302,Pescados e frutos do mar,True
+303,Pescados e frutos do mar,True
+304,Pescados e frutos do mar,True
+305,Pescados e frutos do mar,True
+306,Pescados e frutos do mar,True
+307,Pescados e frutos do mar,True
+308,Pescados e frutos do mar,True
+309,Pescados e frutos do mar,True
+310,Pescados e frutos do mar,True
+311,Pescados e frutos do mar,True
+312,Pescados e frutos do mar,True
+313,Pescados e frutos do mar,True
+314,Pescados e frutos do mar,True
+315,Pescados e frutos do mar,True
+316,Pescados e frutos do mar,True
+317,Pescados e frutos do mar,True
+318,Pescados e frutos do mar,True
+319,Pescados e frutos do mar,True
+320,Pescados e frutos do mar,True
+321,Pescados e frutos do mar,True
+322,Pescados e frutos do mar,True
+323,Carnes e derivados,True
+324,Carnes e derivados,True
+325,Carnes e derivados,True
+326,Carnes e derivados,True
+327,Carnes e derivados,True
+328,Carnes e derivados,True
+329,Carnes e derivados,True
+330,Carnes e derivados,True
+331,Carnes e derivados,True
+332,Carnes e derivados,True
+333,Carnes e derivados,True
+334,Carnes e derivados,True
+335,Carnes e derivados,True
+336,Carnes e derivados,True
+337,Carnes e derivados,True
+338,Carnes e derivados,True
+339,Carnes e derivados,True
+340,Carnes e derivados,True
+341,Carnes e derivados,True
+342,Carnes e derivados,True
+343,Carnes e derivados,True
+344,Carnes e derivados,True
+345,Carnes e derivados,True
+346,Carnes e derivados,True
+347,Carnes e derivados,True
+348,Carnes e derivados,True
+349,Carnes e derivados,True
+350,Carnes e derivados,True
+351,Carnes e derivados,True
+352,Carnes e derivados,True
+353,Carnes e derivados,True
+354,Carnes e derivados,True
+355,Carnes e derivados,True
+356,Carnes e derivados,True
+357,Carnes e derivados,True
+358,Carnes e derivados,True
+359,Carnes e derivados,True
+360,Carnes e derivados,True
+361,Carnes e derivados,True
+362,Carnes e derivados,True
+363,Carnes e derivados,True
+364,Carnes e derivados,True
+365,Carnes e derivados,True
+366,Carnes e derivados,True
+367,Carnes e derivados,True
+368,Carnes e derivados,True
+369,Carnes e derivados,True
+370,Carnes e derivados,True
+371,Carnes e derivados,True
+372,Carnes e derivados,True
+373,Carnes e derivados,True
+374,Carnes e derivados,True
+375,Carnes e derivados,True
+376,Carnes e derivados,True
+377,Carnes e derivados,True
+378,Carnes e derivados,True
+379,Carnes e derivados,True
+380,Carnes e derivados,True
+381,Carnes e derivados,True
+382,Carnes e derivados,True
+383,Carnes e derivados,True
+384,Carnes e derivados,True
+385,Carnes e derivados,True
+386,Carnes e derivados,True
+387,Carnes e derivados,True
+388,Carnes e derivados,True
+389,Carnes e derivados,True
+390,Carnes e derivados,True
+391,Carnes e derivados,True
+392,Carnes e derivados,True
+393,Carnes e derivados,True
+394,Carnes e derivados,True
+395,Carnes e derivados,True
+396,Carnes e derivados,True
+397,Carnes e derivados,True
+398,Carnes e derivados,True
+399,Carnes e derivados,True
+400,Carnes e derivados,True
+401,Carnes e derivados,True
+402,Carnes e derivados,True
+403,Carnes e derivados,True
+404,Carnes e derivados,True
+405,Carnes e derivados,True
+406,Carnes e derivados,True
+407,Carnes e derivados,True
+408,Carnes e derivados,True
+409,Carnes e derivados,True
+410,Carnes e derivados,True
+411,Carnes e derivados,True
+412,Carnes e derivados,True
+413,Carnes e derivados,True
+414,Carnes e derivados,True
+415,Carnes e derivados,True
+416,Carnes e derivados,True
+417,Carnes e derivados,True
+418,Carnes e derivados,True
+419,Carnes e derivados,True
+420,Carnes e derivados,True
+421,Carnes e derivados,True
+422,Carnes e derivados,True
+423,Carnes e derivados,True
+424,Carnes e derivados,True
+425,Carnes e derivados,True
+426,Carnes e derivados,True
+427,Carnes e derivados,True
+428,Carnes e derivados,True
+429,Carnes e derivados,True
+430,Carnes e derivados,True
+431,Carnes e derivados,True
+432,Carnes e derivados,True
+433,Carnes e derivados,True
+434,Carnes e derivados,True
+435,Carnes e derivados,True
+436,Carnes e derivados,True
+437,Carnes e derivados,True
+438,Carnes e derivados,True
+439,Carnes e derivados,True
+440,Carnes e derivados,True
+441,Carnes e derivados,True
+442,Carnes e derivados,True
+443,Carnes e derivados,True
+444,Carnes e derivados,True
+445,Carnes e derivados,True
+446,Leite e derivados,True
+447,Leite e derivados,True
+448,Leite e derivados,True
+449,Leite e derivados,True
+450,Leite e derivados,True
+451,Leite e derivados,True
+452,Leite e derivados,True
+453,Leite e derivados,True
+454,Leite e derivados,True
+455,Leite e derivados,True
+456,Leite e derivados,True
+457,Leite e derivados,True
+458,Leite e derivados,True
+459,Leite e derivados,True
+460,Leite e derivados,True
+461,Leite e derivados,True
+462,Leite e derivados,True
+463,Leite e derivados,True
+464,Leite e derivados,True
+465,Leite e derivados,True
+466,Leite e derivados,True
+467,Leite e derivados,True
+468,Leite e derivados,True
+469,Leite e derivados,True
+470,Bebidas (alcoólicas e não alcoólicas),True
+471,Bebidas (alcoólicas e não alcoólicas),True
+472,Bebidas (alcoólicas e não alcoólicas),True
+473,Bebidas (alcoólicas e não alcoólicas),True
+474,Bebidas (alcoólicas e não alcoólicas),True
+475,Bebidas (alcoólicas e não alcoólicas),True
+476,Bebidas (alcoólicas e não alcoólicas),True
+477,Bebidas (alcoólicas e não alcoólicas),True
+478,Bebidas (alcoólicas e não alcoólicas),True
+479,Bebidas (alcoólicas e não alcoólicas),True
+480,Bebidas (alcoólicas e não alcoólicas),True
+481,Bebidas (alcoólicas e não alcoólicas),True
+482,Bebidas (alcoólicas e não alcoólicas),True
+483,Bebidas (alcoólicas e não alcoólicas),True
+484,Ovos e derivados,True
+485,Ovos e derivados,True
+486,Ovos e derivados,True
+487,Ovos e derivados,True
+488,Ovos e derivados,True
+489,Ovos e derivados,True
+490,Ovos e derivados,True
+491,Produtos açucarados,True
+492,Produtos açucarados,True
+493,Produtos açucarados,True
+494,Produtos açucarados,True
+495,Produtos açucarados,True
+496,Produtos açucarados,True
+497,Produtos açucarados,True
+498,Produtos açucarados,True
+499,Produtos açucarados,True
+500,Produtos açucarados,True
+501,Produtos açucarados,True
+502,Produtos açucarados,True
+503,Produtos açucarados,True
+504,Produtos açucarados,True
+505,Produtos açucarados,True
+506,Produtos açucarados,True
+507,Produtos açucarados,True
+508,Produtos açucarados,True
+509,Produtos açucarados,True
+510,Produtos açucarados,True
+511,Miscelâneas,True
+512,Miscelâneas,True
+513,Miscelâneas,True
+514,Miscelâneas,True
+515,Miscelâneas,True
+516,Miscelâneas,True
+517,Miscelâneas,True
+518,Miscelâneas,True
+519,Miscelâneas,True
+520,Outros alimentos industrializados,True
+521,Outros alimentos industrializados,True
+522,Outros alimentos industrializados,True
+523,Outros alimentos industrializados,True
+524,Outros alimentos industrializados,True
+525,Alimentos preparados,True
+526,Alimentos preparados,True
+527,Alimentos preparados,True
+528,Alimentos preparados,True
+529,Alimentos preparados,True
+530,Alimentos preparados,True
+531,Alimentos preparados,True
+532,Alimentos preparados,True
+533,Alimentos preparados,True
+534,Alimentos preparados,True
+535,Alimentos preparados,True
+536,Alimentos preparados,True
+537,Alimentos preparados,True
+538,Alimentos preparados,True
+539,Alimentos preparados,True
+540,Alimentos preparados,True
+541,Alimentos preparados,True
+542,Alimentos preparados,True
+543,Alimentos preparados,True
+544,Alimentos preparados,True
+545,Alimentos preparados,True
+546,Alimentos preparados,True
+547,Alimentos preparados,True
+548,Alimentos preparados,True
+549,Alimentos preparados,True
+550,Alimentos preparados,True
+551,Alimentos preparados,True
+552,Alimentos preparados,True
+553,Alimentos preparados,True
+554,Alimentos preparados,True
+555,Alimentos preparados,True
+556,Alimentos preparados,True
+557,Leguminosas e derivados,True
+558,Leguminosas e derivados,True
+559,Leguminosas e derivados,True
+560,Leguminosas e derivados,True
+561,Leguminosas e derivados,True
+562,Leguminosas e derivados,True
+563,Leguminosas e derivados,True
+564,Leguminosas e derivados,True
+565,Leguminosas e derivados,True
+566,Leguminosas e derivados,True
+567,Leguminosas e derivados,True
+568,Leguminosas e derivados,True
+569,Leguminosas e derivados,True
+570,Leguminosas e derivados,True
+571,Leguminosas e derivados,True
+572,Leguminosas e derivados,True
+573,Leguminosas e derivados,True
+574,Leguminosas e derivados,True
+575,Leguminosas e derivados,True
+576,Leguminosas e derivados,True
+577,Leguminosas e derivados,True
+578,Leguminosas e derivados,True
+579,Leguminosas e derivados,True
+580,Leguminosas e derivados,True
+581,Leguminosas e derivados,True
+582,Leguminosas e derivados,True
+583,Leguminosas e derivados,True
+584,Leguminosas e derivados,True
+585,Leguminosas e derivados,True
+586,Leguminosas e derivados,True
+587,Nozes e sementes,True
+588,Nozes e sementes,True
+589,Nozes e sementes,True
+590,Nozes e sementes,True
+591,Nozes e sementes,True
+592,Nozes e sementes,True
+593,Nozes e sementes,True
+594,Nozes e sementes,True
+595,Nozes e sementes,True
+596,Nozes e sementes,True
+597,Nozes e sementes,True

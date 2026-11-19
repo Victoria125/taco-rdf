@@ -28,10 +28,8 @@ from pathlib import Path
 
 from rdflib import DCTERMS, RDF, RDFS, SKOS, XSD, Graph, Literal, Namespace, URIRef
 
-from taco_rdf.namespaces import BUILD_DIR, OBO, ROOT, TACO
+from taco_rdf.namespaces import BUILD_DIR, FIO, OBO, OM, ROOT, TACO
 
-FIO = Namespace("http://www.foodvoc.org/resource/fio#")
-OM = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
 DCAT = Namespace("http://www.w3.org/ns/dcat#")
 TBCA = Namespace("https://w3id.org/taco-rdf/tbca#")
 TBCA_ID = Namespace("https://w3id.org/taco-rdf/id/tbca/")

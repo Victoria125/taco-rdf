@@ -79,6 +79,20 @@ $env:PYTHONPATH = "src"; python scripts\taco_to_nice_food.py
 python scripts\load_triplestore.py --endpoint http://localhost:3030/nicefood --graph build\taco_nice_food.ttl --foodon
 ```
 
+After a change to the files, or to the store by hand, rebuild the dataset from the files in one step;
+`scripts/rebuild_nicefood.py` records the store first and checks that the rebuilt one has the same triples by
+property and gives the same rows to NICE-Food's queries (its records go to `build/verification/`):
+
+```powershell
+$env:PYTHONPATH = "src"; python scripts\rebuild_nicefood.py --fuseki-home path\to\apache-jena-fuseki
+```
+
+The scripts find Fuseki at `http://localhost:3030` unless the environment variable `TACO_FUSEKI` gives
+another address (`src/taco_rdf/sparql.py`). The checks that run Jena's ARQ or SHACL engine take Java and
+Fuseki's jar from `TACO_JAVA` and `TACO_FUSEKI_JAR`, or look for them on the PATH, under `JAVA_HOME`, in the
+usual install folders and beside the project (`src/taco_rdf/tools.py`). The NICE-Food export runs as
+`taco-rdf nice-food` or `python scripts\taco_to_nice_food.py`.
+
 `scripts/run_nice_food_query.py` runs NICE-Food's queries in `queries/nice-food/` over it and counts their
 rows by table. [analysis/taco_nice_food.md](../analysis/taco_nice_food.md) has the results.
 

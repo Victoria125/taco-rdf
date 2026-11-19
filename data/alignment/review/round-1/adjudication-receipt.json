@@ -1,0 +1,62 @@
+{
+  "processed_on": "2026-11-19",
+  "adjudicator": "Crislane Timbo",
+  "human_confirmed_by_user": true,
+  "foods": 597,
+  "with_class": 597,
+  "none": 0,
+  "unique_classes": 469,
+  "adjudicated": 246,
+  "original_agreements_retained": 351,
+  "required_cases": 236,
+  "additional_unique_cases": 10,
+  "additional_sheet_rows": 13,
+  "overlapping_rows": 3,
+  "initial_exact_agreement": 0.6700167504187605,
+  "initial_kappa": 0.669432428558178,
+  "baseline_comparison": {
+    "same": 222,
+    "different_branch": 76,
+    "final_is_ancestor": 6,
+    "final_is_descendant": 7
+  },
+  "previously_untyped_now_classified": 286,
+  "blocked_final_decisions": 0,
+  "source": {
+    "processed_on": "2026-11-19",
+    "status": "human_confirmed_by_user",
+    "adjudicator": "Crislane Timbo",
+    "background": "Nutritionist",
+    "confirmation": "User confirmed that Crislane authored and approved the workbook, including the additional sheet, and requested removal of the incorrect AI/pending-review notice.",
+    "original_path": "C:\\taco-rdf\\revisao\\desempate-2026-11-19\\arquivo-como-recebido\\TACO_FoodOn_desempate_preenchido (1).xlsx",
+    "original_sha256": "027e79f06b420077d948b1bf18362ba41ae4abeca048a95c12af44e65dc1649a",
+    "corrected_path": "C:\\taco-rdf\\revisao\\respostas\\desempate\\TACO_FoodOn_desempate_preenchido (1).xlsx",
+    "corrected_sha256": "920eb65270eb70bf4c5cf47769f480852180daf080654fd9c75cf2fa2599490a",
+    "changed_cells": [
+      "Leia primeiro!A5",
+      "Leia primeiro!A6",
+      "Leia primeiro!A16",
+      "Leia primeiro!A18"
+    ],
+    "answer_sheets_unchanged": true
+  },
+  "hierarchy_source": {
+    "path": "C:\\taco-rdf\\taco-rdf\\data\\external\\foodon\\foodon.owl",
+    "sha256": "b897bf64c1b265c422db9ee01e1235c10c0b809e7f02326ef810a52068347edf",
+    "release": "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl",
+    "source_url": "https://raw.githubusercontent.com/FoodOntology/foodon/cd73540243a84bcd511a500d9a497d12d7dc02f6/foodon.owl",
+    "method": "Reflexive transitive closure of explicit rdfs:subClassOf edges between URIRefs; no OWL inference and no imported network graphs. Self included; OBO IRIs represented by local identifiers.",
+    "triples": 404333
+  },
+  "outputs_sha256": {
+    "C:\\taco-rdf\\taco-rdf\\data\\alignment\\review\\round-1\\adjudication-all.csv": "75c27610163bd7d8e18c46f6117f3b1f73ee930544e7a42598ef04a0c19638d2",
+    "C:\\taco-rdf\\taco-rdf\\data\\alignment\\review\\round-1\\adjudication-additional.csv": "06fc2ed93e03d645076799ab26e01d33c67cbac6a198208016b6bf2442703cae",
+    "C:\\taco-rdf\\taco-rdf\\data\\alignment\\review\\round-1\\reviewed-types.csv": "fbad9e73796b59c9ca7356bcacf5f430ba65532062637a12bcc6ca09baf67828",
+    "C:\\taco-rdf\\revisao\\desempate-2026-11-19\\decisoes_finais_597.csv": "fbad9e73796b59c9ca7356bcacf5f430ba65532062637a12bcc6ca09baf67828",
+    "C:\\taco-rdf\\revisao\\desempate-2026-11-19\\comparacao_tipos_atuais.csv": "289c4ee9ae629507fda6ea9c68b199d07867a6957218827707eed98438b60250",
+    "C:\\taco-rdf\\revisao\\desempate-2026-11-19\\decisoes_crislane_249_linhas.csv": "20d3dea5a9d00b7d3c2f704d1e31e08d6fef4646709b274bc1a567406d78a88f",
+    "C:\\taco-rdf\\taco-rdf\\data\\alignment\\review\\round-1\\adjudication.csv": "eb3ffe7564d552cce040b3d937f12df0ea7b23fee41bd3039dae3302cd3cec97"
+  },
+  "alignment_inputs_updated": false,
+  "rdf_rebuilt": false
+}

@@ -27,7 +27,6 @@ from __future__ import annotations
 import argparse
 import csv
 import io
-import os
 import subprocess
 import sys
 import tempfile
@@ -35,8 +34,11 @@ from collections import Counter
 from pathlib import Path
 
 import owlrl
-import requests
-from rdflib import RDF, RDFS, SKOS, Graph, Namespace, URIRef
+from rdflib import RDF, RDFS, SKOS, Graph, URIRef
+
+from taco_rdf import sparql, tools
+from taco_rdf.namespaces import FIO, OM
+from taco_rdf.namespaces import NEVO_SOURCE as NEVO
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "verification"))
@@ -44,26 +46,18 @@ import taco_typing_state as state  # noqa: E402
 
 OBO = "http://purl.obolibrary.org/obo/"
 FOODON = OBO + "FOODON_"
-FIO = Namespace("http://www.foodvoc.org/resource/fio#")
-OM = Namespace("http://www.ontology-of-units-of-measure.org/resource/om-2/")
-NEVO_SOURCE = "https://www.rivm.nl/nederlands-voedingsstoffenbestand"
+NEVO_SOURCE = str(NEVO)
 QUERY = ROOT / "queries" / "nice-food" / "protein_groups_cdno.rq"
 OUT = ROOT / "build" / "verification" / "SkosRows.lean"
-JAVA = Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Java" / "jdk-21.0.12.1+1" / "bin" / "java.exe"
-JAR = ROOT.parent / "tools" / "apache-jena-fuseki-6.2.0" / "fuseki-server.jar"
 ROOTS = ("COB_0000022", "PO_0000003")
 MAPPINGS = ["exactMatch", "closeMatch", "narrowMatch", "broadMatch", "relatedMatch"]
 RELATION_ID = {"exactMatch": 1, "closeMatch": 2, "narrowMatch": 3, "broadMatch": 4, "relatedMatch": 5}
-PREFIXES = ("PREFIX fio: <http://www.foodvoc.org/resource/fio#> PREFIX dcterms: <http://purl.org/dc/terms/> "
-            "PREFIX skos: <http://www.w3.org/2004/02/skos/core#> "
-            "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ")
+PREFIXES = sparql.prefixes("fio", "dcterms", "skos", "rdfs")
 
 
 def construct(query: str) -> Graph:
     """A CONSTRUCT query on Fuseki's nicefood dataset, as a graph."""
-    r = requests.post(state.ENDPOINT, data={"query": query}, headers={"Accept": "text/turtle"}, timeout=900)
-    r.raise_for_status()
-    return Graph().parse(data=r.text, format="turtle")
+    return sparql.construct(query, state.ENDPOINT)
 
 
 def values(iris: set[str]) -> str:
@@ -162,8 +156,9 @@ def main() -> int:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--lake-project", type=Path, default=ROOT / "verification" / "lean",
                    help="a Lake project with Mathlib built (default verification/lean)")
-    p.add_argument("--java", type=Path, default=JAVA, help="Java 21, for Jena's ARQ")
-    p.add_argument("--jar", type=Path, default=JAR, help="a jar bundling Jena's ARQ, e.g. fuseki-server.jar")
+    p.add_argument("--java", type=Path, default=tools.java(), help="Java 21, for Jena's ARQ")
+    p.add_argument("--jar", type=Path, default=tools.fuseki_jar(), help="a jar bundling Jena's ARQ, e.g. "
+                   "Fuseki's")
     p.add_argument("--no-mutants", action="store_true", help="skip the mutation tests of the Lean file")
     args = p.parse_args()
     problems = []
