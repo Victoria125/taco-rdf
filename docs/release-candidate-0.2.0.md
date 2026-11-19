@@ -18,7 +18,7 @@ This release candidate documents the applied protocol-3 FoodOn review and the NI
 
 1. Confirm review-session dates, assistance, independence and publication permission for named contributors. The workbook alone does not establish these facts.
 2. Archive an up-to-date complete application report from `verification/review_application_report.py` with verified local inputs, the two pytest XML runs, native and NICE-Food RDF, and Lean-generated data certificates.
-3. Confirm success of the standalone Lean CI job and rerun the complete data-specific proof when its pinned external inputs are present.
+3. The standalone [Lean 4 core CI job](https://github.com/Victoria125/taco-rdf/actions/runs/44580362375) passed for `TacoRules.lean` and `TypeReviewApplication.lean`. Still rerun the full data-specific certificate when its pinned external inputs are present.
 4. Decide on the seven nutrient-method equivalences, carbohydrate and energy semantics, and NEVO sodium `NA` ingestion.
 5. Enable GitHub Pages via repository settings if website deployment is desired; current job returns HTTP 404.
 6. After scientific and publication sign-off, synchronously update `pyproject.toml`, the module version, `ontology/taco.ttl`, `CITATION.cff`, `.zenodo.json`, changelog/tag and Zenodo metadata. Do not reuse an earlier DOI as if it denoted the new data release without checking the publication process.
