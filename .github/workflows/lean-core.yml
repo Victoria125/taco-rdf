@@ -39,6 +39,8 @@ jobs:
           python-version: "3.12"
       - name: Install RDF bridge test dependencies
         run: python -m pip install -e ".[dev]"
+      - name: Show Ruff import-sort suggestion
+        run: ruff check --diff tests/test_om_bridge.py || true
       - name: Verify the full TACO QUDT to OM export and SHACL contract
         run: pytest -q tests/test_om_bridge.py
       - name: Disallow admitted proofs in core files
