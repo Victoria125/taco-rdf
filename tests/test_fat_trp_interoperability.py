@@ -134,7 +134,7 @@ def test_actual_overlay_adds_only_types_and_expands_cdno_queries(monkeypatch):
     assert original.issubset(set(after))
     assert len(after) == len(before) + 2
     assert len(after + proposed) == len(after)  # idempotent when loaded again
-    for code, cls in (("FAT", "CDNO_0200068"), ("TRP", "CDNO_0200065")):
+    for _code, cls in (("FAT", "CDNO_0200068"), ("TRP", "CDNO_0200065")):
         q = richest("FOODON_00001256", cls)
         previous = list(before.query(q))
         current = list(after.query(q))
